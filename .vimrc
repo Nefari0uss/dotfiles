@@ -55,7 +55,8 @@ set showcmd
 " Enable syntax highlighting
 syntax enable
 
-colorscheme elflord
+colorscheme desert "elflord
+
 set background=dark
 
 " Set extra options when running in GUI mode
