@@ -54,7 +54,7 @@ set showcmd
 " Enable syntax highlighting
 syntax enable
 
-colorscheme desert "elflord
+colorscheme elflord "desert 
 
 set background=dark
 
