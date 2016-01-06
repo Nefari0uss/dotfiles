@@ -1,0 +1,20 @@
+"3.9 (created: 2015/02/15 15:49:05)
+
+"source! /home/bam/.vimperatorrc.local
+
+" vim: set ft=vimperator:
+
+" Ctrl-a
+inoremap <C-a> <C-Home><C-S-End>
+
+map <silent> <C-F8> :js toggle_bottombar()<CR>
+
+:js << EOF
+function toggle_bottombar() {
+  var bb = document.getElementById('liberator-bottombar');
+  if (!bb)
+    return;
+  bb.style.height = (bb.style.height == '') ? '0px' : '';
+  bb.style.overflow = (bb.style.height == '') ? '' : 'hidden';
+}
+EOF
