@@ -21,6 +21,14 @@ Plugin 'VundleVim/Vundle.vim'
 " INSERT PLUGINS HERE
 Plugin 'elzr/vim-json'
 Plugin 'mhinz/vim-startify'
+Plugin 'bling/vim-bufferline'
+Plugin 'bling/vim-airline'
+Plugin 'ervandew/supertab'
+Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/syntastic'
+Plugin 'scroolose/vim-statline'
+Plugin 'tpope/vim-fugitive'
+"Plugin 'vim-ruby/vim-ruby'
 
 " END PLUGIN LIST
 
@@ -101,8 +109,7 @@ set showcmd
 " Enable syntax highlighting
 syntax enable
 
-colorscheme elflord "desert 
-
+colorscheme elflord
 set background=dark
 
 " Set extra options when running in GUI mode
