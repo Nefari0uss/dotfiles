@@ -1,0 +1,13 @@
+[user]
+	email = nnefari0uss@gmail.com
+	name = Nefari0uss
+[push]
+	default = simple
+[core]
+	autocrlf = true
+[color]
+	ui = auto
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
