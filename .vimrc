@@ -22,13 +22,13 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'elzr/vim-json'
 Plugin 'mhinz/vim-startify'
 Plugin 'bling/vim-bufferline'
-Plugin 'bling/vim-airline'
+"Plugin 'bling/vim-airline'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'scrooloose/syntastic'
 Plugin 'scroolose/vim-statline'
 Plugin 'tpope/vim-fugitive'
-"Plugin 'vim-ruby/vim-ruby'
+Plugin 'vim-ruby/vim-ruby'
 
 " END PLUGIN LIST
 
