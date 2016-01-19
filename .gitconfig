@@ -5,9 +5,12 @@
 	default = simple
 [core]
 	autocrlf = true
+	editor = vim
 [color]
-	ui = auto
+	ui = true
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[help]
+	autocorrect = 1
