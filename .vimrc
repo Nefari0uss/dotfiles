@@ -26,7 +26,7 @@ Plugin 'bling/vim-airline'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'scrooloose/syntastic'
-Plugin 'scroolose/vim-statline'
+Plugin 'scrooloose/vim-statline'
 Plugin 'tpope/vim-fugitive'
 "Plugin 'vim-ruby/vim-ruby'
 
