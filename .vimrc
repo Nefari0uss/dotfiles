@@ -14,7 +14,7 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
+"" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
 
@@ -29,7 +29,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/vim-statline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-ruby/vim-ruby'
-
+Plugin 'airblade/vim-gitgutter'
+"Plugin 'suan/vim-instant-markdown'
+"Plugin 'iamcco/markdown-preview.vim'
+"Plugin 'JamshedVesuna/vim-markdown-preview' 
 " END PLUGIN LIST
 
 
@@ -63,6 +66,9 @@ filetype plugin on
 " Enable indenation
 filetype indent on
 
+" Enable omnicompletion
+set omnifunc=syntaxcomplete#Complete
+
 " Set Vim visual autocomplete wild card menu
 set wildmenu
 
@@ -87,6 +93,9 @@ set ignorecase
 " Allow for use of Regex in search
 set magic
 
+" turn off search highlight
+" nnoremap <leader><space> :nohlsearch<CR>
+
 " Always show info along bottom
 set ruler
 
@@ -96,6 +105,9 @@ set showmatch
 " Set relative line numbers
 set relativenumber
 
+" Set numbers (works with relative line numbers for hybrid mode)
+set number
+
 " Allow use of backspace in insert mode to delete the character in front 
 " of the cursor.
 set backspace=indent,eol,start
@@ -103,12 +115,22 @@ set backspace=indent,eol,start
 " Display incomplete commands in the lower right corner of Vim
 set showcmd
 
+" Enable folding
+set foldenable
+
+" Open most sections by default
+set foldlevelstart=10
+
+" Enable section folding
+setlocal foldmethod=indent
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 syntax enable
 
+" Set color
 colorscheme elflord
 set background=dark
 
@@ -162,3 +184,29 @@ set autoindent
 " try to quit without saving, and swap files will keep you safe if your computer
 " crashes.
 set hidden
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Custom Functions"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" toggle between number and relative number
+function! ToggleNumber()
+	if(&relativenumber == 1)
+		set norelativenumber
+		set number
+	else
+		set relativenumber
+	endif
+endfunc
+
+" Set Ctrl + n for toggling numbers
+nnoremap <C-n> :call ToggleNumber()<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin Modifications
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:airline#extensions#tabline#enabled = 1
+
+
+
