@@ -108,6 +108,10 @@ set relativenumber
 " Set numbers (works with relative line numbers for hybrid mode)
 set number
 
+" Set numbers based on whether window is in focus
+autocmd WinEnter,FocusGained * :setlocal number relativenumber
+autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
+
 " Allow use of backspace in insert mode to delete the character in front 
 " of the cursor.
 set backspace=indent,eol,start
