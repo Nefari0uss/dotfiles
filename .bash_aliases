@@ -1,1 +1,6 @@
-alias h="history"
+alias h='history'
+alias sl='ls'
+alias cd..='cd ..'
+alias mkdir='mkdir -p'
+alias c='clear'
+alias sha1='openssl sha1'
