@@ -1,6 +1,11 @@
 " Nefari0uss
 " My .vimrc
 
+" Auto-reload .vimrc
+augroup reload_vimrc " {
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vundle Setup
@@ -23,15 +28,22 @@ Plugin 'elzr/vim-json'
 Plugin 'mhinz/vim-startify'
 Plugin 'bling/vim-bufferline'
 Plugin 'bling/vim-airline'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
 Plugin 'xuyuanp/nerdtree-git-plugin'
-"Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/vim-statline'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-endwise'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'sjl/gundo.vim'
 
+"Plugin 'SirVer/utilsnips'
+"Plugin 'honza/vim-snippets'
+
+"Plugin 'majutsushi/tagbar'
 "Plugin 'suan/vim-instant-markdown'
 "Plugin 'iamcco/markdown-preview.vim'
 "Plugin 'JamshedVesuna/vim-markdown-preview' 
@@ -96,7 +108,7 @@ set ignorecase
 set magic
 
 " turn off search highlight
-" nnoremap <leader><space> :nohlsearch<CR>
+"nnoremap <CR> :noh<CR><CR>
 
 " Always show info along bottom
 set ruler
@@ -204,6 +216,11 @@ set autoindent
 " crashes.
 set hidden
 
+" Start nerdtree automatically
+" autocmd vimenter * NERDTree
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Functions"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -218,11 +235,18 @@ function! ToggleNumber()
 	endif
 endfunc
 
-" Set Ctrl + n for toggling numbers
-nnoremap <C-n> :call ToggleNumber()<cr>
+" Set Ctrl + m for toggling numbers
+nnoremap <C-n> :call ToggleNumber()<CR>
+
+"map <C-n> :NERDTreeToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Modifications
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:airline#extensions#tabline#enabled = 1
+
+" Trigger configuration with tab
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardsTrigger="<c-z>"
