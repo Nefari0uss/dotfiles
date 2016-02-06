@@ -25,11 +25,13 @@ Plugin 'bling/vim-bufferline'
 Plugin 'bling/vim-airline'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
+Plugin 'xuyuanp/nerdtree-git-plugin'
 "Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/vim-statline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'airblade/vim-gitgutter'
+
 "Plugin 'suan/vim-instant-markdown'
 "Plugin 'iamcco/markdown-preview.vim'
 "Plugin 'JamshedVesuna/vim-markdown-preview' 
@@ -128,15 +130,28 @@ set foldlevelstart=10
 " Enable section folding
 setlocal foldmethod=indent
 
+" Treat long lines as break lines (useful for wrap)
+map j gj
+map k gk
+
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 syntax enable
 
+try
 " Set color
-colorscheme elflord
-set background=dark
+	colorscheme elflord
+	set background=dark
+catch
+endtry
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -211,6 +226,3 @@ nnoremap <C-n> :call ToggleNumber()<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:airline#extensions#tabline#enabled = 1
-
-
-
