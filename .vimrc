@@ -39,7 +39,8 @@ Plugin 'tpope/vim-endwise'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'sjl/gundo.vim'
-
+"Plugin 'wesQ3/vim-windowsawp'
+"Plugin 'davidhalter/jedi-vim'
 "Plugin 'SirVer/utilsnips'
 "Plugin 'honza/vim-snippets'
 
