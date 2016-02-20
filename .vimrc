@@ -1,29 +1,29 @@
-" Nefari0uss
-" My .vimrc
+" This is my .vimrc file. It's been configured for my personal tastes by
+" taking bites and pieces of whatever I can find online and from other
+" people's setups. As such, my preferences are probably very different than
+" yours. I've tried to comment as much as I can.
+" ~ Nefari0uss
 
-" Auto-reload .vimrc
-augroup reload_vimrc " {
-    autocmd!
-    autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END " }
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vundle Setup
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible              " be iMproved, required
-filetype off                  " required
+
+" Load Vundle Setup {{{
+
+" Vundle Requirements {{{
+set nocompatible " VIM, not Vi ~ required
+filetype off     " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 "" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+" }}}
 
-
-" INSERT PLUGINS HERE
+" INSERT PLUGINS HERE {{{
 Plugin 'elzr/vim-json'
 Plugin 'mhinz/vim-startify'
 Plugin 'bling/vim-bufferline'
@@ -39,21 +39,24 @@ Plugin 'tpope/vim-endwise'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'sjl/gundo.vim'
+
+
+
 "Plugin 'wesQ3/vim-windowsawp'
 "Plugin 'davidhalter/jedi-vim'
 "Plugin 'SirVer/utilsnips'
 "Plugin 'honza/vim-snippets'
-
 "Plugin 'majutsushi/tagbar'
 "Plugin 'suan/vim-instant-markdown'
 "Plugin 'iamcco/markdown-preview.vim'
 "Plugin 'JamshedVesuna/vim-markdown-preview' 
-" END PLUGIN LIST
+" END PLUGIN LIST }}}
 
-
+" Post Plugin Vundle Stuff {{{
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -64,16 +67,32 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" Put your non-Plugin stuff after this line" 
+" }}}
+" End Vundle Setup }}}
+
+" Vim Autocommand Groups {{{
+
+" add folding to vimscript files {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END " }}}
+
+" auto-reload .vimrc upon save {{{
+augroup reload_vimrc
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }}}
+" End Autocommand Groups }}} 
 
 
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General
+" General {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
-set history=700
+set history=1000
 
 " Enable filetype plugins
 filetype plugin on
@@ -89,9 +108,12 @@ set wildmenu
 
 " Tell Vim not to redraw when unnecessary
 set lazyredraw
+set ttyfast
 
 " Because I can't spell even if my life was on the line
 setlocal spell
+
+" }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM user interface
@@ -221,6 +243,7 @@ set hidden
 " autocmd vimenter * NERDTree
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Functions"
