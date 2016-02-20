@@ -1,15 +1,26 @@
-" This is my .vimrc file. It's been configured for my personal tastes by
-" taking bites and pieces of whatever I can find online and from other
-" people's setups. As such, my preferences are probably very different than
-" yours. I've tried to comment as much as I can.
+" DISCLAIMER:
+" This is my .vimrc file that I've configured for my own personal tastes. As
+" with just about everything I do, my personal tastes are generally not for
+" most people. However, if you feel like there's something in here you like,
+" feel free to use it! (Credit, while not required is always appreciated! :)
+
+" If you notice a mistake or think of something that could be useful to me,
+" please make an issue!
+
+" The way my .vimrc is set up is that everything is organized within a table
+" of contents. It is best viewed using folds enabled for fold markers.
+" Generally I keep all the folds closed except for the section I'm currently
+" modifying.
+
+" Thanks for reading my humble setup!
 " ~ Nefari0uss
 
-" Note, easily move to sections by placing cursor on word and selecting *
 
 " Table_of_Contents {{{
+
 " 1.0 Vundle_Setup {{{
 
-" 1.1 Vundle_Requirements {{{
+" 1.1 Vundle Requirements {{{
 set nocompatible " VIM, not Vi ~ required
 filetype off     " required
 
@@ -18,9 +29,8 @@ set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path to include Vundle and i
 call vundle#begin() " ('~/some/path/here') optional
 
 Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
-" End Vundle_Requirements }}}
-
-" 1.2 Plugin_List {{{
+" End Vundle Requirements }}}
+" 1.2 Plugin List {{{
 Plugin 'elzr/vim-json'
 Plugin 'mhinz/vim-startify'
 Plugin 'bling/vim-bufferline'
@@ -45,9 +55,8 @@ Plugin 'sjl/gundo.vim'
 "Plugin 'suan/vim-instant-markdown'
 "Plugin 'iamcco/markdown-preview.vim'
 "Plugin 'JamshedVesuna/vim-markdown-preview' 
-" End Plugin_List }}}
-
-" 1.3 Post_Plugin_Vundle_Stuff {{{
+" End Plugin List }}}
+" 1.3 Post Plugin Vundle Stuff {{{
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -64,9 +73,9 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line" 
 " 
-" End Post_Plugin_Vundle_Stuff }}}
+" End Post Plugin Vundle Stuff }}}
 
-"End Vundle Setup }}}
+"End Vundle_Setup }}}
 
 " 2.0 Autocommand_Groups {{{
 
@@ -88,40 +97,42 @@ augroup END " }}}
 
 " End Autocommand Groups }}} 
 
-" 3. General
-" 4. User_Interface
-" 5. Text_Tab_Indentation_Buffers 
-" Colors_and_Fonts
-"
-" Key_Remapping
-" Custom_Functions
-" Plugin_Modifications
-" " End_Table_of_Contents }}}
+" 3.0 General_Config {{{
 
-" General {{{
-
-set history=1000 " Sets how many lines of history VIM has to remember 
+syntax enable " Syntax highlighting is magical
+set history=1000 " Probably excessive 
 filetype plugin on " Enable filetype plugins 
 filetype indent on " Enable indenation
+set cursorline " Highlight the current line
+set wildmenu " Visual autocomplete wild card menu
+set lazyredraw " Redraw only when necessary
+set ttyfast
+set encoding=utf8 " Set UTF-8 as standard encoding
 
 " Enable mouse mode if available. {{{ 
 if has("mouse") 
   set mouse=a
 endif " }}}
+" Set Colour Scheme {{{
+try
+" Set color
+	colorscheme elflord
+	set background=dark
+catch
+endtry
+" End Set Colour Scheme }}}
+" GUI Mode Extra Options {{{ 
+if has("gui_running")
+    set guioptions-=T
+    set guioptions+=e
+    set t_Co=256
+    set guitablabel=%M\ %t
+endif
+" End GUI Mode Extra Options }}}
 
-" Enable omnicompletion
-set omnifunc=syntaxcomplete#Complete
+" End General_Config }}}
 
-" Set Vim visual autocomplete wild card menu
-set wildmenu
-
-" Tell Vim not to redraw when unnecessary
-set lazyredraw
-set ttyfast
-
-" }}}
-
-" User_Interface {{{
+" 4.0 User_Interface {{{
 
 " Highlight search results
 set hlsearch
@@ -166,91 +177,57 @@ set foldlevelstart=10
 " Enable section folding
 setlocal foldmethod=indent
 
-" End_User_Interface }}}
+" End User_Interface }}}
 
-" Colors_and_Fonts {{{
-" Enable syntax highlighting
-syntax enable
+" 5.0 Text_Tabs_Indentation_and_Buffers {{{
 
-try
-" Set color
-	colorscheme elflord
-	set background=dark
-catch
-endtry
+" 5.1 Text {{{
 
-" Set extra options when running in GUI mode
-if has("gui_running")
-    set guioptions-=T
-    set guioptions+=e
-    set t_Co=256
-    set guitablabel=%M\ %t
-endif
+set wrap " Set line wrapping by default
+set omnifunc=syntaxcomplete#Complete " Enable Vim's omnicomplete 
 
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
+" End Text }}}
+" 5.2 Tabs_and_Intendation {{{ 
 
-" Highlight the current line
-set cursorline
-
-" End_Colors_and_Fonts }}}
-
-" => Text, tab, indent, and buffers {{{
-" Be smart when using tabs
-set smarttab
-
-" 1 tab = 4 spaces
-set shiftwidth=4
+" 1 tab = 4 spaces by default
 set tabstop=4
+set shiftwidth=4
 
-" Expand tab to be spaces instead
-"set expandtab
+set expandtab " expand tab to be spaces
+set smarttab " be smart when using tabs
 
-" Wrap long lines
-set wrap
+set smartindent " automatically insert extra level of indentation when needed
+set autoindent " auto indent as needed
 
-" Automatically insert one extra level of indentation
-set smartindent
+" End Tabs_and_Intendation }}}
+" 5.3 Buffers {{{
+set hidden " change buffers without having to save 
+" See 'Buffer_Control' for key mappings 
+" End Buffers }}}
 
-" Set auto indent
-set autoindent
+" End Text_Tabs_Indentation_and_Buffers }}}
 
-" Vim with default settings does not allow easy switching between multiple files
-" in the same editor window. Users can use multiple split windows or multiple
-" tab pages to edit multiple files, but it is still best to enable an option to
-" allow easier switching between files.
-"
-" One such option is the 'hidden' option, which allows you to re-use the same
-" window and switch from an unsaved buffer without saving it first. Also allows
-" you to keep an undo history for multiple files when re-using the same window
-" in this way. Note that using persistent undo also lets you undo in multiple
-" files even in the same window, but is less efficient and is actually designed
-" for keeping undo history after closing Vim entirely. Vim will complain if you
-" try to quit without saving, and swap files will keep you safe if your computer
-" crashes.
-set hidden
+" 6.0 Key_Remapping {{{
 
-" End }}}
-
-" Key_Remapping {{{
-
-" Easily move around wrapped lines {{{
+" 6.1 Wrapped line movement {{{
 map j gj
 map k gk
 " }}}
-
-" Control+h/j/k/l to move around splits {{{
+" 6.2 Buffer_Control: control+h/j/k/l to move around splits {{{
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 " }}}
+" NERDTreeToggle w/Ctrl-n {{{
+map <C-n> :NERDTreeToggle<CR>
+" End NERDTreeToggle }}}
 
-" }}}
+" End Key_Remapping }}}
 
-" Custom_Functions {{{
+" 7.0 Custom_Functions {{{
 
-" Toggle between number and relative number with ctrl-m {{{
+" 7.1 Toggle Line Numbers w/Ctrl-m {{{ 
 function! ToggleNumber()
 	if(&relativenumber == 1)
 		set norelativenumber
@@ -261,26 +238,14 @@ function! ToggleNumber()
 endfunc
 
 nnoremap <C-m> :call ToggleNumber()<CR>
-" }}} 
+" End Toggle Line Numbers }}}
 
-map <C-n> :NERDTreeToggle<CR>
+" End Custom_Functions }}} 
 
-" End_Custom_Functions }}} 
-
-" Plugin_Modifications {{{
+" 8.0 Plugin_Modifications {{{
 
 let g:airline#extensions#tabline#enabled = 1
 
-" Trigger configuration with tab
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardsTrigger="<c-z>"
+" End Plugin_Modifications }}}
 
-
-" Start nerdtree automatically
-" autocmd vimenter * NERDTree
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-
-" End_Plugin_Modifcations }}} 
+" End Table_of_Contents }}}
