@@ -1,4 +1,4 @@
-" DISCLAIMER:
+" DISCLAIMER: {{{
 " This is my .vimrc file that I've configured for my own personal tastes. As
 " with just about everything I do, my personal tastes are generally not for
 " most people. However, if you feel like there's something in here you like,
@@ -6,6 +6,7 @@
 
 " If you notice a mistake or think of something that could be useful to me,
 " please make an issue!
+" }}}
 
 " The way my .vimrc is set up is that everything is organized within a table
 " of contents. It is best viewed using folds enabled for fold markers.
@@ -16,7 +17,7 @@
 " ~ Nefari0uss
 
 
-" Table_of_Contents {{{
+" Table_of_Contents
 
 " 1.0 Vundle_Setup {{{
 
@@ -34,7 +35,8 @@ Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
 Plugin 'elzr/vim-json'
 Plugin 'mhinz/vim-startify'
 Plugin 'bling/vim-bufferline'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
@@ -46,7 +48,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'sjl/gundo.vim'
-
+Plugin 'luochen1990/rainbow' " Rainbow colored parentheses matching
 "Plugin 'wesQ3/vim-windowsawp'
 "Plugin 'davidhalter/jedi-vim'
 "Plugin 'SirVer/utilsnips'
@@ -101,8 +103,8 @@ augroup END " }}}
 
 syntax enable " Syntax highlighting is magical
 set history=1000 " Probably excessive 
-filetype plugin on " Enable filetype plugins 
-filetype indent on " Enable indenation
+filetype plugin on " Enable filetype specific plugins 
+filetype indent on " Enable filetype specific indenation
 set cursorline " Highlight the current line
 set wildmenu " Visual autocomplete wild card menu
 set lazyredraw " Redraw only when necessary
@@ -244,8 +246,14 @@ nnoremap <C-m> :call ToggleNumber()<CR>
 
 " 8.0 Plugin_Modifications {{{
 
-let g:airline#extensions#tabline#enabled = 1
-
+" vim-airline {{{
+"let g:airline_section_b = '%{strftome("%c")}'
+"let g:airline_section_y = 'BN: %{bufnr("%")}'
+" End vim-airline }}}
+" rainbox {{{
+let g:rainbow_active = 1
+" End rainbow }}}
+ 
 " End Plugin_Modifications }}}
 
-" End Table_of_Contents }}}
+" End Table_of_Contents
