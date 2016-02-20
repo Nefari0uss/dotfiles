@@ -4,39 +4,23 @@
 " yours. I've tried to comment as much as I can.
 " ~ Nefari0uss
 
+" Note, easily move to sections by placing cursor on word and selecting *
 
 " Table_of_Contents {{{
-" 1. Vundle_Setup
-" 	1.1 Plugin_List
-" 2. Autocommand_Groups
-" 3. General
-" 4. User_Interface
-" 5. Text_Tab_Indentation_Buffers 
-" Colors_and_Fonts
-"
-" Key_Remapping
-" Custom_Functions
-" Plugin_Modifications
-" " End_Table_of_Contents }}}
+" 1.0 Vundle_Setup {{{
 
-" Vundle_Setup {{{
-
-" Vundle Requirements {{{
+" 1.1 Vundle_Requirements {{{
 set nocompatible " VIM, not Vi ~ required
 filetype off     " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path to include Vundle and initialize
 
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call vundle#begin() " ('~/some/path/here') optional
 
-"" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-" }}}
+Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
+" End Vundle_Requirements }}}
 
-" Plugin_List {{{
+" 1.2 Plugin_List {{{
 Plugin 'elzr/vim-json'
 Plugin 'mhinz/vim-startify'
 Plugin 'bling/vim-bufferline'
@@ -61,9 +45,9 @@ Plugin 'sjl/gundo.vim'
 "Plugin 'suan/vim-instant-markdown'
 "Plugin 'iamcco/markdown-preview.vim'
 "Plugin 'JamshedVesuna/vim-markdown-preview' 
-" End_Plugin_List }}}
+" End Plugin_List }}}
 
-" Post Plugin Vundle Stuff {{{
+" 1.3 Post_Plugin_Vundle_Stuff {{{
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -79,24 +63,24 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line" 
-" }}}
-" End Vundle Setup }}}
+" 
+" End Post_Plugin_Vundle_Stuff }}}
 
-" Autocommand_Groups {{{
+"End Vundle Setup }}}
 
-" Add folding to vimscript files {{{
+" 2.0 Autocommand_Groups {{{
+
+" 2.1 Add folding to vimscript files {{{
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
 augroup END " }}}
-
-" Auto-reload .vimrc upon save {{{
+" 2.2 Auto-reload .vimrc upon save {{{
 augroup reload_vimrc
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }}}
-
-" Set numbers based on whether window is in focus {{{{
+" 2.3 Set numbers based on whether window is in focus {{{{
 augroup set_number_on_window_focus
 	autocmd WinEnter,FocusGained * :setlocal number relativenumber
 	autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
@@ -104,12 +88,26 @@ augroup END " }}}
 
 " End Autocommand Groups }}} 
 
+" 3. General
+" 4. User_Interface
+" 5. Text_Tab_Indentation_Buffers 
+" Colors_and_Fonts
+"
+" Key_Remapping
+" Custom_Functions
+" Plugin_Modifications
+" " End_Table_of_Contents }}}
 
 " General {{{
 
 set history=1000 " Sets how many lines of history VIM has to remember 
 filetype plugin on " Enable filetype plugins 
 filetype indent on " Enable indenation
+
+" Enable mouse mode if available. {{{ 
+if has("mouse") 
+  set mouse=a
+endif " }}}
 
 " Enable omnicompletion
 set omnifunc=syntaxcomplete#Complete
@@ -124,6 +122,7 @@ set ttyfast
 " }}}
 
 " User_Interface {{{
+
 " Highlight search results
 set hlsearch
 
@@ -251,7 +250,7 @@ map <C-l> <C-W>l
 
 " Custom_Functions {{{
 
-" Toggle between number and relative number with ctrl-n {{{
+" Toggle between number and relative number with ctrl-m {{{
 function! ToggleNumber()
 	if(&relativenumber == 1)
 		set norelativenumber
@@ -261,10 +260,10 @@ function! ToggleNumber()
 	endif
 endfunc
 
-nnoremap <C-n> :call ToggleNumber()<CR> 
+nnoremap <C-m> :call ToggleNumber()<CR>
 " }}} 
 
-"map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 " End_Custom_Functions }}} 
 
