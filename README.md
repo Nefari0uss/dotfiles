@@ -10,5 +10,5 @@ I maintain this repo for me and only me. As such, you probably have very differe
 ~~ TODO ~~
 * Installer for Linux
 * Installer for Windows
-* List of dependicies
+* List of dependecies
 * Ensure line endings are consistent
