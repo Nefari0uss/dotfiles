@@ -5,8 +5,21 @@
 " ~ Nefari0uss
 
 
+" Table_of_Contents {{{
+" 1. Vundle_Setup
+" 	1.1 Plugin_List
+" 2. Autocommand_Groups
+" 3. General
+" 4. User_Interface
+" 5. Text_Tab_Indentation_Buffers 
+" Colors_and_Fonts
+"
+" Key_Remapping
+" Custom_Functions
+" Plugin_Modifications
+" " End_Table_of_Contents }}}
 
-" Load Vundle Setup {{{
+" Vundle_Setup {{{
 
 " Vundle Requirements {{{
 set nocompatible " VIM, not Vi ~ required
@@ -23,7 +36,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " }}}
 
-" INSERT PLUGINS HERE {{{
+" Plugin_List {{{
 Plugin 'elzr/vim-json'
 Plugin 'mhinz/vim-startify'
 Plugin 'bling/vim-bufferline'
@@ -40,8 +53,6 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'sjl/gundo.vim'
 
-
-
 "Plugin 'wesQ3/vim-windowsawp'
 "Plugin 'davidhalter/jedi-vim'
 "Plugin 'SirVer/utilsnips'
@@ -50,7 +61,7 @@ Plugin 'sjl/gundo.vim'
 "Plugin 'suan/vim-instant-markdown'
 "Plugin 'iamcco/markdown-preview.vim'
 "Plugin 'JamshedVesuna/vim-markdown-preview' 
-" END PLUGIN LIST }}}
+" End_Plugin_List }}}
 
 " Post Plugin Vundle Stuff {{{
 " All of your Plugins must be added before the following line
@@ -71,34 +82,34 @@ filetype plugin indent on    " required
 " }}}
 " End Vundle Setup }}}
 
-" Vim Autocommand Groups {{{
+" Autocommand_Groups {{{
 
-" add folding to vimscript files {{{
+" Add folding to vimscript files {{{
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
 augroup END " }}}
 
-" auto-reload .vimrc upon save {{{
+" Auto-reload .vimrc upon save {{{
 augroup reload_vimrc
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }}}
+
+" Set numbers based on whether window is in focus {{{{
+augroup set_number_on_window_focus
+	autocmd WinEnter,FocusGained * :setlocal number relativenumber
+	autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
+augroup END " }}}
+
 " End Autocommand Groups }}} 
 
 
-
-
 " General {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Sets how many lines of history VIM has to remember
-set history=1000
 
-" Enable filetype plugins
-filetype plugin on
-
-" Enable indenation
-filetype indent on
+set history=1000 " Sets how many lines of history VIM has to remember 
+filetype plugin on " Enable filetype plugins 
+filetype indent on " Enable indenation
 
 " Enable omnicompletion
 set omnifunc=syntaxcomplete#Complete
@@ -110,14 +121,9 @@ set wildmenu
 set lazyredraw
 set ttyfast
 
-" Because I can't spell even if my life was on the line
-setlocal spell
-
 " }}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VIM user interface
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" User_Interface {{{
 " Highlight search results
 set hlsearch
 
@@ -145,10 +151,6 @@ set relativenumber
 " Set numbers (works with relative line numbers for hybrid mode)
 set number
 
-" Set numbers based on whether window is in focus
-autocmd WinEnter,FocusGained * :setlocal number relativenumber
-autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
-
 " Allow use of backspace in insert mode to delete the character in front 
 " of the cursor.
 set backspace=indent,eol,start
@@ -165,19 +167,9 @@ set foldlevelstart=10
 " Enable section folding
 setlocal foldmethod=indent
 
-" Treat long lines as break lines (useful for wrap)
-map j gj
-map k gk
+" End_User_Interface }}}
 
-" Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Colors_and_Fonts {{{
 " Enable syntax highlighting
 syntax enable
 
@@ -202,9 +194,9 @@ set encoding=utf8
 " Highlight the current line
 set cursorline
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab, indent, and buffers
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" End_Colors_and_Fonts }}}
+
+" => Text, tab, indent, and buffers {{{
 " Be smart when using tabs
 set smarttab
 
@@ -239,17 +231,27 @@ set autoindent
 " crashes.
 set hidden
 
-" Start nerdtree automatically
-" autocmd vimenter * NERDTree
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" End }}}
 
+" Key_Remapping {{{
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Custom Functions"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Easily move around wrapped lines {{{
+map j gj
+map k gk
+" }}}
 
-" toggle between number and relative number
+" Control+h/j/k/l to move around splits {{{
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+" }}}
+
+" }}}
+
+" Custom_Functions {{{
+
+" Toggle between number and relative number with ctrl-n {{{
 function! ToggleNumber()
 	if(&relativenumber == 1)
 		set norelativenumber
@@ -259,14 +261,14 @@ function! ToggleNumber()
 	endif
 endfunc
 
-" Set Ctrl + m for toggling numbers
-nnoremap <C-n> :call ToggleNumber()<CR>
+nnoremap <C-n> :call ToggleNumber()<CR> 
+" }}} 
 
 "map <C-n> :NERDTreeToggle<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugin Modifications
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" End_Custom_Functions }}} 
+
+" Plugin_Modifications {{{
 
 let g:airline#extensions#tabline#enabled = 1
 
@@ -274,3 +276,12 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:UltiSnipsExpandTrigger="<tab>"
 "let g:UltiSnipsJumpForwardTrigger="<c-b>"
 "let g:UltiSnipsJumpBackwardsTrigger="<c-z>"
+
+
+" Start nerdtree automatically
+" autocmd vimenter * NERDTree
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+
+" End_Plugin_Modifcations }}} 
