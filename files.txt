@@ -1,0 +1,127 @@
+~~ Games ~~
+Battle.net - http://us.battle.net/en/
+DeSuMe - http://desmume.org/
+Dolphin - https://dolphin-emu.org/
+Katawa Shoujo - http://www.katawa-shoujo.com/
+Kimochi - https://kimochi.co/
+League of Legends - http://na.leagueoflegends.com/
+Nexus Mods - http://nexusmods.com/
+Origin - https://www.origin.com/en-us/store/
+Plays.TV - http://plays.tv/
+PPSSPP - http://www.ppsspp.org/
+Pokemon Insurgence - http://insurgence.cmdrd.com/
+Pokemon Zeta/Omicron - http://pokemonzo.cmdrd.com/
+RetroArch - http://www.libretro.com/
+Steam - http://store.steampowered.com/
+Summoner Sweetheart - http://bigsteps.itch.io/summoner-sweetheart
+Yandere Simulator - https://kimochi.co/
+OSU! - https://osu.ppy.sh/ 
+OverWolf - http://www.overwolf.com/
+nVidia GeForce Experience - http://www.geforce.com/geforce-experience
+
+~~ League of Legends Tools ~~ 
+Championify - https://github.com/dustinblackman/Championify
+League Summoner Information - http://www.leaguelsi.com/
+LoL Mastery Manager - https://github.com/maxdeviant/lol-mastery-manager
+
+Skyrim Mods
+// todo
+
+~~~~ Installation Files ~~~~
+
+~~ Web Browsers ~~ 
+Google Chrome - https://www.google.com/chrome/browser/desktop/
+Moailla Firefox Developer Edition - https://www.mozilla.org/en-US/firefox/developer/ 
+Mozilla Firefox (64bit) - https://www.mozilla.org/en-US/firefox/all/
+Mozilla Firefox Nightly - https://nightly.mozilla.org/
+Vivaldi - https://vivaldi.com/
+
+~~ Developer Tools ~~
+Android Studio - https://developer.android.com/sdk/index.html
+Clink - https://mridgers.github.io/clink/
+Cmder - http://cmder.net/
+ConEmu - https://conemu.github.io/
+Cygwin - https://www.cygwin.com/
+FileZilla - https://filezilla-project.org/
+Git-SCM - https://git-scm.com/
+GitHub Desktop - https://desktop.github.com/
+IntelliJ IDEA, PHPStorm, PyCharm, RubyMine, CLion - https://www.jetbrains.com/products.html
+JDK - http://www.oracle.com/technetwork/java/javase/downloads/index.html
+KiTTY - http://www.9bis.net/kitty/
+LaTeX
+Node.JS - https://nodejs.org/en/
+Notepad++ - https://notepad-plus-plus.org/
+Pandoc - ihttp://pandoc.org/
+Python - https://www.python.org/
+Rapid Environment Editor - www.rapidee.com/
+Ruby - https://www.ruby-lang.org/en/
+Ruby on Rails - http://rubyonrails.org/
+SourceTree - https://www.sourcetreeapp.com/
+Vim - http://www.vim.org/
+Xming X Server (Windows) - http://sourceforge.net/projects/xming/
+MiKTeX - http://miktex.org/
+Visual Studio Community - https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx
+Visual Studio Code - https://code.visualstudio.com/
+exiftool
+docx2text
+ctags
+npm windows upgrade - https://github.com/felixrieseberg/npm-windows-upgrade/blob/master/README.md
+
+~~ Node.JS Installs ~~
+npm install jsonresume
+npm install hackmyresume
+
+
+~~ Online Cloud Storage ~~ 
+DropBox - https://www.dropbox.com/
+Google Drive - https://www.google.com/drive/
+OneDrive - https://onedrive.live.com/about/en-us/
+
+~~ Game Development ~~ 
+Ren'Py - http://www.renpy.org/ 
+Unity - https://unity3d.com/ 
+Unreal Engine - https://www.unrealengine.com/
+
+
+~~ Image Manipulation ~~ 
+GIMP - https://www.gimp.org/
+Inkscape - https://inkscape.org/en/
+
+
+~~ Utilities ~~ 
+FileHippo App Manager - http://filehippo.com/download_app_manager/
+7-Zip - http://www.7-zip.org/
+Bulk Rename Utility - http://www.bulkrenameutility.co.uk/Main_Intro.php
+SumatraPDF - http://www.sumatrapdfreader.org/free-pdf-reader.html
+MalwareBytes Anti-Malware - https://www.malwarebytes.org/
+Deluge - http://deluge-torrent.org/
+YouTube-dl - https://rg3.github.io/youtube-dl/ (add to path)
+Livestreamer - http://docs.livestreamer.io/ (add to path)
+ffmpeg - https://www.ffmpeg.org/
+Media Preview - http://babelsoft.net/products.htm
+MP3 Tag - http://www.mp3tag.de/en/
+PrtScr - http://www.fiastarta.com/PrtScr/
+PushBullet - https://www.pushbullet.com/
+RainMeter - https://www.rainmeter.net/
+wkHTMLtoPDF - http://wkhtmltopdf.org/
+Remove Empty Directories - http://www.jonasjohn.de/red.htm
+WinStatDir - https://windirstat.info (Windows)
+Flux - https://justgetflux.com/
+Lockhunter - http://lockhunter.com/
+
+~~ Communication Tools ~~
+Skype - https://www.skype.com/en/
+Razer Comms - http://www.razerzone.com/comms
+Curse Voice - http://beta.cursevoice.com/
+Telegram - https://telegram.org/
+
+~~ Entertainment ~~
+foobar2000 - http://www.foobar.com
+MusicBee - http://getmusicbee.com/
+VLC Media Player - https://www.videolan.org/vlc/index.html
+Calibre - http://calibre-ebook.com/
+Kodi - http://kodi.tv/
+OverDrive Media Console - https://www.overdrive.com/
+
+~~ Kodi Addons ~~
+// todo
