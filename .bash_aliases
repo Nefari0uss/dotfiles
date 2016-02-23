@@ -10,7 +10,7 @@ alias sha1='openssl sha1'
 # Git Commands
 alias gs='git status '
 alias ga='git add '
-alais gr='git rm '
+alias gr='git rm '
 alias gc='git commit '
 alias gb='git branch '
 alias ggc='git gc'
