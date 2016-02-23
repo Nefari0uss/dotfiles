@@ -101,8 +101,10 @@ augroup END " }}}
 
 " 3.0 General_Config {{{
 
+" 3.1 General Stuff {{{
 syntax enable " Syntax highlighting is magical
-set history=1000 " Probably excessive 
+set history=100 " Probably excessive 
+set undolevels=100 " Equally excessive
 filetype plugin on " Enable filetype specific plugins 
 filetype indent on " Enable filetype specific indenation
 set cursorline " Highlight the current line
@@ -110,12 +112,17 @@ set wildmenu " Visual autocomplete wild card menu
 set lazyredraw " Redraw only when necessary
 set ttyfast
 set encoding=utf8 " Set UTF-8 as standard encoding
-
-" Enable mouse mode if available. {{{ 
+set backspace=indent,eol,start " Allow backspace to delete character
+set scrolloff=5 " Keep this many lines above/below cursor while scrolling
+set visualbell " Be quiet Vim.
+set noerrorbells " Bad Vim. Be quiet.
+set laststatus=2
+" }}}
+" 3.2 Enable mouse mode if available. {{{ 
 if has("mouse") 
   set mouse=a
 endif " }}}
-" Set Colour Scheme {{{
+" 3.3 Set Colour Scheme {{{
 try
 " Set color
 	colorscheme elflord
@@ -123,7 +130,7 @@ try
 catch
 endtry
 " End Set Colour Scheme }}}
-" GUI Mode Extra Options {{{ 
+" 3.4 GUI Mode Extra Options {{{ 
 if has("gui_running")
     set guioptions-=T
     set guioptions+=e
@@ -135,50 +142,31 @@ endif
 " End General_Config }}}
 
 " 4.0 User_Interface {{{
-
-" Highlight search results
-set hlsearch
-
-" Search as characters are entered
-set incsearch
-
-" Make searches case-insensitive
-set ignorecase
-
-" Allow for use of Regex in search
-set magic
+" 4.1 General UI Changes {{{
+set ruler " Show info along bottom of screen
+set showcmd " Display incomplete commands in lower right corner
+set showmatch " Show matching brackets
+" }}}
+" 4.2 Searching {{{
+set hlsearch " Highlight search results
+set incsearch " Search as characters are entered
+set ignorecase " Make searches case-insensitive
+"set smartcase " If capital letter is included then search case-sensitive
+set magic " Allow use of Regex in search
 
 " turn off search highlight
 "nnoremap <CR> :noh<CR><CR>
 
-" Always show info along bottom
-set ruler
-
-" Show matching brackets when text indicator is over them
-set showmatch
-
-" Set relative line numbers
-set relativenumber
-
-" Set numbers (works with relative line numbers for hybrid mode)
+" End Searching }}}
+" 4.3 Line numbers using Vim 7.4's hybrid mode {{{
+set relativenumber 
 set number
-
-" Allow use of backspace in insert mode to delete the character in front 
-" of the cursor.
-set backspace=indent,eol,start
-
-" Display incomplete commands in the lower right corner of Vim
-set showcmd
-
-" Enable folding
-set foldenable
-
-" Open most sections by default
-set foldlevelstart=10
-
-" Enable section folding
+" }}}
+" 4.4 Folding {{{
+set foldenable " Enable folding by default
+set foldlevelstart=10 " Max fold level is 10
 setlocal foldmethod=indent
-
+" }}}
 " End User_Interface }}}
 
 " 5.0 Text_Tabs_Indentation_and_Buffers {{{
@@ -191,15 +179,16 @@ set omnifunc=syntaxcomplete#Complete " Enable Vim's omnicomplete
 " End Text }}}
 " 5.2 Tabs_and_Intendation {{{ 
 
-" 1 tab = 4 spaces by default
-set tabstop=4
-set shiftwidth=4
+set tabstop=4 " 1 tab = 4 spaces
+set expandtab " Expand tab to be spaces
 
-set expandtab " expand tab to be spaces
-set smarttab " be smart when using tabs
+set shiftwidth=4 " Number of spaces to use when inserting a tab
+set shiftround " Use multiples of shiftwidfth with '>' and '<'
+set smarttab " Insert tabs on start of line using shiftwidth 
 
-set smartindent " automatically insert extra level of indentation when needed
-set autoindent " auto indent as needed
+set smartindent " Automatically insert extra level of indentation when needed
+set autoindent " Auto indent as needed
+set copyindent " Copy previous indentation leven on autoindent
 
 " End Tabs_and_Intendation }}}
 " 5.3 Buffers {{{
@@ -209,27 +198,25 @@ set hidden " change buffers without having to save
 
 " End Text_Tabs_Indentation_and_Buffers }}}
 
-" 6.0 Key_Remapping {{{
+" 6.0 Key_Remapping & Custom Functions {{{
 
 " 6.1 Wrapped line movement {{{
 map j gj
 map k gk
 " }}}
-" 6.2 Buffer_Control: control+h/j/k/l to move around splits {{{
+" 6.2 Buffer_Control {{{
+" Control+h/j/k/l to move around windows 
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+map <Tab><Tab> <C-W>w " tab-tab will quickly cycle through windows 
 " }}}
-" NERDTreeToggle w/Ctrl-n {{{
-map <C-n> :NERDTreeToggle<CR>
-" End NERDTreeToggle }}}
-
-" End Key_Remapping }}}
-
-" 7.0 Custom_Functions {{{
-
-" 7.1 Toggle Line Numbers w/Ctrl-m {{{ 
+" 6.3 Toggle NERDTree w/Ctrl-n {{{
+map <C-n> :NERDTreeToggle<CR> " Toggle NERDTree w/Ctrl-N
+" }}}
+" 6.4 Toggle line numbers w/Ctrl-m {{{ 
 function! ToggleNumber()
 	if(&relativenumber == 1)
 		set norelativenumber
@@ -241,8 +228,15 @@ endfunc
 
 nnoremap <C-m> :call ToggleNumber()<CR>
 " End Toggle Line Numbers }}}
+" 6.6 Remove trailing whitespace w/leader-W {{{
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+" }}}
+" 6.10 Useful Toggles {{{
+nnoremap <F4><F4> :set invwrap wrap?<CR> "use <F4><F4> to toggle wordwrap
+nnoremap <F5><F5> :set invhls hls?<CR> " use <F5><F5> to toggle search highlight
+" }}}
 
-" End Custom_Functions }}} 
+" End Key_Remapping }}}
 
 " 8.0 Plugin_Modifications {{{
 
