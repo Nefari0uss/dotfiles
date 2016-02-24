@@ -8,7 +8,16 @@
 "  | | / / / __ `__ \/ ___/ ___/                             
 " _| |/ / / / / / / / /  / /__                               
 "(_)___/_/_/ /_/ /_/_/   \___/                               
-                                                            
+
+" DISCLAIMER: {{{
+" This is my .vimrc file that I've configured for my own personal tastes. As
+" with just about everything I do, my personal tastes are generally not for
+" most people. However, if you feel like there's something in here you like,
+" feel free to use it! (Credit, while not required is always appreciated! :)
+
+" If you notice a mistake or think of something that could be useful to me,
+" please make an issue!
+" }}}
 " HOW TO VIEW {{{
 " The way my .vimrc is set up is that everything is organized within a table
 " of contents. It is best viewed using folds enabled for fold markers.
@@ -35,36 +44,39 @@ call vundle#begin() " ('~/some/path/here') optional
 Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
 " End Vundle Requirements }}}
 " 1.2 Plugin List {{{
-" Make Vim look pretty 
-Plugin 'ryanoasis/vim-devicons' " Fancy icons
-Plugin 'mhinz/vim-startify' " Fancy start screen
-Plugin 'bling/vim-bufferline'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'ervandew/supertab'
-Plugin 'scrooloose/nerdtree'
-Plugin 'xuyuanp/nerdtree-git-plugin'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/vim-statline'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-endwise'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'sjl/gundo.vim'
-Plugin 'luochen1990/rainbow' " Rainbow colored parentheses matching
-" Languages
-Plugin 'elzr/vim-json' " JSON highlighting
-Plugin 'vim-ruby/vim-ruby'
 
 " Currently not using
-"Plugin 'wesQ3/vim-windowsawp'
-"Plugin 'davidhalter/jedi-vim'
+" Languages
+"Plugin 'JamshedVesuna/vim-markdown-preview' 
 "Plugin 'SirVer/utilsnips'
+"Plugin 'davidhalter/jedi-vim'
 "Plugin 'honza/vim-snippets'
+"Plugin 'iamcco/markdown-preview.vim'
 "Plugin 'majutsushi/tagbar'
 "Plugin 'suan/vim-instant-markdown'
-"Plugin 'iamcco/markdown-preview.vim'
-"Plugin 'JamshedVesuna/vim-markdown-preview' 
+"Plugin 'wesQ3/vim-windowsawp'
+"Plugin 'artur-shaik/vim-javacomplete2' " Java autocomplete
+
+"Plugin 'tpope/vim-fugitive' " Git wrapper 
+Plugin 'airblade/vim-gitgutter' " Show diffs left of numbers:w
+Plugin 'bling/vim-bufferline' " Show buffers in status bar
+Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy finder for files/tags/buffers/etc
+Plugin 'easymotion/easymotion' " Previews for using motions
+Plugin 'elzr/vim-json' " JSON highlighting
+Plugin 'ervandew/supertab' " Tab complete in insert mode
+Plugin 'luochen1990/rainbow' " Rainbow colored parentheses matching
+Plugin 'mhinz/vim-startify' " Fancy start screen
+Plugin 'millermedeiros/vim-statline' " Useful information for the vim status bar
+Plugin 'powerline/powerline' " Status bar plugin for Vim
+Plugin 'ryanoasis/vim-devicons' " Fancy icons for stuff like NERDTree
+Plugin 'scrooloose/nerdcommenter' " Easy commenting
+Plugin 'scrooloose/nerdtree' " File explorer
+Plugin 'scrooloose/syntastic' " Syntax checker
+Plugin 'tpope/vim-endwise' " Adds end/endif/end etc to code
+Plugin 'vim-airline/vim-airline' " Status bar stuff
+Plugin 'vim-airline/vim-airline-themes' " Status bar themes
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'xuyuanp/nerdtree-git-plugin' " Show git status in NERDTree
 " End Plugin List }}}
 " 1.3 Post Plugin Vundle Stuff {{{
 " All of your Plugins must be added before the following line
@@ -101,10 +113,16 @@ augroup reload_vimrc
 augroup END " }}}
 " 2.3 Set numbers based on whether window is in focus {{{{
 augroup set_number_on_window_focus
-	autocmd WinEnter,FocusGained * :setlocal number relativenumber
-	autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
+    autocmd WinEnter,FocusGained * :setlocal number relativenumber
+    autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
 augroup END " }}}
-
+" 2.4 Use text mode when editing general documents {{{
+autocmd FileType txt,md,markdown,tex call SetupForText()
+" }}}
+" 2.5 File templates {{{
+autocmd BufNewFile *.html 0r ~/.vim/templates/template.html
+autocmd BufNewFile *.tex 0r ~/.vim/templates/template.tex
+" }}}
 " End Autocommand Groups }}} 
 
 " 3.0 General_Config {{{
@@ -125,28 +143,13 @@ set scrolloff=5 " Keep this many lines above/below cursor while scrolling
 set visualbell " Be quiet Vim.
 set noerrorbells " Bad Vim. Be quiet.
 set laststatus=2
+set guifont=DroidSansMonoPLNerd:h12
+
 " }}}
 " 3.2 Enable mouse mode if available. {{{ 
 if has("mouse") 
-  set mouse=a
+    set mouse=a
 endif " }}}
-" 3.3 Set Colour Scheme {{{
-try
-" Set color
-	colorscheme elflord
-	set background=dark
-catch
-endtry
-" End Set Colour Scheme }}}
-" 3.4 GUI Mode Extra Options {{{ 
-if has("gui_running")
-    set guioptions-=T
-    set guioptions+=e
-    set t_Co=256
-    set guitablabel=%M\ %t
-endif
-" End GUI Mode Extra Options }}}
-
 " End General_Config }}}
 
 " 4.0 User_Interface {{{
@@ -175,6 +178,31 @@ set foldenable " Enable folding by default
 set foldlevelstart=10 " Max fold level is 10
 setlocal foldmethod=indent
 " }}}
+" 4.5 Show and enforce 80 char limit {{{
+"if exists('+colorcolumn')
+"    setlocal colorcolumn=80
+"    setlocal textwidth=80
+"endif
+" }}}
+" 4.6 Set Colours {{{
+set t_Co=256 " Tmux/Vim airline fix
+
+" Set colour scheme
+try
+    colorscheme elflord
+    set background=dark
+catch
+endtry
+" End Set Colour Scheme }}}
+" 4.7 GUI Mode Extra Options {{{ 
+if has("gui_running")
+    set guioptions-=T
+    set guioptions+=e
+    set t_Co=256
+    set guitablabel=%M\ %t
+endif
+" End GUI Mode Extra Options }}}
+
 " End User_Interface }}}
 
 " 5.0 Text_Tabs_Indentation_and_Buffers {{{
@@ -226,12 +254,12 @@ map <C-n> :NERDTreeToggle<CR> " Toggle NERDTree w/Ctrl-N
 " }}}
 " 6.4 Toggle line numbers w/Ctrl-m {{{ 
 function! ToggleNumber()
-	if(&relativenumber == 1)
-		set norelativenumber
-		set number
-	else
-		set relativenumber
-	endif
+    if(&relativenumber == 1)
+        set norelativenumber
+        set number
+    else
+        set relativenumber
+    endif
 endfunc
 
 nnoremap <C-m> :call ToggleNumber()<CR>
@@ -239,33 +267,62 @@ nnoremap <C-m> :call ToggleNumber()<CR>
 " 6.6 Remove trailing whitespace w/leader-W {{{
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 " }}}
+" 6.7 Text Mode Setup {{{
+function! SetupForText()
+    setlocal spell spelllang=en_us " Spell checking
+    setlocal linebreak " Break on whitespace
+    setlocal colorcolumn=0 " Turn off colour column
+endfunction
+" }}}
 " 6.10 Useful Toggles {{{
 nnoremap <F4><F4> :set invwrap wrap?<CR> "use <F4><F4> to toggle wordwrap
 nnoremap <F5><F5> :set invhls hls?<CR> " use <F5><F5> to toggle search highlight
 " }}}
 " 6.11 Other {{{
-
+let g:ctrlp_map = '<c-p>' " default for Ctrl-P
+let g:ctrlp_cmd = 'CtrlP' " default for Ctrl-P 
+" leader leader char for easy motions call
 " }}}
 " End Key_Remapping }}}
 
 " 7.0 Plugin_Modifications {{{
 
 " 7.1 vim-airline {{{
-"let g:airline_section_b = '%{strftome("%c")}'
-"let g:airline_section_y = 'BN: %{bufnr("%")}'
+set laststatus=2 " Always show airline bar
 " End vim-airline }}}
 " 7.2 rainbox {{{
 let g:rainbow_active = 1
+
+let g:rainbow_conf = {
+            \   'guifgs': ['royalblue3', 'seagreen3', 'darkorchid3', 'firebrick3'],
+            \   'ctermfgs': ['darkcyan', 'magenta', 'green', 'darkred', 'darkmagenta', 'darkgray'],
+            \   'operators': '_,_',
+            \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+            \   'separately': {
+            \       '*': {},
+            \       'tex': {
+            \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+            \       },
+            \       'lisp': {
+            \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+            \       },
+            \       'vim': {
+            \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+            \       },
+            \       'css': 0,
+            \       'html': 0,
+            \   }
+            \} 
 " End rainbow }}}
 " 7.3 startify {{{
 
 " Startify list order
 let g:startify_list_order = [
-      \ ['   MRU'],           'files' ,
-      \ ['   MRU '.getcwd()], 'dir',
-      \ ['   Sessions'],      'sessions',
-      \ ['   Bookmarks'],     'bookmarks',
-      \ ]
+            \ ['   MRU'],           'files' ,
+            \ ['   MRU '.getcwd()], 'dir',
+            \ ['   Sessions'],      'sessions',
+            \ ['   Bookmarks'],     'bookmarks',
+            \ ]
 
 let g:startify_change_to_dir          = 0
 let g:startify_enable_special         = 0
@@ -283,6 +340,23 @@ let g:startify_use_env                = 1
 
 " let g:startify_custom_header = s:center_header(split(system('tips | '. (s:mac ? 'cowthink' : 'cowsay -f apt')), '\n'))
 
+" }}}
+" 7.4 syntastic {{{
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" }}}
+" 7.5 vim-devicons {{{
+let g:airline_powerline_fonts = 1
+" }}}
+" 7.5 NERDTree {{{{
+let NERDTreeShowHidden=1 " Show hidden files
+let NERDTreeIgnore = ['\.swp$'] " Ignore swap files
 " }}}
 " End Plugin_Modifications }}}
 
