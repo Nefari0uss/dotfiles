@@ -1,17 +1,20 @@
-" DISCLAIMER: {{{
-" This is my .vimrc file that I've configured for my own personal tastes. As
-" with just about everything I do, my personal tastes are generally not for
-" most people. However, if you feel like there's something in here you like,
-" feel free to use it! (Credit, while not required is always appreciated! :)
+               ____           _ ____                 _      
+   ____  ___  / __/___ ______(_) __ \__  ___________( )_____
+  / __ \/ _ \/ /_/ __ `/ ___/ / / / / / / / ___/ ___/// ___/
+ / / / /  __/ __/ /_/ / /  / / /_/ / /_/ (__  |__  ) (__  ) 
+/_/ /_/\___/_/  \__,_/_/  /_/\____/\__,_/____/____/ /____/  
 
-" If you notice a mistake or think of something that could be useful to me,
-" please make an issue!
-" }}}
-
+   _   __(_)___ ___  __________                             
+  | | / / / __ `__ \/ ___/ ___/                             
+ _| |/ / / / / / / / /  / /__                               
+(_)___/_/_/ /_/ /_/_/   \___/                               
+                                                            
+" HOW TO VIEW {{{
 " The way my .vimrc is set up is that everything is organized within a table
 " of contents. It is best viewed using folds enabled for fold markers.
 " Generally I keep all the folds closed except for the section I'm currently
 " modifying.
+" }}}
 
 " Thanks for reading my humble setup!
 " ~ Nefari0uss
@@ -32,8 +35,9 @@ call vundle#begin() " ('~/some/path/here') optional
 Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
 " End Vundle Requirements }}}
 " 1.2 Plugin List {{{
-Plugin 'elzr/vim-json'
-Plugin 'mhinz/vim-startify'
+" Make Vim look pretty 
+Plugin 'ryanoasis/vim-devicons' " Fancy icons
+Plugin 'mhinz/vim-startify' " Fancy start screen
 Plugin 'bling/vim-bufferline'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -45,10 +49,14 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/vim-statline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-endwise'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'sjl/gundo.vim'
 Plugin 'luochen1990/rainbow' " Rainbow colored parentheses matching
+" Languages
+Plugin 'elzr/vim-json' " JSON highlighting
+Plugin 'vim-ruby/vim-ruby'
+
+" Currently not using
 "Plugin 'wesQ3/vim-windowsawp'
 "Plugin 'davidhalter/jedi-vim'
 "Plugin 'SirVer/utilsnips'
@@ -235,19 +243,47 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <F4><F4> :set invwrap wrap?<CR> "use <F4><F4> to toggle wordwrap
 nnoremap <F5><F5> :set invhls hls?<CR> " use <F5><F5> to toggle search highlight
 " }}}
+" 6.11 Other {{{
 
+" }}}
 " End Key_Remapping }}}
 
-" 8.0 Plugin_Modifications {{{
+" 7.0 Plugin_Modifications {{{
 
-" vim-airline {{{
+" 7.1 vim-airline {{{
 "let g:airline_section_b = '%{strftome("%c")}'
 "let g:airline_section_y = 'BN: %{bufnr("%")}'
 " End vim-airline }}}
-" rainbox {{{
+" 7.2 rainbox {{{
 let g:rainbow_active = 1
 " End rainbow }}}
- 
+" 7.3 startify {{{
+
+" Startify list order
+let g:startify_list_order = [
+      \ ['   MRU'],           'files' ,
+      \ ['   MRU '.getcwd()], 'dir',
+      \ ['   Sessions'],      'sessions',
+      \ ['   Bookmarks'],     'bookmarks',
+      \ ]
+
+let g:startify_change_to_dir          = 0
+let g:startify_enable_special         = 0
+let g:startify_files_number           = 8
+let g:startify_session_autoload       = 1
+let g:startify_session_delete_buffers = 1
+let g:startify_session_persistence    = 1
+let g:startify_use_env                = 1
+
+"function! s:center_header(lines) abort
+"  let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
+"  let centered_lines = map(copy(a:lines), 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
+"  return centered_lines
+"endfunction
+
+" let g:startify_custom_header = s:center_header(split(system('tips | '. (s:mac ? 'cowthink' : 'cowsay -f apt')), '\n'))
+
+" }}}
 " End Plugin_Modifications }}}
 
 " End Table_of_Contents
