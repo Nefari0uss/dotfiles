@@ -129,27 +129,30 @@ autocmd BufNewFile *.tex 0r ~/.vim/templates/template.tex
 " 3.0 General_Config {{{
 
 " 3.1 General Stuff {{{
-syntax enable " Syntax highlighting is magical
-set history=100 " Probably excessive
-set undolevels=100 " Equally excessive
-filetype plugin on " Enable filetype specific plugins
-filetype indent on " Enable filetype specific indenation
-set cursorline " Highlight the current line
-set wildmenu " Visual autocomplete wild card menu
-set wildchar=<TAB> " Start wild card completion with tab
-set lazyredraw " Redraw only when necessary
-set ttyfast
-set encoding=utf8 " Set UTF-8 as standard encoding
-set backspace=indent,eol,start " Allow backspace to delete character
-set scrolloff=5 " Keep this many lines above/below cursor while scrolling
-set visualbell " Be quiet Vim.
-set noerrorbells " Bad Vim. Be quiet.
-set laststatus=2
-set pastetoggle=<F2> " When in insert mode, press <F2> to go to paste mode, where you can paste mass data that won't be autoindented
-set showmode " Show which mode we are in
-let mapleader=","  " Set leader key to be ,
-set clipboard=unnamed " Yank to system register by default
 
+filetype indent on " Enable filetype specific indenation
+filetype plugin on " Enable filetype specific plugins
+
+let mapleader=","  " Set leader key to be ,
+
+set backspace=indent,eol,start " Allow backspace to delete character
+set clipboard=unnamed " Yank to system register by default
+set cursorline " Highlight the current line
+set encoding=utf8 " Set UTF-8 as standard encoding
+set history=100 " Probably excessive
+set laststatus=2
+set lazyredraw " Redraw only when necessary
+set noerrorbells " Bad Vim. Be quiet.
+set pastetoggle=<F2> " When in insert mode, press <F2> to go to paste mode, where you can paste mass data that won't be autoindented
+set scrolloff=5 " Keep this many lines above/below cursor while scrolling
+set showmode " Show which mode we are in
+set ttyfast
+set undolevels=100 " Equally excessive
+set visualbell " Be quiet Vim.
+set wildchar=<TAB> " Start wild card completion with tab
+set wildmenu " Visual autocomplete wild card menu
+set listchars=tab:▸\ ,trail:·,extends:#,nbsp:·
+syntax enable " Syntax highlighting is magical
 " }}}
 " 3.2 Enable mouse mode if available. {{{
 if has("mouse")
@@ -167,7 +170,6 @@ set showmatch " Show matching brackets
 set hlsearch " Highlight search results
 set incsearch " Search as characters are entered
 set ignorecase " Make searches case-insensitive
-"set smartcase " If capital letter is included then search case-sensitive
 set magic " Allow use of Regex in search
 
 " turn off search highlight
@@ -207,8 +209,24 @@ endtry
 " 5.1 Text {{{
 
 set wrap " Set line wrapping by default
-set omnifunc=syntaxcomplete#Complete " Enable Vim's omnicomplete
 
+" Enable omni completion. (Ctrl-X Ctrl-O) {{{
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType java set omnifunc=javacomplete#Complete
+
+" use syntax complete if nothing else available
+if has("autocmd") && exists("+omnifunc")
+  autocmd Filetype *
+              \	if &omnifunc == "" |
+              \		setlocal omnifunc=syntaxcomplete#Complete |
+              \	endif
+endif
+" }}}
 " End Text }}}
 " 5.2 Tabs_and_Intendation {{{
 
@@ -272,7 +290,7 @@ function! ToggleNumber()
     endif
 endfunc
 
-nnoremap <C-m> :call ToggleNumber()<CR>
+nnoremap <leader>n :call ToggleNumber()<CR>
 " End Toggle Line Numbers }}}
 " 6.6 Remove trailing whitespace w/leader-W {{{
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -287,7 +305,7 @@ endfunction
 " 6.10 Useful Toggles {{{
 nnoremap <F4><F4> :set invwrap wrap?<CR> "use <F4><F4> to toggle wordwrap
 nnoremap <F5><F5> :set invhls hls?<CR> " use <F5><F5> to toggle search highlight
-"map <F7> :setlocal spell! spelllang=en_us
+nnoremap <leader>l :set list!<cr>
 " }}}
 " 6.11 Other {{{
 let g:ctrlp_map = '<c-p>' " default for Ctrl-P
