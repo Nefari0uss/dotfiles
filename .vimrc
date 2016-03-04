@@ -117,6 +117,11 @@ augroup END " }}}
 " 2.2 Autoread .vimrc when writing to it {{{
 autocmd! bufwritepost .vimrc source ~/.vimrc
 " }}}
+" 2.3 Set tab spacing per filetype {{{
+autocmd FileType c,arduino setlocal tabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType json,rust setlocal shiftwidth=4 tabstop=4
+autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4
+" }}}
 " 2.4 Use text mode when editing general documents {{{
 autocmd FileType txt,md,markdown call SetupForText()
 " }}}
@@ -151,7 +156,7 @@ set undolevels=100 " Equally excessive
 set visualbell " Be quiet Vim.
 set wildchar=<TAB> " Start wild card completion with tab
 set wildmenu " Visual autocomplete wild card menu
-set listchars=tab:▸\ ,trail:·,extends:#,nbsp:·
+set listchars=eol:$,tab:»»,space:·
 syntax enable " Syntax highlighting is magical
 " }}}
 " 3.2 Enable mouse mode if available. {{{
