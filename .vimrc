@@ -1,13 +1,13 @@
-"               ____           _ ____                 _      
+"               ____           _ ____                 _
 "   ____  ___  / __/___ ______(_) __ \__  ___________( )_____
 "  / __ \/ _ \/ /_/ __ `/ ___/ / / / / / / / ___/ ___/// ___/
-" / / / /  __/ __/ /_/ / /  / / /_/ / /_/ (__  |__  ) (__  ) 
-"/_/ /_/\___/_/  \__,_/_/  /_/\____/\__,_/____/____/ /____/  
+" / / / /  __/ __/ /_/ / /  / / /_/ / /_/ (__  |__  ) (__  )
+"/_/ /_/\___/_/  \__,_/_/  /_/\____/\__,_/____/____/ /____/
 "
-"   _   __(_)___ ___  __________                             
-"  | | / / / __ `__ \/ ___/ ___/                             
-" _| |/ / / / / / / / /  / /__                               
-"(_)___/_/_/ /_/ /_/_/   \___/                               
+"   _   __(_)___ ___  __________
+"  | | / / / __ `__ \/ ___/ ___/
+" _| |/ / / / / / / / /  / /__
+"(_)___/_/_/ /_/ /_/_/   \___/
 
 " DISCLAIMER: {{{
 " This is my .vimrc file that I've configured for my own personal tastes. As
@@ -47,7 +47,14 @@ Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
 
 " Currently not using
 " Languages
-"Plugin 'JamshedVesuna/vim-markdown-preview' 
+
+
+" Asthetics
+Plugin 'mhinz/vim-startify' " Fancy start screen
+
+
+
+"Plugin 'JamshedVesuna/vim-markdown-preview'
 "Plugin 'SirVer/utilsnips'
 "Plugin 'davidhalter/jedi-vim'
 "Plugin 'honza/vim-snippets'
@@ -56,8 +63,9 @@ Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
 "Plugin 'suan/vim-instant-markdown'
 "Plugin 'wesQ3/vim-windowsawp'
 "Plugin 'artur-shaik/vim-javacomplete2' " Java autocomplete
+"Plugin 'tpope/vim-fugitive' " Git wrapper
 
-"Plugin 'tpope/vim-fugitive' " Git wrapper 
+
 Plugin 'airblade/vim-gitgutter' " Show diffs left of numbers:w
 Plugin 'bling/vim-bufferline' " Show buffers in status bar
 Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy finder for files/tags/buffers/etc
@@ -65,7 +73,6 @@ Plugin 'easymotion/easymotion' " Previews for using motions
 Plugin 'elzr/vim-json' " JSON highlighting
 Plugin 'ervandew/supertab' " Tab complete in insert mode
 Plugin 'luochen1990/rainbow' " Rainbow colored parentheses matching
-Plugin 'mhinz/vim-startify' " Fancy start screen
 Plugin 'millermedeiros/vim-statline' " Useful information for the vim status bar
 Plugin 'powerline/powerline' " Status bar plugin for Vim
 Plugin 'ryanoasis/vim-devicons' " Fancy icons for stuff like NERDTree
@@ -77,6 +84,7 @@ Plugin 'vim-airline/vim-airline' " Status bar stuff
 Plugin 'vim-airline/vim-airline-themes' " Status bar themes
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'xuyuanp/nerdtree-git-plugin' " Show git status in NERDTree
+
 " End Plugin List }}}
 " 1.3 Post Plugin Vundle Stuff {{{
 " All of your Plugins must be added before the following line
@@ -93,8 +101,8 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line" 
-" 
+" Put your non-Plugin stuff after this line"
+"
 " End Post Plugin Vundle Stuff }}}
 
 "End Vundle_Setup }}}
@@ -106,35 +114,29 @@ augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
 augroup END " }}}
-" 2.2 Auto-reload .vimrc upon save {{{
-augroup reload_vimrc
-    autocmd!
-    autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END " }}}
-" 2.3 Set numbers based on whether window is in focus {{{{
-augroup set_number_on_window_focus
-    autocmd WinEnter,FocusGained * :setlocal number relativenumber
-    autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
-augroup END " }}}
+" 2.2 Autoread .vimrc when writing to it {{{
+autocmd! bufwritepost .vimrc source ~/.vimrc
+" }}}
 " 2.4 Use text mode when editing general documents {{{
-autocmd FileType txt,md,markdown,tex call SetupForText()
+autocmd FileType txt,md,markdown call SetupForText()
 " }}}
 " 2.5 File templates {{{
 autocmd BufNewFile *.html 0r ~/.vim/templates/template.html
 autocmd BufNewFile *.tex 0r ~/.vim/templates/template.tex
 " }}}
-" End Autocommand Groups }}} 
+" End Autocommand Groups }}}
 
 " 3.0 General_Config {{{
 
 " 3.1 General Stuff {{{
 syntax enable " Syntax highlighting is magical
-set history=100 " Probably excessive 
+set history=100 " Probably excessive
 set undolevels=100 " Equally excessive
-filetype plugin on " Enable filetype specific plugins 
+filetype plugin on " Enable filetype specific plugins
 filetype indent on " Enable filetype specific indenation
 set cursorline " Highlight the current line
 set wildmenu " Visual autocomplete wild card menu
+set wildchar=<TAB> " Start wild card completion with tab
 set lazyredraw " Redraw only when necessary
 set ttyfast
 set encoding=utf8 " Set UTF-8 as standard encoding
@@ -143,11 +145,14 @@ set scrolloff=5 " Keep this many lines above/below cursor while scrolling
 set visualbell " Be quiet Vim.
 set noerrorbells " Bad Vim. Be quiet.
 set laststatus=2
-set guifont=DroidSansMonoPLNerd:h12
+set pastetoggle=<F2> " When in insert mode, press <F2> to go to paste mode, where you can paste mass data that won't be autoindented
+set showmode " Show which mode we are in
+let mapleader=","  " Set leader key to be ,
+set clipboard=unnamed " Yank to system register by default
 
 " }}}
-" 3.2 Enable mouse mode if available. {{{ 
-if has("mouse") 
+" 3.2 Enable mouse mode if available. {{{
+if has("mouse")
     set mouse=a
 endif " }}}
 " End General_Config }}}
@@ -170,7 +175,7 @@ set magic " Allow use of Regex in search
 
 " End Searching }}}
 " 4.3 Line numbers using Vim 7.4's hybrid mode {{{
-set relativenumber 
+set relativenumber
 set number
 " }}}
 " 4.4 Folding {{{
@@ -194,14 +199,6 @@ try
 catch
 endtry
 " End Set Colour Scheme }}}
-" 4.7 GUI Mode Extra Options {{{ 
-if has("gui_running")
-    set guioptions-=T
-    set guioptions+=e
-    set t_Co=256
-    set guitablabel=%M\ %t
-endif
-" End GUI Mode Extra Options }}}
 
 " End User_Interface }}}
 
@@ -210,17 +207,17 @@ endif
 " 5.1 Text {{{
 
 set wrap " Set line wrapping by default
-set omnifunc=syntaxcomplete#Complete " Enable Vim's omnicomplete 
+set omnifunc=syntaxcomplete#Complete " Enable Vim's omnicomplete
 
 " End Text }}}
-" 5.2 Tabs_and_Intendation {{{ 
+" 5.2 Tabs_and_Intendation {{{
 
 set tabstop=4 " 1 tab = 4 spaces
 set expandtab " Expand tab to be spaces
 
 set shiftwidth=4 " Number of spaces to use when inserting a tab
 set shiftround " Use multiples of shiftwidfth with '>' and '<'
-set smarttab " Insert tabs on start of line using shiftwidth 
+set smarttab " Insert tabs on start of line using shiftwidth
 
 set smartindent " Automatically insert extra level of indentation when needed
 set autoindent " Auto indent as needed
@@ -228,8 +225,12 @@ set copyindent " Copy previous indentation leven on autoindent
 
 " End Tabs_and_Intendation }}}
 " 5.3 Buffers {{{
-set hidden " change buffers without having to save 
-" See 'Buffer_Control' for key mappings 
+
+set splitright " Open splits to the right
+set splitbelow " Then bot
+
+set hidden " change buffers without having to save
+" See 'Buffer_Control' for key mappings
 " End Buffers }}}
 
 " End Text_Tabs_Indentation_and_Buffers }}}
@@ -241,18 +242,27 @@ map j gj
 map k gk
 " }}}
 " 6.2 Buffer_Control {{{
-" Control+h/j/k/l to move around windows 
+" Control+h/j/k/l to move around windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-map <Tab><Tab> <C-W>w " tab-tab will quickly cycle through windows 
+" More convenient bindings for buffers
+"map <C-_> <C-W>_ " Increase vertical space for current window
+"map <C-|> <C-W>| " Increase horizontal space for current window
+"map <C-=> <C-W>= " Evenly distribute space for all windows
+"map <C-+> <C-W>+ " Increase curent window height
+"map <C--> <C-W>- " Decrease current window height
+"map <C->> <C-W>> " Increase current window width
+"map <C-<> <C-W>< " Decrease current window width
+
+map <Tab><Tab> <C-W>w " tab-tab will quickly cycle through windows
 " }}}
 " 6.3 Toggle NERDTree w/Ctrl-n {{{
 map <C-n> :NERDTreeToggle<CR> " Toggle NERDTree w/Ctrl-N
 " }}}
-" 6.4 Toggle line numbers w/Ctrl-m {{{ 
+" 6.4 Toggle line numbers w/Ctrl-m {{{
 function! ToggleNumber()
     if(&relativenumber == 1)
         set norelativenumber
@@ -270,18 +280,18 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 " 6.7 Text Mode Setup {{{
 function! SetupForText()
     setlocal spell spelllang=en_us " Spell checking
-    setlocal linebreak " Break on whitespace
-    setlocal colorcolumn=0 " Turn off colour column
+    "setlocal linebreak " Break on whitespace
+    "setlocal colorcolumn=0 " Turn off colour column
 endfunction
 " }}}
 " 6.10 Useful Toggles {{{
 nnoremap <F4><F4> :set invwrap wrap?<CR> "use <F4><F4> to toggle wordwrap
 nnoremap <F5><F5> :set invhls hls?<CR> " use <F5><F5> to toggle search highlight
+"map <F7> :setlocal spell! spelllang=en_us
 " }}}
 " 6.11 Other {{{
 let g:ctrlp_map = '<c-p>' " default for Ctrl-P
-let g:ctrlp_cmd = 'CtrlP' " default for Ctrl-P 
-" leader leader char for easy motions call
+let g:ctrlp_cmd = 'CtrlP' " default for Ctrl-P
 " }}}
 " End Key_Remapping }}}
 
@@ -312,7 +322,7 @@ let g:rainbow_conf = {
             \       'css': 0,
             \       'html': 0,
             \   }
-            \} 
+            \}
 " End rainbow }}}
 " 7.3 startify {{{
 
@@ -340,16 +350,6 @@ let g:startify_use_env                = 1
 
 " let g:startify_custom_header = s:center_header(split(system('tips | '. (s:mac ? 'cowthink' : 'cowsay -f apt')), '\n'))
 
-" }}}
-" 7.4 syntastic {{{
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 " }}}
 " 7.5 vim-devicons {{{
 let g:airline_powerline_fonts = 1
