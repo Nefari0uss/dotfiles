@@ -2,7 +2,7 @@
 
 
 # Ignore Vim plugin installs
-.vim/plugged/*
+~/.vim/plugged/*
 
 
 ## VIM Generated Files ##
