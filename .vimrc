@@ -30,29 +30,30 @@
 
 
 " Table_of_Contents
+" 1.0 Vim Plug(ins) {{{
 
-" 1.0 Vundle_Setup {{{
+" Auto install Plug.vim
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
 
-" 1.1 Vundle Requirements {{{
-set nocompatible " VIM, not Vi ~ required
-filetype off     " required
-
-set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path to include Vundle and initialize
-
-call vundle#begin() " ('~/some/path/here') optional
-
-Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
-" End Vundle Requirements }}}
+call plug#begin('~/.vim/plugged')
 " 1.2 Plugin List {{{
 
 " Currently not using
 " Languages
-
+"Plugin 'elzr/vim-json' " JSON highlighting
 
 " Asthetics
-Plugin 'mhinz/vim-startify' " Fancy start screen
+Plug 'mhinz/vim-startify' " Fancy start screen
 
 
+" Utilities
+"Plug 'scrooloose/nerdtree' " File explorer
+"Plug 'scrooloose/nerdcommenter' " Easy commenting
+"Plug 'xuyuanp/nerdtree-git-plugin' " Show git status in NERDTree
 
 "Plugin 'JamshedVesuna/vim-markdown-preview'
 "Plugin 'SirVer/utilsnips'
@@ -63,49 +64,25 @@ Plugin 'mhinz/vim-startify' " Fancy start screen
 "Plugin 'suan/vim-instant-markdown'
 "Plugin 'wesQ3/vim-windowsawp'
 "Plugin 'artur-shaik/vim-javacomplete2' " Java autocomplete
-"Plugin 'tpope/vim-fugitive' " Git wrapper
 
 
-Plugin 'airblade/vim-gitgutter' " Show diffs left of numbers:w
-Plugin 'bling/vim-bufferline' " Show buffers in status bar
-Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy finder for files/tags/buffers/etc
-Plugin 'easymotion/easymotion' " Previews for using motions
-Plugin 'elzr/vim-json' " JSON highlighting
-Plugin 'ervandew/supertab' " Tab complete in insert mode
-Plugin 'luochen1990/rainbow' " Rainbow colored parentheses matching
-Plugin 'millermedeiros/vim-statline' " Useful information for the vim status bar
-Plugin 'powerline/powerline' " Status bar plugin for Vim
-Plugin 'ryanoasis/vim-devicons' " Fancy icons for stuff like NERDTree
-Plugin 'scrooloose/nerdcommenter' " Easy commenting
-Plugin 'scrooloose/nerdtree' " File explorer
-Plugin 'scrooloose/syntastic' " Syntax checker
-Plugin 'tpope/vim-endwise' " Adds end/endif/end etc to code
-Plugin 'vim-airline/vim-airline' " Status bar stuff
-Plugin 'vim-airline/vim-airline-themes' " Status bar themes
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'xuyuanp/nerdtree-git-plugin' " Show git status in NERDTree
+"Plugin 'airblade/vim-gitgutter' " Show diffs left of numbers:w
+"Plugin 'bling/vim-bufferline' " Show buffers in status bar
+"Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy finder for files/tags/buffers/etc
+""Plugin 'easymotion/easymotion' " Previews for using motions
+"Plugin 'ervandew/supertab' " Tab complete in insert mode
+"Plugin 'luochen1990/rainbow' " Rainbow colored parentheses matching
+"Plugin 'millermedeiros/vim-statline' " Useful information for the vim status bar
+"Plugin 'powerline/powerline' " Status bar plugin for Vim
+"Plugin 'ryanoasis/vim-devicons' " Fancy icons for stuff like NERDTree
+"Plugin 'tpope/vim-endwise' " Adds end/endif/end etc to code
+"Plugin 'vim-airline/vim-airline' " Status bar stuff
+"Plugin 'vim-airline/vim-airline-themes' " Status bar themes
+"Plugin 'vim-ruby/vim-ruby'
 
 " End Plugin List }}}
-" 1.3 Post Plugin Vundle Stuff {{{
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line"
-"
-" End Post Plugin Vundle Stuff }}}
-
-"End Vundle_Setup }}}
+call plug#end()
+"End Vim Plug(ins) }}}
 
 " 2.0 Autocommand_Groups {{{
 
@@ -121,6 +98,7 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd FileType c,arduino setlocal tabstop=8 shiftwidth=8 noexpandtab
 autocmd FileType json,rust setlocal shiftwidth=4 tabstop=4
 autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4
+autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 " }}}
 " 2.4 Use text mode when editing general documents {{{
 autocmd FileType txt,md,markdown call SetupForText()
@@ -135,10 +113,12 @@ autocmd BufNewFile *.tex 0r ~/.vim/templates/template.tex
 
 " 3.1 General Stuff {{{
 
+set nocompatible " VIM, not Vi ~ required
+
 filetype indent on " Enable filetype specific indenation
 filetype plugin on " Enable filetype specific plugins
 
-let mapleader=","  " Set leader key to be ,
+let mapleader=";"  " Set leader key to be ,
 
 set backspace=indent,eol,start " Allow backspace to delete character
 set clipboard=unnamed " Yank to system register by default
