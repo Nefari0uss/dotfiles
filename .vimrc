@@ -32,28 +32,35 @@
 " Table_of_Contents
 " 1.0 Vim Plug(ins) {{{
 
-" Auto install Plug.vim
+" Auto install Plug.vim {{{
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
+" }}}
 
 call plug#begin('~/.vim/plugged')
 " 1.2 Plugin List {{{
 
-" Currently not using
 " Languages
+Plug 'sheerun/vim-polyglot'
 "Plugin 'elzr/vim-json' " JSON highlighting
 
 " Asthetics
 Plug 'mhinz/vim-startify' " Fancy start screen
 
-
 " Utilities
-"Plug 'scrooloose/nerdtree' " File explorer
-"Plug 'scrooloose/nerdcommenter' " Easy commenting
-"Plug 'xuyuanp/nerdtree-git-plugin' " Show git status in NERDTree
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " File explorer
+Plug 'scrooloose/nerdcommenter' " Easy commenting
+Plug 'xuyuanp/nerdtree-git-plugin' " Show git status in NERDTree
+Plug 'luochen1990/rainbow' " Rainbow colored parentheses matching
+
+"Plug 'junegunn/vim-easy-align'
+
+
+" Other
+"Plug 'junegunn/vim-journal'
 
 "Plugin 'JamshedVesuna/vim-markdown-preview'
 "Plugin 'SirVer/utilsnips'
@@ -65,20 +72,15 @@ Plug 'mhinz/vim-startify' " Fancy start screen
 "Plugin 'wesQ3/vim-windowsawp'
 "Plugin 'artur-shaik/vim-javacomplete2' " Java autocomplete
 
-
+"Plug 'itchyny/lightline.vim'
 "Plugin 'airblade/vim-gitgutter' " Show diffs left of numbers:w
 "Plugin 'bling/vim-bufferline' " Show buffers in status bar
 "Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy finder for files/tags/buffers/etc
-""Plugin 'easymotion/easymotion' " Previews for using motions
+"Plugin 'easymotion/easymotion' " Previews for using motions
 "Plugin 'ervandew/supertab' " Tab complete in insert mode
-"Plugin 'luochen1990/rainbow' " Rainbow colored parentheses matching
 "Plugin 'millermedeiros/vim-statline' " Useful information for the vim status bar
-"Plugin 'powerline/powerline' " Status bar plugin for Vim
 "Plugin 'ryanoasis/vim-devicons' " Fancy icons for stuff like NERDTree
 "Plugin 'tpope/vim-endwise' " Adds end/endif/end etc to code
-"Plugin 'vim-airline/vim-airline' " Status bar stuff
-"Plugin 'vim-airline/vim-airline-themes' " Status bar themes
-"Plugin 'vim-ruby/vim-ruby'
 
 " End Plugin List }}}
 call plug#end()
