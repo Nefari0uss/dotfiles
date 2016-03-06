@@ -60,10 +60,11 @@ Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' } " Create a table 
 Plug 'airblade/vim-gitgutter' " Show diffs left of numbers
 Plug 'ervandew/supertab' " Tab complete in insert mode
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' } " Fuzzly file finder
+Plug 'easymotion/vim-easymotion' " Preview vim motions
 
 " Visual Aids
 Plug 'luochen1990/rainbow' " Rainbow colored parentheses matching
-Plug 'gorodinskiy/vim-coloresque', { 'for': 'css, less, sass, html' } " CSS/LESS/SASS/HTML colour preview
+Plug 'gorodinskiy/vim-coloresque', { 'for': 'css' } " CSS/LESS/SASS/HTML colour preview
 
 "Plug 'junegunn/vim-easy-align'
 
