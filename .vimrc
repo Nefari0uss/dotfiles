@@ -46,6 +46,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'sheerun/vim-polyglot'
 Plug 'elzr/vim-json', { 'for': 'json' } " JSON highlighting
 Plug 'kannokanno/previm', { 'for': 'markdown' }
+Plug 'valloric/matchtagalways', { 'for': ['html', 'eruby'] } " Match HTML tags
 
 " Asthetics
 Plug 'mhinz/vim-startify' " Fancy start screen
@@ -61,6 +62,7 @@ Plug 'airblade/vim-gitgutter' " Show diffs left of numbers
 Plug 'ervandew/supertab' " Tab complete in insert mode
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' } " Fuzzly file finder
 Plug 'easymotion/vim-easymotion' " Preview vim motions
+Plug 'tommcdo/vim-exchange' " Swap two regions of text
 
 " Visual Aids
 Plug 'luochen1990/rainbow' " Rainbow colored parentheses matching
@@ -186,10 +188,11 @@ autocmd FileType txt,md,markdown call SetupForText()
 autocmd BufNewFile *.html 0r ~/.vim/templates/template.html
 autocmd BufNewFile *.tex 0r ~/.vim/templates/template.tex
 " }}}
-" 2.6 Allow reading of pdf, docx, etc in Vim w/pandoc and pdftotext
+" 2.6 Allow reading of pdf, docx, etc in Vim w/pandoc and pdftotext {{{
 autocmd BufReadPre *.pdf silent set ro
 autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk -layout -q -eol unix "%" - | fmt -w78
 autocmd BufReadPost *.doc,*.docx,*.rtf,*.odp,*.odt silent %!pandoc "%" -tplain -o /dev/stdout
+" }}}
 " End Autocommand Groups }}}
 
 " 3.0 General_Config {{{
