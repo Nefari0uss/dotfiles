@@ -201,7 +201,7 @@ set nocompatible " VIM, not Vi ~ required
 filetype indent on " Enable filetype specific indenation
 filetype plugin on " Enable filetype specific plugins
 
-let mapleader=";"  " Set leader key to be ,
+let mapleader=";"  " Set leader key to be ;
 
 set backspace=indent,eol,start " Allow backspace to delete character
 set clipboard=unnamed " Yank to system register by default
