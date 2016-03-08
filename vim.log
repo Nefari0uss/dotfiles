@@ -1,0 +1,98 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.003  000.003: --- VIM STARTING ---
+000.105  000.102: Allocated generic buffers
+000.207  000.102: locale set
+000.214  000.007: clipboard setup
+000.217  000.003: window checked
+005.815  005.598: inits 1
+005.822  000.007: parsing arguments
+005.824  000.002: expanding arguments
+005.846  000.022: shell init
+006.918  001.072: Termcap init
+006.938  000.020: inits 2
+007.115  000.177: init highlight
+014.961  000.347  000.347: sourcing /usr/share/vim/vim74/syntax/syncolor.vim
+015.684  003.318  002.971: sourcing /usr/share/vim/vim74/syntax/synload.vim
+036.273  018.882  018.882: sourcing /usr/share/vim/vim74/filetype.vim
+036.774  026.837  004.637: sourcing /usr/share/vim/vim74/syntax/syntax.vim
+038.784  000.104  000.104: sourcing /usr/share/vim/vim74/filetype.vim
+042.672  000.151  000.151: sourcing /usr/share/vim/vim74/ftplugin.vim
+043.180  034.870  007.778: sourcing /etc/vimrc
+048.693  002.847  002.847: sourcing /cygdrive/c/Users/Nikit/.vim/autoload/plug.vim
+058.542  001.619  001.619: sourcing /usr/share/vim/vim74/ftoff.vim
+062.188  000.163  000.163: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/vim-json/ftdetect/json.vim
+100.764  006.949  006.949: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/vim-polyglot/ftdetect/polyglot.vim
+105.324  000.310  000.310: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/vim-polyglot/after/ftdetect/rspec.vim
+105.827  031.935  024.676: sourcing /usr/share/vim/vim74/filetype.vim
+110.701  000.099  000.099: sourcing /usr/share/vim/vim74/ftplugin.vim
+115.662  000.148  000.148: sourcing /usr/share/vim/vim74/indent.vim
+121.211  000.108  000.108: sourcing /usr/share/vim/vim74/filetype.vim
+126.104  000.100  000.100: sourcing /usr/share/vim/vim74/indent.vim
+130.981  000.100  000.100: sourcing /usr/share/vim/vim74/filetype.vim
+135.589  000.098  000.098: sourcing /usr/share/vim/vim74/ftplugin.vim
+138.728  000.475  000.475: sourcing /usr/share/vim/vim74/syntax/nosyntax.vim
+146.896  000.261  000.261: sourcing /usr/share/vim/vim74/syntax/syncolor.vim
+147.713  005.058  004.797: sourcing /usr/share/vim/vim74/syntax/synload.vim
+147.773  010.572  005.039: sourcing /usr/share/vim/vim74/syntax/syntax.vim
+153.538  000.284  000.284: sourcing /usr/share/vim/vim74/syntax/syncolor.vim
+158.367  000.314  000.314: sourcing /usr/share/vim/vim74/syntax/syncolor.vim
+163.100  000.281  000.281: sourcing /usr/share/vim/vim74/syntax/syncolor.vim
+183.526  034.345  033.466: sourcing /cygdrive/c/Users/Nikit/.vim/colors/jellybeans.vim
+189.242  000.298  000.298: sourcing /usr/share/vim/vim74/syntax/syncolor.vim
+193.956  000.301  000.301: sourcing /usr/share/vim/vim74/syntax/syncolor.vim
+214.735  029.766  029.167: sourcing /cygdrive/c/Users/Nikit/.vim/colors/jellybeans.vim
+219.147  000.298  000.298: sourcing /usr/share/vim/vim74/syntax/syncolor.vim
+220.100  175.975  063.777: sourcing $HOME/.vimrc
+220.124  002.164: sourcing vimrc file(s)
+223.504  000.271  000.271: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/vim-startify/plugin/startify.vim
+226.175  000.363  000.363: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/lightline.vim/plugin/lightline.vim
+233.942  005.435  005.435: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/vim-devicons/plugin/webdevicons.vim
+241.396  005.095  005.095: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/nerdcommenter/plugin/NERD_commenter.vim
+245.071  001.296  001.296: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/supertab/plugin/supertab.vim
+254.588  006.755  006.755: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/vim-easymotion/plugin/EasyMotion.vim
+264.895  007.936  007.936: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/youcompleteme/plugin/youcompleteme.vim
+271.491  004.273  004.273: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/rainbow/plugin/rainbow.vim
+277.810  000.257  000.257: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/vim-bufferline/autoload/bufferline.vim
+278.076  004.182  003.925: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/vim-bufferline/plugin/bufferline.vim
+284.868  000.251  000.251: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/vim-gitgutter/autoload/gitgutter/highlight.vim
+285.797  005.313  005.062: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/vim-gitgutter/plugin/gitgutter.vim
+292.228  000.168  000.168: sourcing /usr/share/vim/vim74/plugin/getscriptPlugin.vim
+293.472  000.420  000.420: sourcing /usr/share/vim/vim74/plugin/gzip.vim
+294.614  000.313  000.313: sourcing /usr/share/vim/vim74/plugin/matchparen.vim
+296.185  000.704  000.704: sourcing /usr/share/vim/vim74/plugin/netrwPlugin.vim
+297.177  000.104  000.104: sourcing /usr/share/vim/vim74/plugin/rrhelper.vim
+298.131  000.125  000.125: sourcing /usr/share/vim/vim74/plugin/spellfile.vim
+299.235  000.275  000.275: sourcing /usr/share/vim/vim74/plugin/tarPlugin.vim
+300.285  000.208  000.208: sourcing /usr/share/vim/vim74/plugin/tohtml.vim
+301.365  000.245  000.245: sourcing /usr/share/vim/vim74/plugin/vimballPlugin.vim
+302.528  000.316  000.316: sourcing /usr/share/vim/vim74/plugin/zipPlugin.vim
+303.730  039.809: loading plugins
+304.574  000.844: loading packages
+304.581  000.007: inits 3
+305.137  000.556: reading viminfo
+305.147  000.010: setting raw mode
+2194.300  1890.153: waiting for return
+2194.307  000.007: start termcap
+2194.355  000.048: clearing screen
+2285.818  000.608  000.608: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/lightline.vim/autoload/lightline.vim
+2289.383  000.257  000.257: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/lightline.vim/autoload/lightline/tab.vim
+2299.647  000.427  000.427: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/lightline.vim/autoload/lightline/colorscheme.vim
+2301.701  005.876  005.449: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/lightline.vim/autoload/lightline/colorscheme/powerline.vim
+2301.735  009.292  003.416: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/lightline.vim/autoload/lightline/colorscheme/default.vim
+2304.617  100.105: opening buffers
+2310.543  000.407  000.407: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/vim-gitgutter/autoload/gitgutter.vim
+2315.071  000.395  000.395: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/vim-gitgutter/autoload/gitgutter/utility.vim
+2320.706  000.483  000.483: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/vim-gitgutter/autoload/gitgutter/hunk.vim
+2320.826  014.924: BufEnter autocommands
+2320.835  000.009: editing files in windows
+2326.715  002.945  002.945: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/vim-startify/autoload/startify.vim
+2921.011  000.666  000.666: sourcing /cygdrive/c/Users/Nikit/.vim/plugged/vim-startify/syntax/startify.vim
+2932.314  607.868: VimEnter autocommands
+2932.320  000.006: before starting main loop
+2932.479  000.159: first screen update
+2932.483  000.004: --- VIM STARTED ---

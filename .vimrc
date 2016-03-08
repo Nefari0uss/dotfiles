@@ -61,7 +61,7 @@ Plug 'ryanoasis/vim-devicons' " Fancy icons for stuff like NERDTree
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " File explorer
 Plug 'scrooloose/nerdcommenter' " Easy commenting
 Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' } " Create a table of colours
-Plug 'ervandew/supertab' " Tab complete in insert mode
+"Plug 'ervandew/supertab' " Tab complete in insert mode
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' } " Fuzzly file finder
 Plug 'easymotion/vim-easymotion' " Preview vim motions
 "Plug 'tommcdo/vim-exchange' " Swap two regions of text
