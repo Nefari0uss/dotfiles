@@ -23,6 +23,5 @@ ln -s ~/projects/dotfiles/.vimperatorrc ~/.vimperatorrc
 
 # Git
 echo "Setting up git..."
-ln -s ~/projects/dotfiles/.git ~/.git
 ln -s ~/projects/dotfiles/.gitattributes ~/.gitattributes
 ln -s ~/projects/dotfiles/.gitconfig ~/.gitconfig
