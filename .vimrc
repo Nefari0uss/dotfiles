@@ -51,7 +51,7 @@ Plug 'valloric/matchtagalways', { 'for': ['html', 'eruby'] } " Match HTML tags
 " Asthetics
 Plug 'mhinz/vim-startify' " Fancy start screen
 Plug 'itchyny/lightline.vim' " Info bar at bottom of screen
-
+Plug 'flazz/vim-colorschemes' " Lots of colour schemes in one plugin
 
 " Utilities
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " File explorer
@@ -62,7 +62,7 @@ Plug 'airblade/vim-gitgutter' " Show diffs left of numbers
 Plug 'ervandew/supertab' " Tab complete in insert mode
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' } " Fuzzly file finder
 Plug 'easymotion/vim-easymotion' " Preview vim motions
-Plug 'tommcdo/vim-exchange' " Swap two regions of text
+"Plug 'tommcdo/vim-exchange' " Swap two regions of text
 
 " Visual Aids
 Plug 'luochen1990/rainbow' " Rainbow colored parentheses matching
@@ -143,14 +143,6 @@ let g:startify_session_delete_buffers = 1
 let g:startify_session_persistence    = 1
 let g:startify_use_env                = 1
 
-"function! s:center_header(lines) abort
-"  let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
-"  let centered_lines = map(copy(a:lines), 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
-"  return centered_lines
-"endfunction
-
-" let g:startify_custom_header = s:center_header(split(system('tips | '. (s:mac ? 'cowthink' : 'cowsay -f apt')), '\n'))
-
 " }}}
 " 1.3.4 vim-devicons {{{
 let g:airline_powerline_fonts = 1
@@ -171,24 +163,25 @@ let NERDTreeIgnore = ['\.swp$'] " Ignore swap files
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
-augroup END " }}}
+augroup END
+" }}}
 " 2.2 Autoread .vimrc when writing to it {{{
 autocmd! bufwritepost .vimrc source ~/.vimrc
 " }}}
 " 2.3 Set tab spacing per filetype {{{
-autocmd FileType c,arduino setlocal tabstop=8 shiftwidth=8 noexpandtab
-autocmd FileType json,rust setlocal shiftwidth=4 tabstop=4
-autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4
-autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType c setlocal tabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType java setlocal tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab
+autocmd FileType json setlocal shiftwidth=4 tabstop=4 noexpandtab
+autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 " }}}
-" 2.4 Use text mode when editing general documents {{{
-autocmd FileType txt,md,markdown call SetupForText()
-" }}}
-" 2.5 File templates {{{
+" 2.4 File templates {{{
 autocmd BufNewFile *.html 0r ~/.vim/templates/template.html
 autocmd BufNewFile *.tex 0r ~/.vim/templates/template.tex
 " }}}
-" 2.6 Allow reading of pdf, docx, etc in Vim w/pandoc and pdftotext {{{
+" 2.5 Allow reading of pdf, docx, etc in Vim w/pandoc and pdftotext {{{
 autocmd BufReadPre *.pdf silent set ro
 autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk -layout -q -eol unix "%" - | fmt -w78
 autocmd BufReadPost *.doc,*.docx,*.rtf,*.odp,*.odt silent %!pandoc "%" -tplain -o /dev/stdout
@@ -199,7 +192,7 @@ autocmd BufReadPost *.doc,*.docx,*.rtf,*.odp,*.odt silent %!pandoc "%" -tplain -
 
 " 3.1 General Stuff {{{
 
-set nocompatible " VIM, not Vi ~ required
+set nocompatible " VIM, not Vi
 
 filetype indent on " Enable filetype specific indenation
 filetype plugin on " Enable filetype specific plugins
@@ -263,14 +256,11 @@ setlocal foldmethod=indent
 "endif
 " }}}
 " 4.6 Set Colours {{{
-set t_Co=256 " Tmux/Vim airline fix
+set t_Co=256 " Colours fix
 
 " Set colour scheme
-try
-    colorscheme elflord
-    set background=dark
-catch
-endtry
+color jellybeans
+set background=dark
 " End Set Colour Scheme }}}
 
 " End User_Interface }}}
@@ -279,7 +269,7 @@ endtry
 
 " 5.1 Text {{{
 
-set wrap " Set line wrapping by default
+set nowrap " Set line wrapping OFF by default
 
 " Enable omni completion. (Ctrl-X Ctrl-O) {{{
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -365,13 +355,6 @@ nnoremap <leader>n :call ToggleNumber()<CR>
 " End Toggle Line Numbers }}}
 " 6.6 Remove trailing whitespace w/<leader>-ws {{{
 nnoremap <leader>ws :%s/\s\+$//<cr>:let @/=''<CR>
-" }}}
-" 6.7 Text Mode Setup {{{
-function! SetupForText()
-    setlocal spell spelllang=en_us " Spell checking
-    "setlocal linebreak " Break on whitespace
-    "setlocal colorcolumn=0 " Turn off colour column
-endfunction
 " }}}
 " 6.10 Useful Toggles {{{
 nnoremap <leader>wr :set wrap! wrap?<CR> " Toggle wrap using <leader>wr
