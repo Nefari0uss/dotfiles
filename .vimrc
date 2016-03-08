@@ -47,50 +47,44 @@ Plug 'sheerun/vim-polyglot'
 Plug 'elzr/vim-json', { 'for': 'json' } " JSON highlighting
 Plug 'kannokanno/previm', { 'for': 'markdown' }
 Plug 'valloric/matchtagalways', { 'for': ['html', 'eruby'] } " Match HTML tags
+"Plug 'davidhalter/jedi-vim', { 'for', 'python' } " Python autocompletion library 
+"Plug 'OmniSharp/omnisharp-vim', { 'for', 'csharp' } " C# intellisense
+"Plug 'artur-shaik/vim-javacomplete2' " Java autocomplete
 
 " Asthetics
 Plug 'mhinz/vim-startify' " Fancy start screen
 Plug 'itchyny/lightline.vim' " Info bar at bottom of screen
-Plug 'flazz/vim-colorschemes' " Lots of colour schemes in one plugin
+"Plug 'flazz/vim-colorschemes' " Lots of colour schemes in one plugin
+Plug 'ryanoasis/vim-devicons' " Fancy icons for stuff like NERDTree
 
 " Utilities
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " File explorer
 Plug 'scrooloose/nerdcommenter' " Easy commenting
-Plug 'xuyuanp/nerdtree-git-plugin' " Show git status in NERDTree
 Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' } " Create a table of colours
-Plug 'airblade/vim-gitgutter' " Show diffs left of numbers
 Plug 'ervandew/supertab' " Tab complete in insert mode
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' } " Fuzzly file finder
 Plug 'easymotion/vim-easymotion' " Preview vim motions
 "Plug 'tommcdo/vim-exchange' " Swap two regions of text
+Plug 'wesQ3/vim-windowswap', { 'on': 'WindowSwap' } "Window swap with <leader>ww
+"Plug 'majutsushi/tagbar' ", { 'on': 'TarbarTogggle' }
+"Plug 'sirvir/ultisnips' " Code snippets engine
+"Plug 'honza/vim-snippets' " Code snippets
+Plug 'valloric/youcompleteme' " Code complete engine for Vim 
 
 " Visual Aids
 Plug 'luochen1990/rainbow' " Rainbow colored parentheses matching
 Plug 'gorodinskiy/vim-coloresque', { 'for': 'css' } " CSS/LESS/SASS/HTML colour preview
-
-"Plug 'junegunn/vim-easy-align'
-
+Plug 'bling/vim-bufferline' " Show buffers in status bar
+Plug 'airblade/vim-gitgutter' " Show diffs left of numbers
+"Plug 'junegunn/vim-easy-align' " Alight text
+Plug 'xuyuanp/nerdtree-git-plugin' " Show git status in NERDTree
 
 " Other
 "Plug 'junegunn/vim-journal'
-Plug 'vim-scripts/notes.vim', { 'on': 'Note' }
-Plug 'uguu-org/vim-matrix-screensaver', { 'on': 'Matrix' }
+Plug 'vim-scripts/notes.vim', { 'on': 'Note' } " Note taking plugin
+Plug 'uguu-org/vim-matrix-screensaver', { 'on': 'Matrix' } " Screensaver
 
 
-"Plug 'JamshedVesuna/vim-markdown-preview'
-"Plug 'SirVer/utilsnips'
-"Plug 'davidhalter/jedi-vim'
-"Plug 'honza/vim-snippets'
-"Plug 'iamcco/markdown-preview.vim'
-"Plug 'majutsushi/tagbar'
-"Plug 'suan/vim-instant-markdown'
-"Plug 'wesQ3/vim-windowsawp'
-"Plug 'artur-shaik/vim-javacomplete2' " Java autocomplete
-
-"Plug 'bling/vim-bufferline' " Show buffers in status bar
-"Plug 'easymotion/easymotion' " Previews for using motions
-"Plug 'millermedeiros/vim-statline' " Useful information for the vim status bar
-"Plug 'ryanoasis/vim-devicons' " Fancy icons for stuff like NERDTree
 "Plug 'tpope/vim-endwise' " Adds end/endif/end etc to code
 
 call plug#end()
@@ -145,7 +139,8 @@ let g:startify_use_env                = 1
 
 " }}}
 " 1.3.4 vim-devicons {{{
-let g:airline_powerline_fonts = 1
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+let g:lightline_powerline_fonts = 1
 " }}}
 " 1.3.5 NERDTree {{{{
 let NERDTreeShowHidden=1 " Show hidden files
@@ -172,6 +167,7 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd FileType c setlocal tabstop=8 shiftwidth=8 noexpandtab
 autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType java setlocal tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab
 autocmd FileType json setlocal shiftwidth=4 tabstop=4 noexpandtab
 autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
