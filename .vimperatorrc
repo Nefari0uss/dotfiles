@@ -4,10 +4,9 @@
 
 " vim: set ft=vimperator:
 
-" Ctrl-a
-inoremap <C-a> <C-Home><C-S-End>
+inoremap <C-a> <C-Home><C-S-End> " ctrl-a is highlight all
 
-map <silent> <C-F8> :js toggle_bottombar()<CR>
+map <silent> <C-F8> :js toggle_bottombar()<CR> " toggle status bar with ctrl-F8
 
 :js << EOF
 function toggle_bottombar() {
@@ -18,3 +17,14 @@ function toggle_bottombar() {
   bb.style.overflow = (bb.style.height == '') ? '' : 'hidden';
 }
 EOF
+
+
+" use < and > to navigate tabs
+nnoremap < gT
+nnoremap > gt
+
+" faster scrolling
+nnoremap h 5h
+nnoremap j 5j
+nnoremap k 5k
+nnoremap l 5l
