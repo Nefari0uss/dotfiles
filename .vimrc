@@ -47,21 +47,21 @@ Plug 'sheerun/vim-polyglot'
 Plug 'elzr/vim-json', { 'for': 'json' } " JSON highlighting
 Plug 'kannokanno/previm', { 'for': 'markdown' }
 Plug 'valloric/matchtagalways', { 'for': ['html', 'eruby'] } " Match HTML tags
-"Plug 'davidhalter/jedi-vim', { 'for', 'python' } " Python autocompletion library 
-"Plug 'OmniSharp/omnisharp-vim', { 'for', 'csharp' } " C# intellisense
-"Plug 'artur-shaik/vim-javacomplete2' " Java autocomplete
+Plug 'davidhalter/jedi-vim', { 'for': 'python' } " Python autocompletion library 
+Plug 'OmniSharp/omnisharp-vim', { 'for': 'csharp' } " C# intellisense
+Plug 'artur-shaik/vim-javacomplete2' " Java autocomplete
 
 " Asthetics
 Plug 'mhinz/vim-startify' " Fancy start screen
 Plug 'itchyny/lightline.vim' " Info bar at bottom of screen
-"Plug 'flazz/vim-colorschemes' " Lots of colour schemes in one plugin
+Plug 'flazz/vim-colorschemes' " Lots of colour schemes in one plugin
 Plug 'ryanoasis/vim-devicons' " Fancy icons for stuff like NERDTree
 
 " Utilities
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " File explorer
 Plug 'scrooloose/nerdcommenter' " Easy commenting
 Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' } " Create a table of colours
-"Plug 'ervandew/supertab' " Tab complete in insert mode
+Plug 'ervandew/supertab' " Tab complete in insert mode
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' } " Fuzzly file finder
 Plug 'easymotion/vim-easymotion' " Preview vim motions
 "Plug 'tommcdo/vim-exchange' " Swap two regions of text
@@ -69,7 +69,7 @@ Plug 'wesQ3/vim-windowswap', { 'on': 'WindowSwap' } "Window swap with <leader>ww
 "Plug 'majutsushi/tagbar' ", { 'on': 'TarbarTogggle' }
 "Plug 'sirvir/ultisnips' " Code snippets engine
 "Plug 'honza/vim-snippets' " Code snippets
-Plug 'valloric/youcompleteme' " Code complete engine for Vim 
+"Plug 'valloric/youcompleteme' " Code complete engine for Vim 
 
 " Visual Aids
 Plug 'luochen1990/rainbow' " Rainbow colored parentheses matching
@@ -211,7 +211,7 @@ set undolevels=100 " Equally excessive
 set visualbell " Be quiet Vim.
 set wildchar=<TAB> " Start wild card completion with tab
 set wildmenu " Visual autocomplete wild card menu
-set listchars=eol:$,tab:»»,space:·
+set listchars=tab:▸\ ,eol:¬
 syntax enable " Syntax highlighting is magical
 " }}}
 " 3.2 Enable mouse mode if available. {{{
