@@ -54,7 +54,9 @@ Plug 'artur-shaik/vim-javacomplete2' " Java autocomplete
 " Asthetics
 Plug 'mhinz/vim-startify' " Fancy start screen
 Plug 'itchyny/lightline.vim' " Info bar at bottom of screen
-"Plug 'flazz/vim-colorschemes' " Lots of colour schemes in one plugin
+Plug 'flazz/vim-colorschemes' " Lots of colour schemes in one plugin
+Plug 'ryanoasis/vim-devicons' " Fancy icons for stuff like NERDTree
+>>>>>>> 0f37294e658182f737032087ab16227e6895b685
 
 " Utilities
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " File explorer
@@ -212,7 +214,7 @@ set undolevels=100 " Equally excessive
 set visualbell " Be quiet Vim.
 set wildchar=<TAB> " Start wild card completion with tab
 set wildmenu " Visual autocomplete wild card menu
-set listchars=eol:$,tab:»»,space:·
+set listchars=tab:▸\ ,eol:¬
 syntax enable " Syntax highlighting is magical
 " }}}
 " 3.2 Enable mouse mode if available. {{{
