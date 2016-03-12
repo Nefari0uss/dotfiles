@@ -4,7 +4,8 @@
 
 " vim: set ft=vimperator:
 
-inoremap <C-a> <C-Home><C-S-End> " ctrl-a is highlight all
+" ctrl-a is highlight all
+inoremap <C-a> <C-Home><C-S-End> 
 
 map <silent> <C-F8> :js toggle_bottombar()<CR> " toggle status bar with ctrl-F8
 
