@@ -49,14 +49,13 @@ Plug 'kannokanno/previm', { 'for': 'markdown' }
 Plug 'valloric/matchtagalways', { 'for': ['html', 'eruby'] } " Match HTML tags
 Plug 'davidhalter/jedi-vim', { 'for': 'python' } " Python autocompletion library 
 Plug 'OmniSharp/omnisharp-vim', { 'for': 'csharp' } " C# intellisense
-Plug 'artur-shaik/vim-javacomplete2' " Java autocomplete
+Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' } " Java autocomplete
 
 " Asthetics
 Plug 'mhinz/vim-startify' " Fancy start screen
 Plug 'itchyny/lightline.vim' " Info bar at bottom of screen
 Plug 'flazz/vim-colorschemes' " Lots of colour schemes in one plugin
 Plug 'ryanoasis/vim-devicons' " Fancy icons for stuff like NERDTree
->>>>>>> 0f37294e658182f737032087ab16227e6895b685
 
 " Utilities
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " File explorer
@@ -256,11 +255,7 @@ setlocal foldmethod=indent
 " }}}
 " 4.6 Set Colours {{{
 set t_Co=256 " Colours fix
-
-" Set colour scheme
-color jellybeans
-colorscheme jellybeans
-set background=dark
+color skittles_berry " Set colorscheme
 " End Set Colour Scheme }}}
 
 " End User_Interface }}}
