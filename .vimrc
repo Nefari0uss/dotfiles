@@ -49,28 +49,31 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' } " Python autocompletion library
 Plug 'elzr/vim-json', { 'for': 'json' } " JSON highlighting
 Plug 'kannokanno/previm', { 'for': 'markdown' }
 Plug 'sheerun/vim-polyglot'
-Plug 'valloric/matchtagalways', { 'for': ['html', 'eruby'] } " Match HTML tags
+Plug 'valloric/matchtagalways', { 'for': [
+    \'html', 'javascrpt', 'css', 'eruby', 'xml',] } " Match tags
 
 " Asthetics
 Plug 'flazz/vim-colorschemes' " Lots of colour schemes in one plugin
 Plug 'itchyny/lightline.vim' " Info bar at bottom of screen
 Plug 'mhinz/vim-startify' " Fancy start screen
-Plug 'ryanoasis/vim-devicons' " Fancy icons for stuff like NERDTree
 
 " Utilities
-"Plug 'majutsushi/tagbar' ", { 'on': 'TarbarTogggle' }
-"Plug 'tommcdo/vim-exchange' " Swap two regions of text
-"Plug 'valloric/youcompleteme' " Code complete engine for Vim 
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' } " Fuzzly file finder
 Plug 'easymotion/vim-easymotion' " Preview vim motions
-Plug 'tpope/vim-endwise' " Adds end/endif/end etc to code
 Plug 'ervandew/supertab' " Tab complete in insert mode
 Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' } " Create a table of colours
-Plug 'honza/vim-snippets' " Code snippets
+"Plug 'honza/vim-snippets' " Code snippets
 Plug 'scrooloose/nerdcommenter' " Easy commenting
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " File explorer
-Plug 'sirver/ultisnips' " Code snippets engine
+"Plug 'sirver/ultisnips' " Code snippets engine
 Plug 'wesQ3/vim-windowswap', { 'on': 'WindowSwap' } "Window swap with <leader>ww
+"Plug 'mattn/emmet-vim'
+Plug 'shougo/neocomplete' " Auto complete with cache
+Plug 'shougo/neosnippet'
+Plug 'shougo/neosnippet-snippets'
+Plug 'raimondi/delimitMate' " Auto complete quotes, paents, brackets, etc
+Plug 'nathanaelkane/vim-indent-guides' " Indentation guide with <leader>ig
+
 
 " Visual Aids
 "Plug 'junegunn/vim-easy-align' " Alight text
@@ -78,12 +81,22 @@ Plug 'airblade/vim-gitgutter' " Show diffs left of numbers
 Plug 'bling/vim-bufferline' " Show buffers in status bar
 Plug 'gorodinskiy/vim-coloresque', { 'for': 'css' } " CSS/LESS/SASS/HTML colour preview
 Plug 'luochen1990/rainbow' " Rainbow colored parentheses matching
+Plug 'roman/golden-ratio' " Auto resize buffers to be the golden ratio
 Plug 'xuyuanp/nerdtree-git-plugin' " Show git status in NERDTree
 
 " Other
 "Plug 'junegunn/vim-journal'
 Plug 'uguu-org/vim-matrix-screensaver', { 'on': 'Matrix' } " Screensaver
 Plug 'vim-scripts/notes.vim', { 'on': 'Note' } " Note taking plugin
+
+" Unused {{{
+"Plug 'tpope/vim-speeddating' " Easy increment date and times with Ctrl-A/X
+"Plug 'kshenoy/vim-signature'
+"Plug 'majutsushi/tagbar' ", { 'on': 'TarbarTogggle' }
+"Plug 'tommcdo/vim-exchange' " Swap two regions of text
+"Plug 'valloric/youcompleteme' " Code complete engine for Vim 
+"Plug 'tpope/vim-endwise' " Adds end/endif/end etc to code
+" }}}
 
 
 " Dev icons should be last
@@ -96,13 +109,13 @@ call plug#end()
 " 1.3.1 vim-lightline {{{
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"":""}',
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
+            \ 'colorscheme': 'wombat',
+            \ 'component': {
+            \   'readonly': '%{&readonly?"":""}',
+            \ },
+            \ 'separator': { 'left': '', 'right': '' },
+            \ 'subseparator': { 'left': '', 'right': '' }
+            \ }
 
 " End vim-lightline }}}
 " 1.3.2 rainbox {{{
@@ -155,18 +168,18 @@ let g:lightline_powerline_fonts = 1
 let g:airline_powerline_fonts = 1
 
 let g:lightline = {
-      \ 'component_function': {
-      \   'filetype': 'MyFiletype',
-      \   'fileformat': 'MyFileformat',
-      \ }
-      \ }
+            \ 'component_function': {
+            \   'filetype': 'MyFiletype',
+            \   'fileformat': 'MyFileformat',
+            \ }
+            \ }
 
 function! MyFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
 endfunction
 
 function! MyFileformat()
-  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+    return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
 
 
@@ -177,8 +190,8 @@ let NERDTreeIgnore = ['\.swp$'] " Ignore swap files
 
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+    exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+    exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
 call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
@@ -207,15 +220,90 @@ call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
 " }}}
 " 1.3.7 utilisnips {{{
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+"" If you want :UltiSnipsEdit to split your window.
+"let g:UltiSnipsEditSplit="vertical"
+"" }}}
+" 1.3.8 CtrlP {{{
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+let g:ctrlp_custom_ignore = {
+            \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+            \ 'file': '\v\.(exe|so|dll)$',
+            \ }
 " }}}
+" 1.3.9 neocomplete {{{
+let g:neocomplete#enable_at_startup = 1 " Use neocomplete at startup
+let g:neocomplete#enable_smart_case = 1 " Use smart case
+let g:neocomplete#sources#syntax#min_keyword_length = 3 " Minimum syntax keyword length
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+            \ 'default' : '',
+            \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+    " For no inserting <CR> key.
+    "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+" }}}
 " End Plugin_Modifications }}}
+" 1.3.10 neosnippet
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 "End Vim Plug(ins) }}}
 
 " 2.0 Autocommand_Groups {{{
