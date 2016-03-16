@@ -43,49 +43,48 @@ endif
 " 1.2 Plugin List {{{
 call plug#begin('~/.vim/plugged')
 " Languages
-Plug 'sheerun/vim-polyglot'
-Plug 'elzr/vim-json', { 'for': 'json' } " JSON highlighting
-Plug 'kannokanno/previm', { 'for': 'markdown' }
-Plug 'valloric/matchtagalways', { 'for': ['html', 'eruby'] } " Match HTML tags
-Plug 'davidhalter/jedi-vim', { 'for': 'python' } " Python autocompletion library 
 Plug 'OmniSharp/omnisharp-vim', { 'for': 'csharp' } " C# intellisense
 Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' } " Java autocomplete
+Plug 'davidhalter/jedi-vim', { 'for': 'python' } " Python autocompletion library 
+Plug 'elzr/vim-json', { 'for': 'json' } " JSON highlighting
+Plug 'kannokanno/previm', { 'for': 'markdown' }
+Plug 'sheerun/vim-polyglot'
+Plug 'valloric/matchtagalways', { 'for': ['html', 'eruby'] } " Match HTML tags
 
 " Asthetics
-Plug 'mhinz/vim-startify' " Fancy start screen
-Plug 'itchyny/lightline.vim' " Info bar at bottom of screen
 Plug 'flazz/vim-colorschemes' " Lots of colour schemes in one plugin
+Plug 'itchyny/lightline.vim' " Info bar at bottom of screen
+Plug 'mhinz/vim-startify' " Fancy start screen
 Plug 'ryanoasis/vim-devicons' " Fancy icons for stuff like NERDTree
 
 " Utilities
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " File explorer
-Plug 'scrooloose/nerdcommenter' " Easy commenting
-Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' } " Create a table of colours
-Plug 'ervandew/supertab' " Tab complete in insert mode
+"Plug 'majutsushi/tagbar' ", { 'on': 'TarbarTogggle' }
+"Plug 'tommcdo/vim-exchange' " Swap two regions of text
+"Plug 'valloric/youcompleteme' " Code complete engine for Vim 
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' } " Fuzzly file finder
 Plug 'easymotion/vim-easymotion' " Preview vim motions
-"Plug 'tommcdo/vim-exchange' " Swap two regions of text
+Plug 'tpope/vim-endwise' " Adds end/endif/end etc to code
+Plug 'ervandew/supertab' " Tab complete in insert mode
+Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' } " Create a table of colours
+Plug 'honza/vim-snippets' " Code snippets
+Plug 'scrooloose/nerdcommenter' " Easy commenting
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " File explorer
+Plug 'sirver/ultisnips' " Code snippets engine
 Plug 'wesQ3/vim-windowswap', { 'on': 'WindowSwap' } "Window swap with <leader>ww
-"Plug 'majutsushi/tagbar' ", { 'on': 'TarbarTogggle' }
-"Plug 'sirvir/ultisnips' " Code snippets engine
-"Plug 'honza/vim-snippets' " Code snippets
-"Plug 'valloric/youcompleteme' " Code complete engine for Vim 
 
 " Visual Aids
-Plug 'luochen1990/rainbow' " Rainbow colored parentheses matching
-Plug 'gorodinskiy/vim-coloresque', { 'for': 'css' } " CSS/LESS/SASS/HTML colour preview
-Plug 'bling/vim-bufferline' " Show buffers in status bar
-Plug 'airblade/vim-gitgutter' " Show diffs left of numbers
 "Plug 'junegunn/vim-easy-align' " Alight text
+Plug 'airblade/vim-gitgutter' " Show diffs left of numbers
+Plug 'bling/vim-bufferline' " Show buffers in status bar
+Plug 'gorodinskiy/vim-coloresque', { 'for': 'css' } " CSS/LESS/SASS/HTML colour preview
+Plug 'luochen1990/rainbow' " Rainbow colored parentheses matching
 Plug 'xuyuanp/nerdtree-git-plugin' " Show git status in NERDTree
 
 " Other
 "Plug 'junegunn/vim-journal'
-Plug 'vim-scripts/notes.vim', { 'on': 'Note' } " Note taking plugin
 Plug 'uguu-org/vim-matrix-screensaver', { 'on': 'Matrix' } " Screensaver
+Plug 'vim-scripts/notes.vim', { 'on': 'Note' } " Note taking plugin
 
-
-"Plug 'tpope/vim-endwise' " Adds end/endif/end etc to code
 
 " Dev icons should be last
 Plug 'ryanoasis/vim-devicons' " Fancy icons for stuff like NERDTree
@@ -95,9 +94,18 @@ call plug#end()
 " 1.3 Plugin_Modifications {{{
 
 " 1.3.1 vim-lightline {{{
-" TODO
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"":""}',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+
 " End vim-lightline }}}
-" 1.3.2. rainbox {{{
+" 1.3.2 rainbox {{{
 let g:rainbow_active = 1
 
 let g:rainbow_conf = {
@@ -141,16 +149,72 @@ let g:startify_use_env                = 1
 
 " }}}
 " 1.3.4 vim-devicons {{{
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+"set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+set guifont=DroidSansMonoPLNerd:h12
 let g:lightline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
+
+let g:lightline = {
+      \ 'component_function': {
+      \   'filetype': 'MyFiletype',
+      \   'fileformat': 'MyFileformat',
+      \ }
+      \ }
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
+
+
 " }}}
-" 1.3.5 NERDTree {{{{
+" 1.3.5 NERDTree {{{
 let NERDTreeShowHidden=1 " Show hidden files
 let NERDTreeIgnore = ['\.swp$'] " Ignore swap files
+
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+call NERDTreeHighlightFile('ds_store', 'Gray', 'none', '#686868', '#151515')
+call NERDTreeHighlightFile('gitconfig', 'Gray', 'none', '#686868', '#151515')
+call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', '#151515')
+call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', '#151515')
+call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
+
+
 " }}}
 " 1.3.6 Previm {{{
 " TODO
 " }}}
+" 1.3.7 utilisnips {{{
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+" }}}
+
 " End Plugin_Modifications }}}
 "End Vim Plug(ins) }}}
 
