@@ -71,7 +71,8 @@ Plug 'wesQ3/vim-windowswap', { 'on': 'WindowSwap' } "Window swap with <leader>ww
 Plug 'shougo/neocomplete' " Auto complete with cache
 Plug 'shougo/neosnippet'
 Plug 'shougo/neosnippet-snippets'
-Plug 'raimondi/delimitMate' " Auto complete quotes, paents, brackets, etc
+"Plug 'raimondi/delimitMate' " Auto complete quotes, paents, brackets, etc
+Plug 'jiangmiao/auto-pairs' " Auto-complete quotes, parens, brackets, etc 
 Plug 'nathanaelkane/vim-indent-guides' " Indentation guide with <leader>ig
 
 
