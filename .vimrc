@@ -42,23 +42,23 @@ endif
 
 " 1.2 Plugin List {{{
 call plug#begin('~/.vim/plugged')
-" Languages
+
+" Languages {{{
 Plug 'OmniSharp/omnisharp-vim', { 'for': 'csharp' } " C# intellisense
 Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' } " Java autocomplete
-Plug 'davidhalter/jedi-vim', { 'for': 'python' } " Python autocompletion library 
+Plug 'davidhalter/jedi-vim', { 'for': 'python' } " Python autocompletion library
 Plug 'elzr/vim-json', { 'for': 'json' } " JSON highlighting
 Plug 'kannokanno/previm', { 'for': 'markdown' }
-Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot' " Add syntax and language support for many languages
 Plug 'valloric/matchtagalways', { 'for': [
             \'html', 'javascrpt', 'css', 'eruby', 'xml',] } " Match tags
-
-" Asthetics
-" Plugin: Vim-Colorschemes {{{
-" Tons of vim color schemes
-Plug 'flazz/vim-colorschemes' 
 " }}}
-" Plugin: Lightline {{{
-" Info bar at bottom of screen 
+
+" Asthetics {{{
+" Vim-Colorschemes: Tons of vim colour schemes {{{
+Plug 'flazz/vim-colorschemes'
+" }}}
+" Lightline: Info bar at bottom of screen {{{
 Plug 'itchyny/lightline.vim' "
 let g:lightline = {
             \ 'colorscheme': 'wombat',
@@ -70,12 +70,31 @@ let g:lightline = {
             \ }
 
 " End lightline }}}
-Plug 'mhinz/vim-startify' " Fancy start screen
+" Startify: Fancy start screen {{{
+Plug 'mhinz/vim-startify'
 
-" Utilities
-" Plugin: CtrlP {{{
-" Fuzzy file finder
-Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' } 
+" Startify list order
+let g:startify_list_order = [
+            \ ['   MRU'],           'files' ,
+            \ ['   MRU '.getcwd()], 'dir',
+            \ ['   Sessions'],      'sessions',
+            \ ['   Bookmarks'],     'bookmarks',
+            \ ]
+
+let g:startify_change_to_dir          = 0
+let g:startify_enable_special         = 0
+let g:startify_files_number           = 8
+let g:startify_session_autoload       = 1
+let g:startify_session_delete_buffers = 1
+let g:startify_session_persistence    = 1
+let g:startify_use_env                = 1
+
+" }}}
+" }}}
+
+" Utilities {{{
+" CtrlP: Fuzzy file finder {{{
+Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 
 " Map Ctrl-p to call CtrlP
 let g:ctrlp_map = '<c-p>'
@@ -90,18 +109,27 @@ let g:ctrlp_custom_ignore = {
             \ 'file': '\v\.(exe|so|dll)$',
             \ }
 " }}}
+" EasyMotion: Preivew vim motions {{{
+Plug 'easymotion/vim-easymotion' 
+" }}}
+" Supertab: Tab completion in insert mode {{{
+Plug 'ervandew/supertab'
+" }}}
+" Xterm Color Table: A table of colours {{{
+Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
 
-Plug 'easymotion/vim-easymotion' " Preview vim motions
-Plug 'ervandew/supertab' " Tab complete in insert mode
-Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' } " Create a table of colours
-"Plug 'honza/vim-snippets' " Code snippets
-Plug 'scrooloose/nerdcommenter' " Easy commenting
-" Plugin NERDTree {{{
-" File explorer
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } 
+" Open colour table in a buffer
+nnoremap <leader>col :XtermColorTable<CR>
+
+" }}}
+" NERDCommenter: Easy comment toggling {{{
+Plug 'scrooloose/nerdcommenter'
+" }}}
+" NERDTree: File explorer {{{
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " Toggle NERDTree
-map <C-n> :NERDTreeToggle<CR> 
+map <C-n> :NERDTreeToggle<CR>
 
 let NERDTreeShowHidden=1 " Show hidden files
 let NERDTreeIgnore = ['\.swp$'] " Ignore swap files
@@ -133,9 +161,8 @@ call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
 
 
 " }}}
-" Plugin NERDTree Git Plugin {{{
-" Show git status in NERDTree
-Plug 'xuyuanp/nerdtree-git-plugin' 
+" NERDTree Git Plugin: Show git status in NERDTree {{{
+Plug 'xuyuanp/nerdtree-git-plugin'
 
 " Diffrent symbols
 let g:NERDTreeIndicatorMapCustom = {
@@ -151,22 +178,23 @@ let g:NERDTreeIndicatorMapCustom = {
             \ }
 
 " }}}
-
-"Plug 'sirver/ultisnips' " Code snippets engine
-Plug 'wesQ3/vim-windowswap', { 'on': 'WindowSwap' } "Window swap with <leader>ww
+" Window Swap: Easily swap buffers {{{
+Plug 'wesQ3/vim-windowswap', { 'on': 'WindowSwap' } " Swap against <leader>ww
+" }}}
+" Emmet: Text expansion {{{
 "Plug 'mattn/emmet-vim'
-" Plugin newcomplete {{{
-" Autocomplete with cache
-Plug 'shougo/neocomplete' 
+" }}}
+" Neocomplete: Autocomplete with cache {{{
+Plug 'shougo/neocomplete'
 
 " Use neocomplete at startup
 let g:neocomplete#enable_at_startup = 1 " Use neocomplete at startup
 
 " Use smart case
-let g:neocomplete#enable_smart_case = 1 
+let g:neocomplete#enable_smart_case = 1
 
 " Minimum syntax keyword length
-let g:neocomplete#sources#syntax#min_keyword_length = 3 
+let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
@@ -185,6 +213,7 @@ inoremap <expr><C-g>     neocomplete#undo_completion()
 inoremap <expr><C-l>     neocomplete#complete_common_string()
 
 " Recommended key-mappings.
+
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
@@ -192,11 +221,14 @@ function! s:my_cr_function()
     " For no inserting <CR> key.
     "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
+
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+
 " Close popup by <Space>.
 "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
@@ -210,9 +242,7 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " }}}
-
-" Plugin neosnippet {{{
-" Coding snippets
+" Neosnippet: Coding snippets {{{
 Plug 'shougo/neosnippet'
 Plug 'shougo/neosnippet-snippets'
 
@@ -235,19 +265,26 @@ if has('conceal')
 endif
 
 " }}}
-Plug 'jiangmiao/auto-pairs' " Auto-complete quotes, parens, brackets, etc 
-Plug 'nathanaelkane/vim-indent-guides' " Indentation guide with <leader>ig
+" Auto-Pairs: Auto-complete quotes, parentheses, brackets, quotes, et cetera {{{
+Plug 'jiangmiao/auto-pairs' " Auto-complete quotes, parens, brackets, etc
+" }}}
+" Follow My Lead: Show leader mappings {{{
 Plug 'ktonga/vim-follow-my-lead' " Show leader mappings with <leader>fml
+" }}}
+" End Utilities }}}
 
-" Visual Aids
-"Plug 'junegunn/vim-easy-align' " Alight text
-Plug 'airblade/vim-gitgutter' " Show diffs left of numbers
-Plug 'bling/vim-bufferline' " Show buffers in status bar
-Plug 'gorodinskiy/vim-coloresque', { 'for': 'css' } " CSS/LESS/SASS/HTML colour preview
-
-" Plugin: rainbox {{{
-" Rainbow coloured parentheses matching
-Plug 'luochen1990/rainbow' 
+" Visual Aids {{{
+" Git Gutter: Show diffs left of line numbers {{{
+Plug 'airblade/vim-gitgutter' 
+" }}}
+" Buffer Line: Show buffers in the status bar {{{
+Plug 'bling/vim-bufferline' 
+" }}}
+" Coloresque: CSS/LESS/SASS/HTML colour preview {{{
+Plug 'gorodinskiy/vim-coloresque', { 'for': 'css' } 
+" }}}
+" Rainbox: Rainbow coloured parentheses matching {{{
+Plug 'luochen1990/rainbow'
 
 let g:rainbow_active = 1 " Rainbow is always active
 let g:rainbow_conf = {
@@ -271,50 +308,36 @@ let g:rainbow_conf = {
             \   }
             \}
 " End rainbow }}}
-Plug 'roman/golden-ratio' " Auto resize buffers to be the golden ratio
-"" }}}
-" Other
+" Golden Ratio: Auto resize buffers to be the golden ratio {{{
+Plug 'roman/golden-ratio'  
+" }}}
+" Indentation Guide: Show indentation levels {{{
+Plug 'nathanaelkane/vim-indent-guides' " Call with <leader>ig
+
+" Specify a list of filetypes to disable the plugin for
+let g:indent_guides_exclude_filetype=['help', 'nerdtree']
+
+" }}}
+" End Visual Aids }}}
+
+" Other {{{
 "Plug 'junegunn/vim-journal'
 Plug 'uguu-org/vim-matrix-screensaver', { 'on': 'Matrix' } " Screensaver
 Plug 'vim-scripts/notes.vim', { 'on': 'Note' } " Note taking plugin
-
+" End Other }}}
 " Unused {{{
 "Plug 'tpope/vim-speeddating' " Easy increment date and times with Ctrl-A/X
 "Plug 'kshenoy/vim-signature'
 "Plug 'majutsushi/tagbar' ", { 'on': 'TarbarTogggle' }
 "Plug 'tommcdo/vim-exchange' " Swap two regions of text
-"Plug 'valloric/youcompleteme' " Code complete engine for Vim 
+"Plug 'valloric/youcompleteme' " Code complete engine for Vim
 "Plug 'tpope/vim-endwise' " Adds end/endif/end etc to code
-" }}}
+" End Unused }}}
 
+" Devicons: Fancy, pretty icons {{{
+" Devicons should be last to preview conflicts
+Plug 'ryanoasis/vim-devicons'
 
-" Dev icons should be last
-Plug 'ryanoasis/vim-devicons' " Fancy icons for stuff like NERDTree
-call plug#end()
-" End Plugin List }}}
-
-" 1.3 Plugin_Modifications {{{
-
-" 1.1.3 startify {{{
-
-" Startify list order
-let g:startify_list_order = [
-            \ ['   MRU'],           'files' ,
-            \ ['   MRU '.getcwd()], 'dir',
-            \ ['   Sessions'],      'sessions',
-            \ ['   Bookmarks'],     'bookmarks',
-            \ ]
-
-let g:startify_change_to_dir          = 0
-let g:startify_enable_special         = 0
-let g:startify_files_number           = 8
-let g:startify_session_autoload       = 1
-let g:startify_session_delete_buffers = 1
-let g:startify_session_persistence    = 1
-let g:startify_use_env                = 1
-
-" }}}
-" 1.3.4 vim-devicons {{{
 "set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
 set guifont=DroidSansMonoPLNerd:h12
 let g:lightline_powerline_fonts = 1
@@ -334,10 +357,11 @@ endfunction
 function! MyFileformat()
     return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
-
-
 " }}}
-" End Plugin_Modifications }}}
+
+call plug#end()
+" End Plugin List }}}
+
 " End Vim Plug(ins) }}}
 
 " 2.0 Autocommand_Groups {{{
@@ -349,7 +373,7 @@ augroup filetype_vim
 augroup END
 " }}}
 " 2.2 Autoread .vimrc when writing to it {{{
-autocmd! bufwritepost .vimrc source ~/.vimrc
+" autocmd! bufwritepost .vimrc source ~/.vimrc
 " }}}
 " 2.3 Set tab spacing per filetype {{{
 autocmd FileType c setlocal tabstop=8 shiftwidth=8 noexpandtab
@@ -370,18 +394,19 @@ autocmd BufReadPre *.pdf silent set ro
 autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk -layout -q -eol unix "%" - | fmt -w78
 autocmd BufReadPost *.doc,*.docx,*.rtf,*.odp,*.odt silent %!pandoc "%" -tplain -o /dev/stdout
 " }}}
+
 " End Autocommand Groups }}}
 
-" 3.0 General_Config {{{
+" 3.0 Config {{
 
 " 3.1 General Stuff {{{
 
 set nocompatible " VIM, not Vi
 
+syntax enable " Syntax highlighting is magical
+
 filetype indent on " Enable filetype specific indenation
 filetype plugin on " Enable filetype specific plugins
-
-let mapleader=";"  " Set leader key to be ;
 
 set backspace=indent,eol,start " Allow backspace to delete character
 set clipboard=unnamed " Yank to system register by default
@@ -390,7 +415,6 @@ set encoding=utf8 " Set UTF-8 as standard encoding
 set history=100 " Probably excessive
 set laststatus=2
 set lazyredraw " Redraw only when necessary
-set listchars=tab:▸\ ,eol:¬
 set noerrorbells " Bad Vim. Be quiet.
 set pastetoggle=<F2> " When in insert mode, press <F2> to go to paste mode, where you can paste mass data that won't be autoindented
 set scrolloff=5 " Keep this many lines above/below cursor while scrolling
@@ -401,61 +425,36 @@ set visualbell " Be quiet Vim.
 set wildchar=<TAB> " Start wild card completion with tab
 set wildmenu " Visual autocomplete wild card menu
 
-syntax enable " Syntax highlighting is magical
-
 " }}}
-" 3.2 Enable mouse mode if available. {{{
-if has("mouse")
-    set mouse=a
-endif " }}}
+" Map Leader {{{
+let mapleader=";"  " Set leader key to be ;
 
-" End General_Config }}}
+" Remove trailing whitespace
+nnoremap <leader>ws :%s/\s\+$//<cr>:let @/=''<CR>
 
-" 4.0 User_Interface {{{
-" 4.1 General UI Changes {{{
-set ruler " Show info along bottom of screen
-set showcmd " Display incomplete commands in lower right corner
-set showmatch " Show matching brackets
+
+" Open .vimrc for editing
+nnoremap <leader>vimrc :e $MYVIMRC<CR>
+
+" Remove \^M (Windows line encoding) from file
+noremap <Leader>mm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 " }}}
-" 4.2 Searching {{{
-set hlsearch " Highlight search results
-set incsearch " Search as characters are entered
-set ignorecase " Make searches case-insensitive
-set magic " Allow use of Regex in search
-
-" turn off search highlight
-"nnoremap <CR> :noh<CR><CR>
-
-" End Searching }}}
-" 4.3 Line numbers using Vim 7.4's hybrid mode {{{
-set relativenumber
-set number
-" }}}
-" 4.4 Folding {{{
-set foldenable " Enable folding by default
-set foldlevelstart=10 " Max fold level is 10
-setlocal foldmethod=indent
-" }}}
-" 4.5 Show and enforce 80 char limit {{{
-"if exists('+colorcolumn')
-"    setlocal colorcolumn=80
-"    setlocal textwidth=80
-"endif
-" }}}
-" 4.6 Set Colours {{{
-set t_Co=256 " Colours fix
-color skittles_berry " Set colorscheme
-" End Set Colour Scheme }}}
-
-" End User_Interface }}}
-
-" 5.0 Text_Tabs_Indentation_and_Buffers {{{
-
-" 5.1 Text {{{
+" 3.2 Line wrapping {{{
 
 set nowrap " Set line wrapping OFF by default
 
-" Enable omni completion. (Ctrl-X Ctrl-O) {{{
+" Toggle word wrapping
+nnoremap <leader>wr :set wrap! wrap?<CR>
+
+" Easy movement with line wrapping 
+map j gj
+map k gk
+" }}}
+" 3.3 Enable mouse mode if available. {{{
+if has("mouse")
+    set mouse=a
+endif " }}}
+" 3.4 Enable omni completion. (Ctrl-X Ctrl-O) {{{
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
@@ -464,7 +463,7 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType java set omnifunc=javacomplete#Complete
 
-" use syntax complete if nothing else available
+" Use syntax complete if nothing else available
 if has("autocmd") && exists("+omnifunc")
     autocmd Filetype *
                 \	if &omnifunc == "" |
@@ -472,7 +471,6 @@ if has("autocmd") && exists("+omnifunc")
                 \	endif
 endif
 " }}}
-" End Text }}}
 " 5.2 Tabs_and_Intendation {{{
 
 set tabstop=4 " 1 tab = 4 spaces
@@ -493,18 +491,7 @@ set splitright " Open splits to the right
 set splitbelow " Then bot
 
 set hidden " Change active buffer without having to save
-" See 'Buffer_Control' for key mappings
-" End Buffers }}}
 
-" End Text_Tabs_Indentation_and_Buffers }}}
-
-" 6.0 Key_Remapping & Custom Functions {{{
-
-" 6.1 Wrapped line movement {{{
-map j gj
-map k gk
-" }}}
-" 6.2 Buffer_Control {{{
 " Control+h/j/k/l to move around windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -520,10 +507,30 @@ map <C-l> <C-W>l
 "map <C->> <C-W>> " Increase current window width
 "map <C-<> <C-W>< " Decrease current window width
 
+" End Buffers }}}
+" 4.1 General UI Changes {{{
+set ruler " Show info along bottom of screen
+set showcmd " Display incomplete commands in lower right corner
+set showmatch " Show matching brackets
 " }}}
+" 4.2 Searching {{{
+set hlsearch " Highlight search results
+set incsearch " Search as characters are entered
+set ignorecase " Make searches case-insensitive
+set magic " Allow use of Regex in search
+
+" turn off search highlight
+"nnoremap <CR> :noh<CR><CR>
+
+" End Searching }}}
 " 6.4 Line Numbers {{{
-" Toggle line numbers between relative and normal 
+
+set relativenumber
+set number
+
+" Toggle line numbers between relative and normal
 nnoremap <leader>n :call ToggleNumber()<CR>
+
 function! ToggleNumber()
     if(&relativenumber == 1)
         set norelativenumber
@@ -534,25 +541,25 @@ function! ToggleNumber()
 endfunc
 
 " End Toggle Line Numbers }}}
-" 6.6 Remove trailing whitespace {{{
-" Remove trailing whitespace 
-nnoremap <leader>ws :%s/\s\+$//<cr>:let @/=''<CR>
+" 4.4 Folding {{{
+set foldenable " Enable folding by default
+set foldlevelstart=10 " Max fold level is 10
+setlocal foldmethod=indent
 " }}}
-" 6.10 Useful Toggles {{{
-
-" Toggle word wrapping
-nnoremap <leader>wr :set wrap! wrap?<CR> 
-
+" 4.5 Show and enforce 80 char limit {{{
+"if exists('+colorcolumn')
+"    setlocal colorcolumn=80
+"    setlocal textwidth=80
+"endif
+" }}}
+" 4.6 Set Colours {{{
+set t_Co=256 " Colours fix
+color skittles_berry " Set colorscheme
+" End Set Colour Scheme }}}
+" List Chars {{{
+set listchars=tab:▸\ ,eol:¬
 " Toggle white space characters
-nnoremap <leader>l :set list!<cr> 
-
-" Open .vimrc for editing
-nnoremap <leader>vimrc :e $MYVIMRC<CR> 
-
-" Remove ^M (Windows line encoding) from file 
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm 
+nnoremap <leader>l :set list!<cr>
 " }}}
-" End Key_Remapping }}}
-
-
+" End Config }}}
 " End Table_of_Contents
