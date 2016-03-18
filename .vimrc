@@ -1,15 +1,15 @@
-"               ____           _ ____                 _
-"   ____  ___  / __/___ ______(_) __ \__  ___________( )_____
-"  / __ \/ _ \/ /_/ __ `/ ___/ / / / / / / / ___/ ___/// ___/
-" / / / /  __/ __/ /_/ / /  / / /_/ / /_/ (__  |__  ) (__  )
-"/_/ /_/\___/_/  \__,_/_/  /_/\____/\__,_/____/____/ /____/
+"                ____           _ ____                 _
+"    ____  ___  / __/___ ______(_) __ \__  ___________( )_____
+"   / __ \/ _ \/ /_/ __ `/ ___/ / / / / / / / ___/ ___/// ___/
+"  / / / /  __/ __/ /_/ / /  / / /_/ / /_/ (__  |__  ) (__  )
+" /_/ /_/\___/_/  \__,_/_/  /_/\____/\__,_/____/____/ /____/
 "
-"   _   __(_)___ ___  __________
-"  | | / / / __ `__ \/ ___/ ___/
-" _| |/ / / / / / / / /  / /__
-"(_)___/_/_/ /_/ /_/_/   \___/
+"    _   __(_)___ ___  __________
+"   | | / / / __ `__ \/ ___/ ___/
+"  _| |/ / / / / / / / /  / /__
+" (_)___/_/_/ /_/ /_/_/   \___/
 
-" DISCLAIMER: {{{
+" DISCLAIMER {{{
 " This is my .vimrc file that I've configured for my own personal tastes. As
 " with just about everything I do, my personal tastes are generally not for
 " most people. However, if you feel like there's something in here you like,
@@ -19,79 +19,229 @@
 " please make an issue!
 " }}}
 " HOW TO VIEW {{{
-" The way my .vimrc is set up is that everything is organized within a table
-" of contents. It is best viewed using folds enabled for fold markers.
-" Generally I keep all the folds closed except for the section I'm currently
-" modifying.
+" The way my .vimrc is set up is that everything is organized using fold
+" markers. Recently I've changed the organization so if you have any
+" questions or suggestions, please feel free to make an issue and let me know.
+"
+" Use :h fold for help with folding. Here is a very quick run down:
+" za is to toggle current fold
+" zm is to close all folds
+" zc to close a fold
+" zo to open a fold
 " }}}
 
 " Thanks for reading my humble setup!
 " ~ Nefari0uss
 
 
-" Table_of_Contents
-" 1.0 Vim Plug(ins) {{{
+" 1.0 Plugins {{{
 
-" 1.1 Auto install Plug.vim {{{
+" 1.1 Auto install plugin manager if missing {{{
+" I currently use Vim.Plug because it lets me set lazy loading for plugins
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 " }}}
-
-" 1.2 Plugin List {{{
+" 1.2 Plugin list {{{
 call plug#begin('~/.vim/plugged')
 
 " Languages {{{
-Plug 'OmniSharp/omnisharp-vim', { 'for': 'csharp' } " C# intellisense
-Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' } " Java autocomplete
-Plug 'davidhalter/jedi-vim', { 'for': 'python' } " Python autocompletion library
-Plug 'elzr/vim-json', { 'for': 'json' } " JSON highlighting
-Plug 'kannokanno/previm', { 'for': 'markdown' }
-Plug 'sheerun/vim-polyglot' " Add syntax and language support for many languages
-Plug 'valloric/matchtagalways', { 'for': [
-            \'html', 'javascrpt', 'css', 'eruby', 'xml',] } " Match tags
+" C# {{{
+Plug 'OmniSharp/omnisharp-vim', { 'for': 'csharp' } 
 " }}}
+" Java {{{
+Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' } 
+" }}}
+" Python {{{
+Plug 'davidhalter/jedi-vim', { 'for': 'python' } 
+" }}}
+" JSON {{{
+Plug 'elzr/vim-json', { 'for': 'json' } 
+" }}}
+" Markdown {{{
+Plug 'kannokanno/previm', { 'for': 'markdown' }
+" }}}
+" Polygot: Support for many, many languages {{{
+Plug 'sheerun/vim-polyglot' " Add syntax and language support for many languages
 
+" Adds support for the following {{{
+"ansible (syntax, indent, ftplugin, ftdetect)
+"arduino (syntax, indent, ftdetect)
+"blade (syntax, indent, ftplugin, ftdetect)
+"c++11 (syntax)
+"c/c++ (syntax)
+"cjsx (ftdetect, syntax, ftplugin)
+"clojure (syntax, indent, autoload, ftplugin, ftdetect)
+"coffee-script (syntax, indent, compiler, autoload, ftplugin, ftdetect)
+"cql (syntax, ftdetect)
+"css (syntax)
+"cucumber (syntax, indent, compiler, ftplugin, ftdetect)
+"dart (syntax, indent, autoload, ftplugin, ftdetect)
+"dockerfile (syntax, ftdetect)
+"elixir (syntax, indent, compiler, ftplugin, ftdetect)
+"elm (syntax, indent, autoload, ftplugin, ftdetect)
+"emberscript (syntax, indent, ftplugin, ftdetect)
+"emblem (syntax, indent, ftplugin, ftdetect)
+"erlang (syntax, indent, ftdetect)
+"git (syntax, indent, ftplugin, ftdetect)
+"glsl (syntax, indent, ftdetect)
+"go (syntax, compiler, indent, ftdetect)
+"groovy (syntax)
+"haml (syntax, indent, compiler, ftplugin, ftdetect)
+"handlebars (syntax, indent, ftplugin, ftdetect)
+"haskell (syntax, indent, ftplugin, ftdetect)
+"haxe (syntax, ftdetect)
+"html5 (syntax, indent, autoload, ftplugin)
+"jade (syntax, indent, ftplugin, ftdetect)
+"jasmine (syntax, ftdetect)
+"javascript (syntax, indent)
+"jinja (syntax, indent, ftdetect)
+"json (syntax, indent, ftdetect)
+"jst (syntax, indent, ftdetect)
+"jsx (ftdetect, after)
+"julia (syntax, indent, ftdetect)
+"kotlin (syntax, indent, ftdetect)
+"latex (syntax, indent, ftplugin)
+"less (syntax, indent, ftplugin, ftdetect)
+"liquid (syntax, indent, ftplugin, ftdetect)
+"markdown (syntax, ftplugin, ftdetect)
+"nginx (syntax, indent, ftdetect)
+"nim (syntax, compiler, indent, ftdetect)
+"nix (syntax, ftplugin, ftdetect)
+"objc (ftplugin, syntax, indent)
+"ocaml (syntax, indent, ftplugin)
+"octave (syntax)
+"opencl (syntax, indent, ftplugin, ftdetect)
+"perl (syntax, indent, ftplugin, ftdetect)
+"php (syntax)
+"powershell (syntax, indent, ftplugin, ftdetect)
+"protobuf (syntax, ftdetect)
+"puppet (syntax, indent, ftplugin, ftdetect)
+"python (syntax, indent)
+"qml (syntax, indent, ftplugin, ftdetect)
+"r-lang (syntax, ftplugin)
+"ragel (syntax)
+"rspec (syntax, ftdetect)
+"ruby (syntax, indent, compiler, autoload, ftplugin, ftdetect)
+"rust (syntax, indent, compiler, autoload, ftplugin, ftdetect)
+"sbt (syntax, ftdetect)
+"scala (syntax, indent, compiler, ftplugin, ftdetect)
+"slim (syntax, indent, ftdetect)
+"solidity (syntax, indent, ftdetect)
+"stylus (syntax, indent, ftplugin, ftdetect)
+"swift (syntax, indent, ftplugin, ftdetect)
+"systemd (syntax, ftdetect)
+"textile (syntax, ftplugin, ftdetect)
+"thrift (syntax, ftdetect)
+"tmux (syntax, ftdetect)
+"tomdoc (syntax)
+"toml (syntax, ftplugin, ftdetect)
+"twig (syntax, ftplugin)
+"typescript (syntax, indent, compiler, ftplugin, ftdetect)
+"vala (syntax, indent, ftdetect)
+"vbnet (syntax)
+"vcl (syntax, ftdetect)
+"vm (syntax, indent, ftdetect)
+"xls (syntax)
+"yaml (syntax, ftplugin)
+"yard (syntax)
+" End Polygot supported list }}}
+" }}}
+" End Languages }}}
 " Asthetics {{{
 " Vim-Colorschemes: Tons of vim colour schemes {{{
 Plug 'flazz/vim-colorschemes'
 " }}}
 " Lightline: Info bar at bottom of screen {{{
-Plug 'itchyny/lightline.vim' "
+Plug 'itchyny/lightline.vim' 
+
+let g:lightline_powerline_fonts = 1
+
 let g:lightline = {
             \ 'colorscheme': 'wombat',
             \ 'component': {
             \   'readonly': '%{&readonly?"":""}',
             \ },
-            \ 'separator': { 'left': '', 'right': '' },
+            \ 'component_function': {
+            \   'filetype': 'MyFiletype',
+            \   'fileformat': 'MyFileformat',
+            \ },
+            \ 'separator': { 'left': '', 'right': '' },
             \ 'subseparator': { 'left': '', 'right': '' }
             \ }
+
+function! MyFiletype()
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! MyFileformat()
+    return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
 
 " End lightline }}}
 " Startify: Fancy start screen {{{
 Plug 'mhinz/vim-startify'
 
+let g:startify_custom_header = [
+            \ '                ____           _ ____                 _ ',
+            \ '    ____  ___  / __/___ ______(_) __ \__  ___________( )_____ ',
+            \ '   / __ \/ _ \/ /_/ __ `/ ___/ / / / / / / / ___/ ___/// ___/ ',
+            \ '  / / / /  __/ __/ /_/ / /  / / /_/ / /_/ (__  |__  ) (__  ) ',
+            \ ' /_/ /_/\___/_/  \__,_/_/  /_/\____/\__,_/____/____/ /____/ ',
+            \ ' ',
+            \ '    _   __(_)___ ___  __________ ',
+            \ '   | | / / / __ `__ \/ ___/ ___/ ',
+            \ '  _| |/ / / / / / / / /  / /__ ',
+            \ ' (_)___/_/_/ /_/ /_/_/   \___/ ',
+            \ ' ',
+            \ ' ',
+            \ ' ',
+            \ map(split(system('fortune'), '\n'), '"   ". v:val'),
+            \]
+
+
+"let g:startify_custom_header =
+"            \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val')
+
+
 " Startify list order
 let g:startify_list_order = [
-            \ ['   MRU'],           'files' ,
-            \ ['   MRU '.getcwd()], 'dir',
-            \ ['   Sessions'],      'sessions',
+            \ ['   Most Recently Used'],           'files' ,
+            \ ['   Most Recently Used'.getcwd()], 'dir',
             \ ['   Bookmarks'],     'bookmarks',
+            \ ['   Sessions'],      'sessions',
             \ ]
 
+let g:startify_bookmarks=[
+    \ '~/.vimrc',
+    \ '~/.bashrc',
+    \ '~/.bash_aliases',
+    \ '~/.bash_functions',
+    \ '~/.zshrc',
+    \ '~/.gitconfig',
+    \ '~/projects/dotfiles/install.sh',
+    \]
+
 let g:startify_change_to_dir          = 0
-let g:startify_enable_special         = 0
-let g:startify_files_number           = 8
+let g:startify_enable_special         = 1
+let g:startify_files_number           = 10
 let g:startify_session_autoload       = 1
 let g:startify_session_delete_buffers = 1
 let g:startify_session_persistence    = 1
 let g:startify_use_env                = 1
 
-" }}}
-" }}}
+    highlight StartifyBracket ctermfg=240
+    highlight StartifyFooter  ctermfg=240
+    highlight StartifyHeader  ctermfg=114
+    highlight StartifyNumber  ctermfg=215
+    highlight StartifyPath    ctermfg=245
+    highlight StartifySlash   ctermfg=240
+    highlight StartifySpecial ctermfg=240
 
+" }}}
+" End Asthetics }}}
 " Utilities {{{
 " CtrlP: Fuzzy file finder {{{
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
@@ -271,8 +421,11 @@ Plug 'jiangmiao/auto-pairs' " Auto-complete quotes, parens, brackets, etc
 " Follow My Lead: Show leader mappings {{{
 Plug 'ktonga/vim-follow-my-lead' " Show leader mappings with <leader>fml
 " }}}
+" Match Tag Always: Add tag matching for web development {{{
+Plug 'valloric/matchtagalways', { 'for': [
+            \'html', 'javascrpt', 'css', 'eruby', 'xml',] }
+" }}}
 " End Utilities }}}
-
 " Visual Aids {{{
 " Git Gutter: Show diffs left of line numbers {{{
 Plug 'airblade/vim-gitgutter' 
@@ -319,51 +472,48 @@ let g:indent_guides_exclude_filetype=['help', 'nerdtree']
 
 " }}}
 " End Visual Aids }}}
-
 " Other {{{
-"Plug 'junegunn/vim-journal'
-Plug 'uguu-org/vim-matrix-screensaver', { 'on': 'Matrix' } " Screensaver
-Plug 'vim-scripts/notes.vim', { 'on': 'Note' } " Note taking plugin
+" Matrix: A fun little screen saver {{{
+Plug 'uguu-org/vim-matrix-screensaver', { 'on': 'Matrix' }
+" }}}
+" Notes: A note taking plugin {{{
+Plug 'vim-scripts/notes.vim', { 'on': 'Note' }
+" }}}
 " End Other }}}
 " Unused {{{
-"Plug 'tpope/vim-speeddating' " Easy increment date and times with Ctrl-A/X
+"Plug 'junegunn/vim-journal'
 "Plug 'kshenoy/vim-signature'
 "Plug 'majutsushi/tagbar' ", { 'on': 'TarbarTogggle' }
 "Plug 'tommcdo/vim-exchange' " Swap two regions of text
-"Plug 'valloric/youcompleteme' " Code complete engine for Vim
 "Plug 'tpope/vim-endwise' " Adds end/endif/end etc to code
+"Plug 'tpope/vim-speeddating' " Easy increment date and times with Ctrl-A/X
+"Plug 'valloric/youcompleteme' " Code complete engine for Vim
 " End Unused }}}
-
 " Devicons: Fancy, pretty icons {{{
-" Devicons should be last to preview conflicts
+" Devicons should be last to prevent conflicts
 Plug 'ryanoasis/vim-devicons'
 
 "set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
-set guifont=DroidSansMonoPLNerd:h12
-let g:lightline_powerline_fonts = 1
-let g:airline_powerline_fonts = 1
+"set guifont=DroidSansMonoPLNerd:h12
+let g:webdevicons_enable_nerdtree=1 " Enable/disable adding the flags to NERDTree
+let g:webdevicons_enable_unite=0 " Enable/disable adding the custom source to unite
+let g:webdevicons_enable_vimfiler=0 " Enable/disable adding the column to vimfiler
+let g:webdevicons_enable_airline_tabline=1 " Enable/disable adding to vim-airline's tabline
+let g:webdevicons_enable_airline_statusline=1 " Enable/disable adding to vim-airline's statusline
+let g:webdevicons_enable_ctrlp=1 " Enable/disable ctrlp MRU file mode glyphs
+let g:webdevicons_enable_flagship_statusline=0 " Enable/disable adding to flagship's statusline
+let g:WebDevIconsUnicodeDecorateFileNodes=1 " Turn on/off file node glyph decorations
+let g:WebDevIconsUnicodeGlyphDoubleWidth=1 " Whether or not font is using double-width glyphs
+let g:webdevicons_conceal_nerdtree_brackets=1 " Whether or not to show the nerdtree brackets around flags
+let g:WebDevIconsNerdTreeAfterGlyphPadding=' '  " The amount of space to use after the glyph character
+let g:WebDevIconsNerdTreeGitPluginForceVAlign=0 " Force extra padding in NERDTree so that the filetype icons line up vertically
 
-let g:lightline = {
-            \ 'component_function': {
-            \   'filetype': 'MyFiletype',
-            \   'fileformat': 'MyFileformat',
-            \ }
-            \ }
-
-function! MyFiletype()
-    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
-endfunction
-
-function! MyFileformat()
-    return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
-endfunction
 " }}}
 
 call plug#end()
-" End Plugin List }}}
+" End Plugin list }}}
 
-" End Vim Plug(ins) }}}
-
+" End Plugins }}}
 " 2.0 Autocommand_Groups {{{
 
 " 2.1 Add folding to vimscript files {{{
@@ -372,32 +522,23 @@ augroup filetype_vim
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 " }}}
-" 2.2 Autoread .vimrc when writing to it {{{
-" autocmd! bufwritepost .vimrc source ~/.vimrc
-" }}}
-" 2.3 Set tab spacing per filetype {{{
-autocmd FileType c setlocal tabstop=8 shiftwidth=8 noexpandtab
-autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType java setlocal tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab
-autocmd FileType json setlocal shiftwidth=4 tabstop=4 noexpandtab
-autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
-autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-" }}}
-" 2.4 File templates {{{
+" 2.2 File templates {{{
+" When creating a new file with the following extension, use a template.
 autocmd BufNewFile *.html 0r ~/.vim/templates/template.html
 autocmd BufNewFile *.tex 0r ~/.vim/templates/template.tex
 " }}}
-" 2.5 Allow reading of pdf, docx, etc in Vim w/pandoc and pdftotext {{{
+" 2.3 Allow reading of pdf, docx, etc in Vim w/pandoc and pdftotext {{{
 autocmd BufReadPre *.pdf silent set ro
 autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk -layout -q -eol unix "%" - | fmt -w78
 autocmd BufReadPost *.doc,*.docx,*.rtf,*.odp,*.odt silent %!pandoc "%" -tplain -o /dev/stdout
 " }}}
+" 2.4 Autoread .vimrc when writing to it {{{
+" Disabled because it was fucking up folding upon saving
+" autocmd! bufwritepost .vimrc source ~/.vimrc
+" }}}
 
 " End Autocommand Groups }}}
-
-" 3.0 Config {{
+" 3.0 Config {{{
 
 " 3.1 General Stuff {{{
 
@@ -473,16 +614,26 @@ endif
 " }}}
 " 5.2 Tabs_and_Intendation {{{
 
-set tabstop=4 " 1 tab = 4 spaces
 set expandtab " Expand tab to be spaces
-
-set shiftwidth=4 " Number of spaces to use when inserting a tab
-set shiftround " Use multiples of shiftwidfth with '>' and '<'
 set smarttab " Insert tabs on start of line using shiftwidth
+set tabstop=4 " 1 tab = 4 spaces
 
-set smartindent " Automatically insert extra level of indentation when needed
+set shiftround " Use multiples of shiftwidfth with '>' and '<'
+set shiftwidth=4 " Number of spaces to use when inserting a tab
+
 set autoindent " Auto indent as needed
 set copyindent " Copy previous indentation leven on autoindent
+set smartindent " Automatically insert extra level of indentation when needed
+
+autocmd FileType c setlocal tabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType java setlocal tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType json setlocal shiftwidth=4 tabstop=4 noexpandtab
+autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType text setlocal noexpandtab
 
 " End Tabs_and_Intendation }}}
 " 5.3 Buffers {{{
@@ -561,5 +712,5 @@ set listchars=tab:▸\ ,eol:¬
 " Toggle white space characters
 nnoremap <leader>l :set list!<cr>
 " }}}
+
 " End Config }}}
-" End Table_of_Contents
