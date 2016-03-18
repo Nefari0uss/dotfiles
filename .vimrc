@@ -184,27 +184,29 @@ endfunction
 " Startify: Fancy start screen {{{
 Plug 'mhinz/vim-startify'
 
+function! s:filter_header(lines) abort
+        let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
+        let centered_lines = map(copy(a:lines),
+            \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
+        return centered_lines
+    endfunction
+
+
 let g:startify_custom_header = [
-            \ '                ____           _ ____                 _ ',
+            \ '                ____           _ ____                 _       ',
             \ '    ____  ___  / __/___ ______(_) __ \__  ___________( )_____ ',
             \ '   / __ \/ _ \/ /_/ __ `/ ___/ / / / / / / / ___/ ___/// ___/ ',
-            \ '  / / / /  __/ __/ /_/ / /  / / /_/ / /_/ (__  |__  ) (__  ) ',
-            \ ' /_/ /_/\___/_/  \__,_/_/  /_/\____/\__,_/____/____/ /____/ ',
-            \ ' ',
-            \ '    _   __(_)___ ___  __________ ',
-            \ '   | | / / / __ `__ \/ ___/ ___/ ',
-            \ '  _| |/ / / / / / / / /  / /__ ',
-            \ ' (_)___/_/_/ /_/ /_/_/   \___/ ',
-            \ ' ',
-            \ ' ',
-            \ ' ',
-            \ map(split(system('fortune'), '\n'), '"   ". v:val'),
-            \]
+            \ '  / / / /  __/ __/ /_/ / /  / / /_/ / /_/ (__  |__  ) (__  )  ',
+            \ ' /_/ /_/\___/_/  \__,_/_/  /_/\____/\__,_/____/____/ /____/   ',
+            \ '                                                              ',
+            \ '    _   __(_)___ ___  __________                              ',
+            \ '   | | / / / __ `__ \/ ___/ ___/                              ',
+            \ '  _| |/ / / / / / / / /  / /__                                ',
+            \ ' (_)___/_/_/ /_/ /_/_/   \___/                                ',
+            \ ]
 
-
-"let g:startify_custom_header =
-"            \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val')
-
+"let g:startify_custom_header = 
+"          \ 'map(g:ascii + startify#fortune#boxed(), "\"   \".v:val")'
 
 " Startify list order
 let g:startify_list_order = [
