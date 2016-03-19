@@ -354,9 +354,8 @@ nmap <F8> :TagbarToggle<CR>
 " Git Gutter: Show diffs left of line numbers {{{
 Plug 'airblade/vim-gitgutter' 
 " }}}
-
 " Mini Buffer Explorer: Buffer explorer at the top of the screen {{{
-Plug 'weynhamz/vim-plugin-minibufexp'
+Plug 'weynhamz/vim-plugin-minibufexpl' 
 
 " Easy buffer switching mappings
 nnoremap <C-N> :bnext<CR>
