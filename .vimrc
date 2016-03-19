@@ -202,11 +202,11 @@ endfunction
 Plug 'mhinz/vim-startify'
 
 function! s:filter_header(lines) abort
-        let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
-        let centered_lines = map(copy(a:lines),
-            \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
-        return centered_lines
-    endfunction
+    let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
+    let centered_lines = map(copy(a:lines),
+                \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
+    return centered_lines
+endfunction
 
 
 let g:startify_custom_header = [
@@ -234,14 +234,14 @@ let g:startify_list_order = [
             \ ]
 
 let g:startify_bookmarks=[
-    \ '~/.vimrc',
-    \ '~/.bashrc',
-    \ '~/.bash_aliases',
-    \ '~/.bash_functions',
-    \ '~/.zshrc',
-    \ '~/.gitconfig',
-    \ '~/projects/dotfiles/install.sh',
-    \]
+            \ '~/.vimrc',
+            \ '~/.bashrc',
+            \ '~/.bash_aliases',
+            \ '~/.bash_functions',
+            \ '~/.zshrc',
+            \ '~/.gitconfig',
+            \ '~/projects/dotfiles/install.sh',
+            \]
 
 let g:startify_change_to_dir          = 0
 let g:startify_enable_special         = 1
@@ -251,13 +251,13 @@ let g:startify_session_delete_buffers = 1
 let g:startify_session_persistence    = 1
 let g:startify_use_env                = 1
 
-    highlight StartifyBracket ctermfg=240
-    highlight StartifyFooter  ctermfg=240
-    highlight StartifyHeader  ctermfg=114
-    highlight StartifyNumber  ctermfg=215
-    highlight StartifyPath    ctermfg=245
-    highlight StartifySlash   ctermfg=240
-    highlight StartifySpecial ctermfg=240
+highlight StartifyBracket ctermfg=240
+highlight StartifyFooter  ctermfg=240
+highlight StartifyHeader  ctermfg=114
+highlight StartifyNumber  ctermfg=215
+highlight StartifyPath    ctermfg=245
+highlight StartifySlash   ctermfg=240
+highlight StartifySpecial ctermfg=240
 
 " }}}
 " End Asthetics }}}
@@ -268,6 +268,8 @@ Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 " Map Ctrl-p to call CtrlP
 let g:ctrlp_map = '<leader>p'
 let g:ctrlp_cmd = 'CtrlP'
+
+nnoremap <leader>p :call CtrlP<CR>
 
 " Ignore certain files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -285,10 +287,10 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ervandew/supertab'
 " }}}
 " Xterm Color Table: A table of colours {{{
-Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
+Plug 'guns/xterm-color-table.vim', { 'on': ':XtermColorTable' }
 
 " Open colour table in a buffer
-nnoremap <leader>col :XtermColorTable<CR>
+nnoremap <leader>col :call XtermColorTable<CR>
 
 " }}}
 " NERDCommenter: Easy comment toggling {{{
@@ -443,6 +445,9 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 nmap <F8> :TagbarToggle<CR>
 
 " }}}
+" Multiple Cursors: Use multiple cursors to edit a file. {{{
+"Plug 'terryma/vim-multiple-cursors' 
+" }}}
 " End Utilities }}}
 " Visual Aids {{{
 " Git Gutter: Show diffs left of line numbers {{{
@@ -492,6 +497,13 @@ let g:indent_guides_exclude_filetype=['help', 'nerdtree']
 " }}}
 " End Visual Aids }}}
 " Other {{{
+" Goyo: Distracion free writing {{{
+Plug 'junegunn/goyo.vim'
+
+" Toggle Goyo for distraction free writing
+nnoremap <leader>goyo :call Goyo
+
+" }}}
 " Matrix: A fun little screen saver {{{
 Plug 'uguu-org/vim-matrix-screensaver', { 'on': 'Matrix' }
 " }}}
