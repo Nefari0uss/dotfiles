@@ -167,6 +167,100 @@ Plug 'sheerun/vim-polyglot' " Add syntax and language support for many languages
 " End Polygot supported list }}}
 " }}}
 " End Languages }}}
+" Asthetics {{{
+" Vim-Colorschemes: Tons of vim colour schemes {{{
+Plug 'flazz/vim-colorschemes'
+" }}}
+" Lightline: Info bar at bottom of screen {{{
+Plug 'itchyny/lightline.vim' 
+
+let g:lightline_powerline_fonts = 1
+
+let g:lightline = {
+            \ 'colorscheme': 'wombat',
+            \ 'component': {
+            \   'readonly': '%{&readonly?"":""}',
+            \ },
+            \ 'component_function': {
+            \   'filetype': 'MyFiletype',
+            \   'fileformat': 'MyFileformat',
+            \ },
+            \ 'separator': { 'left': '', 'right': '' },
+            \ 'subseparator': { 'left': '', 'right': '' }
+            \ }
+
+function! MyFiletype()
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! MyFileformat()
+    return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
+
+" End lightline }}}
+" Startify: Fancy start screen {{{
+Plug 'mhinz/vim-startify'
+
+function! s:filter_header(lines) abort
+        let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
+        let centered_lines = map(copy(a:lines),
+            \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
+        return centered_lines
+    endfunction
+
+
+let g:startify_custom_header = [
+            \ '                ____           _ ____                 _       ',
+            \ '    ____  ___  / __/___ ______(_) __ \__  ___________( )_____ ',
+            \ '   / __ \/ _ \/ /_/ __ `/ ___/ / / / / / / / ___/ ___/// ___/ ',
+            \ '  / / / /  __/ __/ /_/ / /  / / /_/ / /_/ (__  |__  ) (__  )  ',
+            \ ' /_/ /_/\___/_/  \__,_/_/  /_/\____/\__,_/____/____/ /____/   ',
+            \ '                                                              ',
+            \ '    _   __(_)___ ___  __________                              ',
+            \ '   | | / / / __ `__ \/ ___/ ___/                              ',
+            \ '  _| |/ / / / / / / / /  / /__                                ',
+            \ ' (_)___/_/_/ /_/ /_/_/   \___/                                ',
+            \ ]
+
+"let g:startify_custom_header = 
+"          \ 'map(g:ascii + startify#fortune#boxed(), "\"   \".v:val")'
+
+" Startify list order
+let g:startify_list_order = [
+            \ ['   Most Recently Used'],           'files' ,
+            \ ['   Most Recently Used'.getcwd()], 'dir',
+            \ ['   Bookmarks'],     'bookmarks',
+            \ ['   Sessions'],      'sessions',
+            \ ]
+
+let g:startify_bookmarks=[
+    \ '~/.vimrc',
+    \ '~/.bashrc',
+    \ '~/.bash_aliases',
+    \ '~/.bash_functions',
+    \ '~/.zshrc',
+    \ '~/.gitconfig',
+    \ '~/projects/dotfiles/install.sh',
+    \]
+
+let g:startify_change_to_dir          = 0
+let g:startify_enable_special         = 1
+let g:startify_files_number           = 10
+let g:startify_session_autoload       = 1
+let g:startify_session_delete_buffers = 1
+let g:startify_session_persistence    = 1
+let g:startify_use_env                = 1
+
+    highlight StartifyBracket ctermfg=240
+    highlight StartifyFooter  ctermfg=240
+    highlight StartifyHeader  ctermfg=114
+    highlight StartifyNumber  ctermfg=215
+    highlight StartifyPath    ctermfg=245
+    highlight StartifySlash   ctermfg=240
+    highlight StartifySpecial ctermfg=240
+
+" }}}
+" End Asthetics }}}
 " Utilities {{{
 " CtrlP: Fuzzy file finder {{{
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
