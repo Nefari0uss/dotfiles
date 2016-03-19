@@ -61,8 +61,25 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'elzr/vim-json', { 'for': 'json' } 
 " }}}
 " Markdown {{{
+" Previm: Preview Markdown files {{{
 Plug 'kannokanno/previm', { 'for': 'markdown' }
 " }}}
+" }}}
+" Go {{{
+Plug 'fatih/vim-go', { 'for': 'go' }
+" }}}
+" Web Development {{{
+" Emmet: Text expansion {{{
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+" }}}
+" Match Tag Always: Add tag matching for web development {{{
+Plug 'valloric/matchtagalways', { 'for': [
+            \'html', 'javascrpt', 'css', 'eruby', 'xml',] }
+" }}}
+" Coloresque: CSS/LESS/SASS/HTML colour preview {{{
+Plug 'gorodinskiy/vim-coloresque', { 'for': 'css' } 
+" }}}
+" End Web Development }}}
 " Polygot: Support for many, many languages {{{
 Plug 'sheerun/vim-polyglot' " Add syntax and language support for many languages
 
@@ -150,106 +167,12 @@ Plug 'sheerun/vim-polyglot' " Add syntax and language support for many languages
 " End Polygot supported list }}}
 " }}}
 " End Languages }}}
-" Asthetics {{{
-" Vim-Colorschemes: Tons of vim colour schemes {{{
-Plug 'flazz/vim-colorschemes'
-" }}}
-" Lightline: Info bar at bottom of screen {{{
-Plug 'itchyny/lightline.vim' 
-
-let g:lightline_powerline_fonts = 1
-
-let g:lightline = {
-            \ 'colorscheme': 'wombat',
-            \ 'component': {
-            \   'readonly': '%{&readonly?"":""}',
-            \ },
-            \ 'component_function': {
-            \   'filetype': 'MyFiletype',
-            \   'fileformat': 'MyFileformat',
-            \ },
-            \ 'separator': { 'left': '', 'right': '' },
-            \ 'subseparator': { 'left': '', 'right': '' }
-            \ }
-
-function! MyFiletype()
-    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
-endfunction
-
-function! MyFileformat()
-    return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
-endfunction
-
-" End lightline }}}
-" Startify: Fancy start screen {{{
-Plug 'mhinz/vim-startify'
-
-function! s:filter_header(lines) abort
-        let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
-        let centered_lines = map(copy(a:lines),
-            \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
-        return centered_lines
-    endfunction
-
-
-let g:startify_custom_header = [
-            \ '                ____           _ ____                 _       ',
-            \ '    ____  ___  / __/___ ______(_) __ \__  ___________( )_____ ',
-            \ '   / __ \/ _ \/ /_/ __ `/ ___/ / / / / / / / ___/ ___/// ___/ ',
-            \ '  / / / /  __/ __/ /_/ / /  / / /_/ / /_/ (__  |__  ) (__  )  ',
-            \ ' /_/ /_/\___/_/  \__,_/_/  /_/\____/\__,_/____/____/ /____/   ',
-            \ '                                                              ',
-            \ '    _   __(_)___ ___  __________                              ',
-            \ '   | | / / / __ `__ \/ ___/ ___/                              ',
-            \ '  _| |/ / / / / / / / /  / /__                                ',
-            \ ' (_)___/_/_/ /_/ /_/_/   \___/                                ',
-            \ ]
-
-"let g:startify_custom_header = 
-"          \ 'map(g:ascii + startify#fortune#boxed(), "\"   \".v:val")'
-
-" Startify list order
-let g:startify_list_order = [
-            \ ['   Most Recently Used'],           'files' ,
-            \ ['   Most Recently Used'.getcwd()], 'dir',
-            \ ['   Bookmarks'],     'bookmarks',
-            \ ['   Sessions'],      'sessions',
-            \ ]
-
-let g:startify_bookmarks=[
-    \ '~/.vimrc',
-    \ '~/.bashrc',
-    \ '~/.bash_aliases',
-    \ '~/.bash_functions',
-    \ '~/.zshrc',
-    \ '~/.gitconfig',
-    \ '~/projects/dotfiles/install.sh',
-    \]
-
-let g:startify_change_to_dir          = 0
-let g:startify_enable_special         = 1
-let g:startify_files_number           = 10
-let g:startify_session_autoload       = 1
-let g:startify_session_delete_buffers = 1
-let g:startify_session_persistence    = 1
-let g:startify_use_env                = 1
-
-    highlight StartifyBracket ctermfg=240
-    highlight StartifyFooter  ctermfg=240
-    highlight StartifyHeader  ctermfg=114
-    highlight StartifyNumber  ctermfg=215
-    highlight StartifyPath    ctermfg=245
-    highlight StartifySlash   ctermfg=240
-    highlight StartifySpecial ctermfg=240
-
-" }}}
-" End Asthetics }}}
 " Utilities {{{
 " CtrlP: Fuzzy file finder {{{
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 
 " Map Ctrl-p to call CtrlP
-let g:ctrlp_map = '<c-p>'
+let g:ctrlp_map = '<leader>p'
 let g:ctrlp_cmd = 'CtrlP'
 
 " Ignore certain files
@@ -281,7 +204,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " Toggle NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <C-m> :NERDTreeToggle<CR>
 
 let NERDTreeShowHidden=1 " Show hidden files
 let NERDTreeIgnore = ['\.swp$'] " Ignore swap files
@@ -332,9 +255,6 @@ let g:NERDTreeIndicatorMapCustom = {
 " }}}
 " Window Swap: Easily swap buffers {{{
 Plug 'wesQ3/vim-windowswap', { 'on': 'WindowSwap' } " Swap against <leader>ww
-" }}}
-" Emmet: Text expansion {{{
-"Plug 'mattn/emmet-vim'
 " }}}
 " Neocomplete: Autocomplete with cache {{{
 Plug 'shougo/neocomplete'
@@ -423,20 +343,23 @@ Plug 'jiangmiao/auto-pairs' " Auto-complete quotes, parens, brackets, etc
 " Follow My Lead: Show leader mappings {{{
 Plug 'ktonga/vim-follow-my-lead' " Show leader mappings with <leader>fml
 " }}}
-" Match Tag Always: Add tag matching for web development {{{
-Plug 'valloric/matchtagalways', { 'for': [
-            \'html', 'javascrpt', 'css', 'eruby', 'xml',] }
+" Tagbar: Display tags in a window, ordered by scope {{{
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+
+nmap <F8> :TagbarToggle<CR>
+
 " }}}
 " End Utilities }}}
 " Visual Aids {{{
 " Git Gutter: Show diffs left of line numbers {{{
 Plug 'airblade/vim-gitgutter' 
 " }}}
-" Buffer Line: Show buffers in the status bar {{{
-Plug 'bling/vim-bufferline' 
-" }}}
-" Coloresque: CSS/LESS/SASS/HTML colour preview {{{
-Plug 'gorodinskiy/vim-coloresque', { 'for': 'css' } 
+" Buff Tab Line: Show buffers in a tab bar at the top {{{
+Plug 'ap/vim-buftabline'
+
+" Easy buffer switching mappings
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
 " }}}
 " Rainbox: Rainbow coloured parentheses matching {{{
 Plug 'luochen1990/rainbow'
@@ -528,6 +451,7 @@ augroup END
 " When creating a new file with the following extension, use a template.
 autocmd BufNewFile *.html 0r ~/.vim/templates/template.html
 autocmd BufNewFile *.tex 0r ~/.vim/templates/template.tex
+autocmd BufNewFile *.c 0r ~/.vim/templates/template.c
 " }}}
 " 2.3 Allow reading of pdf, docx, etc in Vim w/pandoc and pdftotext {{{
 autocmd BufReadPre *.pdf silent set ro
