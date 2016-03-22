@@ -692,6 +692,7 @@ set showmatch " Show matching brackets
 " }}}
 " 4.2 Searching {{{
 set hlsearch " Highlight search results
+set smartcase " Make searches search CAPS if capital letter is used
 set incsearch " Search as characters are entered
 set ignorecase " Make searches case-insensitive
 set magic " Allow use of Regex in search
