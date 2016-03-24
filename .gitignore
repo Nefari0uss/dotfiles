@@ -1,8 +1,11 @@
-# ~~GitIgnore for Nefari0uss's dotfiles repo ~~ #
+# ~~GitIgnore for Nefari0uss's dotfiles repo~~ #
 
 
 # Ignore Vim plugin installs
 .vim/plugged/*
+
+# Old Vim Plug
+.vim/autoload/plug.vim.old
 
 # Ctags generated file
 tags
