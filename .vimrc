@@ -171,6 +171,9 @@ Plug 'sheerun/vim-polyglot' " Add syntax and language support for many languages
 " Vim-Colorschemes: Tons of vim colour schemes {{{
 Plug 'flazz/vim-colorschemes'
 " }}}
+" Theme: Skittles-Berry {{{
+"Plug 'shawncplus/skittles_berry'
+" }}}
 " Lightline: Info bar at bottom of screen {{{
 Plug 'itchyny/lightline.vim' 
 
@@ -655,7 +658,7 @@ autocmd FileType c setlocal tabstop=8 shiftwidth=8 noexpandtab
 autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType java setlocal tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab
-autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab foldmethod=syntax
 autocmd FileType json setlocal shiftwidth=4 tabstop=4 noexpandtab
 autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
