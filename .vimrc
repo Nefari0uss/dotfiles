@@ -521,8 +521,13 @@ Plug 'vim-scripts/notes.vim', { 'on': 'Note' }
 " Devicons should be last to prevent conflicts
 Plug 'ryanoasis/vim-devicons'
 
-"set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
-"set guifont=DroidSansMonoPLNerd:h12
+if has("win32") | has("win32unix") | has("win64") 
+    " Stuff
+else
+    "set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+    "set guifont=DroidSansMonoPLNerd:h12
+endif
+
 let g:webdevicons_enable_nerdtree=1 " Enable/disable adding the flags to NERDTree
 let g:webdevicons_enable_unite=0 " Enable/disable adding the custom source to unite
 let g:webdevicons_enable_vimfiler=0 " Enable/disable adding the column to vimfiler
@@ -742,5 +747,7 @@ set listchars=tab:▸\ ,eol:¬
 " Toggle white space characters
 nnoremap <leader>l :set list!<cr>
 " }}}
-
+" netrw {{{
+"
+" }}}
 " End Config }}}
