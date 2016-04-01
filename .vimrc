@@ -53,6 +53,8 @@ Plug 'OmniSharp/omnisharp-vim', { 'for': 'csharp' }
 " }}}
 " Java {{{
 Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' } 
+
+let g:JavaComplete_ShowExternalCommandsOutput = 1
 " }}}
 " Python {{{
 Plug 'davidhalter/jedi-vim', { 'for': 'python' } 
@@ -634,9 +636,9 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType c set omnifunc=ccomplete#Complete
-autocmd FileType java set omnifunc=javacomplete#Complete
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType c setlocal omnifunc=ccomplete#Complete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " Use syntax complete if nothing else available
 if has("autocmd") && exists("+omnifunc")
