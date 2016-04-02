@@ -1,15 +1,35 @@
-alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'";
+# Editor related aliases 
+alias e="$EDITOR"
+alias vimrc="$EDITOR ~/.vimrc"
+alias bashrc="$EDITOR ~/.bashrc"
+alias zshconfig="$EDITOR ~/.zshrc"
+alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
+alias v=vim
+alias vi=vim
+
+
+# Upgrade all Vim Plugins at once.
 alias vimplug="vim +PlugUpgrade +PlugInstall +PlugUpdate +qall"
 
+
+# Useful shell commands
 alias sl="ls"
 alias cd..="cd .."
 alias c="clear"
 alias h="history"
+alias lsh="ls -lAd .*" #Show ONLY hidden files in the current directory
+alias lshid="lsh"
 alias mkdir="mkdir -p"
 alias sha1="openssl sha1"
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'";
+alias currentdate='date "+%Y.%m.%d"'
+alias ip="curl ipinfo.io/ip"
+alias exot=exit
+alias sha256="shasum -a 256 "$1" "
 
 # Git Commands
-alias gs='git status '
+alias g="git"
+alias gs="git status"
 alias ga='git add '
 alias gr='git rm '
 alias gc='git commit -m '
@@ -21,3 +41,4 @@ alias gl='git log '
 alias grb='git rebase '
 alias gm='git merge '
 alias gr='git remote ' 
+

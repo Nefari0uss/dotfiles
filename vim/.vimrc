@@ -287,7 +287,7 @@ let g:ctrlp_custom_ignore = {
 Plug 'easymotion/vim-easymotion' 
 " }}}
 " Supertab: Tab completion in insert mode {{{
-"Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
 " }}}
 " Xterm Color Table: A table of colours {{{
 Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
