@@ -1,19 +1,52 @@
+#            ██   ██                               ████ ██
+#     █████ ░░   ░██                              ░██░ ░░   █████
+#    ██░░░██ ██ ██████  █████   ██████  ███████  ██████ ██ ██░░░██
+#   ░██  ░██░██░░░██░  ██░░░██ ██░░░░██░░██░░░██░░░██░ ░██░██  ░██
+#   ░░██████░██  ░██  ░██  ░░ ░██   ░██ ░██  ░██  ░██  ░██░░██████
+#    ░░░░░██░██  ░██  ░██   ██░██   ░██ ░██  ░██  ░██  ░██ ░░░░░██
+#     █████ ░██  ░░██ ░░█████ ░░██████  ███  ░██  ░██  ░██  █████
+
 [user]
-	email = nnefari0uss@gmail.com
 	name = Nefari0uss
+	email = nnefari0uss@gmail.com
+
 [push]
-	default = simple
+	default = simple # Simple pushes 1-1. Matching will push all.
+
 [core]
 	autocrlf = input
 	editor = vim
+
 [color]
 	ui = true
+    branch = auto
+    diff = auto
+    status = auto
+
+[color "branch"]
+    current = red reverse
+    local = blue
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+
 [help]
 	autocorrect = 1
+
 [alias]
     # common commmands
     st = status
@@ -29,6 +62,7 @@
     undo = reset HEAD~1 --mixed
     amend = commit -a --amend -m
     ammend = amend # because fuck spelling
+    unstage = reset HEAD --
 
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 
