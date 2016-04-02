@@ -1,11 +1,12 @@
-alias h='history'
-alias sl='ls'
-alias cd..='cd ..'
-alias mkdir='mkdir -p'
-alias c='clear'
-alias sha1='openssl sha1'
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'";
+alias vimplug="vim +PlugUpgrade +PlugInstall +PlugUpdate +qall"
 
-
+alias sl="ls"
+alias cd..="cd .."
+alias c="clear"
+alias h="history"
+alias mkdir="mkdir -p"
+alias sha1="openssl sha1"
 
 # Git Commands
 alias gs='git status '
