@@ -4,6 +4,9 @@
 # Ignore Vim plugin installs
 vim/.vim/plugged/*
 
+# Vim sessions
+vim/.vim/session/*
+
 # Old Vim Plug
 vim/.vim/autoload/plug.vim.old
 
