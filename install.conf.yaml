@@ -2,10 +2,13 @@
     link:
       relink: true
 
-- clean: ['~']
+- clean: ['~', removed broken symblinks]
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
+  - [git submodule update --init --recursive, installing submodules]
+  - [./zsh/oh-my-zsh/tools/install.sh, installing zsh]
+  - [rm ~/.zshrc, removing oh-my-zsh zshrc]
+  - [echo "Making symblinks..."]
 
 - link:
 
@@ -60,4 +63,7 @@
     ~/.zshrc:
       force: true
       path: zsh/zshrc
+
+- shell:
+  - [vim +PlugUpgrade +PlugInstall +PlugUpdate +qall &, updating Vim plugins]
 

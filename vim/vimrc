@@ -83,7 +83,7 @@ Plug 'gorodinskiy/vim-coloresque', { 'for': 'css' }
 " }}}
 " End Web Development }}}
 " Polygot: Support for many, many languages {{{
-Plug 'sheerun/vim-polyglot' " Add syntax and language support for many languages
+Plug 'sheerun/vim-polyglot', { 'do': '~/.vim/plugged/vim-polygot/build' } " Add syntax and language support for many languages
 
 " Adds support for the following {{{
 "ansible (syntax, indent, ftplugin, ftdetect)
@@ -167,6 +167,9 @@ Plug 'sheerun/vim-polyglot' " Add syntax and language support for many languages
 "yaml (syntax, ftplugin)
 "yard (syntax)
 " End Polygot supported list }}}
+" }}}
+" YAML
+Plug 'chase/vim-ansible-yaml', { 'for': 'yaml' }
 " }}}
 " End Languages }}}
 " Asthetics {{{
