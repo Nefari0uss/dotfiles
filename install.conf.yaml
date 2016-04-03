@@ -6,8 +6,10 @@
 
 - shell:
   - [git submodule update --init --recursive, installing submodules]
+  - [rm -rf ~/.oh-my-zsh, removing previous oh-my-zsh]
   - [./zsh/oh-my-zsh/tools/install.sh, installing zsh]
   - [rm ~/.zshrc, removing oh-my-zsh zshrc]
+  - [cp zsh/zshrc-unix zsh/zshrc, setting up unix zshrc] 
   - [echo "Making symblinks..."]
 
 - link:
@@ -22,6 +24,10 @@
     ~/.config/ranger:
       create: true
       path: config/ranger
+    ~/.config/terminator:
+      create: true
+      path: config/terminator
+
 
     # fonts
     ~/.fonts: fonts
@@ -63,7 +69,4 @@
     ~/.zshrc:
       force: true
       path: zsh/zshrc
-
-- shell:
-  - [vim +'PlugUpgrade' +'PlugInstall' +'PlugUpdate' 'qall' &, updating Vim plugins]
 
