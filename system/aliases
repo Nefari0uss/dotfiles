@@ -9,7 +9,7 @@ alias vi=vim
 
 
 # Upgrade all Vim Plugins at once.
-alias vimplug="vim +PlugUpgrade +PlugInstall +PlugUpdate +qall"
+alias vimplug="vim +PlugUpgrade +PlugInstall +PlugUpdate +qall &"
 
 
 # Useful shell commands
