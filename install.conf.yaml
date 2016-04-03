@@ -65,5 +65,5 @@
       path: zsh/zshrc
 
 - shell:
-  - [vim +PlugUpgrade +PlugInstall +PlugUpdate +qall &, updating Vim plugins]
+  - [vim +'PlugUpgrade' +'PlugInstall' +'PlugUpdate' 'qall' &, updating Vim plugins]
 
