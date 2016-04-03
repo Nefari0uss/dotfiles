@@ -1,0 +1,3 @@
+shell :q
+set use_preview_script true
+Q
