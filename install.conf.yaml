@@ -9,10 +9,55 @@
 
 - link:
 
-    ~/.bashrc: bash/bashrc
-      
+    # bash
+    ~/.bashrc: 
+      force: true
+      path: bash/bashrc
+    ~/.bash_profile: bash/bash_profile
 
-    ~/.vim: vim-files/vim
-    ~/.vimrc: vim/vimrc
-    ~/.vimperatorrc: vim/vimperatorrc
+    # config
+    ~/.config/ranger:
+      create: true
+      path: config/ranger
+
+    # fonts
+    ~/.fonts: fonts
+
+    # git
+    ~/.gitattributes:
+      force: true
+      path: git/gitattributes
+    ~/.gitconfig: 
+      force: true
+      path: git/gitconfig
+
+    # system
+    ~/.aliases: 
+      force: true
+      path: system/aliases
+    ~/.export: system/export
+    ~/.functions: 
+      force: true
+      path: system/functions
+    ~/.prompt: system/prompt
+  
+    # windows
+    ~/.minttyrc: windows/minttyrc
+  
+    # vim
+    ~/.vim:
+      force: true
+      path: vim/vim
+    ~/.vimrc: 
+      force: true
+      path: vim/vimrc
+    ~/.vimperatorrc: 
+      relink: true
+      path: vim/vimperatorrc
+  
+    # zsh
+    ~/.zsh_favlist: zsh/zsh_favlist
+    ~/.zshrc:
+      force: true
+      path: zsh/zshrc
 
