@@ -49,11 +49,12 @@
 
 [alias]
     # common commmands
-    st = status
+    s = status --ignore-submodules
+    st = status --ignore-submodules
     sts = status -s
     cm = commit -m
     co = checkout
-    df = diff
+    df = diff --ignore-submodules
     l = log -p
     cb = checkout -b
     cp = cherry-pick
