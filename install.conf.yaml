@@ -8,6 +8,11 @@
   - [git submodule update --init --recursive, Installing submodules]
 
 - link:
-    ~/.vim: vim
-    ~/.vimrc: vimrc
+
+    ~/.bashrc: bash/bashrc
+      
+
+    ~/.vim: vim-files/vim
+    ~/.vimrc: vim/vimrc
+    ~/.vimperatorrc: vim/vimperatorrc
 
