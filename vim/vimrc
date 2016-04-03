@@ -81,6 +81,10 @@ Plug 'valloric/matchtagalways', { 'for': [
 " Coloresque: CSS/LESS/SASS/HTML colour preview {{{
 Plug 'gorodinskiy/vim-coloresque', { 'for': 'css' } 
 " }}}
+" JSLint {{{
+Plug 'shutnik/jshint2.vim', { 'for': 'javascript' }
+
+" }}}
 " End Web Development }}}
 " Polygot: Support for many, many languages {{{
 Plug 'sheerun/vim-polyglot', { 'do': '~/.vim/plugged/vim-polygot/build' } " Add syntax and language support for many languages
