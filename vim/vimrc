@@ -87,7 +87,7 @@ Plug 'shutnik/jshint2.vim', { 'for': 'javascript' }
 " }}}
 " End Web Development }}}
 " Polygot: Support for many, many languages {{{
-Plug 'sheerun/vim-polyglot', { 'do': '~/.vim/plugged/vim-polygot/build' } " Add syntax and language support for many languages
+Plug 'sheerun/vim-polyglot', { 'do': './build' } " Add syntax and language support for many languages
 
 " Adds support for the following {{{
 "ansible (syntax, indent, ftplugin, ftdetect)
