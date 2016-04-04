@@ -49,6 +49,7 @@
       force: true
       path: system/functions
     ~/.prompt: system/prompt
+    ~/.jshintrc: system/jshintrc
   
     # windows
     ~/.minttyrc: windows/minttyrc
