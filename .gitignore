@@ -1,7 +1,7 @@
 # ~~GitIgnore for Nefari0uss's dotfiles repo~~ #
 
 # Ignore Vim plugin installs
-#vim/vim/plugged/*
+vim/vim/plugged/**
 
 # Vim sessions
 vim/vim/session/*
