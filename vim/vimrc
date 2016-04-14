@@ -76,106 +76,21 @@ Plug 'mattn/emmet-vim', { 'for': 'html' }
 " }}}
 " Match Tag Always: Add tag matching for web development {{{
 Plug 'valloric/matchtagalways', { 'for': [
-            \'html', 'javascrpt', 'css', 'eruby', 'xml',] }
+            \'html', 'javascrpt', 'css', 'eruby', 'xml', 'rails' ] }
 " }}}
 " Coloresque: CSS/LESS/SASS/HTML colour preview {{{
 Plug 'gorodinskiy/vim-coloresque', { 'for': 'css' } 
 " }}}
 " JSLint {{{
 Plug 'shutnik/jshint2.vim', { 'for': 'javascript' }
-
 " }}}
 " End Web Development }}}
 " Polygot: Support for many, many languages {{{
 Plug 'sheerun/vim-polyglot', { 'do': './build' } " Add syntax and language support for many languages
-
-" Adds support for the following {{{
-"ansible (syntax, indent, ftplugin, ftdetect)
-"arduino (syntax, indent, ftdetect)
-"blade (syntax, indent, ftplugin, ftdetect)
-"c++11 (syntax)
-"c/c++ (syntax)
-"cjsx (ftdetect, syntax, ftplugin)
-"clojure (syntax, indent, autoload, ftplugin, ftdetect)
-"coffee-script (syntax, indent, compiler, autoload, ftplugin, ftdetect)
-"cql (syntax, ftdetect)
-"css (syntax)
-"cucumber (syntax, indent, compiler, ftplugin, ftdetect)
-"dart (syntax, indent, autoload, ftplugin, ftdetect)
-"dockerfile (syntax, ftdetect)
-"elixir (syntax, indent, compiler, ftplugin, ftdetect)
-"elm (syntax, indent, autoload, ftplugin, ftdetect)
-"emberscript (syntax, indent, ftplugin, ftdetect)
-"emblem (syntax, indent, ftplugin, ftdetect)
-"erlang (syntax, indent, ftdetect)
-"git (syntax, indent, ftplugin, ftdetect)
-"glsl (syntax, indent, ftdetect)
-"go (syntax, compiler, indent, ftdetect)
-"groovy (syntax)
-"haml (syntax, indent, compiler, ftplugin, ftdetect)
-"handlebars (syntax, indent, ftplugin, ftdetect)
-"haskell (syntax, indent, ftplugin, ftdetect)
-"haxe (syntax, ftdetect)
-"html5 (syntax, indent, autoload, ftplugin)
-"jade (syntax, indent, ftplugin, ftdetect)
-"jasmine (syntax, ftdetect)
-"javascript (syntax, indent)
-"jinja (syntax, indent, ftdetect)
-"json (syntax, indent, ftdetect)
-"jst (syntax, indent, ftdetect)
-"jsx (ftdetect, after)
-"julia (syntax, indent, ftdetect)
-"kotlin (syntax, indent, ftdetect)
-"latex (syntax, indent, ftplugin)
-"less (syntax, indent, ftplugin, ftdetect)
-"liquid (syntax, indent, ftplugin, ftdetect)
-"markdown (syntax, ftplugin, ftdetect)
-"nginx (syntax, indent, ftdetect)
-"nim (syntax, compiler, indent, ftdetect)
-"nix (syntax, ftplugin, ftdetect)
-"objc (ftplugin, syntax, indent)
-"ocaml (syntax, indent, ftplugin)
-"octave (syntax)
-"opencl (syntax, indent, ftplugin, ftdetect)
-"perl (syntax, indent, ftplugin, ftdetect)
-"php (syntax)
-"powershell (syntax, indent, ftplugin, ftdetect)
-"protobuf (syntax, ftdetect)
-"puppet (syntax, indent, ftplugin, ftdetect)
-"python (syntax, indent)
-"qml (syntax, indent, ftplugin, ftdetect)
-"r-lang (syntax, ftplugin)
-"ragel (syntax)
-"rspec (syntax, ftdetect)
-"ruby (syntax, indent, compiler, autoload, ftplugin, ftdetect)
-"rust (syntax, indent, compiler, autoload, ftplugin, ftdetect)
-"sbt (syntax, ftdetect)
-"scala (syntax, indent, compiler, ftplugin, ftdetect)
-"slim (syntax, indent, ftdetect)
-"solidity (syntax, indent, ftdetect)
-"stylus (syntax, indent, ftplugin, ftdetect)
-"swift (syntax, indent, ftplugin, ftdetect)
-"systemd (syntax, ftdetect)
-"textile (syntax, ftplugin, ftdetect)
-"thrift (syntax, ftdetect)
-"tmux (syntax, ftdetect)
-"tomdoc (syntax)
-"toml (syntax, ftplugin, ftdetect)
-"twig (syntax, ftplugin)
-"typescript (syntax, indent, compiler, ftplugin, ftdetect)
-"vala (syntax, indent, ftdetect)
-"vbnet (syntax)
-"vcl (syntax, ftdetect)
-"vm (syntax, indent, ftdetect)
-"xls (syntax)
-"yaml (syntax, ftplugin)
-"yard (syntax)
-" End Polygot supported list }}}
 " }}}
 " YAML
 Plug 'chase/vim-ansible-yaml', { 'for': 'yaml' }
 " }}}
-" End Languages }}}
 " Asthetics {{{
 " Vim-Colorschemes: Tons of vim colour schemes {{{
 Plug 'flazz/vim-colorschemes'
@@ -511,14 +426,6 @@ nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 " }}}
 " End Visual Aids }}}
-" Other  {{{
-" Matrix: A fun little screen saver {{{
-Plug 'uguu-org/vim-matrix-screensaver', { 'on': 'Matrix' }
-" }}}
-" Notes: A note taking plugin {{{
-Plug 'vim-scripts/notes.vim', { 'on': 'Note' }
-" }}}
-" End Other }}}
 " Unused {{{
 "Plug 'junegunn/vim-journal'
 "Plug 'kshenoy/vim-signature'
@@ -532,10 +439,9 @@ Plug 'vim-scripts/notes.vim', { 'on': 'Note' }
 Plug 'ryanoasis/vim-devicons'
 
 if has("win32") | has("win32unix") | has("win64") 
-    " Stuff
+    " Set fonts here
 else
-    "set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
-    "set guifont=DroidSansMonoPLNerd:h12
+    " Set fonts here
 endif
 
 let g:webdevicons_enable_nerdtree=1 " Enable/disable adding the flags to NERDTree
@@ -549,7 +455,7 @@ let g:WebDevIconsUnicodeDecorateFileNodes=1 " Turn on/off file node glyph decora
 let g:WebDevIconsUnicodeGlyphDoubleWidth=1 " Whether or not font is using double-width glyphs
 let g:webdevicons_conceal_nerdtree_brackets=1 " Whether or not to show the nerdtree brackets around flags
 let g:WebDevIconsNerdTreeAfterGlyphPadding=' '  " The amount of space to use after the glyph character
-let g:WebDevIconsNerdTreeGitPluginForceVAlign=0 " Force extra padding in NERDTree so that the filetype icons line up vertically
+let g:WebDevIconsNerdTreeGitPluginForceVAlign=1 " Force extra padding in NERDTree so that the filetype icons line up vertically
 
 " }}}
 
@@ -567,18 +473,15 @@ augroup END
 " }}}
 " 2.2 File templates {{{
 " When creating a new file with the following extension, use a template.
-autocmd BufNewFile *.html 0r ~/.vim/templates/template.html
-autocmd BufNewFile *.tex 0r ~/.vim/templates/template.tex
 autocmd BufNewFile *.c 0r ~/.vim/templates/template.c
+autocmd BufNewFile *.html 0r ~/.vim/templates/template.html
+autocmd BufNewFile *.java 0r ~/.vim/templates/template.java
+autocmd BufNewFile *.tex 0r ~/.vim/templates/template.tex
 " }}}
 " 2.3 Allow reading of pdf, docx, etc in Vim w/pandoc and pdftotext {{{
 autocmd BufReadPre *.pdf silent set ro
 autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk -layout -q -eol unix "%" - | fmt -w78
 autocmd BufReadPost *.doc,*.docx,*.rtf,*.odp,*.odt silent %!pandoc "%" -tplain -o /dev/stdout
-" }}}
-" 2.4 Autoread .vimrc when writing to it {{{
-" Disabled because it was fucking up folding upon saving
-" autocmd! bufwritepost .vimrc source ~/.vimrc
 " }}}
 
 " End Autocommand Groups }}}
@@ -590,6 +493,8 @@ set nocompatible " VIM, not Vi
 
 syntax enable " Syntax highlighting is magical
 
+color kalahari " Set colorscheme
+
 filetype indent on " Enable filetype specific indenation
 filetype plugin on " Enable filetype specific plugins
 
@@ -597,81 +502,63 @@ set backspace=indent,eol,start " Allow backspace to delete character
 set clipboard=unnamed " Yank to system register by default
 set cursorline " Highlight the current line
 set encoding=utf8 " Set UTF-8 as standard encoding
-set history=100 " Probably excessive
-set laststatus=2
+set history=1000 " Probably excessive
+set laststatus=2 " Always have status line
 set lazyredraw " Redraw only when necessary
+set listchars=tab:▸\ ,eol:¬ " List characters so I can view whitespace and stuff
 set noerrorbells " Bad Vim. Be quiet.
+set nowrap " Set line wrapping OFF by default
 set pastetoggle=<F2> " When in insert mode, press <F2> to go to paste mode, where you can paste mass data that won't be autoindented
+set ruler " Show info along bottom of screen
 set scrolloff=5 " Keep this many lines above/below cursor while scrolling
 set shell=/bin/zsh
+set showcmd " Display incomplete commands in lower right corner
+set showmatch " Show matching brackets
 set showmode " Show which mode we are in
-set ttyfast
-set undolevels=100 " Equally excessive
+set ttyfast " Fast terminal connection ~ improves smoothness
+set t_Co=256 " Colours fix
+set undolevels=1000 " Equally excessive
 set visualbell " Be quiet Vim.
 set wildchar=<TAB> " Start wild card completion with tab
+set wildignore=*.swp,*.swo,*.bak,*.pyc,*.class " Don't suggest these files
 set wildmenu " Visual autocomplete wild card menu
+set wildmode=list:longest " Keep suggesting until ambigious
+set foldenable " Enable folding by default
+set foldlevelstart=10 " Max fold level is 10
 
-" }}}
-" Map Leader {{{
-let mapleader=";"  " Set leader key to be ;
-
-" Remove trailing whitespace
-nnoremap <leader>ws :%s/\s\+$//<cr>:let @/=''<CR>
+set backupdir=~/.vim/bkup
+set directory=~/.vim/bkup
 
 
-" Open .vimrc for editing
-nnoremap <leader>vimrc :e $MYVIMRC<CR>
-
-" Remove \^M (Windows line encoding) from file
-noremap <Leader>mm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
-" }}}
-" 3.2 Line wrapping {{{
-
-set nowrap " Set line wrapping OFF by default
-
-" Toggle word wrapping
-nnoremap <leader>wr :set wrap! wrap?<CR>
-
-" Easy movement with line wrapping 
+" Easy movement with line wrapping (can move on wrapped lines)
 map j gj
 map k gk
-" }}}
-" 3.3 Enable mouse mode if available. {{{
+
+" Enable mouse mode if available. {{{
 if has("mouse")
     set mouse=a
 endif " }}}
-" 3.4 Enable omni completion. (Ctrl-X Ctrl-O) {{{
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType c setlocal omnifunc=ccomplete#Complete
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
-" Use syntax complete if nothing else available
-if has("autocmd") && exists("+omnifunc")
-    autocmd Filetype *
-                \	if &omnifunc == "" |
-                \		setlocal omnifunc=syntaxcomplete#Complete |
-                \	endif
-endif
 " }}}
-" 5.2 Tabs_and_Intendation {{{
+" 3.2 Tabs and Intendation {{{
 
+" Tabs
 set expandtab " Expand tab to be spaces
 set smarttab " Insert tabs on start of line using shiftwidth
 set tabstop=4 " 1 tab = 4 spaces
 
+" Shifting
 set shiftround " Use multiples of shiftwidfth with '>' and '<'
 set shiftwidth=4 " Number of spaces to use when inserting a tab
 
+" Intendation
 set autoindent " Auto indent as needed
 set copyindent " Copy previous indentation leven on autoindent
 set smartindent " Automatically insert extra level of indentation when needed
 
 autocmd FileType c setlocal tabstop=8 shiftwidth=8 noexpandtab
 autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType eruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType java setlocal tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab
 autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab foldmethod=syntax
@@ -681,10 +568,10 @@ autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType text setlocal noexpandtab
 
 " End Tabs_and_Intendation }}}
-" 5.3 Buffers {{{
+" 3.3 Buffers {{{
 
-set splitright " Open splits to the right
-set splitbelow " Then bot
+set splitright " Open splits to the right instead of left
+set splitbelow " Open splits to the bottom instead of to the top 
 
 set hidden " Change active buffer without having to save
 
@@ -704,26 +591,37 @@ map <C-l> <C-W>l
 "map <C-<> <C-W>< " Decrease current window width
 
 " End Buffers }}}
-" 4.1 General UI Changes {{{
-set ruler " Show info along bottom of screen
-set showcmd " Display incomplete commands in lower right corner
-set showmatch " Show matching brackets
-" }}}
-" 4.2 Searching {{{
-set hlsearch " Highlight search results
-set smartcase " Make searches search CAPS if capital letter is used
-set incsearch " Search as characters are entered
-set ignorecase " Make searches case-insensitive
-set magic " Allow use of Regex in search
+" 3.4 Enable omni completion. (Ctrl-X Ctrl-O) {{{
+autocmd FileType c setlocal omnifunc=ccomplete#Complete
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-" turn off search highlight
-"nnoremap <CR> :noh<CR><CR>
+" Use syntax complete if nothing else available
+if has("autocmd") && exists("+omnifunc")
+    autocmd Filetype *
+                \	if &omnifunc == "" |
+                \		setlocal omnifunc=syntaxcomplete#Complete |
+                \	endif
+endif
+" }}}
+" 3.5 Searching {{{
+
+set hlsearch " Highlight search results
+set ignorecase " Make searches case-insensitive
+set incsearch " Search as characters are entered
+set magic " Allow use of Regex in search
+set smartcase " Make searches search CAPS if capital letter is used
 
 " End Searching }}}
-" 6.4 Line Numbers {{{
+" 3.6 Line Numbers {{{
 
-set relativenumber
-set number
+" Vim 7.4 has a fancy hybrid line number mode ~ I like it.
+set relativenumber "Turn on relative line numbers
+set number " Turn on absolute line number for the current line
 
 " Toggle line numbers between relative and normal
 nnoremap <leader>n :call ToggleNumber()<CR>
@@ -738,27 +636,32 @@ function! ToggleNumber()
 endfunc
 
 " End Toggle Line Numbers }}}
-" 4.4 Folding {{{
-set foldenable " Enable folding by default
-set foldlevelstart=10 " Max fold level is 10
-setlocal foldmethod=indent
-" }}}
-" 4.5 Show and enforce 80 char limit {{{
-"if exists('+colorcolumn')
-"    setlocal colorcolumn=80
-"    setlocal textwidth=80
-"endif
-" }}}
-" 4.6 Set Colours {{{
-set t_Co=256 " Colours fix
-color skittles_berry " Set colorscheme
-" End Set Colour Scheme }}}
-" List Chars {{{
-set listchars=tab:▸\ ,eol:¬
+" 3.7 Map Leader {{{
+let mapleader=";"  " Set leader key to be ;
+
+" To let a leader mapping be picked up by 'Follow My Leader' plugin, create
+" the leader mappings in the following format: 
+" What the mapping does.
+" The mapping itself.
+
+" Remove trailing whitespace
+nnoremap <leader>ws :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Open .vimrc for editing
+nnoremap <leader>vimrc :e $MYVIMRC<CR>
+
+" Remove \^M (Windows line encoding) from file
+noremap <Leader>mm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+
 " Toggle white space characters
 nnoremap <leader>l :set list!<cr>
-" }}}
-" netrw {{{
-"
-" }}}
+
+" Toggle word wrapping
+nnoremap <leader>wr :set wrap! wrap?<CR>
+
+" turn off search highlight
+"nnoremap <CR> :noh<CR><CR>
+
+"" }}}
+
 " End Config }}}
