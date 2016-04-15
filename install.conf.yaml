@@ -49,7 +49,10 @@
       force: true
       path: system/functions
     ~/.prompt: system/prompt
+    ~/.gemrc: system/gemrc
     ~/.jshintrc: system/jshintrc
+    ~/.prompt: system/prompt
+    ~/.tmux.conf: system/tmux.conf
   
     # windows
     ~/.minttyrc: windows/minttyrc
