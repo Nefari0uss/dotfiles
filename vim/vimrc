@@ -129,11 +129,11 @@ endfunction
 Plug 'mhinz/vim-startify'
 
 function! s:filter_header(lines) abort
-        let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
-        let centered_lines = map(copy(a:lines),
-            \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
-        return centered_lines
-    endfunction
+    let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
+    let centered_lines = map(copy(a:lines),
+                \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
+    return centered_lines
+endfunction
 
 
 let g:startify_custom_header = [
@@ -161,14 +161,14 @@ let g:startify_list_order = [
             \ ]
 
 let g:startify_bookmarks=[
-    \ '~/.vimrc',
-    \ '~/.bashrc',
-    \ '~/.bash_aliases',
-    \ '~/.bash_functions',
-    \ '~/.zshrc',
-    \ '~/.gitconfig',
-    \ '~/projects/dotfiles/install.sh',
-    \]
+            \ '~/.vimrc',
+            \ '~/.bashrc',
+            \ '~/.bash_aliases',
+            \ '~/.bash_functions',
+            \ '~/.zshrc',
+            \ '~/.gitconfig',
+            \ '~/projects/dotfiles/install.sh',
+            \]
 
 let g:startify_change_to_dir          = 0
 let g:startify_enable_special         = 1
@@ -178,13 +178,13 @@ let g:startify_session_delete_buffers = 1
 let g:startify_session_persistence    = 1
 let g:startify_use_env                = 1
 
-    highlight StartifyBracket ctermfg=240
-    highlight StartifyFooter  ctermfg=240
-    highlight StartifyHeader  ctermfg=114
-    highlight StartifyNumber  ctermfg=215
-    highlight StartifyPath    ctermfg=245
-    highlight StartifySlash   ctermfg=240
-    highlight StartifySpecial ctermfg=240
+highlight StartifyBracket ctermfg=240
+highlight StartifyFooter  ctermfg=240
+highlight StartifyHeader  ctermfg=114
+highlight StartifyNumber  ctermfg=215
+highlight StartifyPath    ctermfg=245
+highlight StartifySlash   ctermfg=240
+highlight StartifySpecial ctermfg=240
 
 " }}}
 " End Asthetics }}}
@@ -378,6 +378,9 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 nnoremap <leader>go :Goyo<CR>
 
 " }}}
+" Tmux Navigator: Smart pane switching with awareness of vim splits {{{
+Plug 'christoomey/vim-tmux-navigator' " Allows for ctrl-h/j/k/l to move around in vim AND tmux
+" }}}
 " End Utilities }}}
 " Visual Aids {{{
 " Git Gutter: Show diffs left of line numbers {{{
@@ -498,10 +501,14 @@ color kalahari " Set colorscheme
 filetype indent on " Enable filetype specific indenation
 filetype plugin on " Enable filetype specific plugins
 
+
 set backspace=indent,eol,start " Allow backspace to delete character
 set clipboard=unnamed " Yank to system register by default
 set cursorline " Highlight the current line
 set encoding=utf8 " Set UTF-8 as standard encoding
+set foldenable " Enable folding by default
+set foldlevelstart=10 " Max fold level is 10
+set hidden " Change active buffer without having to save
 set history=1000 " Probably excessive
 set laststatus=2 " Always have status line
 set lazyredraw " Redraw only when necessary
@@ -511,20 +518,21 @@ set nowrap " Set line wrapping OFF by default
 set pastetoggle=<F2> " When in insert mode, press <F2> to go to paste mode, where you can paste mass data that won't be autoindented
 set ruler " Show info along bottom of screen
 set scrolloff=5 " Keep this many lines above/below cursor while scrolling
-set shell=/bin/zsh
+set shell=/bin/zsh " Set shell to be Zshell
 set showcmd " Display incomplete commands in lower right corner
 set showmatch " Show matching brackets
 set showmode " Show which mode we are in
-set ttyfast " Fast terminal connection ~ improves smoothness
+set splitbelow " Open splits to the bottom instead of to the top 
+set splitright " Open splits to the right instead of left
 set t_Co=256 " Colours fix
+set ttyfast " Fast terminal connection ~ improves smoothness
 set undolevels=1000 " Equally excessive
 set visualbell " Be quiet Vim.
 set wildchar=<TAB> " Start wild card completion with tab
 set wildignore=*.swp,*.swo,*.bak,*.pyc,*.class " Don't suggest these files
 set wildmenu " Visual autocomplete wild card menu
 set wildmode=list:longest " Keep suggesting until ambigious
-set foldenable " Enable folding by default
-set foldlevelstart=10 " Max fold level is 10
+
 
 set backupdir=~/.vim/bkup
 set directory=~/.vim/bkup
@@ -533,6 +541,7 @@ set directory=~/.vim/bkup
 " Easy movement with line wrapping (can move on wrapped lines)
 map j gj
 map k gk
+
 
 " Enable mouse mode if available. {{{
 if has("mouse")
@@ -570,16 +579,7 @@ autocmd FileType text setlocal noexpandtab
 " End Tabs_and_Intendation }}}
 " 3.3 Buffers {{{
 
-set splitright " Open splits to the right instead of left
-set splitbelow " Open splits to the bottom instead of to the top 
-
-set hidden " Change active buffer without having to save
-
-" Control+h/j/k/l to move around windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+" Ctrl + h/j/k/l is handled under tmux navigator plugin
 
 " More convenient bindings for buffers
 "map <C-_> <C-W>_ " Increase vertical space for current window
