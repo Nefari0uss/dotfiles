@@ -505,7 +505,8 @@ set nocompatible " VIM, not Vi
 
 syntax enable " Syntax highlighting is magical
 
-color kalahari " Set colorscheme
+colorscheme kalahari " Set colorscheme
+autocmd Colorscheme * highlight Normal ctermbg=NONE " Make Vim have no background ~ control using terminal emulator
 
 filetype indent on " Enable filetype specific indenation
 filetype plugin on " Enable filetype specific plugins
@@ -533,7 +534,6 @@ set showmatch " Show matching brackets
 set showmode " Show which mode we are in
 set splitbelow " Open splits to the bottom instead of to the top 
 set splitright " Open splits to the right instead of left
-set t_Co=256 " Colours fix
 set ttyfast " Fast terminal connection ~ improves smoothness
 set undolevels=1000 " Equally excessive
 set visualbell " Be quiet Vim.
@@ -542,15 +542,9 @@ set wildignore=*.swp,*.swo,*.bak,*.pyc,*.class " Don't suggest these files
 set wildmenu " Visual autocomplete wild card menu
 set wildmode=list:longest " Keep suggesting until ambigious
 
-
-"set backupdir=~/.vim/bkup
-"set directory=~/.vim/bkup
-
-
 " Easy movement with line wrapping (can move on wrapped lines)
 map j gj
 map k gk
-
 
 " Enable mouse mode if available. {{{
 if has("mouse")
