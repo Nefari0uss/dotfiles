@@ -72,24 +72,31 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 " }}}
 " Web Development {{{
 " Emmet: Text expansion {{{
-Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'eruby'] }
 " }}}
 " Match Tag Always: Add tag matching for web development {{{
 Plug 'valloric/matchtagalways', { 'for': [
             \'html', 'javascrpt', 'css', 'eruby', 'xml', 'rails' ] }
 " }}}
 " Coloresque: CSS/LESS/SASS/HTML colour preview {{{
-Plug 'gorodinskiy/vim-coloresque', { 'for': 'css' } 
+Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less', 'html'] }
 " }}}
 " JSLint {{{
 Plug 'shutnik/jshint2.vim', { 'for': 'javascript' }
+" }}}
+" Bundler: Ruby bundler file support {{{
+Plug 'tpope/vim-bundler', { 'for': 'ruby' }
+" }}}  
+" Rails: Ruby on Rails support {{{
+Plug 'tpope/vim-rails', { 'for': ['eruby', 'ruby'] }
 " }}}
 " End Web Development }}}
 " Polygot: Support for many, many languages {{{
 Plug 'sheerun/vim-polyglot', { 'do': './build' } " Add syntax and language support for many languages
 " }}}
-" YAML
+" YAML {{{
 Plug 'chase/vim-ansible-yaml', { 'for': 'yaml' }
+" }}}
 " }}}
 " Asthetics {{{
 " Vim-Colorschemes: Tons of vim colour schemes {{{
@@ -371,20 +378,22 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 nmap <F8> :TagbarToggle<CR>
 
 " }}}
-" Goyo: Distraction free writing {{{
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
-
-" Toggle Goyo for distraction free writing
-nnoremap <leader>go :Goyo<CR>
-
-" }}}
 " Tmux Navigator: Smart pane switching with awareness of vim splits {{{
 Plug 'christoomey/vim-tmux-navigator' " Allows for ctrl-h/j/k/l to move around in vim AND tmux
+" }}}
+" Move: Easily move around blocks of text {{{
+Plug 'matze/vim-move'
+
+"let g:move_key_modifier = 'C'
+
 " }}}
 " End Utilities }}}
 " Visual Aids {{{
 " Git Gutter: Show diffs left of line numbers {{{
 Plug 'airblade/vim-gitgutter' 
+
+let g:gitgutter_sign_column_always=1 " Always show the git gutter column
+
 " }}}
 " Rainbox: Rainbow coloured parentheses matching {{{
 Plug 'luochen1990/rainbow'
@@ -534,8 +543,8 @@ set wildmenu " Visual autocomplete wild card menu
 set wildmode=list:longest " Keep suggesting until ambigious
 
 
-set backupdir=~/.vim/bkup
-set directory=~/.vim/bkup
+"set backupdir=~/.vim/bkup
+"set directory=~/.vim/bkup
 
 
 " Easy movement with line wrapping (can move on wrapped lines)
@@ -594,7 +603,7 @@ autocmd FileType text setlocal noexpandtab
 " 3.4 Enable omni completion. (Ctrl-X Ctrl-O) {{{
 autocmd FileType c setlocal omnifunc=ccomplete#Complete
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
@@ -614,7 +623,7 @@ set hlsearch " Highlight search results
 set ignorecase " Make searches case-insensitive
 set incsearch " Search as characters are entered
 set magic " Allow use of Regex in search
-set smartcase " Make searches search CAPS if capital letter is used
+set smartcase " Make searches case sensitive IF a capital leter is used.
 
 " End Searching }}}
 " 3.6 Line Numbers {{{
