@@ -90,6 +90,12 @@ Plug 'tpope/vim-bundler', { 'for': 'ruby' }
 " Rails: Ruby on Rails support {{{
 Plug 'tpope/vim-rails', { 'for': ['eruby', 'ruby'] }
 " }}}
+" Closetag: Autoclose HTML tags {{{
+Plug 'alvan/vim-closetag', { 'for': ['html', 'eruby', 'xml', 'xhtml'] }
+
+" let g:closetag_filenames ="*.html, *.xhtml, .phtml"
+
+" }}}
 " End Web Development }}}
 " Polygot: Support for many, many languages {{{
 Plug 'sheerun/vim-polyglot', { 'do': './build' } " Add syntax and language support for many languages
@@ -99,11 +105,13 @@ Plug 'chase/vim-ansible-yaml', { 'for': 'yaml' }
 " }}}
 " }}}
 " Asthetics {{{
+" Themes {{{
 " Vim-Colorschemes: Tons of vim colour schemes {{{
 Plug 'flazz/vim-colorschemes'
 " }}}
-" Theme: Skittles-Berry {{{
+" Skittles-Berry {{{
 "Plug 'shawncplus/skittles_berry'
+" }}}
 " }}}
 " Lightline: Info bar at bottom of screen {{{
 Plug 'itchyny/lightline.vim' 
@@ -439,8 +447,6 @@ nnoremap <C-P> :bprev<CR>
 " }}}
 " End Visual Aids }}}
 " Unused {{{
-"Plug 'junegunn/vim-journal'
-"Plug 'kshenoy/vim-signature'
 "Plug 'tommcdo/vim-exchange' " Swap two regions of text
 "Plug 'tpope/vim-endwise' " Adds end/endif/end etc to code
 "Plug 'tpope/vim-speeddating' " Easy increment date and times with Ctrl-A/X
