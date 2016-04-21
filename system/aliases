@@ -27,6 +27,8 @@ alias ip="curl ipinfo.io/ip"
 alias exot=exit
 alias sha256="shasum -a 256 "$1" "
 
+alias groot='echo "I am Groot."; cd "$(git rev-parse --show-toplevel)"'
+
 # Git Commands
 alias g="git"
 alias gs="git status"
