@@ -93,7 +93,7 @@ Plug 'tpope/vim-rails', { 'for': ['eruby', 'ruby'] }
 " Closetag: Autoclose HTML tags {{{
 Plug 'alvan/vim-closetag', { 'for': ['html', 'eruby', 'xml', 'xhtml'] }
 
-" let g:closetag_filenames ="*.html, *.xhtml, .phtml"
+let g:closetag_filenames ="*.html, *.xhtml, .phtml"
 
 " }}}
 " End Web Development }}}
@@ -103,6 +103,9 @@ Plug 'sheerun/vim-polyglot', { 'do': './build' } " Add syntax and language suppo
 " YAML {{{
 Plug 'chase/vim-ansible-yaml', { 'for': 'yaml' }
 " }}}
+" Vimperator: Syntax highlighting for vimperatorrc {{{
+Plug 'vimperator/vimperator.vim', { 'for': 'vimperator' }
+"}}}
 " }}}
 " Asthetics {{{
 " Themes {{{
@@ -204,21 +207,8 @@ highlight StartifySpecial ctermfg=240
 " }}}
 " End Asthetics }}}
 " Utilities {{{
-" CtrlP: Fuzzy file finder {{{
-Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
-
-" Map Ctrl-p to call CtrlP
-let g:ctrlp_map = '<leader>p'
-let g:ctrlp_cmd = 'CtrlP'
-
-" Ignore certain files
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-
-let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-            \ 'file': '\v\.(exe|so|dll)$',
-            \ }
+" fzf: A command-line fuzzy finder {{{
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " }}}
 " EasyMotion: Preivew vim motions {{{
 Plug 'easymotion/vim-easymotion' 
@@ -584,6 +574,8 @@ autocmd FileType json setlocal shiftwidth=4 tabstop=4 noexpandtab
 autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType text setlocal noexpandtab
+autocmd FileType vimperator setlocal tabstop=2 shiftwidth=2 softtabstop=2 
+
 
 " End Tabs_and_Intendation }}}
 " 3.3 Buffers {{{
