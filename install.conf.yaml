@@ -58,6 +58,7 @@
     ~/.jshintrc: system/jshintrc
     ~/.prompt: system/prompt
     ~/.tmux.conf: system/tmux.conf
+    ~/.xinitrc: system/xinitrc
   
     # windows
     ~/.minttyrc: windows/minttyrc
