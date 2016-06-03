@@ -40,6 +40,11 @@
       force: true
       path: git/gitconfig
 
+    # ssh
+    ~/.ssh:
+      force: true
+      path: ../../Dropbox/ssh
+
     # system
     ~/.aliases: 
       force: true
