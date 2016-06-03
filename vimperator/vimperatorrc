@@ -1,7 +1,5 @@
 " My .vimperatorrc
 " Nefari0uss <nnefari0uss@gmail.com>
-
-
 " NOTE: Vimperator does not allow comments on the same line as settings!
 
 set animations=true
@@ -25,7 +23,6 @@ set titlestring="Mozilla Firefox"
 set visualbell 
 
 
-
 " Don't close window upon closing last tab
 set! browser.tabs.closeWindowWithLastTab=false 
 
@@ -37,6 +34,12 @@ highlight Hint -append font-size:120%;
 
 " 'readnow' puts the page into reader mode using readability
 command! -nargs=0 -description="Read now with readability" readnow open javascript:(%0A%28function%28%29%7Bwindow.baseUrl%3D%27//www.readability.com%27%3Bwindow.readabilityToken%3D%27%27%3Bvar%20s%3Ddocument.createElement%28%27script%27%29%3Bs.setAttribute%28%27type%27%2C%27text/javascript%27%29%3Bs.setAttribute%28%27charset%27%2C%27UTF-8%27%29%3Bs.setAttribute%28%27src%27%2CbaseUrl%2B%27/bookmarklet/read.js%27%29%3Bdocument.documentElement.appendChild%28s%29%3B%7D%29%28%29)
+
+" 'doj' checks doj.me if a site is down or not
+command! -nargs=0 -description="Checks if current site is down for everyone or just me" doj open javascript:void(location.href='http://doj.me/?url='+encodeURI(window.location.host))
+
+" 'ntp' opens all pictures on the current page in a new tab
+command! -nargs=0 -description="Open all images on the current page in a new tab" ntp open javascript:(function(){function%20I(u){var%20t=u.split('.'),e=t[t.length-1].toLowerCase();return%20{gif:1,jpg:1,jpeg:1,png:1,mng:1}[e]}function%20hE(s){return%20s.replace(/&/g,'&').replace(/>/g,'>').replace(/</g,'<').replace(/"/g,'"');}var%20q,h,i,z=open().document;z.write('<p>Images%20linked%20to%20by%20'+hE(location.href)+':</p><hr>');for(i=0;q=document.links[i];++i){h=q.href;if(h&&I(h))z.write('<p>'+q.innerHTML+'%20('+hE(h)+')<br><img%20src="'+hE(h)+'">');}z.close();})()
 
 " Toggle status bar with ctrl-F8
 map <silent> <C-F8> :js toggle_bottombar()<CR> 
@@ -58,17 +61,6 @@ nnoremap l 7l
 
 
 " Press 'C-c' to copy, 'C-v' or 'S-Insert' to paste, or 'C-x' to cut
-noremap <C-c> <C-v><C-c>
-noremap <C-v> <C-v><C-v>
-noremap <C-x> <C-v><C-x>
-cnoremap <C-c> <C-v><C-c>
-cnoremap <C-v> <C-v><C-v>
-cnoremap <S-Insert> <C-v><C-v>
-cnoremap <C-x> <C-v><C-x>
-inoremap <C-c> <C-v><C-c>
-inoremap <C-v> <C-v><C-v>
-inoremap <S-Insert> <C-v><C-v>
-inoremap <C-x> <C-v><C-x>Press 'C-c' to copy, 'C-v' or 'S-Insert' to paste, or 'C-x' to cut
 noremap <C-c> <C-v><C-c>
 noremap <C-v> <C-v><C-v>
 noremap <C-x> <C-v><C-x>

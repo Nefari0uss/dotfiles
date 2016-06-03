@@ -52,7 +52,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'OmniSharp/omnisharp-vim', { 'for': 'csharp' } 
 " }}}
 " Java {{{
-Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' } 
+Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
 
 let g:JavaComplete_ShowExternalCommandsOutput = 1
 " }}}

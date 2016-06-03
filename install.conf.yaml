@@ -64,9 +64,14 @@
     ~/.vimrc: 
       force: true
       path: vim/vimrc
+
+    # vimperatorrc
     ~/.vimperatorrc: 
       relink: true
-      path: vim/vimperatorrc
+      path: vimperator/vimperatorrc
+    ~/.vimperator:
+      relink: true
+      path: vimperator/vimperator
   
     # zsh
     ~/.zsh_favlist: zsh/zsh_favlist
