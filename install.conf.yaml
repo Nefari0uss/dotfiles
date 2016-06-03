@@ -21,11 +21,20 @@
     ~/.bash_profile: bash/bash_profile
 
     # config
+    ~/htop:
+      force: true
+      path: .config/htop
+    ~/i3
+      force: true
+      path: .config/i3
+    ~/neofetch
+      force: true
+      path: .config/neofetch
     ~/.config/ranger:
-      create: true
+      force: true
       path: config/ranger
     ~/.config/terminator:
-      create: true
+      force: true
       path: config/terminator
 
 
@@ -53,6 +62,7 @@
     ~/.functions: 
       force: true
       path: system/functions
+    ~/.profile: system/profile
     ~/.prompt: system/prompt
     ~/.gemrc: system/gemrc
     ~/.jshintrc: system/jshintrc
