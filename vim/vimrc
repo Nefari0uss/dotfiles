@@ -112,9 +112,6 @@ Plug 'vimperator/vimperator.vim', { 'for': 'vimperator' }
 " Vim-Colorschemes: Tons of vim colour schemes {{{
 Plug 'flazz/vim-colorschemes'
 " }}}
-" Skittles-Berry {{{
-"Plug 'shawncplus/skittles_berry'
-" }}}
 " }}}
 " Lightline: Info bar at bottom of screen {{{
 Plug 'itchyny/lightline.vim' 
