@@ -21,15 +21,15 @@
     ~/.bash_profile: bash/bash_profile
 
     # config
-    ~/htop:
+    ~/.config/htop:
       force: true
-      path: .config/htop
-    ~/i3
+      path: config/htop
+    ~/.config/i3:
       force: true
-      path: .config/i3
-    ~/neofetch
+      path: config/i3
+    ~/.config/neofetch:
       force: true
-      path: .config/neofetch
+      path: config/neofetch
     ~/.config/ranger:
       force: true
       path: config/ranger
