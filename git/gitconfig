@@ -19,25 +19,25 @@
 
 [color]
 	ui = true
-    branch = auto
-    diff = auto
-    status = auto
+	branch = auto
+	diff = auto
+	status = auto
 
 [color "branch"]
-    current = red reverse
-    local = blue
-    remote = green
+	current = red reverse
+	local = blue
+	remote = green
 
 [color "diff"]
-    new = yellow bold
-    frag = magenta bold
-    old = red bold
-    meta = green bold
+	new = yellow bold
+	frag = magenta bold
+	old = red bold
+	meta = green bold
 
 [color "status"]
-    added = blue
-    changed = green
-    untracked = cyan
+	added = blue
+	changed = green
+	untracked = cyan
 
 [filter "lfs"]
 	clean = git-lfs clean %f
@@ -48,45 +48,45 @@
 	autocorrect = 1
 
 [alias]
-    # common commmands
-    s = status --ignore-submodules
-    st = status --ignore-submodules
-    sts = status -s
-    cm = commit -m
-    co = checkout
-    df = diff --ignore-submodules
-    l = log -p
-    cb = checkout -b
-    cp = cherry-pick
-    sl = stash list
-    wip = stash
-    undo = reset HEAD~1 --mixed
-    amend = commit -a --amend -m
-    ammend = amend # because fuck spelling
-    unstage = reset HEAD --
+	# common commmands
+	s = status --ignore-submodules
+	st = status --ignore-submodules
+	sts = status -s
+	cm = commit -m
+	co = checkout
+	df = diff --ignore-submodules
+	l = log -p
+	cb = checkout -b
+	cp = cherry-pick
+	sl = stash list
+	wip = stash
+	undo = reset HEAD~1 --mixed
+	amend = commit -a --amend -m
+	ammend = amend # because fuck spelling
+	unstage = reset HEAD --
 
-    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 
-    # list aliases
-    alist = "!git config -l | grep alias | cut -c 7-"
+        # list aliases
+	alist = "!git config -l | grep alias | cut -c 7-"
 
-    # see gitk?
-    gitkconflict = !gitk --left-right HEAD...MERGE_HEAD
-    
-    # see what's new after the latest commit
-    new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+        # see gitk?
+	gitkconflict = !gitk --left-right HEAD...MERGE_HEAD
 
-    # alternative to git reset HEAD --hard; unreachable commit can be found with reflog
-    wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard 
-    
-    # go through project history
-    whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -" # name as param
-    whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short # commit name as param 
+        # see what's new after the latest commit
+	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
 
-    # pretty git logs
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # nice graph?
-    lc = log ORIG_HEAD.. --stat --no-merges # list all new commits after a fetch, sans merges
-    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate # single line
-    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat # list by author
-    llnc = log --pretty=format:"%h\\ %s\\ [%cn]" # list by author, no colors
-    
+        # alternative to git reset HEAD --hard; unreachable commit can be found with reflog
+	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard 
+
+        # go through project history
+	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -" # name as param
+	whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short # commit name as param 
+
+        # pretty git logs
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # nice graph?
+	lc = log ORIG_HEAD.. --stat --no-merges # list all new commits after a fetch, sans merges
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate # single line
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat # list by author
+	llnc = log --pretty=format:"%h\\ %s\\ [%cn]" # list by author, no colors
+
