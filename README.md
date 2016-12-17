@@ -12,17 +12,14 @@ As always, blindly copying/installing dot files may or may not result in a worki
 I assume that if you're using any of my files you've read my comments I've added through out.
 
 ## TODO
-Currently there is a lot of things to do.
+Currently there is a lot of things to do. So far, I am in the process of revamping my dotfiles.
 
-- Setup installer using [dotbot](https://github.com/anishathalye/dotbot).
-- Depdency stuff.
-- SSH stuff with link to dropbox or w/e I choose to keep it.
-
-## Depdencies** (TODO)*
-- Make dependecy list. 
-- Reduce number of dependecies (Vim, etc)
-- Create a install file that will acquire dependecies.
-    - Should have options for Windows, Ubuntu (apt-get), and Arch (pacman).
-    - Customize with prompts? Maybe multiple install files for different ocassions.
-
+* Put common stuff for bash and zsh into a single file (such as exporting something).
+* Build proper prompts for bash/zsh.
+* Slim down vim config and remove excess plugins. 
+* Create proper make file.
+* Create a bin directory of useful scripts.
+* Clean up gitconfig of unused aliases. 
+* Set up ranger, i3, and various other config files. 
+ 
 
