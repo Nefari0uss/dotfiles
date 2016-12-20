@@ -12,12 +12,16 @@ help: # {{{
 	@echo '                                                                    '
 	@echo 'Usage:                                                              '
 	@echo '   make all                          install everything             '
-	@echo '   make clean 						install clean everything 	   '
+	@echo '   make clean                        install clean everything 	   '
+	@echo '   make install_git                  install git config 			   '
+	@echo '   make install_neofetch             install neofetch 			   '
+	@echo ''
+	@echo 'Only the above work. Rest are WIP.'
+	@echo ''
 	@echo '   make install_bash                 install bashrc                 '
 	@echo '   make install_bin                  install bin folder			   '
 	@echo '   make install_fonts                install fonts                  '
 	@echo '   make install_fzf                  install fzf files              '
-	@echo '   make install_git                  install git config 			   '
 	@echo '   make install_htop                 install htop conf files        '
 	@echo '   make install_i3                   install i3 files               '
 	@echo '   make install_ranger               install ranger files           '
@@ -27,7 +31,6 @@ help: # {{{
 	@echo '   make install_ruby                 install ruby (using rbenv)     '
 	@echo '   make install_nodejs               install nodejs and npm         '
 	@echo '   make install_keychain             install keychain               '
-	@echo '   make install_neofetch             install neofetch 			   '
 	@echo '   make install_ssh                  install ssh                    '
 	@echo '   make install_zsh                  install zshrc                  '
 	@echo '                                                                    '
@@ -51,9 +54,9 @@ clean: 	clean_git clean_neofetch
 	@echo "caution - links are force removed!"
 
 
-print_clean: 
+print_clean:
 	@echo ""
-	@echo -n "removing symb links for " 
+	@echo -n "removing symb links for "
 
 install_git: clean_git
 	@echo "symblinking git files..."
