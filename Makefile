@@ -16,16 +16,16 @@ help: # {{{
 	@echo 'Usage:                                                              '
 	@echo '   make all                          install everything             '
 	@echo '   make clean                        install clean everything 	   '
-	@echo '   make install_git                  install git config 			   '
-	@echo '   make install_neofetch             install neofetch 			   '
-	@echo '                                                                    '
+	@echo '   make install_git                  install git config             '
+	@echo '   make install_htop                 install htoprc                 '
+	@echo '   make install_mpv                  install mpv config             '
+	@echo '   make install_neofetch             install neofetch               '
 	@echo 'Only the above work. Rest are WIP.                                  '
 	@echo '                                                                    '
 	@echo '   make install_bash                 install bashrc                 '
-	@echo '   make install_bin                  install bin folder			   '
+	@echo '   make install_bin                  install bin folder             '
 	@echo '   make install_fonts                install fonts                  '
 	@echo '   make install_fzf                  install fzf files              '
-	@echo '   make install_htop                 install htop conf files        '
 	@echo '   make install_i3                   install i3 files               '
 	@echo '   make install_ranger               install ranger files           '
 	@echo '   make install_shel                 install bash and zsh      	   '
@@ -42,22 +42,23 @@ help: # {{{
 	@echo '                                                                    '
 # }}}
 # all, clean, and other general calls {{{
-all: install_git install_neofetch
+all: install_git install_htop install_mpv install_neofetch install_ranger
 
 	@echo ""
-	@echo "nefari0uss dotfiles - just like home."
-	@echo "====================================="
+	@echo "your dotfiles have been installed - enjoy"
+	@echo "========================================="
 	@echo ""
-	@echo "Finished."
 
-clean: 	clean_git clean_neofetch 
+clean: 	clean_git clean_htop clean_mpv clean_neofetch clean_ranger
 	@echo " "
-	@echo "removing all symblinks"
-	@echo "caution - links are force removed!"
+	@echo "all symblinks have been removed..."
+	@echo "caution: links are force removed!"
+	@echo "warning: folders are NOT cleaned up - they may still exist!"
 
 #}}}
 # git {{{
 install_git: clean_git 
+	@echo ""
 	@echo "symblinking git files..."
 	ln -sf `pwd`/git/gitconfig ~/.gitconfig
 	ln -sf `pwd`/git/gitattributes ~/.gitattributes
@@ -67,18 +68,46 @@ clean_git:
 	rm -Rf ~/.gitconfig
 	rm -Rf ~/.gitattributes
 #}}}
+# htop {{{
+install_htop: clean_htop
+	@echo "symblinking htop files..."
+	mkdir -p ~/.config/htop
+	ln -sf `pwd`/htop/htoprc ~/.config/htop/htoprc
+
+clean_htop: 
+	@echo "removing symb links for neofetch..."
+	rm -rf ~/.config/htop/htoprc
+
+# }}}
+# mpv {{{
+install_mpv: clean_mpv
+	@echo "symblinking mpv files..."
+	mkdir -p ~/.config/mpv
+	ln -sf `pwd`/mpv/input.conf ~/.config/mpv/input.conf
+	ln -sf `pwd`/mpv/mpv.conf ~/.config/mpv/mpv.conf
+	ln -sf `pwd`/mpv/scripts ~/.config/mpv/scripts
+
+clean_mpv: 
+	@echo "removing symb links for mpv..."
+	rm -rf ~/.config/mpv/input.conf
+	rm -rf ~/.config/mpv/mpv.conf
+	rm -rf ~/.config/mpv/scripts
+
+# }}}
 # neofetch {{{
 install_neofetch: clean_neofetch
 	@echo "symblinking neofetch files..."
+	mkdir -p ~/.config/neofetch
 	ln -sf `pwd`/neofetch/config ~/.config/neofetch/config
 
 clean_neofetch: 
 	@echo "removing symb links for neofetch..."
-	rm -Rf ~/.config/neofetch/config
+	rm -rf ~/.config/neofetch/config
 # }}}
 # ranger {{{
 install_ranger: clean_ranger
 	@echo "symblinking ranger files..."
+	mkdir -p ~/.config/ranger
 	ln -sf `pwd`/ranger/rc.conf ~/.config/ranger/rc.conf
 	ln -sf `pwd`/ranger/commands.py ~/.config/ranger/commands.py
 	ln -sf `pwd`/ranger/rifle.conf ~/.config/ranger/rifle.conf
@@ -86,9 +115,9 @@ install_ranger: clean_ranger
 
 clean_ranger: 
 	@echo "removing symb links for neofetch..."
-	rm -Rf ~/.config/ranger/rc.conf
-	rm -Rf ~/.config/ranger/commands.py
-	rm -Rf ~/.config/ranger/rifle.conf
-	rm -Rf ~/.config/ranger/colorschemes
+	rm -rf ~/.config/ranger/rc.conf
+	rm -rf ~/.config/ranger/commands.py
+	rm -rf ~/.config/ranger/rifle.conf
+	rm -rf ~/.config/ranger/colorschemes
 # }}}
 
