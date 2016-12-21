@@ -9,15 +9,18 @@
 
 help: # {{{
 	@echo 'Makefile for dotfiles                                               '
+	@echo '@author Nefari0uss                                                  '
+	@echo '                                                                    '
+	@echo 'Remember to create a back up of your files first just in case!      '
 	@echo '                                                                    '
 	@echo 'Usage:                                                              '
 	@echo '   make all                          install everything             '
 	@echo '   make clean                        install clean everything 	   '
 	@echo '   make install_git                  install git config 			   '
 	@echo '   make install_neofetch             install neofetch 			   '
-	@echo ''
-	@echo 'Only the above work. Rest are WIP.'
-	@echo ''
+	@echo '                                                                    '
+	@echo 'Only the above work. Rest are WIP.                                  '
+	@echo '                                                                    '
 	@echo '   make install_bash                 install bashrc                 '
 	@echo '   make install_bin                  install bin folder			   '
 	@echo '   make install_fonts                install fonts                  '
@@ -35,11 +38,10 @@ help: # {{{
 	@echo '   make install_zsh                  install zshrc                  '
 	@echo '                                                                    '
 	@echo 'All install commands are also available as clean commands to remove '
-	@echo 'installed files                                                     '
+	@echo 'the installed files.                                                '
 	@echo '                                                                    '
 # }}}
-
-
+# all, clean, and other general calls {{{
 all: install_git install_neofetch
 
 	@echo ""
@@ -48,56 +50,45 @@ all: install_git install_neofetch
 	@echo ""
 	@echo "Finished."
 
-clean: 	clean_git clean_neofetch
-	@echo ""
+clean: 	clean_git clean_neofetch 
+	@echo " "
 	@echo "removing all symblinks"
 	@echo "caution - links are force removed!"
 
-
-print_clean:
-	@echo ""
-	@echo -n "removing symb links for "
-
-install_git: clean_git
+#}}}
+# git {{{
+install_git: clean_git 
 	@echo "symblinking git files..."
 	ln -sf `pwd`/git/gitconfig ~/.gitconfig
 	ln -sf `pwd`/git/gitattributes ~/.gitattributes
 
-clean_git: print_clean
-	@echo "git"
+clean_git: 
+	@echo "removing symb links for git..."
 	rm -Rf ~/.gitconfig
 	rm -Rf ~/.gitattributes
-
-
+#}}}
+# neofetch {{{
 install_neofetch: clean_neofetch
-	ln -sf 'pwd'/neofetch/config ~/.config/neofetch/config
+	@echo "symblinking neofetch files..."
+	ln -sf `pwd`/neofetch/config ~/.config/neofetch/config
 
-clean_neofetch: print_clean
+clean_neofetch: 
+	@echo "removing symb links for neofetch..."
 	rm -Rf ~/.config/neofetch/config
+# }}}
+# ranger {{{
+install_ranger: clean_ranger
+	@echo "symblinking ranger files..."
+	ln -sf `pwd`/ranger/rc.conf ~/.config/ranger/rc.conf
+	ln -sf `pwd`/ranger/commands.py ~/.config/ranger/commands.py
+	ln -sf `pwd`/ranger/rifle.conf ~/.config/ranger/rifle.conf
+	ln -sf `pwd`/ranger/colorschemes ~/.config/ranger/colorschemes
 
+clean_ranger: 
+	@echo "removing symb links for neofetch..."
+	rm -Rf ~/.config/ranger/rc.conf
+	rm -Rf ~/.config/ranger/commands.py
+	rm -Rf ~/.config/ranger/rifle.conf
+	rm -Rf ~/.config/ranger/colorschemes
+# }}}
 
-install_i3: clean_i3
-	ln -sf `pwd`/xinitrc ~/.xinitrc
-	ln -sf `pwd`/Xresources ~/.Xresources
-	ln -sf `pwd`/xession ~/.xsession
-	ln -sf `pwd`/i3 ~/.i3
-	ln -sf `pwd`/comton.conf ~/.config/compton.conf
-
-clean_i3:
-	rm -Rf ~/.xinitrc
-	rm -Rf ~/.xsession
-	rm -Rf ~/.Xdefaults
-	rm -Rf ~/.Xresources
-	rm -Rf ~/.i3
-	rm -Rf ~/.config/compton.conf
-
-install_irssi:
-ifneq "$(IRSSIUSER)" ""
-	cp `pwd`/irssi ~/.irssi -R
-	sed -i 's/__irssiuser__/$(IRSSIUSER)/g' ~/.irssi/config
-	sed -i 's/__irssipass__/$(IRSSIPASS)/g' ~/.irssi/config
-else
-	@echo ""
-	@echo "Make sure to specific IRSSIUSER=somevalue environment variable."
-	@echo ""
-endif
