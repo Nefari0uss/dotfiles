@@ -44,18 +44,15 @@ help: # {{{
 	@echo '                                                                    '
 # }}}
 # all, clean, and other general calls {{{
-all: install_beets install_git install_htop install_mpv install_neofetch install_ranger install \
-	\
+all: install_beets install_git install_htop install_mpv install_neofetch install_ranger \
 	install_vimperator
-
 	@echo ""
 	@echo "your dotfiles have been installed - enjoy"
 	@echo "========================================="
 	@echo ""
 
 clean: 	clean_beets clean_git clean_htop clean_mpv clean_neofetch clean_ranger \
-	\
-	clean_vimperator
+		clean_vimperator
 
 	@echo " "
 	@echo "all symblinks have been removed..."
