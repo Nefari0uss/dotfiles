@@ -16,10 +16,13 @@ help: # {{{
 	@echo 'Usage:                                                              '
 	@echo '   make all                          install everything             '
 	@echo '   make clean                        install clean everything 	   '
+	@echo '   make install_beets                install beets config           '
 	@echo '   make install_git                  install git config             '
 	@echo '   make install_htop                 install htoprc                 '
 	@echo '   make install_mpv                  install mpv config             '
-	@echo '   make install_neofetch             install neofetch               '
+	@echo '   make install_neofetch             install neofetch config        '
+	@echo '   make install_ranger               install ranger files           '
+	@echo '   make install_vimperator           install vimperator files       '
 	@echo 'Only the above work. Rest are WIP.                                  '
 	@echo '                                                                    '
 	@echo '   make install_bash                 install bashrc                 '
@@ -27,8 +30,7 @@ help: # {{{
 	@echo '   make install_fonts                install fonts                  '
 	@echo '   make install_fzf                  install fzf files              '
 	@echo '   make install_i3                   install i3 files               '
-	@echo '   make install_ranger               install ranger files           '
-	@echo '   make install_shel                 install bash and zsh      	   '
+	@echo '   make install_shell                install bash and zsh      	   '
 	@echo '   make install_tmux                 install tmux conf files        '
 	@echo '   make install_vim                  install vimrc and vim config   '
 	@echo '   make install_ruby                 install ruby (using rbenv)     '
@@ -42,24 +44,38 @@ help: # {{{
 	@echo '                                                                    '
 # }}}
 # all, clean, and other general calls {{{
-all: install_git install_htop install_mpv install_neofetch install_ranger
+all: install_beets install_git install_htop install_mpv install_neofetch install_ranger install \
+	\
+	install_vimperator
 
 	@echo ""
 	@echo "your dotfiles have been installed - enjoy"
 	@echo "========================================="
 	@echo ""
 
-clean: 	clean_git clean_htop clean_mpv clean_neofetch clean_ranger
+clean: 	clean_beets clean_git clean_htop clean_mpv clean_neofetch clean_ranger \
+	\
+	clean_vimperator
+
 	@echo " "
 	@echo "all symblinks have been removed..."
 	@echo "caution: links are force removed!"
 	@echo "warning: folders are NOT cleaned up - they may still exist!"
 
 #}}}
+# beets {{{
+install_beets: clean_beets
+	@echo "symblinking beets config..."
+	mkdir -p ~/.config/beets
+	ln -sf `pwd`/beets/config ~/.config/beets/config
+
+clean_beets: 
+	@echo "removing symb links for beets..."
+	rm -Rf ~/.config/beets/config
+#}}}
 # git {{{
 install_git: clean_git 
-	@echo ""
-	@echo "symblinking git files..."
+	@echo "symblinking git config..."
 	ln -sf `pwd`/git/gitconfig ~/.gitconfig
 	ln -sf `pwd`/git/gitattributes ~/.gitattributes
 
@@ -70,12 +86,12 @@ clean_git:
 #}}}
 # htop {{{
 install_htop: clean_htop
-	@echo "symblinking htop files..."
+	@echo "symblinking htoprc..."
 	mkdir -p ~/.config/htop
 	ln -sf `pwd`/htop/htoprc ~/.config/htop/htoprc
 
 clean_htop: 
-	@echo "removing symb links for neofetch..."
+	@echo "removing symb link for htoprc..."
 	rm -rf ~/.config/htop/htoprc
 
 # }}}
@@ -96,7 +112,7 @@ clean_mpv:
 # }}}
 # neofetch {{{
 install_neofetch: clean_neofetch
-	@echo "symblinking neofetch files..."
+	@echo "symblinking neofetch config..."
 	mkdir -p ~/.config/neofetch
 	ln -sf `pwd`/neofetch/config ~/.config/neofetch/config
 
@@ -114,10 +130,24 @@ install_ranger: clean_ranger
 	ln -sf `pwd`/ranger/colorschemes ~/.config/ranger/colorschemes
 
 clean_ranger: 
-	@echo "removing symb links for neofetch..."
+	@echo "removing symb links for ranger..."
 	rm -rf ~/.config/ranger/rc.conf
 	rm -rf ~/.config/ranger/commands.py
 	rm -rf ~/.config/ranger/rifle.conf
 	rm -rf ~/.config/ranger/colorschemes
+# }}}
+# vimperator {{{
+install_vimperator: clean_vimperator
+	@echo "symblinking vimperator config..."
+	mkdir -p ~/.vimperator
+	ln -sf `pwd`/firefox/vimperatorrc ~/.vimperatorrc
+	ln -sf `pwd`/firefox/vimperator/colors ~/.vimperator/colors
+	ln -sf `pwd`/firefox/vimperator/plugins ~/.vimperator/plugins
+
+clean_vimperator: 
+	@echo "removing symb links for vimperator..."
+	rm -rf ~/.vimperatorrc
+	rm -rf ~/.vimperator/colors
+	rm -rf ~/.vimperator/plugins
 # }}}
 
