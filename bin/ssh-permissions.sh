@@ -1,4 +1,4 @@
-#!/usr/bash
+#!/bin/sh
 
 # Fix SSH "Permissions are too open" error.
 
