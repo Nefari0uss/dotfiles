@@ -60,7 +60,7 @@ inoremap <C-a> <Insert><C-a><Insert>
 nnoremap <C-a> <Insert><C-a><Insert>
 " }}}
 " Javascript/Bookmarklet commands {{{
-j 'ntp' opens all pictures on the current page in a new tab {{{
+" 'ntp' opens all pictures on the current page in a new tab {{{
 command! -nargs=0 -description="Open all images on the current page in a new tab" ntp open javascript:(function(){function%20I(u){var%20t=u.split('.'),e=t[t.length-1].toLowerCase();return%20{gif:1,jpg:1,jpeg:1,png:1,mng:1}[e]}function%20hE(s){return%20s.replace(/&/g,'&').replace(/>/g,'>').replace(/</g,'<').replace(/"/g,'"');}var%20q,h,i,z=open().document;z.write('<p>Images%20linked%20to%20by%20'+hE(location.href)+':</p><hr>');for(i=0;q=document.links[i];++i){h=q.href;if(h&&I(h))z.write('<p>'+q.innerHTML+'%20('+hE(h)+')<br><img%20src="'+hE(h)+'">');}z.close();})()
 " }}}
 " 'doj' checks doj.me if a site is down or not {{{
