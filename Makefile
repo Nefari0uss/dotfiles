@@ -26,6 +26,7 @@ help: # {{{
 	@echo '   make install_mpv                  install mpv config             '
 	@echo '   make install_neofetch             install neofetch config        '
 	@echo '   make install_ranger               install ranger files           '
+	@echo '   make install_vim                  install vim config             '
 	@echo '   make install_vimperator           install vimperator files       '
 	@echo 'Only the above work. Rest are WIP.                                  '
 	@echo '                                                                    '
@@ -49,19 +50,19 @@ help: # {{{
 # }}}
 # all, clean, and other general calls {{{
 all: install_beets install_git install_htop install_i3 install_mpv install_neofetch install_ranger \
-	install_vimperator
+	install_vim install_vimperator
 	@echo ""
 	@echo -e "your dotfiles have been installed - enjoy"
 	@echo "========================================="
 	@echo ""
 
 clean: 	clean_beets clean_git clean_htop clean_i3 clean_mpv clean_neofetch clean_ranger \
-		clean_vimperator
+		clean_vim clean_vimperator
 
 	@echo " "
 	@echo "all symblinks have been removed..."
-	@echo "caution: links are force removed!"
-	@echo "warning: folders are NOT cleaned up - they may still exist!"
+	@echo "CAUTION: links are force removed!"
+	@echo "WARNING: all folders are NOT cleaned up - they may still exist!"
 
 #}}}
 # beets {{{
@@ -151,6 +152,18 @@ clean_ranger:
 	rm -rf ~/.config/ranger/commands.py
 	rm -rf ~/.config/ranger/rifle.conf
 	rm -rf ~/.config/ranger/colorschemes
+# }}}
+# vim {{{
+install_vim : clean_vim
+	@echo "symblinking vim config..."
+	mkdir -p ~/.vim
+	ln -sf `pwd`/vim/vimrc ~/.vimrc
+	ln -sf `pwd`/vim/vim-config/ ~/.vim
+
+clean_vim: 
+	@echo -e "\nremoving symb links for vim..."
+	rm -rf ~/.vimrc
+	rm -rf ~/.vim
 # }}}
 # vimperator {{{
 install_vimperator: clean_vimperator
