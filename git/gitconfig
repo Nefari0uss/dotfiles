@@ -44,9 +44,6 @@
 	changed = green
 	untracked = cyan
 
-[column]
-    ui = auto
-
 [diff]
     renames = copies # detect copies and renames
     indentHeuristic = true # help distinguish line changes
