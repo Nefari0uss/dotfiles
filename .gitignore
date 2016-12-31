@@ -1,11 +1,11 @@
 # ~~GitIgnore for Nefari0uss's dotfiles repo~~ #
 
 # .vim folder
-vim/vim/plugged/** 
-vim/vim/plugged/*
-vim/vim/session/*
-vim/vim/bkup/*
-vim/vim/autoload/plug.vim*
+vim/dot-vim/plugged/** 
+vim/dot-vim/plugged/*
+vim/dot-vim/session/*
+vim/dot-vim/bkup/*
+vim/dot-vim/autoload/plug.vim*
 
 # Ctags generated file
 tags
