@@ -463,6 +463,9 @@ let g:WebDevIconsNerdTreeAfterGlyphPadding=' '  " The amount of space to use aft
 let g:WebDevIconsNerdTreeGitPluginForceVAlign=1 " Force extra padding in NERDTree so that the filetype icons line up vertically
 
 " }}}
+" Temp added {{{
+Plug 'junegunn/vim-peekaboo'
+"}}}
 
 call plug#end()
 " End Plugin list }}}
@@ -470,10 +473,10 @@ call plug#end()
 " End Plugins }}}
 " 2.0 Autocommand_Groups {{{
 
-" 2.1 Add folding to vimscript files {{{
-augroup filetype_vim
+" 2.1 Add folding to files {{{
+augroup filetype_folding
     autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType make,gitconfig,vim,vimperator setlocal foldmethod=marker
 augroup END
 " }}}
 " 2.2 File templates {{{
