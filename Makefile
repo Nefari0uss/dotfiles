@@ -20,6 +20,7 @@ help: # {{{
 	@echo '   make all                          install everything             '
 	@echo '   make clean                        install clean everything 	   '
 	@echo '   make install_beets                install beets config           '
+	@echo '   make install_fzf                  install fzf                    '
 	@echo '   make install_git                  install git config             '
 	@echo '   make install_htop                 install htoprc                 '
 	@echo '   make install_i3                   install i3 config              '
@@ -49,15 +50,15 @@ help: # {{{
 	@echo '                                                                    '
 # }}}
 # all, clean, and other general calls {{{
-all: install_beets install_git install_htop install_i3 install_mpv install_neofetch install_ranger \
-	install_vim install_vimperator
+all: install_beets install_fzf install_git install_htop install_i3 install_mpv install_neofetch \
+	install_ranger install_vim install_vimperator
 	@echo ""
 	@echo -e "your dotfiles have been installed - enjoy"
 	@echo "========================================="
 	@echo ""
 
-clean: 	clean_beets clean_git clean_htop clean_i3 clean_mpv clean_neofetch clean_ranger \
-		clean_vim clean_vimperator
+clean: 	clean_beets clean_git clean_htop clean_i3 clean_mpv clean_neofetch \
+		clean_ranger clean_vim clean_vimperator
 
 	@echo " "
 	@echo "all symblinks have been removed..."
@@ -74,6 +75,17 @@ install_beets: clean_beets
 clean_beets: 
 	@echo -e "\nremoving symb links for beets..."
 	rm -Rf ~/.config/beets/config
+#}}}
+# fzf {{{
+install_fzf: clean_fzf
+	@echo "installing fzf..."
+	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+	~/.fzf/install --all
+
+clean_fzf: 
+	@echo -e "\nremoving fzf..."
+	~/.fzf/uninstall
+	rm -Rf ~/.fzf
 #}}}
 # git {{{
 install_git: clean_git 
