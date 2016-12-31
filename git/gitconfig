@@ -14,14 +14,19 @@
 	default = simple # Simple pushes 1-1. Matching will push all.
 
 [core]
-	autocrlf = input
-	editor = vim
+    autocrlf = input # don't do any line ending conversion
+	editor = vim # set default editor to be vim
 
 [color]
 	ui = true
 	branch = auto
 	diff = auto
+    grep = auto
+    interactive = auto
+    pager = true
+    showBranch = auto
 	status = auto
+    ui = auto
 
 [color "branch"]
 	current = red reverse
@@ -38,6 +43,14 @@
 	added = blue
 	changed = green
 	untracked = cyan
+
+[column]
+    ui = auto
+
+[diff]
+    renames = copies # detect copies and renames
+    indentHeuristic = true # help distinguish line changes
+    compactionHeuristic = true # should help make diffs nicer
 
 [filter "lfs"]
 	clean = git-lfs clean %f
@@ -65,25 +78,32 @@
 	ammend = amend # because fuck spelling
 	unstage = reset HEAD --
 
+    # search git log with fzf
+    fzflog = git log --pretty=oneline | fzf
+
+    # history tree
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 
-        # list aliases
+    # list contributors with number of commits
+    contributors = shortlog --summary --numbered
+
+    # list aliases
 	alist = "!git config -l | grep alias | cut -c 7-"
 
-        # see gitk?
+    # see gitk?
 	gitkconflict = !gitk --left-right HEAD...MERGE_HEAD
 
-        # see what's new after the latest commit
+    # see what's new after the latest commit
 	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
 
-        # alternative to git reset HEAD --hard; unreachable commit can be found with reflog
+    # alternative to git reset HEAD --hard; unreachable commit can be found with reflog
 	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard 
 
-        # go through project history
+    # go through project history
 	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -" # name as param
 	whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short # commit name as param 
 
-        # pretty git logs
+    # pretty git logs
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # nice graph?
 	lc = log ORIG_HEAD.. --stat --no-merges # list all new commits after a fetch, sans merges
 	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate # single line
