@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # Neofetch config file
-# https://github.com/dylanaraps/neofetch
+# neofetch github repo: https://github.com/dylanaraps/neofetch
 
 # Speed up script by not using unicode
 export LC_ALL=C

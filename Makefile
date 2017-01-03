@@ -85,7 +85,7 @@ install_fzf: clean_fzf
 clean_fzf: 
 	@echo -e "\nremoving fzf..."
 	~/.fzf/uninstall
-	rm -Rf ~/.fzf
+	rm -rf ~/.fzf
 #}}}
 # git {{{
 install_git: clean_git 
@@ -95,8 +95,8 @@ install_git: clean_git
 
 clean_git: 
 	@echo -e "\nremoving symb links for git..."
-	rm -Rf ~/.gitconfig
-	rm -Rf ~/.gitattributes
+	rm -rf ~/.gitconfig
+	rm -rf ~/.gitattributes
 #}}}
 # htop {{{
 install_htop: clean_htop
