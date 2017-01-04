@@ -1,6 +1,9 @@
-# git
+# [git](https://git-scm.com)
 
-Distributed version control system. 
+Git SCM - A distributed version control system. 
+
+## requirements
+* Git (latest)
 
 ## gitconfig
 This is my git configuration with all of my aliases and other modifications.

@@ -1,4 +1,7 @@
-# mpv
+# [mpv](https://mpv.io/)
+
+## requirements
+* mpv
 
 ## input.conf
 Changes to keybindings.
