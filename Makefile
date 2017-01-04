@@ -27,8 +27,9 @@ help: # {{{
 	@echo '   make install_mpv                  install mpv config             '
 	@echo '   make install_neofetch             install neofetch config        '
 	@echo '   make install_ranger               install ranger files           '
-	@echo '   make install_vim                  install vim config             '
+	@echo '   make install_vim                  install vim and neovim config  '
 	@echo '   make install_vimperator           install vimperator files       '
+	@echo '   make install_xdg-user-dirs        install xdg user directory     '
 	@echo 'Only the above work. Rest are WIP.                                  '
 	@echo '                                                                    '
 	@echo '   make install_bash                 install bashrc                 '
@@ -168,14 +169,22 @@ clean_ranger:
 # vim {{{
 install_vim : clean_vim
 	@echo "symblinking vim config..."
-	mkdir -p ~/.vim
+	mkdir -p  ~/.vim
 	ln -sf `pwd`/vim/vimrc ~/.vimrc
 	ln -sf `pwd`/vim/vim-config/ ~/.vim
+	@echo "symblinking neovim config..."
+	mkdir -p ~/.config/nvim
+	ln -sf `pwd`/vim/neovim/ ~/.config/nvim
+	ln -s `pwd`/vim/vimrc ~/.config/nvim/init.vim
+
 
 clean_vim: 
 	@echo -e "\nremoving symb links for vim..."
 	rm -rf ~/.vimrc
 	rm -rf ~/.vim
+	@echo -e "\nremoving symb links for neovim..."
+	rm -rf ~/.config/nvim
+
 # }}}
 # vimperator {{{
 install_vimperator: clean_vimperator
@@ -191,4 +200,19 @@ clean_vimperator:
 	rm -rf ~/.vimperator/colors
 	rm -rf ~/.vimperator/plugins
 # }}}
+# xdg-user-dirs {{{
+install_xdg-user-dirs: clean_xdg-user-dirs
+	@echo "symblinking xdg user directories config..."
+	mkdir -p  ~/.config
+	ln -sf `pwd`/xdg-user-dirs/user-dirs.dirs ~/.config/user-dir.dirs
+	ln -sf `pwd`/xdg-user-dirs/user-dirs.locale ~/.config/user-dir.locale
+	@echo -e "running '$$ xdg-user-dirs-update...'"
+	@echo $(shell xdg-user-dirs-update)
+	@echo -e "xdg user directories are setup..."
 
+clean_xdg-user-dirs: 
+	@echo -e "\nremoving symb links for xdg user directories..."
+	rm -rf ~/.config/user-dirs.dirs
+	rm -rf ~/.config/user-dirs.locale
+
+# }}}

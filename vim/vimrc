@@ -38,11 +38,19 @@
 
 " 1.1 Auto install plugin manager if missing {{{
 " I currently use Vim.Plug because it lets me set lazy loading for plugins
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall | source $MYVIMRC
-endif
+"if has('nvim')
+"    if empty(glob('~/.config/nvim/autoload/plug.vim'))
+        "silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+                    "\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        "autocmd VimEnter * PlugInstall | source $MYVIMRC
+    "endif
+"else 
+    "if empty(glob('~/.vim/autoload/plug.vim'))
+        "silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                    "\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        "autocmd VimEnter * PlugInstall | source $MYVIMRC
+    "endif
+"endif
 " }}}
 " 1.2 Plugin list {{{
 call plug#begin('~/.vim/plugged')
@@ -498,6 +506,13 @@ autocmd BufReadPost *.doc,*.docx,*.rtf,*.odp,*.odt silent %!pandoc "%" -tplain -
 " 3.1 General Stuff {{{
 
 set nocompatible " VIM, not Vi
+
+if has('nvim')
+    let s:editor_root=expand("~/.config/nvim")
+else
+    let s:editor_root=expand("~/.vim")
+endif
+
 
 syntax enable " Syntax highlighting is magical
 
