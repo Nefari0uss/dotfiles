@@ -6,6 +6,10 @@
 
 There are many repos like it but this one is mine. 
 
+[!][GitHub commits](https://img.shields.io/github/commits-since/SubtitleEdit/subtitleedit/3.4.7.svg)](git@github.com:Nefari0uss/dotfiles.git)
+
+[!][Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&style=flat-square)](https://twitter.com/Nefari0uss)
+
 ## Installation
 Run the makefile via `$ make` in the root directory. Instructions will then be displayed on the screen. If run on Windows, you will need to run it on the Windows Subsystem for Linux. There are also some scripts in the bin folder that can be run individually to install something. 
 
