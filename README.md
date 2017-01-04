@@ -1,13 +1,10 @@
 # dotfiles
 
 [![GitHub commits](https://img.shields.io/github/commits-since/SubtitleEdit/subtitleedit/3.4.7.svg)](git@github.com:Nefari0uss/dotfiles.git)
-[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&style=flat-square)](https://twitter.com/Nefari0uss)
 [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/Nefari0uss)
-
-
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
-[!](https://reposs.herokuapp.com/?path=nefari0uss/dotfiles)
+[![Repo Size](https://reposs.herokuapp.com/?path=nefari0uss/dotfiles)
 
 ### Author: [nefari0uss](https://www.github.com/nefari0uss)
 
