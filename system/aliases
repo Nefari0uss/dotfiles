@@ -46,3 +46,6 @@ alias grb='git rebase '
 alias gm='git merge '
 alias gr='git remote ' 
 
+
+alias ln='ln -i'
+
