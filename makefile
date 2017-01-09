@@ -19,6 +19,7 @@ help: # {{{
 	@echo 'Usage:                                                              '
 	@echo '   make all                          install everything             '
 	@echo '   make clean                        install clean everything 	   '
+	@echo '   make install_bash                 install bash config            '
 	@echo '   make install_beets                install beets config           '
 	@echo '   make install_fzf                  install fzf                    '
 	@echo '   make install_git                  install git config             '
@@ -27,9 +28,13 @@ help: # {{{
 	@echo '   make install_mpv                  install mpv config             '
 	@echo '   make install_neofetch             install neofetch config        '
 	@echo '   make install_ranger               install ranger files           '
+	@echo '   make install_redshift             install redshift config        '
+	@echo '   make install_shell                install all shells (bash/zsh)  '
 	@echo '   make install_vim                  install vim and neovim config  '
 	@echo '   make install_vimperator           install vimperator files       '
 	@echo '   make install_xdg-user-dirs        install xdg user directory     '
+	@echo '   make install_wallpaper            install wallpaper              '
+	@echo '   make install_zsh                  install zsh config             '
 	@echo 'Only the above work. Rest are WIP.                                  '
 	@echo '                                                                    '
 	@echo '   make install_bash                 install bashrc                 '
@@ -51,15 +56,19 @@ help: # {{{
 	@echo '                                                                    '
 # }}}
 # all, clean, and other general calls {{{
-all: install_beets install_fzf install_git install_htop install_i3 install_mpv install_neofetch \
-	install_ranger install_vim install_vimperator
-	@echo ""
-	@echo -e "your dotfiles have been installed - enjoy"
-	@echo "========================================="
-	@echo ""
+all: install_bash install_beets install_fzf install_git install_htop install_i3  \
+	 install_mpv install_neofetch install_ranger install_shell install_vim       \
+	 install_vimperator install_wallpaper install_xdg-user-dirs install_zsh
 
-clean: 	clean_beets clean_git clean_htop clean_i3 clean_mpv clean_neofetch \
-		clean_ranger clean_vim clean_vimperator
+	@echo ""
+	@echo -e "your dotfiles have been installed - enjoy!"
+	@echo "=========================================="
+	@echo ""
+	@bin/invaders
+
+clean: 	clean_bashrc clean_beets clean_git clean_htop clean_i3 \
+	    clean_mpv clean_neofetch clean_ranger clean_shell clean_vim \
+	    clean_vimperator clean_wallpaper clean_xdg-user-dirs clean_zsh
 
 	@echo " "
 	@echo "all symblinks have been removed..."
@@ -67,6 +76,12 @@ clean: 	clean_beets clean_git clean_htop clean_i3 clean_mpv clean_neofetch \
 	@echo "WARNING: all folders are NOT cleaned up - they may still exist!"
 
 #}}}
+# bash {{{
+install_bash: clean_bash
+
+clean_bash:
+
+# }}}
 # beets {{{
 install_beets: clean_beets
 	@echo "symblinking beets config..."
@@ -154,17 +169,36 @@ clean_neofetch:
 install_ranger: clean_ranger
 	@echo "symblinking ranger files..."
 	mkdir -p ~/.config/ranger
-	ln -sf `pwd`/ranger/rc.conf ~/.config/ranger/rc.conf
-	ln -sf `pwd`/ranger/commands.py ~/.config/ranger/commands.py
-	ln -sf `pwd`/ranger/rifle.conf ~/.config/ranger/rifle.conf
 	ln -sf `pwd`/ranger/colorschemes ~/.config/ranger/colorschemes
+	ln -sf `pwd`/ranger/commands.py ~/.config/ranger/commands.py
+	ln -sf `pwd`/ranger/rc.conf ~/.config/ranger/rc.conf
+	ln -sf `pwd`/ranger/rifle.conf ~/.config/ranger/rifle.conf
+	ln -sf `pwd`/ranger/scope.sh ~/.config/ranger/scope.sh
 
 clean_ranger: 
 	@echo -e "\nremoving symb links for ranger..."
-	rm -rf ~/.config/ranger/rc.conf
-	rm -rf ~/.config/ranger/commands.py
-	rm -rf ~/.config/ranger/rifle.conf
 	rm -rf ~/.config/ranger/colorschemes
+	rm -rf ~/.config/ranger/commands.py
+	rm -rf ~/.config/ranger/rc.conf
+	rm -rf ~/.config/ranger/rifle.conf
+	rm -rf ~/.config/ranger/scope.sh
+# }}}
+# redshift {{{
+install_redshift: clean_redshift
+	@echo "symblinking redshift config..."
+	mkdir -p ~/.config/
+	ln -sf `pwd`/redshift/redshift.config ~/.config/redshift.conf
+
+clean_redshift: 
+	@echo -e "\nremoving symb links for redshift..."
+	rm -rf ~/.config/redshift.conf
+
+# }}}
+# shell {{{
+install_shell: clean_shell
+
+clean_shell:
+
 # }}}
 # vim {{{
 install_vim : clean_vim
@@ -201,11 +235,22 @@ clean_vimperator:
 	rm -rf ~/.vimperator/plugins
 # }}}
 # xdg-user-dirs {{{
+install_wallpaper: clean_wallpaper
+	@echo "symblinking prefered wallpaper..."
+	mkdir -p  ~/.config
+	ln -sf `pwd`/images/wallpaper.jpg ~/.config/.wallpaper
+
+clean_wallpaper: 
+	@echo -e "\nremoving symb link for wallpaper..."
+	rm -rf ~/.config/.wallpaper
+
+# }}}
+# xdg-user-dirs {{{
 install_xdg-user-dirs: clean_xdg-user-dirs
 	@echo "symblinking xdg user directories config..."
 	mkdir -p  ~/.config
-	ln -sf `pwd`/xdg-user-dirs/user-dirs.dirs ~/.config/user-dir.dirs
-	ln -sf `pwd`/xdg-user-dirs/user-dirs.locale ~/.config/user-dir.locale
+	ln -sf `pwd`/xdg-user-dirs/user-dirs.dirs ~/.config/user-dirs.dirs
+	ln -sf `pwd`/xdg-user-dirs/user-dirs.locale ~/.config/user-dirs.locale
 	@echo -e "running '$$ xdg-user-dirs-update...'"
 	@echo $(shell xdg-user-dirs-update)
 	@echo -e "xdg user directories are setup..."
@@ -216,3 +261,10 @@ clean_xdg-user-dirs:
 	rm -rf ~/.config/user-dirs.locale
 
 # }}}
+# zsh {{{
+install_zsh: clean_zsh
+
+clean_zsh: 
+
+#}}}
+
