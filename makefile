@@ -34,21 +34,12 @@ help: # {{{
 	@echo '   make install_vimperator           install vimperator files       '
 	@echo '   make install_xdg-user-dirs        install xdg user directory     '
 	@echo '   make install_wallpaper            install wallpaper              '
-	@echo '   make install_zsh                  install zsh config             '
+	@echo '   make install_zathura              install zathura config         '
+	@echo '   make install_zshell               install zshell config          '
 	@echo 'Only the above work. Rest are WIP.                                  '
 	@echo '                                                                    '
-	@echo '   make install_bash                 install bashrc                 '
-	@echo '   make install_bin                  install bin folder             '
-	@echo '   make install_fonts                install fonts                  '
-	@echo '   make install_fzf                  install fzf files              '
-	@echo '   make install_shell                install bash and zsh      	   '
-	@echo '   make install_tmux                 install tmux conf files        '
-	@echo '   make install_vim                  install vimrc and vim config   '
-	@echo '   make install_ruby                 install ruby (using rbenv)     '
-	@echo '   make install_nodejs               install nodejs and npm         '
-	@echo '   make install_keychain             install keychain               '
-	@echo '   make install_ssh                  install ssh                    '
-	@echo '   make install_zsh                  install zshrc                  '
+	@echo 'TODO:                                                               '
+	@echo 'bin  asciinema compton tmux shell                                                                  '
 	@echo '                                                                    '
 	@echo 'All install commands are also available as clean commands to remove '
 	@echo 'the installed files. Remember that running with flag -s will        '
@@ -58,7 +49,8 @@ help: # {{{
 # all, clean, and other general calls {{{
 all: install_bash install_beets install_fzf install_git install_htop install_i3  \
 	 install_mpv install_neofetch install_ranger install_shell install_vim       \
-	 install_vimperator install_wallpaper install_xdg-user-dirs install_zsh
+	 install_vimperator install_wallpaper install_xdg-user-dirs install_zathura  \
+	 install_zsh 
 
 	@echo ""
 	@echo -e "your dotfiles have been installed - enjoy!"
@@ -66,9 +58,10 @@ all: install_bash install_beets install_fzf install_git install_htop install_i3 
 	@echo ""
 	@bin/invaders
 
-clean: 	clean_bashrc clean_beets clean_git clean_htop clean_i3 \
-	    clean_mpv clean_neofetch clean_ranger clean_shell clean_vim \
-	    clean_vimperator clean_wallpaper clean_xdg-user-dirs clean_zsh
+clean: 	clean_bash clean_beets clean_git clean_htop clean_i3               \
+	    clean_mpv clean_neofetch clean_ranger clean_shell clean_vim        \
+	    clean_vimperator clean_wallpaper clean_xdg-user-dirs clean_zathura \
+	    clean_zshell
 
 	@echo " "
 	@echo "all symblinks have been removed..."
@@ -195,9 +188,9 @@ clean_redshift:
 
 # }}}
 # shell {{{
-install_shell: clean_shell
+install_shell: install_bash install_zsh
 
-clean_shell:
+clean_shell: clean_bash clean_zshell
 
 # }}}
 # vim {{{
@@ -205,9 +198,9 @@ install_vim : clean_vim
 	@echo "symblinking vim config..."
 	mkdir -p  ~/.vim
 	ln -sf `pwd`/vim/vimrc ~/.vimrc
-	ln -sf `pwd`/vim/vim-config/ ~/.vim
+	ln -sf `pwd`/vim/dot-vim/ ~/.vim
 	@echo "symblinking neovim config..."
-	mkdir -p ~/.config/nvim
+	mkdir -p ~/.config/
 	ln -sf `pwd`/vim/neovim/ ~/.config/nvim
 	ln -s `pwd`/vim/vimrc ~/.config/nvim/init.vim
 
@@ -262,9 +255,20 @@ clean_xdg-user-dirs:
 
 # }}}
 # zsh {{{
-install_zsh: clean_zsh
+install_zshell: clean_zshell
 
-clean_zsh: 
+clean_zshell: 
+
+#}}}
+# zathura {{{
+install_zathura: clean_zathura
+	@echo "symblinking zathura rc file..."
+	mkdir -p ~/.config/zathura
+	ln -sf `pwd`/zathura/zathurarc ~/.config/zathura/zathurarc
+
+clean_zathura: 
+	@echo -e "\n removing zathura rc file..."
+	rm -rf ~/.config/zathura
 
 #}}}
 

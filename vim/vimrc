@@ -18,8 +18,7 @@
 " If you notice a mistake or think of something that could be useful to me,
 " please make an issue!
 " }}}
-" HOW TO VIEW {{{
-" The way my .vimrc is set up is that everything is organized using fold
+" HOW TO VIEW {{{sh " The way my .vimrc is set up is that everything is organized using fold
 " markers. Recently I've changed the organization so if you have any
 " questions or suggestions, please feel free to make an issue and let me know.
 "
@@ -38,19 +37,19 @@
 
 " 1.1 Auto install plugin manager if missing {{{
 " I currently use Vim.Plug because it lets me set lazy loading for plugins
-"if has('nvim')
-"    if empty(glob('~/.config/nvim/autoload/plug.vim'))
-        "silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-                    "\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        "autocmd VimEnter * PlugInstall | source $MYVIMRC
-    "endif
-"else 
-    "if empty(glob('~/.vim/autoload/plug.vim'))
-        "silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-                    "\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        "autocmd VimEnter * PlugInstall | source $MYVIMRC
-    "endif
-"endif
+if has('nvim')
+    if empty(glob('~/.config/nvim/autoload/plug.vim'))
+        silent !curl -fLo ~/.config//nvim/autoload/plug.vim --create-dirs \
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall | source $MYVIMRC
+    endif
+else 
+    if empty(glob('~/.vim/autoload/plug.vim'))
+        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall | source $MYVIMRC
+    endif
+endif
 " }}}
 " 1.2 Plugin list {{{
 call plug#begin('~/.vim/plugged')
@@ -87,7 +86,7 @@ Plug 'valloric/matchtagalways', { 'for': [
             \'html', 'javascrpt', 'css', 'eruby', 'xml', 'rails' ] }
 " }}}
 " Coloresque: CSS/LESS/SASS/HTML colour preview {{{
-Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less', 'html'] }
+Plug 'gorodinskiy/vim-coloresque' ", { 'for': ['css', 'sass', 'scss', 'less', 'html'] }
 " }}}
 " JSLint {{{
 Plug 'shutnik/jshint2.vim', { 'for': 'javascript' }
@@ -463,7 +462,7 @@ let g:webdevicons_enable_vimfiler=0 " Enable/disable adding the column to vimfil
 let g:webdevicons_enable_airline_tabline=1 " Enable/disable adding to vim-airline's tabline
 let g:webdevicons_enable_airline_statusline=1 " Enable/disable adding to vim-airline's statusline
 let g:webdevicons_enable_ctrlp=1 " Enable/disable ctrlp MRU file mode glyphs
-let g:webdevicons_enable_flagship_statusline=0 " Enable/disable adding to flagship's statusline
+let g:webdevicons_enable_flagship_statusline=1 " Enable/disable adding to flagship's statusline
 let g:WebDevIconsUnicodeDecorateFileNodes=1 " Turn on/off file node glyph decorations
 let g:WebDevIconsUnicodeGlyphDoubleWidth=1 " Whether or not font is using double-width glyphs
 let g:webdevicons_conceal_nerdtree_brackets=1 " Whether or not to show the nerdtree brackets around flags
@@ -474,7 +473,9 @@ let g:WebDevIconsNerdTreeGitPluginForceVAlign=1 " Force extra padding in NERDTre
 " Temp added {{{
 Plug 'junegunn/vim-peekaboo'
 "}}}
-
+"Ranger {{{
+Plug 'francoiscabrol/ranger.vim'
+"}}}
 call plug#end()
 " End Plugin list }}}
 
@@ -484,7 +485,7 @@ call plug#end()
 " 2.1 Add folding to files {{{
 augroup filetype_folding
     autocmd!
-    autocmd FileType make,gitconfig,vim,vimperator setlocal foldmethod=marker
+    autocmd FileType conf,make,gitconfig,vim,vimperator setlocal foldmethod=marker
 augroup END
 " }}}
 " 2.2 File templates {{{
@@ -579,17 +580,19 @@ set autoindent " Auto indent as needed
 set copyindent " Copy previous indentation leven on autoindent
 set smartindent " Automatically insert extra level of indentation when needed
 
-autocmd FileType c setlocal tabstop=8 shiftwidth=8 noexpandtab
-autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType eruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType java setlocal tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab
+" Set filetype configuration
+autocmd FileType c setlocal tabstop=8 shiftwidth=8 noexpandtab foldmethod=syntax
+autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2 foldmethod=syntax
+autocmd FileType eruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab foldmethod=syntax
+autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab foldmethod=syntax
+autocmd FileType java setlocal tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab foldmethod=syntax
 autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab foldmethod=syntax
-autocmd FileType json setlocal shiftwidth=4 tabstop=4 noexpandtab
-autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
-autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType text setlocal noexpandtab
-autocmd FileType vimperator setlocal tabstop=2 shiftwidth=2 softtabstop=2 
+autocmd FileType json setlocal shiftwidth=4 tabstop=4 noexpandtab foldmethod=syntax
+autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab foldmethod=syntax
+autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab foldmethod=syntax
+autocmd FileType text setlocal noexpandtab foldmethod=syntax
+autocmd FileType vimperator setlocal tabstop=2 shiftwidth=2 softtabstop=2 foldmethod=syntax
+
 
 
 " End Tabs_and_Intendation }}}
