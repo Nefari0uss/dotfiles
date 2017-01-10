@@ -50,7 +50,7 @@ help: # {{{
 all: install_bash install_beets install_fzf install_git install_htop install_i3  \
 	 install_mpv install_neofetch install_ranger install_shell install_vim       \
 	 install_vimperator install_wallpaper install_xdg-user-dirs install_zathura  \
-	 install_zsh 
+	 install_zshell
 
 	@echo ""
 	@echo -e "your dotfiles have been installed - enjoy!"
@@ -188,7 +188,7 @@ clean_redshift:
 
 # }}}
 # shell {{{
-install_shell: install_bash install_zsh
+install_shell: install_bash install_zshell
 
 clean_shell: clean_bash clean_zshell
 
@@ -231,11 +231,11 @@ clean_vimperator:
 install_wallpaper: clean_wallpaper
 	@echo "symblinking prefered wallpaper..."
 	mkdir -p  ~/.config
-	ln -sf `pwd`/images/wallpaper.jpg ~/.config/.wallpaper
+	ln -sf `pwd`/images/wallpaper.jpg ~/.config/.wallpaper.jpg
 
 clean_wallpaper: 
 	@echo -e "\nremoving symb link for wallpaper..."
-	rm -rf ~/.config/.wallpaper
+	rm -rf ~/.config/.wallpaper.jpg
 
 # }}}
 # xdg-user-dirs {{{

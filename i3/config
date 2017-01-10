@@ -52,7 +52,7 @@ gaps inner 07
 gaps outer 07
 
 # Startup
-exec --nostartup-id feh --bg-scale ~/.config/.wallpaper # wallpaper"
+exec_always --nostartup-id feh --bg-scale ~/.config/.wallpaper.jpg # wallpaper"
 exec --no-startup-id redshift-gtk # Redshift so my eyes don't burn
 exec --no-startup-id compton -c  # transparency with shadow effects
 #exec chromium --app="knipolnnllmklapflnccelgolnpehhpl" # hangouts; must close chrome window and then set floating to false
