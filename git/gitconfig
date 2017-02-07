@@ -63,7 +63,8 @@
 	s = status --ignore-submodules
 	st = status --ignore-submodules
 	sts = status -s
-	cm = commit -m
+    commit = commit -S
+	cm = commit -S -m
 	co = checkout
 	df = diff --ignore-submodules
 	l = log -p
