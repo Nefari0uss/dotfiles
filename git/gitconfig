@@ -9,6 +9,7 @@
 [user]
 	name = Nefari0uss
 	email = nnefari0uss@gmail.com
+	signingkey = 2F335BAB
 
 [push]
 	default = simple # Simple pushes 1-1. Matching will push all.
@@ -107,3 +108,5 @@
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat # list by author
 	llnc = log --pretty=format:"%h\\ %s\\ [%cn]" # list by author, no colors
 
+[gpg]
+	program = gpg2
