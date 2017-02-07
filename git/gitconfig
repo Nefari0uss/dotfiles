@@ -11,6 +11,9 @@
 	email = nnefari0uss@gmail.com
 	signingkey = 2F335BAB
 
+[commit]
+    gpgsign = true
+
 [push]
 	default = simple # Simple pushes 1-1. Matching will push all.
 
@@ -63,8 +66,7 @@
 	s = status --ignore-submodules
 	st = status --ignore-submodules
 	sts = status -s
-    commit = commit -S
-	cm = commit -S -m
+	cm = commit -m
 	co = checkout
 	df = diff --ignore-submodules
 	l = log -p
