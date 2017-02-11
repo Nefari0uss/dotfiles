@@ -1,0 +1,12 @@
+
+# always save file to this director
+-o '~/videos/youtube-dl/%(title)s.%(ext)s'
+
+# best audio quality
+--audio-quality 0
+
+# surpress output (useful for backgrounding)
+--quiet
+
+# write metadata to file
+--add-metadata
