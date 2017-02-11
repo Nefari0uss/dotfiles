@@ -2,6 +2,7 @@
 
 # .vim folder
 vim/dot-vim/plugged/** 
+vim/nvim/plugged/** 
 vim/dot-vim/plugged/*
 vim/dot-vim/session/*
 vim/dot-vim/bkup/*
