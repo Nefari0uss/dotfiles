@@ -1,0 +1,7 @@
+[api]
+token = 
+
+[record]
+command =/bin/bash -l
+maxwait = 1
+
