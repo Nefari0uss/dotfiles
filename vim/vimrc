@@ -145,83 +145,6 @@ let g:airline_symbols.readonly = ''
 let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
 
 "End airline }}}
-"Lightline: a light and configurable statusline/tabline {{{
-"Plug 'itchyny/lightline.vim'
-
-"let g:lightline = {
-            "\ 'colorscheme': 'PaperColor',
-            "\ 'mode_map': { 'c': 'NORMAL' },
-            "\ 'active': {
-            "\   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-            "\ },
-            "\ 'component_function': {
-            "\   'modified': 'LightlineModified',
-            "\   'readonly': 'LightlineReadonly',
-            "\   'fugitive': 'LightlineFugitive',
-            "\   'filename': 'LightlineFilename',
-            "\   'fileformat': 'LightlineFileformat',
-            "\   'filetype': 'LightlineFiletype',
-            "\   'fileencoding': 'LightlineFileencoding',
-            "\   'mode': 'LightlineMode',
-            "\ },
-            "\ 'separator': { 'left': '', 'right': '' },
-            "\ 'subseparator': { 'left': '', 'right': '' }
-            "\ }
-
-"function! LightlineModified()
-    "return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-"endfunction
-
-"function! LightlineReadonly()
-    "return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
-"endfunction
-
-"function! LightlineFilename()
-    "return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
-                "\ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-                "\  &ft == 'unite' ? unite#get_status_string() :
-                "\  &ft == 'vimshell' ? vimshell#get_status_string() :
-                "\ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-                "\ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
-"endfunction
-
-"function! LightlineFileformat()
-""    return winwidth(0) > 70 ? &fileformat : ''
-    "return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
-"endfunction
-
-"function! LightlineFiletype()
-""    return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-    "return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
-"endfunction
-
-"function! LightlineFugitive()
-  "try
-    "if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && exists('*fugitive#head')
-      "let mark = ''  " edit here for cool mark
-      "let branch = fugitive#head()
-      "return branch !=# '' ? mark.branch : ''
-    "endif
-  "catch
-  "endtry
-  "return ''
-"endfunction
-
-
-"function! LightlineFileencoding()
-    "return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-"endfunction
-
-"function! LightlineMode()
-    "let fname = expand('%:t')
-    "return
-        "\ fname == '__Gundo__' ? 'Gundo' :
-        "\ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
-        "\ fname =~ 'NERD_Tree' ? 'NERDTree' :
-        "\ winwidth(0) > 60 ? lightline#mode() : ''
-"endfunction
-"
-"}}}
 
 Plug 'tpope/vim-fugitive'
 
@@ -638,7 +561,9 @@ endif
 syntax enable " Syntax highlighting is magical
 
 colorscheme kalahari " Set colorscheme
-autocmd Colorscheme * highlight Normal ctermbg=NONE " Make Vim have no background ~ control using terminal emulator
+highlight Normal ctermbg=NONE " Make Vim have no background ~ control using terminal emulator
+highlight Pmenu ctermfg=33 ctermbg=NONE "Insert menu colour
+highlight PmenuSel ctermfg=252 ctermbg=235 cterm=bold "Insert menu selected item colours
 
 filetype indent on " Enable filetype specific indenation
 filetype plugin on " Enable filetype specific plugins
