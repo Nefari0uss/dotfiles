@@ -307,9 +307,9 @@ clean_redshift:
 
 # }}}
 # shell {{{
-install_shell: install_bash install_fish install_zshell
+install_shell: install_bash install_zshell
 
-clean_shell: clean_bash clean_fish clean_zshell
+clean_shell: clean_bash clean_zshell
 
 # }}}
 # tmux {{{
