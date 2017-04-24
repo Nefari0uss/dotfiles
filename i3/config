@@ -52,7 +52,7 @@ gaps inner 07
 gaps outer 07
 
 # Startup
-exec --no-startup-id ~/.screenlayout/single.sh # single monitor; no tv
+exec --no-startup-id ~/.screenlayout/dual-monitors.sh # dual monitor; no tv
 exec_always --no-startup-id feh --bg-scale ~/.config/wallpaper.jpg # wallpaper"
 exec --no-startup-id redshift-gtk # Redshift so my eyes don't burn
 exec --no-startup-id compton -c  # transparency with shadow effects
