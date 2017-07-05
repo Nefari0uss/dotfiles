@@ -325,14 +325,12 @@ clean_tmux:
 # vim {{{
 install_vim : clean_vim
 	@echo "symblinking vim config..."
-	mkdir -p  ~/.vim
 	ln -sf `pwd`/vim/vimrc ~/.vimrc
-	ln -sf `pwd`/vim/dot-vim/ ~/.vim
+	ln -sf `pwd`/vim/dot-vim ~/.vim
 	@echo "symblinking neovim config..."
 	mkdir -p ~/.config/
-	ln -sf `pwd`/vim/neovim/ ~/.config/nvim
-	ln -s `pwd`/vim/vimrc ~/.config/nvim/init.vim
-
+	ln -sf `pwd`/vim/neovim ~/.config/nvim
+	ln -sf `pwd`/vim/vimrc ~/.config/nvim/init.vim
 
 clean_vim: 
 	@echo -e "\nremoving symb links for vim..."
@@ -374,7 +372,7 @@ install_xdg-user-dirs: clean_xdg-user-dirs
 	ln -sf `pwd`/xdg-user-dirs/user-dirs.dirs ~/.config/user-dirs.dirs
 	ln -sf `pwd`/xdg-user-dirs/user-dirs.locale ~/.config/user-dirs.locale
 	@echo -e "running '$$ xdg-user-dirs-update...'"
-	@echo $(shell xdg-user-dirs-update)
+	#@echo $(shell xdg-user-dirs-update)
 	@echo -e "xdg user directories are setup..."
 
 clean_xdg-user-dirs: 
