@@ -102,6 +102,7 @@ Plug 'sheerun/vim-polyglot', { 'do': './build' } " Add syntax and language suppo
 " Vimperator: Syntax highlighting for vimperatorrc {{{
 Plug 'vimperator/vimperator.vim', { 'for': 'vimperator' }
 "}}}
+Plug 'PProvost/vim-ps1'
 " }}}
 
 " Asthetics {{{

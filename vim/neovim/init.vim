@@ -1,1 +1,1 @@
-/home/nefari0uss/dotfiles/vim/vimrc
+/mnt/c/Users/nikit/projects/dotfiles/vim/vimrc
