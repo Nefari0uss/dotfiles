@@ -1,0 +1,1 @@
+Set-ExecutionPolicy AllSigned; iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
     <key name="ConEmu">
-        <key name=".Vanilla" modified="2017-08-11 20:17:11" build="170805">
+        <key name=".Vanilla" modified="2017-08-19 12:03:03" build="170814">
             <value name="StartType" type="hex" data="02"/>
             <value name="CmdLine" type="string" data=""/>
             <value name="StartTasksFile" type="string" data=""/>
@@ -385,11 +385,13 @@
             </key>
             <value name="CmdLineHistory" type="multi">
                 <line data="{Shells::cmd (Admin)}"/>
+                <line data="&quot;C:\Windows\SYSTEM32\cmd.exe&quot; /k &quot;%ConEmuBaseDir%\CmdInit.cmd&quot;"/>
+                <line data="&quot;C:\Windows\SYSTEM32\cmd.exe&quot;  /k &quot;%ConEmuBaseDir%\CmdInit.cmd&quot;"/>
                 <line data="{Shells::cmd}"/>
                 <line data="{Shells::PowerShell}"/>
-                <line data="{Shells::PowerShell (Admin)}"/>
-                <line data="{Tools::Chocolatey (Admin)}"/>
-            </value>
+            	<line data="{Shells::PowerShell (Admin)}"/>
+				<line data="{Tools::Chocolatey (Admin)}"/>
+			</value>
             <value name="StartCreateDelay" type="ulong" data="100"/>
             <value name="ExtendFonts" type="hex" data="00"/>
             <value name="ExtendFontNormalIdx" type="hex" data="01"/>
