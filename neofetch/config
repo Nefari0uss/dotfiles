@@ -29,6 +29,7 @@ print_info() {
     info "Terminal Font  " term_font
     info "CPU            " cpu
     info "GPU            " gpu
+    info "GPU Driver     " gpu_driver
     info "Memort         " memory
 
     # info "CPU Usage    " cpu_usage
@@ -387,7 +388,7 @@ underline_char="-"
 # Display colors 0-15 in the blocks.
 # neofetch --block_range 0 15
 start=0
-end=7
+end=15
 
 # Toggle color blocks
 #
@@ -488,6 +489,12 @@ disk_display="off"
 # NOTE: Change this to 'wallpaper', '/path/to/img' or /path/to/dir/' to enable image mode. You can also launch neofetch with '--image wallpaper' and etc.
 image_source="wallpaper"
 
+# Image Backend
+#
+# iterm2 on MacOS, tycat on Terminology, and w3m on everything else
+image_backend="tycat"
+
+
 # Thumbnail directory
 #
 # Default: '~/.cache/thumbnails/neofetch'
@@ -518,7 +525,7 @@ w3m_img_path="/usr/lib/w3m/w3mimgdisplay"
 #
 # See this wiki page to learn about the fit and fill options.
 # https://github.com/dylanaraps/neofetch/wiki/What-is-Waifu-Crop%3F
-crop_mode="normal"
+crop_mode="fit"
 
 # Crop offset
 # Note: Only affects 'normal' crop mode.
@@ -543,7 +550,7 @@ image_size="auto"
 # Default: '3'
 # Values:  'num', '-num'
 # Flag:    --gap
-gap=3
+gap=4
 
 # Image offsets
 # Only works with the w3m backend.
