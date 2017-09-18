@@ -415,7 +415,7 @@ Plug 'matze/vim-move'
 " Git Gutter: Show diffs left of line numbers {{{
 Plug 'airblade/vim-gitgutter' 
 
-let g:gitgutter_sign_column_always=1 " Always show the git gutter column
+set signcolumn=yes
 
 " }}}
 " Rainbox: Rainbow coloured parentheses matching {{{
@@ -469,6 +469,8 @@ nnoremap <C-P> :bprev<CR>
 "Plug 'valloric/youcompleteme' " Code complete engine for Vim
 " End Unused }}}
 
+Plug 'neovim/node-host', { 'do': 'npm install' }
+Plug 'vimlab/mdown.vim', { 'do': 'npm install' }
 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
@@ -573,7 +575,7 @@ filetype plugin on " Enable filetype specific plugins
 set backspace=indent,eol,start " Allow backspace to delete character
 set clipboard=unnamed " Yank to system register by default
 set cursorline " Highlight the current line
-set encoding=utf8 " Set UTF-8 as standard encoding
+set encoding=utf-8 " Set UTF-8 as standard encoding
 set foldenable " Enable folding by default
 set foldlevelstart=10 " Max fold level is 10
 set hidden " Change active buffer without having to save
