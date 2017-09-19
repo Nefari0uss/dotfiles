@@ -31,7 +31,8 @@ font pango:monospace 16
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec terminology
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -56,7 +57,10 @@ exec --no-startup-id ~/.screenlayout/dual-monitors.sh # dual monitor; no tv
 exec_always --no-startup-id feh --bg-scale ~/.config/wallpaper.jpg # wallpaper"
 exec --no-startup-id redshift-gtk # Redshift so my eyes don't burn
 exec --no-startup-id compton -c  # transparency with shadow effects
-exec --no-startup-id kdeconnect-indicator #kde connect
+exec --no-startup-id kdeconnect-indicator #kde connect system tray
+exec --no-startup-id nm-applet network manager system tray
+exec --no-startup-id pasystray # pulseaudio system tray
+exec --no-startup-id dropbox-cli start # dropbox
 #exec chromium --app="knipolnnllmklapflnccelgolnpehhpl" # hangouts; must close chrome window and then set floating to false
 
 
