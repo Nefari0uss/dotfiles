@@ -1,6 +1,5 @@
 ~~ Games ~~
 Battle.net - http://us.battle.net/en/
-BrothelS.im
 DeSuMe - http://desmume.org/
 Dolphin - https://dolphin-emu.org/
 Katawa Shoujo - http://www.katawa-shoujo.com/
@@ -26,11 +25,6 @@ nVidia GeForce Experience - http://www.geforce.com/geforce-experience
 
 ~~ League of Legends Tools ~~ 
 Championify - https://github.com/dustinblackman/Championify
-League Summoner Information - http://www.leaguelsi.com/
-LoL Mastery Manager - https://github.com/maxdeviant/lol-mastery-manager
-
-Skyrim Mods
-// todo
 
 ~~~~ Installation Files ~~~~
 
@@ -116,8 +110,6 @@ ffmpeg - https://www.ffmpeg.org/
 wkHTMLtoPDF - http://wkhtmltopdf.org/
 
 ~~ Communication Tools ~~
-Curse Voice - http://beta.cursevoice.com/
-Razer Comms - http://www.razerzone.com/comms
 Skype - https://www.skype.com/en/
 Telegram - https://telegram.org/
 
@@ -128,6 +120,3 @@ MusicBee - http://getmusicbee.com/
 OverDrive Media Console - https://www.overdrive.com/
 VLC Media Player - https://www.videolan.org/vlc/index.html
 foobar2000 - http://www.foobar.com
-
-~~ Kodi Addons ~~
-// todo
