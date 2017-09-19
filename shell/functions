@@ -16,3 +16,6 @@ function matchrun_contents() {
 
 }
 
+npm_g_list() {
+    npm list -g --depth=0
+}
