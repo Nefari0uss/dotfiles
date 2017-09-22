@@ -1,0 +1,7 @@
+prefix=/Users/nikitmalkan/projects/dotfiles/$HOME/.npm-packages
+init.author.name=Nefari0uss
+init.author.email=nnefari0uss@gmail.com
+init.license=MIT
+init.version=0.0.1
+registry=https://registry.npmjs.com/
+loglevel=warn
