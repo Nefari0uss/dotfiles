@@ -1,0 +1,22 @@
+" Source neovim init file then read the vim specific stuff here.
+"source ~/.config/nvim/init.vim
+
+" These options are now defaults in neovim.
+syntax enable
+filetype plugin indent on
+set autoindent " Auto indent as needed
+set backspace=indent,eol,start " Allow backspace to delete character
+set belloff=all " Get rid of annoying error bells
+set display=lastline " Have vim display as much of a line as possible.
+set formatoptions=tcqj " h: fo-table
+set history=1000 " Maximum value
+set hlsearch " Highlight search results
+set incsearch " Search as characters are entered
+set noautoread " Confirm reloading an externally changed file.
+set nrformats=bin,hex " How often do I work with octal anyways?
+set ruler " Show line, column number of cursor position at bottom.
+set showcmd " Show partially completed commands along bottom of bar.
+set smarttab " Insert <tab> based on *shiftwidth* value.
+set wildmenu " Visual autocomplete wild card menu
+
+
