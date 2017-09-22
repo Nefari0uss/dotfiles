@@ -4,9 +4,11 @@
 vim/plugged/** 
 vim/session/*
 vim/backup/*
+vim/autoload/plug.vim
 
 # neovim folder
 neovim/plugged/**
+neovim/autoload/plug.vim
 
 # Ctags generated file
 tags
