@@ -1,0 +1,16 @@
+# IdeaVimrc for use with Jetbrains IDEs
+# Nefari0uss
+
+set clipboard=unnamed " Yank to system register by default
+set history=1000 " Probably excessive
+set ignorecase " Make searches case-insensitive
+set number " Turn on absolute line number for the current line
+set relativenumber " Turn on relative line numbers
+set showmode " Show which mode we are in
+set smartcase " Make searches case sensitive IF a capital leter is used.
+set surround " Enable vim-surround plugin emulation "
+set visualbell " Be quiet Vim.
+
+nnoremap / :action Find<CR> " Use built in search
+
+map <leader>w :w<CR> " Save file
