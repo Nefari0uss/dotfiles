@@ -15,6 +15,9 @@ brew bundle
 # Make sure everything is good.
 brew cask doctor
 
+# Git LFS Install
+git lfs install 
+
 # Add iTerm2 shell integration.
 curl -L https://iterm2.com/misc/install_shell_integration_and_utilities.sh | bash
 
