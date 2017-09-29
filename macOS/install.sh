@@ -15,6 +15,9 @@ brew bundle
 # Make sure everything is good.
 brew cask doctor
 
+# Accept Xcode License
+xcodebuild -license accept
+
 # Git LFS Install
 git lfs install 
 

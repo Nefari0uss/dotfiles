@@ -64,8 +64,11 @@ tap 'caskroom/cask'
 cask 'alfred'
 cask 'amethyst'
 cask 'appcode'
+cask 'insomniax'
+cask 'barabiner-elements'
 cask 'calibre'
 cask 'cd-to'
+cask 'cheatsheet'
 cask 'clion'
 cask 'dash'
 cask 'desmume'
@@ -105,6 +108,11 @@ cask 'vlc'
 cask 'vox'
 cask 'webstorm'
 cask 'wireshark'
+
+# NTFS Support
+cask 'osxfuse'
+brew 'ntfs-3g'
+brew 'mounty'
 
 # Java is a requirement for the next 3. Also, they are required for Android dev.
 cask 'java'

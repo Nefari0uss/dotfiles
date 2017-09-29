@@ -1,4 +1,4 @@
-prefix=/Users/nikitmalkan/projects/dotfiles/$HOME/.npm-packages
+prefix=$HOME/.npm-packages
 init.author.name=Nefari0uss
 init.author.email=nnefari0uss@gmail.com
 init.license=MIT
