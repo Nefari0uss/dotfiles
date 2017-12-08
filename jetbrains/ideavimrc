@@ -1,16 +1,78 @@
-# IdeaVimrc for use with Jetbrains IDEs
-# Nefari0uss
+" IdeaVimrc for use with Jetbrains IDEs
+" Nefari0uss
 
-set clipboard=unnamed " Yank to system register by default
-set history=1000 " Probably excessive
-set ignorecase " Make searches case-insensitive
-set number " Turn on absolute line number for the current line
-set relativenumber " Turn on relative line numbers
-set showmode " Show which mode we are in
+set clipboard=unnamed " Yank to system register by default.
+set history=1000 " Probably excessive.
+set ignorecase " Make searches case-insensitive.
+set smartcase " Override ignore case if search pattern contains an upper case char.
+set incsearch " Show pattern highlighting while searching.
+set number " Turn on absolute line number for the current line.
+set relativenumber " Turn on relative line numbers.
+set showmode " Show which mode we are in.
 set smartcase " Make searches case sensitive IF a capital leter is used.
-set surround " Enable vim-surround plugin emulation "
+set surround " Enable vim-surround plugin emulation.
 set visualbell " Be quiet Vim.
+set hlsearch " Set highlight search.
+set cmdheight=2 " Height of command bar.
+set backspace=eol,start,indent " Make backspace behave properly.
 
-nnoremap / :action Find<CR> " Use built in search
 
-map <leader>w :w<CR> " Save file
+
+" Easy window navigation
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-h> <c-w>h
+nnoremap <c-k> <c-w>k
+nnoremap <a-h> gT
+nnoremap <a-l> gt
+
+" Use built in search
+nnoremap / :action Find<CR> 
+" But preserve built in search.
+nnoremap g/ /
+
+let mapleader=;
+
+" Split Windows
+nnoremap <leader>sp :action SplitHorizontally<CR><C-j>
+nnoremap <leader>vsp :action SplitVertically<CR><C-l>
+
+" Move around tabs
+nnoremap gl gt
+nnoremap gh gT 
+nnoremap <c-tab> gt
+nnoremap <c-s-tab> gT
+
+" Activate 'x' Window
+map <leader>at :action ActivateTerminalToolWindow<CR>
+map <leader>ap :action ActivateProjectToolWindow<CR>
+
+" Toggle Breakpoint
+map <leader>bp :action ToggleLineBreakpoint<CR>
+
+" Comment
+map <leader>cc :action CommentByLineComment<CR>
+
+
+" Goto
+map <leader>gd :action GotoDeclaration<CR>
+map <leader>gf :action GotoFile<CR>
+map <leader>gc :action GotoClass<CR>
+map <leader>gs :action GotoSymbol<CR>
+
+# Goto Error
+nnoremap gne :action GotoNextError<CR>
+nnoremap gep :action GotoPreviousError<CR>
+nnoremap gnb :action GotoNextBookmark<CR>
+nnoremap gpb :action GotoPreviousBookmark<CR>
+nnoremap gnx :action GotoNextIncompletePropertyAction<CR>
+
+" Rename and refactor
+nnoremap <leader>rr :action RenameElement<CR>
+nnoremap <leader>R :Run<CR>
+
+" Ace Jump
+nnoremap <leader>s :action AceAction<CR>
+
+" Save file
+map <leader>w :write!<CR>
