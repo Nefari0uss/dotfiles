@@ -2,6 +2,7 @@
 # Nefari0uss
 
 # Homebrew packages
+
 brew 'ag'
 brew 'bash'
 brew 'bash-completion'
@@ -18,21 +19,26 @@ brew 'exiftool'
 brew 'ffmpeg'
 brew 'ffmpeg2theora'
 brew 'ffmpegthumbnailer'
-brew 'findutils'
+brew 'findutils', args:['--with-default-names']
 brew 'fish'
 brew 'flac'
 brew 'freetype'
 brew 'fzf'
 brew 'gawk'
+brew 'gawk'
 brew 'gdb'
 brew 'git'
 brew 'git-lfs'
-brew 'gnu-sed'
-brew 'gnu-tar'
-brew 'gnu-which'
+brew 'gnu-indent', args:['---with-default-names']
+brew 'gnu-sed', args:['---with-default-names']
+brew 'gnu-tar', args:['--with-default-names']
+brew 'gnu-which', args:['---with-default-names']
 brew 'gnupg'
 brew 'gnuplot'
+brew 'gnutls'
 brew 'gpg-agent'
+brew 'grep', args:['--with-default-names']
+brew 'gzip'
 brew 'html2text'
 brew 'htop'
 brew 'imagemagick'
@@ -59,6 +65,7 @@ brew 'ranger'
 brew 'readline'
 brew 'rsync'
 brew 'rust'
+brew 'screen'
 brew 'tectonic'
 brew 'theora'
 brew 'tig'
@@ -67,7 +74,10 @@ brew 'tree'
 brew 'unrar'
 brew 'unzip'
 brew 'vim', args:['--override-system-vi']
+brew 'watch'
+brew 'wdiff', args:['--with-gettext']
 brew 'weechat'
+brew 'wget'
 brew 'wget'
 brew 'wine'
 brew 'xclip'
@@ -77,7 +87,12 @@ brew 'zsh-completions'
 
 # Homebrew Cask Packages
 tap 'caskroom/cask'
+tap 'caskroom/versions'
 
+cask 'firefoxnightly'
+cask 'dotnet-sdk'
+cask 'firefoxdeveloperedition'
+cask 'private-internet-access'
 cask 'alfred'
 cask 'amethyst'
 cask 'appcode'
@@ -102,7 +117,6 @@ cask 'gitup'
 cask 'google-backup-and-sync'
 cask 'google-chrome'
 cask 'iina'
-cask 'insomniax'
 cask 'intellij-idea'
 cask 'iterm2'
 cask 'jetbrains-toolbox'
@@ -132,17 +146,21 @@ cask 'vlc'
 cask 'vox'
 cask 'webstorm'
 cask 'wireshark'
+cask 'spectacle'
+cask 'wraparound'
 
 # Java is a requirement for the next 3. Also, they are required for Android dev.
-cask 'java'
+cask 'java8'
 brew 'ant'
 brew 'gradle'
 brew 'maven'
 
 # Android
 cask 'android-studio'
-cask 'android-sdk'
+#cask 'android-sdk'
 cask 'android-ndk'
+cask 'android-platform-tools'
+
 #cask 'intel-haxm'
 
 # Xamarin
@@ -150,6 +168,8 @@ cask 'xamarin'
 cask 'xamarin-android'
 cask 'xamarin-ios'
 cask 'xamarin-mac'
+cask 'xamarin-jdk'
+cask 'xamarin-android-player'
 
 # Unity 3D
 cask 'unity'
@@ -168,3 +188,4 @@ brew 'chunkwm'
 
 # App Store Apps
 mas 'Xcode', id: 497799835
+mas 'Amphetamine', id: 937984704

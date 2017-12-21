@@ -15,6 +15,9 @@ xcodebuild -license accept
 printf "Installing Homebrew"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+printf "Unshallow Homebrew"
+git -C "$(brew --repo homebrew/core)" fetch --unshallow
+
 # Install Homebrew Cask and various packages
 brew update && brew doctor
 printf "Installing from Brewfile..."
