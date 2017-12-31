@@ -1,0 +1,2 @@
+mkdir -p $HOME/.config/keychain
+ln -s $PWD/keychain.conf ~/.config/keychain/keychain.conf
