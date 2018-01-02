@@ -13,7 +13,7 @@ FILES=(config attributes ignore gitk)
 printf "\nInstalling Git config.\n"
 
 if [ ! -d $CONFIG_DIR ]; then
-  printf 'Creating git folder under %s.\n' $CONFIG_DIR
+  printf "Creating git folder under %s.\n" $CONFIG_DIR
   mkdir -p $CONFIG_DIR
 fi
 
