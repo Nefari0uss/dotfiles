@@ -1,35 +1,45 @@
 # dotfiles
 
-[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/Nefari0uss)
-[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
-[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
-![Repo Size](https://reposs.herokuapp.com/?path=nefari0uss/dotfiles)
+There are many repos like it but this one is mine!
 
-### Author: [nefari0uss](https://www.github.com/nefari0uss)
+## Author: [nefari0uss](https://www.github.com/nefari0uss)
 
-### Website: [github.io](https://nefari0uss.github.io/dotfiles)
-
-There are many repos like it but this one is mine. 
+## Dotfiles Website: [github.io](https://nefari0uss.github.io/dotfiles)
 
 ## Installation
-Run the makefile via `$ make` in the root directory. Instructions will then be displayed on the screen. If run on Windows, you will need to run it on the Windows Subsystem for Linux. There are also some scripts in the bin folder that can be run individually to install something. 
+An install script is currently being worked on. Otherwise, assume that most config files go in either the `$XDG_CONFIG_HOME` location or under their default location (usually `$HOME` or `$HOME/.config`).
 
 ## Dependencies
-Most package managers will install necessary dependencies as necessary. Usually I will also add the optional software to enable extra features. I've tried to add requirements for anything if I use it to individual readmes per software folder. However, the core requirements are as follows:
+There's lots of little dependencies here and there. OS specific install scripts should grab dependencies as needed.
 
-- bash
-- git 
-- gpg
-- ncurses 
-- ssh
-- vim
+I'm currently undergoing a process to make the repo much more lean and mean.
 
-An assumption is made that Arch Linux with AUR support is enabled. Note packages are NOT currently installed automatically when runnning the make file.
+Assume that at at minimum, you'll need the following:
+- Bash/Zsh
+- Git
+- SSH
+- GPG
+- Vim/NeoVim
+
+Windows:
+- Chocolatey
+- Windows Subsystem for Linux (WSL)
+
+macOS:
+- Homebrew
+
+Arch Linux:
+- AUR
 
 ## Note/Disclaimer
-As always, blindly copying/installing any piece of software may result in a non-working configuration. I give 0 guarantee that things will work. In fact, there is a very high probability that it will NOT work out of the box for you. Please take the time to read through the documentation I have provided. 
+- Do not blindly copy or install this config without understanding what each file/line is for.
+- The config was made for me and me only.
+- I strongly suggest learning what each line does and adapting it for your own purposes if you feel it is useful to you.
 
 ## LICENSE
-* [MIT](https://raw.githubusercontent.com/Nefari0uss/dotfiles/master/LICENSE)
-* Any licenses of scripts or other software. 
+- [MIT](https://raw.githubusercontent.com/Nefari0uss/dotfiles/master/LICENSE)
+- Any sub-license of scripts or other software.
+    - I've tried to include them in the relevant folders/files.
+    - If I've copied something from you and I've forogtten to include the license - sorry!
+    - Please make an issue and I'll address it ASAP.
 
