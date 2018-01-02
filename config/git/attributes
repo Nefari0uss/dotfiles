@@ -1,0 +1,3 @@
+*.png diff=exif
+*.doc diff=word
+*.odt diff=odt
