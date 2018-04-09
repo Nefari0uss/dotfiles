@@ -1,8 +1,0 @@
-dist: precise
-
-addons:
-  apt:
-    sources: debian-sid
-    packages: shellcheck
-
-script: shellcheck makefile
