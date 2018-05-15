@@ -1,22 +1,23 @@
 " IdeaVimrc for use with Jetbrains IDEs
 " Nefari0uss
 
+set backspace=eol,start,indent " Make backspace behave properly.
 set clipboard=unnamed " Yank to system register by default.
+set cmdheight=2 " Height of command bar.
 set history=1000 " Probably excessive.
+set hlsearch " Set highlight search.
 set ignorecase " Make searches case-insensitive.
-set smartcase " Override ignore case if search pattern contains an upper case char.
 set incsearch " Show pattern highlighting while searching.
 set number " Turn on absolute line number for the current line.
 set relativenumber " Turn on relative line numbers.
 set showmode " Show which mode we are in.
 set smartcase " Make searches case sensitive IF a capital leter is used.
-set surround " Enable vim-surround plugin emulation.
 set visualbell " Be quiet Vim.
-set hlsearch " Set highlight search.
-set cmdheight=2 " Height of command bar.
-set backspace=eol,start,indent " Make backspace behave properly.
+set wrapscan " Search wrap around the end of the file
 
 
+" Enable Plugins
+set surround " Enable vim-surround plugin emulation.
 
 " Easy window navigation
 nnoremap <c-l> <c-w>l
@@ -31,7 +32,7 @@ nnoremap / :action Find<CR>
 " But preserve built in search.
 nnoremap g/ /
 
-let mapleader=;
+let mapleader=\
 
 " Split Windows
 nnoremap <leader>sp :action SplitHorizontally<CR><C-j>
@@ -60,7 +61,7 @@ map <leader>gf :action GotoFile<CR>
 map <leader>gc :action GotoClass<CR>
 map <leader>gs :action GotoSymbol<CR>
 
-# Goto Error
+" Goto Error
 nnoremap gne :action GotoNextError<CR>
 nnoremap gep :action GotoPreviousError<CR>
 nnoremap gnb :action GotoNextBookmark<CR>
