@@ -1,10 +1,5 @@
-#            ██   ██                               ████ ██
-#     █████ ░░   ░██                              ░██░ ░░   █████
-#    ██░░░██ ██ ██████  █████   ██████  ███████  ██████ ██ ██░░░██
-#   ░██  ░██░██░░░██░  ██░░░██ ██░░░░██░░██░░░██░░░██░ ░██░██  ░██
-#   ░░██████░██  ░██  ░██  ░░ ░██   ░██ ░██  ░██  ░██  ░██░░██████
-#    ░░░░░██░██  ░██  ░██   ██░██   ░██ ░██  ░██  ░██  ░██ ░░░░░██
-#     █████ ░██  ░░██ ░░█████ ░░██████  ███  ░██  ░██  ░██  █████
+# Git Config
+# By Nefari0uss
 
 [user]
 	name = Nefari0uss
@@ -14,13 +9,11 @@
 [commit]
     gpgsign = true
 
-[push]
-    default = simple # Simple pushes 1-1. Matching will push all.
-
 [core]
     autocrlf = input # don't do any line ending conversion
-    editor = nvim 
-	pager = diff-so-fancy | less --tabs=4 -RFX
+    editor = nvim
+    pager = diff-so-fancy | less --tabs=4 -RFX
+    whitespace = trailing-space,space-before-tab
 
 [advice]
     statusHints = yes
@@ -29,16 +22,22 @@
     tool = vimdiff
     conflictstyle = diff3
 
+[rebase]
+    autoStash = true
+
+[status]
+    branch = true
+    showStash = true
+    submoduleSummary = true
+
+[help]
+    autocorrect = 1
+
+[gpg]
+    program = gpg
+
 [color]
     ui = true
-    branch = auto
-    diff = auto
-    grep = auto
-    interactive = auto
-    pager = true
-    showBranch = auto
-    status = auto
-    ui = auto
 
 [color "branch"]
     current = red reverse
@@ -53,6 +52,27 @@
 	commit = 227 bold
 	whitespace = red reverse
 
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+
+[color "status"]
+    added = green
+    changed = cyan
+    untracked = yellow
+    deleted = magenta strike
+
+[diff]
+    algorithm = histogram
+    compactionHeuristic = true # should help make diffs nicer
+    dirstat = lines
+    indentHeuristic = true # help distinguish line changes
+    renames = copies # detect copies and renames
+    suppressBlankEmpty = true
+    tool = vimdiff3
+
 [diff "docx"]
     binary = true
     textconv = docx2txt
@@ -64,27 +84,10 @@
 [diff "png"]
     textconv = exiftool
 
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-
-[color "status"]
-    added = blue
-    changed = green
-    untracked = cyan
-
-[diff]
-    renames = copies # detect copies and renames
-    indentHeuristic = true # help distinguish line changes
-    compactionHeuristic = true # should help make diffs nicer
-
-[help]
-    autocorrect = 1
 
 [alias]
-    # common commmands
+
+    # Common Commands
     s = status --ignore-submodules
     st = status --ignore-submodules
     sts = status -s
@@ -120,11 +123,11 @@
     new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
 
     # alternative to git reset HEAD --hard; unreachable commit can be found with reflog
-    wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard 
+    wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
 
     # go through project history
     whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -" # name as param
-    whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short # commit name as param 
+    whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short # commit name as param
 
     # pretty git logs
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # nice graph?
@@ -133,5 +136,7 @@
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat # list by author
     llnc = log --pretty=format:"%h\\ %s\\ [%cn]" # list by author, no colors
 
-[gpg]
-    program = gpg
+    assume   = update-index --assume-unchanged
+    unassume = update-index --no-assume-unchanged
+    assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
+
