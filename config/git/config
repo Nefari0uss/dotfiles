@@ -39,8 +39,12 @@
 [color]
     ui = true
 
+# The basic colors accepted are normal, black, red, green, yellow, blue, magenta, cyan and white.
+# The accepted attributes are bold, dim, ul, blink, reverse, italic, and strike.
+
+
 [color "branch"]
-    current = red reverse
+    current = cyan blue bold ul
     local = blue
     remote = green
 
@@ -50,7 +54,7 @@
 	old = red bold
 	meta = 227
 	commit = 227 bold
-	whitespace = red reverse
+	whitespace = yellow reverse
 
 [color "diff-highlight"]
 	oldNormal = red bold
@@ -59,9 +63,9 @@
 	newHighlight = green bold 22
 
 [color "status"]
-    added = green
-    changed = cyan
-    untracked = yellow
+    added = green bold italic
+    changed = cyan bold
+    untracked = blue italic
     deleted = magenta strike
 
 [diff]
@@ -86,22 +90,48 @@
 
 
 [alias]
-
     # Common Commands
-    s = status --ignore-submodules
-    st = status --ignore-submodules
-    sts = status -s
+
+    # status
+    s = status --short
+    st = status
+
+    # branch
+    b = branch --verbose
+    br = branch --remote --verbose
+
+    # commit
+    c = commit
     cm = commit -m
+    cma = commia -m --amend
+
+    amend = commit -m --amend
+    ammend = amend # spelling is hard
+
+    # checkout
     co = checkout
-    df = diff --ignore-submodules
-    l = log -p
-    cb = checkout -b
-    cp = cherry-pick
-    sl = stash list
+    cob = checkout -b # new branch
+    cb = checkout -b # new branch
+
+    # diff
+    d = diff
+    dw = diff --ignore-all-space
+
+    # stash
     wip = stash
+    sts = stash
+    stl = stash list
+    sl = stash list
+    pop = stash pop
+    sp = stash pop
+
+    # cherry pick
+    cp = cherry-pick
+
+    # bisect
+    bs = bisect
+
     undo = reset HEAD~1 --mixed
-    amend = commit -a --amend -m
-    ammend = amend # because fuck spelling
     unstage = reset HEAD --
 
     # search git log with fzf
@@ -110,17 +140,8 @@
     # history tree
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 
-    # list contributors with number of commits
-    contributors = shortlog --summary --numbered
-
     # list aliases
-    alist = "!git config -l | grep alias | cut -c 7-"
-
-    # see gitk?
-    gitkconflict = !gitk --left-right HEAD...MERGE_HEAD
-
-    # see what's new after the latest commit
-    new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+    al = "!git config -l | grep alias | cut -c 7-"
 
     # alternative to git reset HEAD --hard; unreachable commit can be found with reflog
     wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
