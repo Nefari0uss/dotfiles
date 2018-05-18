@@ -18,6 +18,10 @@
 [advice]
     statusHints = yes
 
+[blame]
+    date = short
+    showEmail = true
+
 [merge]
     tool = vimdiff
     conflictstyle = diff3
@@ -39,9 +43,8 @@
 [color]
     ui = true
 
-# The basic colors accepted are normal, black, red, green, yellow, blue, magenta, cyan and white.
-# The accepted attributes are bold, dim, ul, blink, reverse, italic, and strike.
-
+    # The basic colors accepted are normal, black, red, green, yellow, blue, magenta, cyan and white.
+    # The accepted attributes are bold, dim, ul, blink, reverse, italic, and strike.
 
 [color "branch"]
     current = cyan blue bold ul
@@ -88,6 +91,15 @@
 [diff "png"]
     textconv = exiftool
 
+[filter "media"]
+	clean     = git media clean %f
+	smudge    = git media smudge %f
+	required  = true
+
+[filter "lfs"]
+	clean     = git-lfs clean %f
+	smudge    = git-lfs smudge %f
+    required = true
 
 [alias]
     # Common Commands
@@ -105,6 +117,7 @@
     cm = commit -m
     cma = commia -m --amend
 
+    # amend
     amend = commit -m --amend
     ammend = amend # spelling is hard
 
@@ -116,6 +129,13 @@
     # diff
     d = diff
     dw = diff --ignore-all-space
+
+    # fetch
+    f = fetch
+    ff = !"git fetch; git new"
+
+    # merge
+    m = merge
 
     # stash
     wip = stash
@@ -131,11 +151,28 @@
     # bisect
     bs = bisect
 
+    # blame
+    bl = blame
+
+    # push and pull
+    pp = !"git pull; git push"
+    pu = push
+    pl = pull
+
+    # Remote
+    rem = remote
+    r = remote --verbose
+    rr = remote rename
+    ra = remote add
+    rrm = remote remove
+    rsu = remote set-url
+
+    # undo
     undo = reset HEAD~1 --mixed
     unstage = reset HEAD --
 
-    # search git log with fzf
-    fzflog = git log --pretty=oneline | fzf
+    # submodule update
+    subup = submodule update --init
 
     # history tree
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
@@ -146,18 +183,23 @@
     # alternative to git reset HEAD --hard; unreachable commit can be found with reflog
     wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
 
-    # go through project history
-    whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -" # name as param
-    whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short # commit name as param
-
     # pretty git logs
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # nice graph?
-    lc = log ORIG_HEAD.. --stat --no-merges # list all new commits after a fetch, sans merges
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # pretty log
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate # single line
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat # list by author
     llnc = log --pretty=format:"%h\\ %s\\ [%cn]" # list by author, no colors
 
+    # update index
+    # http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
     assume   = update-index --assume-unchanged
     unassume = update-index --no-assume-unchanged
     assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
+
+    # merging/rebasing help
+    ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
+    theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+
+    # see what's new
+    new = log ORIG_HEAD.. --stat --no-merges --decorate --oneline # list all new commits after a fetch, sans merges
+
 
