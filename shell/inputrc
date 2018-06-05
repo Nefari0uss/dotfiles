@@ -1,0 +1,19 @@
+# make tab autocomplete regardless of filename case
+set completion-ignore-case on
+
+# list all matches in case multiple possible completions are possible
+set show-all-if-ambiguous on
+
+# immediately add a trailing slash when autocompleting symlinks to directories
+set mark-symlinked-directories on
+
+# Show extra file information when completing, like `ls -F` does
+set visible-stats on
+
+# allow UTF-8 input and output, instead of showing stuff like $'\0123\0456'
+set input-meta on
+set output-meta on
+set convert-meta off
+
+# Only show a visible bell - no audio!
+set bell-style visible
