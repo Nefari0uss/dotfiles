@@ -104,27 +104,38 @@
 [alias]
     # Common Commands
 
-    # status
-    s = status --short
-    st = status
-
-    # branch
-    b = branch --verbose
-    br = branch --remote --verbose
-
-    # commit
-    c = commit
-    cm = commit -m
-    cma = commia -m --amend
+    # add
+    a = add
 
     # amend
     amend = commit -m --amend
     ammend = amend # spelling is hard
 
+    # bisect
+    bs = bisect
+
+    # blame
+    bl = blame
+
+    # branch
+    b = branch --verbose
+    br = branch --remote --verbose
+
     # checkout
     co = checkout
     cob = checkout -b # new branch
     cb = checkout -b # new branch
+
+    # cherry pick
+    cp = cherry-pick
+
+    # clone
+    cl = clone
+
+    # commit
+    c = commit
+    cm = commit -m
+    cma = commia -m --amend
 
     # diff
     d = diff
@@ -134,32 +145,19 @@
     f = fetch
     ff = !"git fetch; git new"
 
+    # log
+    filelog = log -u
+
     # merge
     m = merge
-
-    # stash
-    wip = stash
-    sts = stash
-    stl = stash list
-    sl = stash list
-    pop = stash pop
-    sp = stash pop
-
-    # cherry pick
-    cp = cherry-pick
-
-    # bisect
-    bs = bisect
-
-    # blame
-    bl = blame
+    mt = mergetool
 
     # push and pull
+    pl = pull
     pp = !"git pull; git push"
     pu = push
-    pl = pull
 
-    # Remote
+    # remote
     rem = remote
     r = remote --verbose
     rr = remote rename
@@ -167,12 +165,38 @@
     rrm = remote remove
     rsu = remote set-url
 
-    # undo
+    # reset
+    rst = reset # undo add
+    rstc = reset --soft HARD^ # undo commit
     undo = reset HEAD~1 --mixed
-    unstage = reset HEAD --
+    unstage = reset HEAD -- # remove files from index (tracking)
+    uncommit = reset --soft HEAD^ # go back before last commit, with files in uncommitted state
+    undomerge = reset --merge # undo merge and KEEP local changes
+    antimerge = reset --merge ORIG_HEAD # undo merge and DISCARD local changes
+
+    # stash
+    wip = stash
+    sts = stash
+    stl = stash list
+    sl = stash list
+    pop = stash pop
+    sapl = stash apply
+    sp = stash pop
+
+    # status
+    s = status --short
+    st = status
 
     # submodule update
     subup = submodule update --init
+
+    # tag
+    t = tag --sign
+    tl = tag --list
+    td = tag --delete
+
+    # CUSTOM AND COMPLEX COMMANDS
+
 
     # history tree
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
@@ -185,21 +209,27 @@
 
     # pretty git logs
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # pretty log
-    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate # single line
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat # list by author
-    llnc = log --pretty=format:"%h\\ %s\\ [%cn]" # list by author, no colors
 
     # update index
     # http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
     assume   = update-index --assume-unchanged
     unassume = update-index --no-assume-unchanged
     assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
+    asc   = update-index --assume-unchanged
+    uasc = update-index --no-assume-unchanged
+    ascd  = "!git ls-files -v | grep ^h | cut -c 3-"
 
-    # merging/rebasing help
+    # merging/rebasing help - select either ours or theirs for a file
     ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
     theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+
+    # save a copy of the current working tree
+    snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
 
     # see what's new
     new = log ORIG_HEAD.. --stat --no-merges --decorate --oneline # list all new commits after a fetch, sans merges
 
+    # go to the root directory
+    root = '!echo "I am Groot."; cd "$(git rev-parse --show-toplevel)"'
 
