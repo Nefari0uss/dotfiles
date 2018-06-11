@@ -6,7 +6,7 @@ alias bashrc="$EDITOR ~/.bashrc"
 alias zshconfig="$EDITOR ~/.zshrc"
 alias v="vim"
 alias vi="vim"
-alias nv =" nvim"
+alias nv="nvim"
 
 # Upgrade all Vim Plugins at once.
 alias vimplug="vim +PlugUpgrade +PlugInstall +PlugUpdate +qall &"

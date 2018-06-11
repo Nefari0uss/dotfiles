@@ -34,11 +34,14 @@
     showStash = true
     submoduleSummary = true
 
+[push]
+	followTags = true
+
 [help]
     autocorrect = 1
 
 [gpg]
-    program = gpg
+	program = gpg
 
 [color]
     ui = true
@@ -176,11 +179,11 @@
 
     # stash
     wip = stash
-    sts = stash
-    stl = stash list
-    sl = stash list
     pop = stash pop
-    sapl = stash apply
+    sts = stash
+    sl = stash list
+    sa = stash apply
+    ss = stash save
     sp = stash pop
 
     # status
@@ -191,9 +194,11 @@
     subup = submodule update --init
 
     # tag
-    t = tag --sign
-    tl = tag --list
+    t = tag
+    ts = tag --sign
+    tl = tag --list -n1
     td = tag --delete
+
 
     # CUSTOM AND COMPLEX COMMANDS
 
@@ -232,4 +237,3 @@
 
     # go to the root directory
     root = '!echo "I am Groot."; cd "$(git rev-parse --show-toplevel)"'
-
