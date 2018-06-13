@@ -157,8 +157,10 @@
 
     # push and pull
     pl = pull
+    pul = pull
     pp = !"git pull; git push"
     pu = push
+    pus = push
 
     # remote
     rem = remote
