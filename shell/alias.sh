@@ -11,7 +11,6 @@ alias nv="nvim"
 # Upgrade all Vim Plugins at once.
 alias vimplug="vim +PlugUpgrade +PlugInstall +PlugUpdate +qall &"
 
-
 # Useful shell commands
 alias sl="ls"
 alias cd..="cd .."
@@ -30,6 +29,7 @@ alias exot='exit'
 alias sha256="shasum -a 256 "$1" "
 # alias mkcd ~ mkdir and cd
 
+alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 
 # Git Commands
 alias g="git"
@@ -37,12 +37,21 @@ alias g="git"
 # Goto the root of the (git) directory.
 alias groot='echo "I am Groot."; cd "$(git rev-parse --show-toplevel)"'
 
+# Enable aliases to be sudo'ed
+alias sudo=" sudo "
 
 alias ln='ln -i'
 
-alias fzf="fzf --preview '[[ $\(file --mime {}\) =~ binary ]] && \
-  echo {} is a binary file || \
-  (highlight -O ansi -l {} || \
-  coderay {} || \
-  rougify {} || \
-  cat {}) 2> /dev/null | head -500' "
+alias csb=clear_scroll_back
+
+# alias fzf="fzf --preview '[[ $\(file --mime {}\) =~ binary ]] && \
+#   echo {} is a binary file || \
+#   (highlight -O ansi -l {} || \
+#   coderay {} || \
+#   rougify {} || \
+#   cat {}) 2> /dev/null | head -500' "
+
+alias cask='brew cask'
+
+# Recursively remove .DS_Store files
+alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
