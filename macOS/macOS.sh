@@ -5,7 +5,7 @@
 # Inspired by mathiasbynens dotfiles
 
 ################################################################################
-# INIT 
+# INIT
 ################################################################################
 
 # Close any open System Preferences windows in order to ensure that all changes go through.
@@ -20,8 +20,11 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 printf "Setting machine to write to disk by default; not iCloud.\n"
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
+printf 'Disable the sound effects on boot'
+sudo nvram SystemAudioVolume=? ?
+
 ################################################################################
-# SCROLLING 
+# SCROLLING
 ################################################################################
 
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
@@ -33,10 +36,10 @@ printf 'Fuck natural scrolling.\n'
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 ################################################################################
-# GENERAL SETTINGS 
+# GENERAL SETTINGS
 ################################################################################
 
-printf 'Stop nagging me damnit - “Are you sure you want to open this application?” - YES I want to open the fucking application.\n' 
+printf 'Stop nagging me damnit - “Are you sure you want to open this application?” - YES I want to open the fucking application.\n'
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 #printf "Reveal IP address, hostname, OS version, and other details when clicking on clock in login window...\n"
@@ -44,6 +47,9 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 printf 'Have the system automatically restart upon freezing.\n'
 sudo systemsetup -setrestartfreeze on
+
+printf 'Save screenshots to the desktop\n'
+defaults write com.apple.screencapture location -string ?$HOME/Desktop?
 
 printf 'Set default screenshot type to be ".png"\n'
 defaults write com.apple.screencapture type -string "png"

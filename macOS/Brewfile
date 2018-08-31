@@ -149,6 +149,9 @@ cask 'wireshark'
 cask 'spectacle'
 cask 'wraparound'
 
+# Quick Look Extensions
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook suspicious-package quicklookase qlvideo
+
 # Java is a requirement for the next 3. Also, they are required for Android dev.
 cask 'java8'
 brew 'ant'
