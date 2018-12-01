@@ -53,7 +53,6 @@ if [[ $OS == "OSX" ]] ; then
     export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 
     # Java JDK
-    export JAVA_HOME=/Library/Java/Home
+    export JAVA_HOME=/usr/local/Cellar/adoptopenjdk-openjdk8/jdk8u172-b11
     export PATH=$PATH:$JAVA_HOME
 fi
-

@@ -14,11 +14,7 @@ export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 export JAVA_HOME=/Library/Java/Home
 export PATH=$PATH:$JAVA_HOME
 
-eval $(thefuck --alias)
-
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
-
-source $HOME/.config/keychain/keychain.conf
 
 export PS1='\u@\h | \W: $ '
 
@@ -30,11 +26,3 @@ source ~/projects/dotfiles/shell/export.sh
 source ~/projects/dotfiles/shell/function.sh
 source ~/projects/dotfiles/shell/source.sh
 source ~/projects/dotfiles/shell/alias.sh
-
-
-alias groot='echo "I am Groot."; cd "$(git rev-parse --show-toplevel)"'
-
-alias cask='brew cask'
-
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

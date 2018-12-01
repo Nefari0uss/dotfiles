@@ -29,7 +29,7 @@ alias exot='exit'
 alias sha256="shasum -a 256 "$1" "
 # alias mkcd ~ mkdir and cd
 
-alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
+alias shrug="echo '¯\_(ツ)_/¯'"
 
 # Git Commands
 alias g="git"

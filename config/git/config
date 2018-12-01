@@ -8,7 +8,7 @@
 
 [commit]
 	gpgsign = true
-	template = /Users/nikitmalkan/.stCommitMsg
+	template = ~/.stCommitMsg
 
 [core]
 	autocrlf = input # don't do any line ending conversion
@@ -16,7 +16,7 @@
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	whitespace = trailing-space,space-before-tab
 	commitGraph = true
-	excludesfile = /Users/nikitmalkan/.gitignore_global
+	excludesfile = ~/.gitignore_global
 
 [advice]
 	statusHints = yes
@@ -103,9 +103,10 @@
 	required  = true
 
 [filter "lfs"]
-	clean     = git-lfs clean %f
-	smudge    = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 
 [rerere] # Reuse recorded resolution of conflicted merges
 	enabled = 1
@@ -248,7 +249,9 @@
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[credential]
+	helper = osxkeychain
