@@ -1,3 +1,5 @@
+#!/bin/sh
+
 export JAVA_HOME=/usr/bin/java
 export ANT_HOME=/usr/local/opt/ant
 export MAVEN_HOME=/usr/local/opt/maven
