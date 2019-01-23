@@ -22,7 +22,7 @@ export PS1='\u@\h | \W: $ '
 export ANDROID_HOME=/usr/local/Caskroom/android-sdk/platform-tools
 
 
-source ~/projects/dotfiles/shell/export.sh
-source ~/projects/dotfiles/shell/function.sh
-source ~/projects/dotfiles/shell/source.sh
-source ~/projects/dotfiles/shell/alias.sh
+source $HOME/projects/dotfiles/shell/export.sh
+source $HOME/projects/dotfiles/shell/function.sh
+source $HOME/projects/dotfiles/shell/source.sh
+source $HOME/projects/dotfiles/shell/alias.sh
