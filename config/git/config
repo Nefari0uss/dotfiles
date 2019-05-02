@@ -8,7 +8,6 @@
 
 [commit]
 	gpgsign = true
-	template = ~/.stCommitMsg
 
 [core]
 	autocrlf = input # don't do any line ending conversion
@@ -92,15 +91,19 @@
 
 [diff "odt"]
 	binary = true
-	textconv = $HOME/bin/odt-to-text.perl
+	textconv = odt2text
 
 [diff "png"]
 	textconv = exiftool
 
+[diff "pdf"]
+	binary = true
+    textconv = pdf2text
+
 [filter "media"]
-	clean     = git media clean %f
-	smudge    = git media smudge %f
-	required  = true
+	clean    = git media clean %f
+	smudge   = git media smudge %f
+	required = true
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -179,7 +182,9 @@
 
 	# reset
 	rst = reset # undo add
+	rc = reset --soft HARD^ # undo commit
 	rstc = reset --soft HARD^ # undo commit
+	resetc = reset --soft HARD^ # undo commit
 	undo = reset HEAD~1 --mixed
 	unstage = reset HEAD -- # remove files from index (tracking)
 	uncommit = reset --soft HEAD^ # go back before last commit, with files in uncommitted state
@@ -246,6 +251,3 @@
 
 	# go to the root directory
 	root = '!echo "I am Groot."; cd "$(git rev-parse --show-toplevel)"'
-
-[credential]
-	helper = osxkeychain
