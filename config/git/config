@@ -12,7 +12,7 @@
 [core]
 	autocrlf = input # don't do any line ending conversion
 	editor = nvim
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta --dark
 	whitespace = trailing-space,space-before-tab
 	commitGraph = true
 	excludesfile = ~/.gitignore_global
@@ -251,3 +251,5 @@
 
 	# go to the root directory
 	root = '!echo "I am Groot."; cd "$(git rev-parse --show-toplevel)"'
+[credential]
+	helper = cache
