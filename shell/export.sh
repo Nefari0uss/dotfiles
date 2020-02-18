@@ -1,3 +1,23 @@
+#/bin/bash
+
+if [ -z "$SSH_AUTH_SOCK"  ] ; then
+    eval $("ssh-agent -s")
+    ssh-add
+fi
+
+# FZF:
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
+
+# PyEnv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+
+export PATH="/usr/local/sbin:$PATH"
+
 # Set NeoVim/Vim to be the default editor.
 #export EDITOR='nvim';
 export EDITOR='vim';
@@ -48,11 +68,8 @@ export GPG_TTY=$(tty);
 # Rust Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
-if [[ $OS == "OSX" ]] ; then
-    # Homebrew Core Utils
+if [[ "$OSTYPE" == "darwin"* ]]; then
     export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 
-    # Java JDK
-    export JAVA_HOME=/usr/local/Cellar/adoptopenjdk-openjdk8/jdk8u172-b11
-    export PATH=$PATH:$JAVA_HOME
+    export ANDROID_HOME=/usr/local/Caskroom/android-sdk/platform-tools
 fi
