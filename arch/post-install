@@ -1,5 +1,0 @@
-install lvm or lvm2
-add lvm hook to /etc/mkinitcpio
-
-nvidia -> nvidia-modprobe
-install light-dm and enable service
