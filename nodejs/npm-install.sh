@@ -2,4 +2,4 @@
 ./npm-g-nosudo.sh
 
 # Install the packages in this file "globally".
-./npm-global-install.sh
+./install_node_packages.sh
