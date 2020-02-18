@@ -1,4 +1,0 @@
-#!/bin/sh
-# mpv wrapper to make it run in the background and disowned by the terminal window
-mpv --really-quiet "$@" &
-disown
