@@ -13,7 +13,7 @@ xcodebuild -license accept
 
 # Install HomeBrew
 printf "Installing Homebrew"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 printf "Unshallow Homebrew"
 git -C "$(brew --repo homebrew/core)" fetch --unshallow
@@ -27,11 +27,11 @@ brew bundle
 brew cask doctor
 
 printf "Adding prefix for manpages"
-$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman
+"$HOMEBREW_PREFIX"/opt/coreutils/libexec/gnuman
 
 # Git LFS Install
 printf "Installing Git LFS"
-git lfs install 
+git lfs install
 
 # Add iTerm2 shell integration.
 printf "Running iTerm2 integration."
