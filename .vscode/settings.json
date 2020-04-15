@@ -1,3 +1,16 @@
 {
-    "mocha.enabled": false
+    "mocha.enabled": false,
+    "spellright.language": [
+        "en"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "vimrc"
+    ],
+    "spellright.parserByClass": {
+        "vimrc": {
+            "parser": "code"
+        }
+    }
 }

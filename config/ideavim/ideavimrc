@@ -1,0 +1,127 @@
+" IdeaVimrc for use with Jetbrains IDEs
+" Nefari0uss
+
+" Make backspace behave properly.
+set backspace=eol,start,indent
+
+" Yank to system register by default.
+set clipboard=unnamed
+
+" Height of command bar.
+set cmdheight=2
+
+" Probably excessive.
+set history=1000
+
+" Set highlight search
+set hlsearch
+
+" Make searches case-insensitive
+set ignorecase
+
+" Show pattern highlighting while searching
+set incsearch
+
+" Show line numbers.  Shows absolute line number for current line when used
+" with relative line number.
+set number
+
+" Show line numbers relative to current line
+set relativenumber
+
+" Show the current mode (insert, visual, et cetera).
+set showmode " Show which mode we are in.
+
+" Make searches case sensitive IFF a capital letter is used.
+set smartcase
+
+" Be quiet
+set visualbell
+
+" Searches wrap around the end of the file back to the top
+set wrapscan
+
+" Creation of global mark will trigger creation of IDE's bookmark and vice versa.
+set ideamarks=True
+
+" Icon is shown in the status bar
+set ideastatusicon=enabled
+
+
+""""" Enable Plugins """""
+
+" Requires IdeaVim EasyMotion and AceJump plugins.
+" https://github.com/AlexPl292/IdeaVim-EasyMotion#supported-commands
+set easymotion
+
+" Enable vim-surround: ys, cs, ds, S
+set surround
+
+" Enable multiple cursors: <A-n>, <A-x>, <A-p>, g<A-n>
+set multiple-cursors
+
+" Enable vim-commentary: gcc, gc + motion, v_gc
+set commentary
+
+" Enable replace with register: gr, grr
+set ReplaceWithRegister
+
+
+" Easy window navigation
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-h> <c-w>h
+nnoremap <c-k> <c-w>k
+nnoremap <a-h> gT
+nnoremap <a-l> gt
+
+" Use built in search
+nnoremap / :action Find<CR>
+" But preserve built in search.
+nnoremap g/ /
+
+let mapleader=\
+
+" Split Windows
+nnoremap <leader>sp :action SplitHorizontally<CR><C-j>
+nnoremap <leader>vsp :action SplitVertically<CR><C-l>
+
+" Move around tabs
+nnoremap gl gt
+nnoremap gh gT
+nnoremap <c-tab> gt
+nnoremap <c-s-tab> gT
+
+" Activate 'x' Window
+map <leader>at :action ActivateTerminalToolWindow<CR>
+map <leader>ap :action ActivateProjectToolWindow<CR>
+
+" Toggle Breakpoint
+map <leader>bp :action ToggleLineBreakpoint<CR>
+
+" Comment
+map <leader>cc :action CommentByLineComment<CR>
+
+
+" Goto
+map <leader>gd :action GotoDeclaration<CR>
+map <leader>gf :action GotoFile<CR>
+map <leader>gc :action GotoClass<CR>
+map <leader>gs :action GotoSymbol<CR>
+
+" Goto Error
+nnoremap gne :action GotoNextError<CR>
+nnoremap gep :action GotoPreviousError<CR>
+nnoremap gnb :action GotoNextBookmark<CR>
+nnoremap gpb :action GotoPreviousBookmark<CR>
+nnoremap gnx :action GotoNextIncompletePropertyAction<CR>
+
+" Rename and refactor
+nnoremap <leader>rr :action RenameElement<CR>
+nnoremap <leader>R :Run<CR>
+
+" Ace Jump
+nnoremap <leader>s :action AceAction<CR>
+
+" Save file
+map <leader>w :write!<CR>
