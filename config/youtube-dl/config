@@ -1,6 +1,6 @@
 
-# always save file to this director
--o '~/videos/youtube-dl/%(title)s.%(ext)s'
+# always save file to this directory
+-o '$HOME/videos/youtube-dl/%(title)s.%(ext)s'
 
 # best audio quality
 --audio-quality 0

@@ -1,9 +1,11 @@
+#!/bin/bash
+
 # Editor related aliases
-alias e="$EDITOR"
-alias edit="$EDITOR"
-alias vimrc="$EDITOR ~/.config/vim/vimrc"
-alias bashrc="$EDITOR ~/.bashrc"
-alias zshconfig="$EDITOR ~/.zshrc"
+alias e='$EDITOR'
+alias edit='$EDITOR'
+alias vimrc='$EDITOR ~/.config/vim/vimrc'
+alias bashrc='$EDITOR ~/.bashrc'
+alias zshconfig='$EDITOR ~/.zshrc'
 alias v="vim"
 alias vi="vim"
 alias nv="nvim"
@@ -26,7 +28,7 @@ alias sha1="openssl sha1"
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'";
 alias cdate='date "+%Y.%m.%d"'
 alias exot='exit'
-alias sha256="shasum -a 256 "$1" "
+alias sha256="shasum -a 256 $1 "
 # alias mkcd ~ mkdir and cd
 
 alias shrug="echo '¯\_(ツ)_/¯'"
