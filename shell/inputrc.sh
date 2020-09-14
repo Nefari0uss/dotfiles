@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Import stuff from the systemt wide inputrc
+$include /etc/inputrc
+
 # Only show a visible bell - no audio!
 set bell-style visible
 
