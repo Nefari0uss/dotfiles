@@ -253,3 +253,5 @@
 	root = '!echo "I am Groot."; cd "$(git rev-parse --show-toplevel)"'
 [credential]
 	helper = cache
+[pull]
+	rebase = false
