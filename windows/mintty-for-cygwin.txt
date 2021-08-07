@@ -1,1 +1,0 @@
-C:\dev\cygwin\bin\mintty.exe -i /Cygwin-Terminal.ico C:\dev\cygwin\bin\zsh.exe --login

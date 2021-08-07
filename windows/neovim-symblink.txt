@@ -1,1 +1,0 @@
-location of neovim in windows is: ~\AppData\Local\nvim\init.vim
