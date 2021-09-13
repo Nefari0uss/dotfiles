@@ -12,5 +12,8 @@
         "vimrc": {
             "parser": "code"
         }
-    }
+    },
+    "cSpell.words": [
+        "nefari"
+    ]
 }

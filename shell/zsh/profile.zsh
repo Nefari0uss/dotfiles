@@ -1,4 +1,4 @@
 #!/bin/zsh
 
 # Pip Completion
-pip completion --bash
+pip completion --zsh

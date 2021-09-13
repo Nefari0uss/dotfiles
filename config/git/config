@@ -11,11 +11,16 @@
 
 [core]
 	autocrlf = input # don't do any line ending conversion
-	editor = nvim
+	editor = code
 	pager = delta --dark
 	whitespace = trailing-space,space-before-tab
 	commitGraph = true
 	excludesfile = ~/.gitignore_global
+
+[delta]
+	navigate = true
+	line-numbers = true
+	side-by-side = true
 
 [advice]
 	statusHints = yes
@@ -125,6 +130,7 @@
 	ammend = amend # spelling is hard
 
 	# bisect
+	bis = bisect
 	bs = bisect
 
 	# blame
@@ -137,7 +143,6 @@
 	# checkout
 	co = checkout
 	cob = checkout -b # new branch
-	cb = checkout -b # new branch
 
 	# cherry pick
 	cp = cherry-pick
@@ -152,10 +157,10 @@
 
 	# diff
 	d = diff
-	dw = diff --ignore-all-space
+	dis = diff --ignore-all-space
 
 	# fetch
-	f = fetch
+	f = fetch --all
 	ff = !"git fetch; git new"
 
 	# log
@@ -167,7 +172,6 @@
 
 	# push and pull
 	pl = pull
-	pul = pull
 	pp = !"git pull; git push"
 	pu = push
 	pus = push
@@ -176,9 +180,12 @@
 	rem = remote
 	r = remote --verbose
 	rr = remote rename
+	rname = remote rename
 	ra = remote add
 	rrm = remote remove
+	rdel = remote remove
 	rsu = remote set-url
+	rurl = remote set-url
 
 	# reset
 	rst = reset # undo add
@@ -255,3 +262,5 @@
 	helper = cache
 [pull]
 	rebase = false
+[init]
+	defaultBranch = master

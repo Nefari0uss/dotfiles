@@ -18,7 +18,6 @@ export PATH=$PATH:$JAVA_HOME
 
 export PS1='\u@\h | \W: $ '
 
-
 source $HOME/projects/dotfiles/shell/export.sh
 source $HOME/projects/dotfiles/shell/function.sh
 source $HOME/projects/dotfiles/shell/source.sh

@@ -1,7 +1,7 @@
 # ~~GitIgnore for Nefari0uss's dotfiles repo~~ #
 
 # vim folder
-vim/plugged/** 
+vim/plugged/**
 vim/session/*
 vim/backup/*
 vim/autoload/plug.vim
@@ -13,13 +13,12 @@ neovim/autoload/plug.vim
 # Ctags generated file
 tags
 
-
 ## VIM Generated Files ##
 # swap
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
 
-# persistent undo 
+# persistent undo
 *.un~
 
 # session
@@ -28,7 +27,6 @@ Session.vim
 # temporary
 .netrwhist
 *~
-
 
 ## Windows Generated Files ##
 
