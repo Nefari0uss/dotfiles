@@ -25,6 +25,9 @@ export LESS_TERMCAP_md="${yellow}";
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X';
 
+# Fix GPG
+GPG_TTY=$(tty)
+export GPG_TTY
 
 # pnpm
 export PNPM_HOME="/home/nefari0uss/.local/share/pnpm"

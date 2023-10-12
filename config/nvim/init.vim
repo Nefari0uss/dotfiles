@@ -1,3 +1,6 @@
+" NeoVim Config
+" Nefari0uss
+
 colorscheme default "default For now.
 
 set noautoread " Default is to autoread a changed file.
