@@ -16,7 +16,7 @@ znap source marlonrichert/zsh-autocomplete
 znap source zsh-users/zsh-autosuggestions
 
 # Interctive Git (using FZF)
-znap source wfxr/forgit
+# znap source wfxr/forgit
 
 
 ##

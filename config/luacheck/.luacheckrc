@@ -1,0 +1,4 @@
+color = true
+globals = {
+    vim
+}

@@ -50,3 +50,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Python end
+
+# Lua
+export PATH="$HOME/.luarocks/bin:$PATH"
+
+
