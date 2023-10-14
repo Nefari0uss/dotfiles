@@ -8,23 +8,16 @@ source $HOME/.config/zsh/plugins/zsh-snap/znap.zsh
 # Znap will automatically regenerate the comp dump file.
 zstyle '*:compinit' arguments -D -i -u -C -w
 
+
+# Improved Zsh Vim Mode
+znap source jeffreytse/zsh-vi-mode
+
 znap source marlonrichert/zsh-autocomplete
 znap source zsh-users/zsh-autosuggestions
 
 # Interctive Git (using FZF)
 znap source wfxr/forgit
 
-# znap source lukechilds/zsh-better-npm-completion
-znap source chitoku-k/fzf-zsh-completions
-
-# Improved Zsh Vim Mode
-znap source jeffreytse/zsh-vi-mode
-
-# This allows you to easily swap text between two places in the buffer.
-znap source okapia/zsh-viexchange
-
-
-znap source lainiwa/ph-marks
 
 ##
 # Defer initilization code with lazily loaded functions created by

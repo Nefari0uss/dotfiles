@@ -6,6 +6,9 @@
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
+# Add npm global packages to path.
+export PATH="$HOME/.npm-packages/bin:$PATH"
+
 # Make nvim the default editor.
 export EDITOR='nvim'
 
