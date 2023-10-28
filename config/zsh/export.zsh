@@ -6,8 +6,11 @@
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
-# Add npm global packages to path.
+# Add npm global packages to the path.
 export PATH="$HOME/.npm-packages/bin:$PATH"
+
+# Add Rust Cargo packages to the path.
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Make nvim the default editor.
 export EDITOR='nvim'
@@ -53,5 +56,3 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Lua
 export PATH="$HOME/.luarocks/bin:$PATH"
-
-
