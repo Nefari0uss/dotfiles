@@ -4,4 +4,4 @@
 -- Base Settings
 require "settings"
 require "keybindings"
-require "lazy"
+require "plugins"
