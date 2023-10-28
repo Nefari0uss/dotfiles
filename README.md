@@ -18,10 +18,10 @@ I'm currently undergoing a process to make the repo much more lean and mean.
 
 Assume that at minimum, you'll need the following:
 
-- Bash/Zsh
+- Zsh
 - SSH
 - GPG
-- Vim/NeoVim
+- NeoVim
 
 - [Git](https://git-scm.com)
 - [Delta](https://github.com/dandavison/delta)

@@ -15,14 +15,9 @@ vim.opt.rtp:prepend(lazypath)
 -- Let the leader key for lazy.nvim
 require("utils.keys").set_leader("\\")
 
-local plugins = {
-    require("plugins/which-key")
-}
-local opts = {}
-
 -- Load plugins from specifications
 
-require("lazy").setup(plugins, opts)
+-- require("lazy").setup()
 
 -- Might as well set up an easy-access keybinding
 require("utils.keys").map("n", "<leader>L", lazy.show, "Show Lazy")
