@@ -18,6 +18,8 @@ source $SOURCE_COMPLETIONS/fnm.zsh
 source $SOURCE_COMPLETIONS/zoxide.zsh
 source $SOURCE_COMPLETIONS/github_cli.zsh
 
+source /usr/share/doc/git-extras/git-extras-completion.zsh
+
 # pnpm completions
 # tabtab source for packages
 # uninstall by removing these lines

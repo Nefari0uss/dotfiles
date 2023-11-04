@@ -9,8 +9,7 @@ vim: set filetype=tridactyl
 " Set Preferences
 set allowautofocus false
 unset autocontain
-set auconcreatecontainer true
-set autocontain undefined
+set auconcreatecontainer false
 set configversion 2.0
 set containerindicator true
 set cursorpos end
