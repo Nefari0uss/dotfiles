@@ -1,0 +1,27 @@
+
+# always save file to this directory
+-o '$HOME/videos/youtube-dl/%(title)s.%(ext)s'
+
+# best audio quality
+--audio-quality 0
+
+# Surpress output (useful for backgrounding)
+--quiet
+
+# Write metadata to file
+--add-metadata
+
+# Use youtube-dlp instead of youtube-dl
+--downloader youtube-dlp
+
+# Embed thumbnail in audio as cover art
+--embed-thumbnail
+
+# Automatically correct known faults of the file
+--fixup detect_or_warn
+
+# Embed subtitles in videos
+--embed-subs
+
+# Continue on download errors, for example to skip unavailable videos in a playlist
+--ignore-errors

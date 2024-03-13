@@ -1,4 +1,0 @@
-color = true
-globals = {
-    "vim"
-}

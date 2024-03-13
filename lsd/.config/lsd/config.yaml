@@ -1,0 +1,39 @@
+---
+color:
+  when: always
+  mode: 32
+  theme: default
+
+display:
+  icons: all
+  icons-theme: fancy
+
+sorting:
+  dir-grouping: first
+  sort: name
+
+size:
+  unit: default
+  binary-prefix: false
+
+date:
+  format: "%Y-%m-%d %H:%M"
+  time-style: default
+
+symlink:
+  when: linked-path
+  target: absolute-path
+
+layout:
+  grid-options:
+    across: false
+    sizing: longest
+  tree-options:
+    level: 2
+    long: true
+
+total-size:
+  when: always
+
+permissiosn:
+  when: always

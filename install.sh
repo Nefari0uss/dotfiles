@@ -1,24 +1,32 @@
-#/bin/bash
-# Dotfiles Install Script
-# Nefari0uss
+#!/bin/bash
 
-SCRIPT_DIR="$( cd "$(dirname "$0")" ; pwd -P )" # Get the path of the folder the file is current in.
-CONFIG_DIR=$SCRIPT_DIR/.config
-INSTALL_FILES=()
+CONFIG_FILES=(
+    git
+    ideavim
+    keychain
+    luacheck
+    lsd
+    i3
+    mpv
+    neofetch
+    neovim
+    npm
+    pip
+    ranger
+    ruby
+    tmux
+    vim
+    yay
+    tridactyl
+    zsh
+    youtube-dl
+    zathura
+)
 
-for DIR in $CONFIG_DIR/*/
+for CONFIG_FILE in "${CONFIG_FILES[@]}"
 do
-  printf '%s\n' $DIR
-  INSTALL_FILE='install_' $DIR '.sh'
-  #printf '%s\n' $INSTALL_FILE
-  for FILE in $DIR/*
-  do
-    if [ $FILE == $INSTALL_FILE ]; then
-      INSTALL_FILES+=$FILE
-    fi
-  done
+  printf '\n%s\n' "$CONFIG_FILE"
+  stow --verbose --restow --target="$HOME" "$CONFIG_FILE"
 done
 
-printf 'printing...\n'
-printf '%s' $INSTALL_FILES
-
+printf 'Finished\n'
