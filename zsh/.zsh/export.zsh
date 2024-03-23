@@ -8,9 +8,6 @@ export EDITOR='nvim'
 # Le fancy color grep.
 export GREP_OPTIONS="--color=auto";
 
-# Omit duplicates and commands that begin with a space from history.
-export HISTCONTROL='ignoreboth';
-
 # Prefer US English and use UTF-8.
 export LANG='en_US.UTF-8';
 export LC_ALL='en_US.UTF-8';

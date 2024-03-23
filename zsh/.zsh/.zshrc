@@ -12,13 +12,17 @@ precmd () { vcs_info }
 compinit
 promptinit
 
+
+. $ZDOTDIR/01-history.zsh
+. $ZDOTDIR/02-directories.zsh
+. $ZDOTDIR/03-plugin-manager.zsh
+
 source $ZDOTDIR/path.zsh
 source $ZDOTDIR/export.zsh
 source $ZDOTDIR/source.zsh
 source $ZDOTDIR/tab-completions.zsh
 
 source $ZDOTDIR/eval.zsh
-source $ZDOTDIR/history.zsh
 source $ZDOTDIR/options.zsh
 source $ZDOTDIR/functions.zsh
 source $ZDOTDIR/alias.zsh
