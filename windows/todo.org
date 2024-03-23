@@ -1,0 +1,7 @@
+* Windows Terminal
+  - Hard symblink file?
+* Rainmeter
+* Korembi
+* Winget Config
+* AutoHot Key Setup
+  - Vim / HomeRow?

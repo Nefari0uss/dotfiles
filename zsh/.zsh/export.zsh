@@ -2,16 +2,6 @@
 # Zsh Export
 # Nefari0uss
 
-# Add the sbin and .local/bin to the path.
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-
-# Add npm global packages to the path.
-export PATH="$HOME/.npm-packages/bin:$PATH"
-
-# Add Rust Cargo packages to the path.
-export PATH="$HOME/.cargo/bin:$PATH"
-
 # Make nvim the default editor.
 export EDITOR='nvim'
 
@@ -35,24 +25,8 @@ export MANPAGER='less -X';
 GPG_TTY=$(tty)
 export GPG_TTY
 
-# pnpm
-export PNPM_HOME="/home/nefari0uss/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-# Python
-
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8';
 
-# PyEnv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-# Python end
-
-# Lua
-export PATH="$HOME/.luarocks/bin:$PATH"
+export VIM_HOME="$HOME/.vim";
+export NVIM_HOME="$HOME/.config/nvim";

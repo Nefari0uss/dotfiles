@@ -1,11 +1,6 @@
 #### Windows ####
 # Windows thumbnail cache files
 Thumbs.db
-ehthumbs.db
-ehthumbs_vista.db
-
-# Dump file
-*.stackdump
 
 # Folder config file
 [Dd]esktop.ini
@@ -141,8 +136,6 @@ cscope.po.out
 [._]ss[a-gi-z]
 [._]sw[a-p]
 
-# Session
-Session.vim
 
 # Temporary
 .netrwhist

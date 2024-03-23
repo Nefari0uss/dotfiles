@@ -1,13 +1,4 @@
 #!/bin/zsh
-# Zsh Source
-# Nefari0uss
-
-
-# FZF
-[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
-
-CONFIG_DIR="$HOME/.config"
-source $CONFIG_DIR/keychain/keychain.conf
 
 
 # Completions

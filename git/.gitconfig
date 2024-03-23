@@ -6,18 +6,27 @@
 	email = nnefari0uss@gmail.com
 	signingkey = 2F335BAB
 
-[advice]
-    amWorkDir = true
-    commitBeforeMerge = true
-    detachedHead = true
-    implicitIdentity = true
-    pushNonFastForward = true
-    resolveConflict = true
-	statusHints = yes
+[core]
+	autocrlf = input
+	editor = $EDITOR
+	pager = delta
+	whitespace = trailing-space,space-before-tab
+	commitGraph = true
+	excludesfile = ~/.config/git/gitignore
 
 [blame]
+  coloring = highlightRecent
 	date = short
 	showEmail = true
+
+[branch]
+  sort = committerdate
+
+[checkout]
+  guess = true
+
+[clean]
+  requireForce = true
 
 [color]
 	ui = true
@@ -50,16 +59,11 @@
 	untracked = blue italic
 	deleted = magenta strike
 
+[column]
+  ui = auto
+
 [commit]
 	gpgsign = true
-
-[core]
-	autocrlf = input # don't do any line ending conversion
-	editor = nvim
-	pager = delta --dark
-	whitespace = trailing-space,space-before-tab
-	commitGraph = true
-	excludesfile = ~/.gitignore_global
 
 [credential]
 	helper = cache
@@ -68,16 +72,22 @@
 	line-numbers = true
 	navigate = true
 	side-by-side = true
+  features = decorations
+  hyperlinks = true
+  hyperlinks-file-link-prefix = "vscode://file/{path}:{line}"
+  true-color = always
 
 [diff]
 	algorithm = histogram
-	compactionHeuristic = true # should help make diffs nicer
-    context = 5
-	dirstat = lines
-	indentHeuristic = true # help distinguish line changes
-	renames = copies # detect copies and renames
+  autoRefreshIndex = true
+	compactionHeuristic = true
+  context = 5
+	dirstat = lines,3,cumulative
+	indentHeuristic = true
+	renames = copies
 	suppressBlankEmpty = true
 	tool = vimdiff3
+  wsErrorHighlight = all
 
 [diff "docx"]
 	binary = true
@@ -90,17 +100,13 @@
 [diff "png"]
 	textconv = exiftool
 
-[diff "pdf"]
-	binary = true
-    textconv = pdf2text
-
 [fetch]
-    prune = true
-    pruneTags = true
+  prune = true
+  pruneTags = true
 
 [filter "media"]
-	clean    = git media clean %f
-	smudge   = git media smudge %f
+	clean = git media clean %f
+	smudge = git media smudge %f
 	required = true
 
 [filter "lfs"]
@@ -110,45 +116,60 @@
 	process = git-lfs filter-process
 
 [gc]
-    auto = true
-    autoDetach = true
+  autoDetach = true
 
 [gpg]
 	program = gpg2
 
 [help]
 	autocorrect = -1
-    browser = firefox
-    format = man
+  browser = firefox
+  format = man
 
 [init]
 	defaultBranch = master
 
 [log]
-    date = relative
-    decorate = true
+  date = relative
+  decorate = true
+
+[maintenance]
+	repo = /home/nefari0uss/projects/dotfiles
 
 [merge]
 	conflictstyle = diff3
 	tool = vimdiff
 
+[pager]
+  diff = delta
+  show = delta
+  log = delta
+  blame = delta
+  reflog = delta
+
 [pull]
 	rebase = false
 
 [push]
-    default = simple
+  autoSetupRemote = true
+  default = simple
 	followTags = true
 
 [rebase]
 	autoStash = true
 
+[rerere]
+	enabled = true
+
+[showBranch]
+  default = always
+
 [status]
 	branch = true
 	showStash = true
 	submoduleSummary = true
-
-[rerere] # Reuse recorded resolution of conflicted merges
-	enabled = 1
+  aheadBehind = true
+  showUntrackedFiles = all
 
 [alias]
 	# Common Commands
@@ -160,11 +181,22 @@
 	bs = bisect
 
 	# blame
-	bl = blame
+  # https://youtu.be/aolI_Rz0ZqY?si=5pgYYl8dzyy1L_lP&t=582
+  # -w will ignore whitespace
+  # -C will detect lines moved or copied in the same commit
+  # -C again will also detect the commit that created the file
+  # -C for a *third* taime will determine if it was changed in any commit at all
+  # WTF Git.
+	bl = blame -w -C -C -C
+
+  # blame just a "L"ittle
+  # follow it up with two line numbers for a range
+  # git blame -L 1,5:file.txt
+  bll = blame -w -C -C -C -L
 
 	# branch
-	b = branch --verbose
-	br = branch --remote --verbose
+	b = branch
+	br = branch --remote
 
 	# checkout
 	co = checkout
@@ -183,13 +215,13 @@
 
 	# diff
 	d = diff
-	dis = diff --ignore-all-space
 
 	# fetch
 	f = fetch --all
 
 	# log
-	filelog = log -u
+	filelog = log -u --follow
+  pickaxe = log -S
 
 	# merge
 	m = merge
@@ -216,9 +248,8 @@
 	antimerge = reset --merge ORIG_HEAD # undo merge and DISCARD local changes
 
 	# stash
-	wip = stash
+	wip = stash -u
 	pop = stash pop
-	sts = stash
 	sl = stash list
 	sa = stash apply
 	ss = stash save
