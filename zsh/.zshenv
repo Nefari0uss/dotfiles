@@ -14,12 +14,22 @@
 # value to it.
 # To set a default value that is returned *without* setting X, use ${X:-Y}
 # As in other shells, ~ expands to $HOME _at the beginning of a value only._
-ZDOTDIR=${XDG_CONFIG_HOME:=~/.config}/zsh
+# ex: ZDOTDIR=${XDG_CONFIG_HOME:=~/.config}/zsh
 
-export XDG_CONFIG_HOME=~/.config
+# https://gist.github.com/roalcantara/107ba66dfa3b9d023ac9329e639bc58c
+
+export XDG_BIN_HOME=~/.local/bin
 export XDG_CACHE_HOME=~/.cache
+export XDG_CONFIG_HOME=~/.config
 export XDG_DATA_HOME=~/.local/share
+export XDG_DESKTOP_DIR=~/desktop
+export XDG_DOCUMENTS_DIR=~/documents
+export XDG_DOWNLOAD_DIR=~/download
+export XDG_MUSIC_DIR=~/music
+export XDG_PICTURES_DIR=~/pictures
 export XDG_RUNETIME_DIR=~/.xdg
+export XDG_STATE_HOME=~/.local/state
+export XDG_VIDEOS_DIR=~/videos
 
 export ZDOTDIR="$HOME/.zsh"
 source $ZDOTDIR/.zprofile

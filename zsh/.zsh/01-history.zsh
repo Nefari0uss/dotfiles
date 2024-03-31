@@ -40,7 +40,13 @@ setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 
 # Tell zsh where to store history.
-HISTFILE="$HOME/zsh/history"
+local zsh_config="$HOME/.config/zsh"
+HISTFILE="$zsh_config/.zsh_history"
+
+# Make the directory if it doesn't exist.
+if ! [[ -d "zsh_config" ]]; then
+  mkdir -p "$zsh_config"
+fi
 
 # Max number of entries to keep in history file.
 SAVEHIST=5000
@@ -48,6 +54,5 @@ SAVEHIST=5000
 # Max number of history entries to keep in memory.
 HISTSIZE=$(( 1.2 * SAVEHIST ))
 
-
 # Omit duplicates and commands that begin with a space from history.
-export HISTCONTROL='ignoreboth';
+export HISTCONTROL="ignoreboth";

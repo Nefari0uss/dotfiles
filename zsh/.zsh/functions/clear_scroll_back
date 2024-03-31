@@ -1,7 +1,0 @@
-#!/bin/zsh
-# Clear Scroll Back
-# Nefariouss
-
-## Goes beyond clear by removing all items in the scroll history.
-clear
-printf '\033[3J'

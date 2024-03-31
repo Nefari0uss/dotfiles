@@ -1,0 +1,11 @@
+[cargo-new]
+vcs = "git"
+
+[install]
+root = "$HOME/.cargo/bin/"
+
+[term]
+color = "auto"
+hyperlinks = true
+progress.when = "auto"
+progress.width = 80

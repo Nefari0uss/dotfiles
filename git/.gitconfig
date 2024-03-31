@@ -63,7 +63,7 @@
   ui = auto
 
 [commit]
-	gpgsign = true
+	gpgsign = false
 
 [credential]
 	helper = cache

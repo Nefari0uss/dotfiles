@@ -1,8 +1,0 @@
-#!/bin/zsh
-# Zsh Groot
-# Nefari0uss
-
-## Go to the root level directory of a git directory.
-
-echo "I am Groot."
-cd "$(git rev-parse --show-toplevel)"

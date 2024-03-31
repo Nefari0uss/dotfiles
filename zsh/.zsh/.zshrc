@@ -16,16 +16,18 @@ promptinit
 . $ZDOTDIR/01-history.zsh
 . $ZDOTDIR/02-directories.zsh
 . $ZDOTDIR/03-plugin-manager.zsh
+. $ZDOTDIR/04-environment.zsh
+. $ZDOTDIR/05-prompt.zsh
+# . $ZDOTDIR/06-plugins.zsh
+# . $ZDOTDIR/07-opts.zsh
+# . $ZDOTDIR/08-keys.zsh
+# . $ZDOTDIR/09-commands.zsh
 
-source $ZDOTDIR/path.zsh
-source $ZDOTDIR/export.zsh
-source $ZDOTDIR/source.zsh
-source $ZDOTDIR/tab-completions.zsh
+# source $ZDOTDIR/tab-completions.zsh
 
-source $ZDOTDIR/eval.zsh
-source $ZDOTDIR/options.zsh
-source $ZDOTDIR/functions.zsh
-source $ZDOTDIR/alias.zsh
-source $ZDOTDIR/prompt.zsh
-source $ZDOTDIR/plugins.zsh
-source $ZDOTDIR/completion.zsh
+# source $ZDOTDIR/options.zsh
+# source $ZDOTDIR/functions.zsh
+# source $ZDOTDIR/alias.zsh
+# source $ZDOTDIR/prompt.zsh
+# source $ZDOTDIR/plugins.zsh
+# source $ZDOTDIR/completion.zsh
