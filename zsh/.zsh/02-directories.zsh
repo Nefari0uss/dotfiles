@@ -7,6 +7,7 @@
 
 hash -d config="$HOME/.config"
 
+hash -d dotfiles="$HOME/projects/dotfiles"
 hash -d git=~config/git
 hash -d nvim=~config/nvim
 hash -d vim="$HOME/.vim"

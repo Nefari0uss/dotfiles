@@ -19,13 +19,12 @@ promptinit
 . $ZDOTDIR/04-environment.zsh
 . $ZDOTDIR/05-prompt.zsh
 # . $ZDOTDIR/06-plugins.zsh
-# . $ZDOTDIR/07-opts.zsh
+. $ZDOTDIR/07-opts.zsh
 # . $ZDOTDIR/08-keys.zsh
 # . $ZDOTDIR/09-commands.zsh
 
 # source $ZDOTDIR/tab-completions.zsh
 
-# source $ZDOTDIR/options.zsh
 # source $ZDOTDIR/functions.zsh
 # source $ZDOTDIR/alias.zsh
 # source $ZDOTDIR/prompt.zsh
