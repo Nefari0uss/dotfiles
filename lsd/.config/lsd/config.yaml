@@ -35,5 +35,5 @@ layout:
 total-size:
   when: always
 
-permissiosn:
+permissions:
   when: always

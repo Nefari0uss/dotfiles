@@ -5,7 +5,7 @@
 # best audio quality
 --audio-quality 0
 
-# Surpress output (useful for backgrounding)
+# Suppress output (useful for backgrounding)
 --quiet
 
 # Write metadata to file

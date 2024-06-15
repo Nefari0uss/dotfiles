@@ -3,7 +3,7 @@
 config_folders=(
   git
   gnupg
-  i3
+  # i3
   ideavim
   luacheck
   lsd

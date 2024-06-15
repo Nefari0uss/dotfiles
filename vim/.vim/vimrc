@@ -18,7 +18,7 @@
 " If you notice a mistake or think of something that could be useful to me,
 " please make an issue!
 " }}}
-" HOW TO VIEW {{{ 
+" HOW TO VIEW {{{
 " The way my .vimrc is set up is that everything is organized using fold
 " markers. Recently I've changed the organization so if you have any
 " questions or suggestions, please feel free to make an issue and let me know.
@@ -44,7 +44,7 @@
                     "\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         "autocmd VimEnter * PlugInstall | source $MYVIMRC
     "endif
-"else 
+"else
     "endif
 " }}}
 " 1.2 Plugin list {{{
@@ -57,7 +57,7 @@ call plug#begin('~/.vim/plugged')
 
 " Languages {{{
 " C# {{{
-Plug 'OmniSharp/omnisharp-vim', { 'for': 'csharp' } 
+Plug 'OmniSharp/omnisharp-vim', { 'for': 'csharp' }
 " }}}
 " Java {{{
 Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
@@ -65,10 +65,10 @@ Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
 let g:JavaComplete_ShowExternalCommandsOutput = 1
 " }}}
 " Python {{{
-Plug 'davidhalter/jedi-vim', { 'for': 'python' } 
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 " }}}
 " JSON {{{
-Plug 'elzr/vim-json', { 'for': 'json' } 
+Plug 'elzr/vim-json', { 'for': 'json' }
 " }}}
 " Go {{{
 Plug 'fatih/vim-go', { 'for': 'go' }
@@ -106,7 +106,7 @@ Plug 'flazz/vim-colorschemes'
 " }}}
 " Airline: Lean, mean status/tabline for vim that's light as air {{{
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes' 
+Plug 'vim-airline/vim-airline-themes'
 
 let g:airline_theme='murmur'
 let g:airline_powerline_fonts=1
@@ -169,7 +169,7 @@ let g:startify_custom_header = [
             \ ' (_)___/_/_/ /_/ /_/_/   \___/                                ',
             \ ]
 
-"let g:startify_custom_header = 
+"let g:startify_custom_header =
 "          \ 'map(g:ascii + startify#fortune#boxed(), "\"   \".v:val")'
 
 " Startify list order
@@ -281,7 +281,7 @@ endif
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " }}}
 " EasyMotion: Preivew vim motions {{{
-Plug 'easymotion/vim-easymotion' 
+Plug 'easymotion/vim-easymotion'
 " }}}
 " Supertab: Tab completion in insert mode {{{
 Plug 'ervandew/supertab'
@@ -292,6 +292,10 @@ let g:SuperTabContextDefaultCompletionType = "<c-n>"
 " }}}
 " Xterm Color Table: A table of colours {{{
 Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
+" Powerline {{{
+"set rtp+=/usr/lib/python3.6/site-packages/powerline/bindings/vim
+" }}}
+
 
 " Open colour table in a buffer
 nnoremap <leader>col :XtermColorTable<CR>
@@ -385,7 +389,7 @@ endif
 
 " }}}
 " Auto-Pairs: Auto-complete quotes, parentheses, brackets, quotes, et cetera {{{
-Plug 'jiangmiao/auto-pairs' 
+Plug 'jiangmiao/auto-pairs'
 " }}}
 " Follow My Lead: Show leader mappings {{{
 Plug 'ktonga/vim-follow-my-lead' " Show leader mappings with <leader>fml
@@ -408,7 +412,7 @@ Plug 'matze/vim-move'
 
 " Visual Aids {{{
 " Git Gutter: Show diffs left of line numbers {{{
-Plug 'airblade/vim-gitgutter' 
+Plug 'airblade/vim-gitgutter'
 
 set signcolumn=yes
 
@@ -439,7 +443,7 @@ let g:rainbow_conf = {
             \}
 " End rainbow }}}
 " Golden Ratio: Auto resize buffers to be the golden ratio {{{
-Plug 'roman/golden-ratio'  
+Plug 'roman/golden-ratio'
 " }}}
 " Indentation Guide: Show indentation levels {{{
 Plug 'nathanaelkane/vim-indent-guides' " Call with <leader>ig
@@ -543,7 +547,7 @@ autocmd BufReadPost *.doc,*.docx,*.rtf,*.odp,*.odt silent %!pandoc "%" -tplain -
 " }}}
 
 " End Autocommand Groups }}}
-" 3.0 Config {{{ 
+" 3.0 Config {{{
 
 " 3.1 General Stuff {{{
 
@@ -588,7 +592,7 @@ set shell=/bin/zsh " Set shell to be Zshell
 set showcmd " Display incomplete commands in lower right corner
 set showmatch " Show matching brackets
 set showmode " Show which mode we are in
-set splitbelow " Open splits to the bottom instead of to the top 
+set splitbelow " Open splits to the bottom instead of to the top
 set splitright " Open splits to the right instead of left
 set t_Co=256 " Number of colours is 256
 set ttyfast " Fast terminal connection ~ improves smoothness
@@ -632,7 +636,7 @@ set smartindent " Automatically insert extra level of indentation when needed
 " softtabstop - number of spaces in tab when editing
 " expandtab - tabs are spaces
 " textwidth - max amount of text on a line
-" 
+"
 
 autocmd FileType c setlocal tabstop=8 shiftwidth=8 noexpandtab foldmethod=syntax
 autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2 foldmethod=syntax
@@ -645,7 +649,7 @@ autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab foldmethod=syntax
 autocmd FileType text setlocal noexpandtab foldmethod=syntax
 autocmd FileType vimperator setlocal tabstop=2 shiftwidth=2 softtabstop=2 foldmethod=syntax
-autocmd FileType make setlocal tabstop=2 shiftwidth=2 softtabstop=2 foldmethod=marker textwidth=79 autoindent expandtab 
+autocmd FileType make setlocal tabstop=2 shiftwidth=2 softtabstop=2 foldmethod=marker textwidth=79 autoindent expandtab
 
 
 " End Tabs_and_Intendation }}}
@@ -712,7 +716,7 @@ endfunc
 let mapleader=";"  " Set leader key to be ;
 
 " To let a leader mapping be picked up by 'Follow My Leader' plugin, create
-" the leader mappings in the following format: 
+" the leader mappings in the following format:
 " What the mapping does.
 " The mapping itself.
 
