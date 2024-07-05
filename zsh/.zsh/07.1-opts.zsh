@@ -80,4 +80,3 @@ setopt GLOB_COMPLETE
 
 # On an ambiguous completion, instead of listing possibilities or beeping, insert the first match immediately. Then when completion is requested again, remove the first match and insert the second match, etc. When there are no more matches, go back to the first one again. reverse-menu-complete may be used to loop through the list in the other direction. This option overrides AUTO_MENU.
 setopt MENU_COMPLETE
-

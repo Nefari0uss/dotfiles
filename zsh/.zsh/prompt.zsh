@@ -3,7 +3,7 @@
 # Nefari0uss
 
 
-zstyle ':vcs_info:*' formats ' (%b)' # git (master)
+# zstyle ':vcs_info:*' formats ' (%b)' # git (master)
 
 
 PS1='%n@%m $ '

@@ -58,3 +58,8 @@ bindkey '^[w' where-is
     LBUFFER="sudo $LBUFFER"
   }
 } .sudo
+
+
+# Make Tab and ShiftTab cycle completions on the command line
+bindkey              '^I'         menu-complete
+bindkey "$terminfo[kcbt]" reverse-menu-complete
