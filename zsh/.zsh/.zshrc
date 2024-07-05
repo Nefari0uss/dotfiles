@@ -18,7 +18,7 @@ promptinit
 . $ZDOTDIR/03-plugin-manager.zsh
 . $ZDOTDIR/04-environment.zsh
 . $ZDOTDIR/05-prompt.zsh
-# . $ZDOTDIR/06-plugins.zsh
+. $ZDOTDIR/06-plugins.zsh
 . $ZDOTDIR/07-opts.zsh
 # . $ZDOTDIR/08-keys.zsh
 # . $ZDOTDIR/09-commands.zsh

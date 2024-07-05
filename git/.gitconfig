@@ -35,17 +35,34 @@
 	# The accepted attributes are bold, dim, ul, blink, reverse, italic, and strike.
 
 [color "branch"]
-	current = cyan blue bold ul
-	local = blue
-	remote = green
+	current = 6 normal reverse
+	local = 6 normal
+	remote = 5 normal
+	plain = 6 normal
+	upstream = 5 normal
 
 [color "diff"]
-	new = green bold
-	frag = magenta bold
-	old = red bold
-	meta = 227
-	commit = 227 bold
-	whitespace = yellow reverse
+	new = 15 2
+	frag = normal dim
+	old = 7 1
+	meta = normal dim
+	commit = 3 normal
+	whitespace = normal 9
+	newMoved = 15 3
+	oldMovedAlternativeDimmed = 7 5 dim
+	oldMovedAlternative = 7 5
+	contextBold = normal bold
+	newBold = 15 2 bold
+	context = normal
+	oldMoved = 7 3
+	oldBold = 7 1 bold
+	newMovedDimmed = 15 3 dim
+	func = normal dim
+	newDimmed = 15 2 dim
+	newMovedAlternative = 15 5
+	newMovedAlternativeDimmed = 15 5 dim
+	oldMovedDimmed = 7 3 dim
+	oldDimmed = 7 1 dim
 
 [color "diff-highlight"]
 	oldNormal = red bold
@@ -54,10 +71,17 @@
 	newHighlight = green bold 22
 
 [color "status"]
-	added = green bold italic
-	changed = cyan bold
-	untracked = blue italic
+	added = 10 normal
+	changed = 11 normal
+	untracked = normal dim
 	deleted = magenta strike
+	branch = 6 normal
+	updated = 10 normal
+	localbranch = 6 normal
+	header = normal
+	remotebranch = 5 normal
+	nobranch = 1 normal italic
+	unmerged = 9 normal
 
 [column]
   ui = auto
@@ -88,6 +112,7 @@
 	suppressBlankEmpty = true
 	tool = vimdiff3
   wsErrorHighlight = all
+	colorMoved = zebra
 
 [diff "docx"]
 	binary = true
@@ -305,3 +330,20 @@
 
 	# go to the root directory
 	root = '!echo "I am Groot."; cd "$(git rev-parse --show-toplevel)"'
+[color "remote"]
+	hint = normal dim
+	success = 2 normal
+	error = 1 normal
+	warning = 3 normal
+[color "interactive"]
+	header = normal dim bold
+	prompt = 15 4
+	help = normal dim
+	error = 1 normal italic
+[color "decorate"]
+	branch = 6 normal
+	tag = 3 normal
+	remotebranch = 5 normal
+	stash = normal dim
+	grafted = 1 normal italic
+	HEAD = 6 normal italic
