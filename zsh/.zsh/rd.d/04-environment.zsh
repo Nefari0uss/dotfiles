@@ -6,36 +6,6 @@
 export -U PATH path FPATH fpath MANPATH manpath
 export -UT INFOPATH infopath  # -T creates a "tied" pair; see below.
 
-# Determine what the OS is.
-if [[ "uname -s" == "Linux" ]] then
-  export OS="Linux"
-elif [[ "uname -s" == "Darwin" ]] then
-  export OS="MacOS"
-fi
-
-# Make nvim the default editor.
-export EDITOR='nvim'
-
-# Grep should always use color if it can.
-export GREP_OPTIONS="--color=auto";
-
-# Prefer US English and use UTF-8.
-export LANG='en_US.UTF-8';
-export LC_ALL='en_US.UTF-8';
-
-# Highlight section titles in manual pages.
-export LESS_TERMCAP_md="${yellow}";
-
-# Don’t clear the screen after quitting a manual page.
-export MANPAGER='less -X';
-
-# Fix GPG
-GPG_TTY=$(tty)
-export GPG_TTY
-
-# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
-export PYTHONIOENCODING='UTF-8';
-
 # Vim and Neovim Config Paths
 export VIM_HOME=~vim
 export NVIM_HOME=~nvim
@@ -54,24 +24,31 @@ export PYENV_ROOT="$HOME/.pyenv"
 path=(
   ~/.local/bin(N)
   ~/.fzf/bin(N)
-  ~/.npm-packages/bin(N)
   ~/.cargo/bin(N)
-  "$NPM_PACKAGES(N)"
-  "$PNPM_HOME(N)"
+  "$NPM_PACKAGES/bin(N)"
+  "$PNPM_HOME/bin(N)"
   "$PYENV_ROOT/bin(N)"
   ~/.luarocks/bin(N)
   /usr/local/bin
   /usr/local/sbin
   $path
 )
+export $path
 
 # Add your functions to your $fpath, so you can autoload them.
 fpath=(
   $ZDOTDIR/functions
   $fpath
-  ~/.local/share/zsh/site-functions
+  ~/.local/share/zsh/site-functions(N)
 )
+export $fpath
 
+# Man pages
+manpath=(
+  # ~/.local/share/
+  $manpath
+)
+export MANPATH=~/share/man:$MANPATH
 
 # Initialize zoxide, a fast directory navigation tool.
 if [[ -x "$(command -v zoxide)" ]]; then

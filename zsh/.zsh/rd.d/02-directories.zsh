@@ -14,4 +14,4 @@ hash -d vim="$HOME/.vim"
 
 
 hash -d zsh="$ZDOTDIR"
-hash -d zsh_config=~config/zsh # The generated files and cloned plugins will go here to avoid clogging up the dot files folder.
+hash -d zsh_config=~config/zsh # The generated files and cloned plugins will go here to avoid clogging up the dot files folder since the entire folder is symblinked.

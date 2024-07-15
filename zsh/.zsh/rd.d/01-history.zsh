@@ -6,8 +6,7 @@
 # Allow multiple zsh sessions to append to the same history file.
 setopt APPEND_HISTORY
 
-# Enable additional glob operators.
-setopt EXTENDED_GLOB
+
 
 # Duplicate commands will remove the oldest entry from the list if history needs to be trimmed.
 setopt HIST_EXPIRE_DUPS_FIRST
@@ -44,7 +43,7 @@ local zsh_config="$HOME/.config/zsh"
 HISTFILE="$zsh_config/.zsh_history"
 
 # Make the directory if it doesn't exist.
-if ! [[ -d "zsh_config" ]]; then
+if ! [[ -d "$zsh_config" ]]; then
   mkdir -p "$zsh_config"
 fi
 
