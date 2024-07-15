@@ -44,6 +44,7 @@ compinit
 promptinit
 
 
+<<<<<<< HEAD
 # This anonymous function gets called right away with the arguments provided and is then discarded.
 # Here, it enables us to use scoped variables in our dotfiles.
 () {
@@ -69,6 +70,30 @@ promptinit
 # It's a good practice to pass "$@" by default. You'd be surprised at all the
 # bugs you avoid this way.
 
+||||||| b97de43
+. $ZDOTDIR/01-history.zsh
+. $ZDOTDIR/02-directories.zsh
+. $ZDOTDIR/03-plugin-manager.zsh
+. $ZDOTDIR/04-environment.zsh
+. $ZDOTDIR/05-prompt.zsh
+# . $ZDOTDIR/06-plugins.zsh
+. $ZDOTDIR/07-opts.zsh
+# . $ZDOTDIR/08-keys.zsh
+# . $ZDOTDIR/09-commands.zsh
+=======
+. $ZDOTDIR/01-history.zsh
+. $ZDOTDIR/02-directories.zsh
+. $ZDOTDIR/03-plugin-manager.zsh
+. $ZDOTDIR/04-environment.zsh
+. $ZDOTDIR/05-prompt.zsh
+. $ZDOTDIR/06-plugins.zsh
+. $ZDOTDIR/07.1-opts.zsh
+. $ZDOTDIR/07.2-plugin-opts.zsh
+. $ZDOTDIR/08-keys.zsh
+. $ZDOTDIR/09-commands.zsh
+. $ZDOTDIR/10-zstyles.zsh
+. $ZDOTDIR/11-completions.zsh
+>>>>>>> 7e74236d8e8aa3abac727af554995e767e90c7e3
 
 # source $ZDOTDIR/tab-completions.zsh
 

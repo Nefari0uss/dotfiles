@@ -72,6 +72,7 @@ alias sudo=" sudo " # Allows aliases to be sudoed.
 # ¯\_(ツ)_/¯
 alias shrug="echo '¯\_(ツ)_/¯'"
 
+# Other git specific commands are stored in the git config.
 alias g="git"
 
 # Clear scroll back history.

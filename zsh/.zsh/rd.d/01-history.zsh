@@ -8,6 +8,9 @@ setopt APPEND_HISTORY
 
 
 
+# (Don't) Beep when accessing non-existent history.
+unsetopt HIST_BEEP
+
 # Duplicate commands will remove the oldest entry from the list if history needs to be trimmed.
 setopt HIST_EXPIRE_DUPS_FIRST
 

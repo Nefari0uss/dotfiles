@@ -17,6 +17,9 @@ export PNPM_HOME="${HOME}/.local/share/pnpm"
 # PyEnv
 export PYENV_ROOT="$HOME/.pyenv"
 
+# For GPG
+export GPG_TTY=$(tty)
+
 # $PATH and $path (and also $FPATH and $fpath, etc.) are "tied" to each other.
 # Modifying one will also modify the other.
 # Note that each value in an array is expanded separately. Thus, we can use ~ for $HOME in each $path entry.
