@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# LC_ALL takes precedence over all the other LC_* values.
+export LC_ALL="en_us.UTF-8"

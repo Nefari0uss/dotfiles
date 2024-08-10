@@ -17,12 +17,10 @@ elif [[ "uname -s" == "Darwin" ]] then
 fi
 
 # Preferred programs
-export PAGER=less
-export EDITOR=nvim
-export VISUAL=$EDITOR
+
 
 # Language
-export LANG='en_Us.UTF-8'
+export LANG='en_us.UTF-8'
 export LC_ALL=$LANG
 export LC_COLLATE=$LANG
 export LC_CTYPE=$LANG
@@ -59,8 +57,6 @@ export MANPAGER='less -X';
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8';
 
-# Grep should always use color if it can.
-export GREP_OPTIONS="--color=auto";
 
 # Fix GPG
 export GPG_TTY=$(tty)

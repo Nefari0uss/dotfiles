@@ -37,3 +37,5 @@ alias csb=clear_scroll_back
 #   coderay {} || \
 #   rougify {} || \
 #   cat {}) 2> /dev/null | head -500' "
+
+alias grep="grep --color=auto"
