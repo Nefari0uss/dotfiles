@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# https://gist.github.com/roalcantara/106ba66dfa3b9d023ac9329e639bc58c
+
+export XDG_BIN_HOME=~/.local/bin
+export XDG_CACHE_HOME=~/.cache
+export XDG_CONFIG_HOME=~/.config
+export XDG_DATA_HOME=~/.local/share
+export XDG_DESKTOP_DIR=~/desktop
+export XDG_DOCUMENTS_DIR=~/documents
+export XDG_DOWNLOAD_DIR=~/download
+export XDG_MUSIC_DIR=~/music
+export XDG_PICTURES_DIR=~/pictures
+export XDG_RUNETIME_DIR=~/.xdg
+export XDG_STATE_HOME=~/.local/state
+export XDG_VIDEOS_DIR=~/videos
+
+
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export GOPATH="$XDG_DATA_HOME/go"
+export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
+export PYENV_VIRTUALENV_ROOT="$XDG_DATA_HOME/pyenv/versions"
+export RIPGREP_CONFIG="$XDG_CONFIG_HOME/ripgrep/config"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export TERMINFO="$XDG_DATA_HOME/terminfo"
+export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo"
+export WGETRC="$XDG_CONFIG_HOME/wgetrc"

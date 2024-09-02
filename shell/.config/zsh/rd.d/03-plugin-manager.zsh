@@ -3,7 +3,7 @@
 # ZSh Plugin Manager
 
 # zsh folder in the .config directory.
-local zsnap_dir=~zsh_config/plugins/zsh-snap
+zsnap_dir="$XDG_CONFIG_HOME/shell/plugins/zsh/zsh-snap"
 
 # Auto-install Znap if it's not there yet.
 
@@ -14,4 +14,4 @@ if [[ ! -r "$zsnap_dir/znap.zsh" ]]; then
 fi
 
 # Load it.
-. "$zsnap_dir/znap.zsh"
+source "$zsnap_dir/znap.zsh"

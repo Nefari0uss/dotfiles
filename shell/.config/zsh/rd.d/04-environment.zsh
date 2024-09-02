@@ -2,6 +2,8 @@
 # Environment variables
 # Nefari0uss
 
+source "$XDG_CONFIG_HOME/shell/xdg"
+
 # -U ensures each entry in these is unique by discarding duplicates.
 export -U PATH path FPATH fpath MANPATH manpath
 export -UT INFOPATH infopath  # -T creates a "tied" pair; see below.

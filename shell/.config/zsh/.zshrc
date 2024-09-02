@@ -59,7 +59,7 @@ promptinit
   # See https://zsh.sourceforge.io/Doc/Release/Expansion.html#Glob-Operators
   local file=
   for file in $ZDOTDIR/rc.d/<->-*.zsh(n); do
-    # . $file   # `.` is like `source`, but doesn't search your $path.
+    source $file   # `.` is like `source`, but doesn't search your $path.
   done
 } "$@"
 
@@ -69,24 +69,5 @@ promptinit
 # It's a good practice to pass "$@" by default. You'd be surprised at all the
 # bugs you avoid this way.
 
-. $ZDOTDIR/01-history.zsh
-. $ZDOTDIR/02-directories.zsh
-. $ZDOTDIR/03-plugin-manager.zsh
-. $ZDOTDIR/04-environment.zsh
-. $ZDOTDIR/05-prompt.zsh
-. $ZDOTDIR/06-plugins.zsh
-. $ZDOTDIR/07.1-opts.zsh
-. $ZDOTDIR/07.2-plugin-opts.zsh
-. $ZDOTDIR/08-keys.zsh
-. $ZDOTDIR/09-commands.zsh
-. $ZDOTDIR/10-zstyles.zsh
-. $ZDOTDIR/11-completions.zsh
-
-# source $ZDOTDIR/tab-completions.zsh
-# source $ZDOTDIR/functions.zsh
-# source $ZDOTDIR/alias.zsh
-# source $ZDOTDIR/prompt.zsh
-# source $ZDOTDIR/plugins.zsh
-# source $ZDOTDIR/completion.zsh
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh

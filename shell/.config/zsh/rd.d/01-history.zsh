@@ -6,8 +6,6 @@
 # Allow multiple zsh sessions to append to the same history file.
 setopt APPEND_HISTORY
 
-
-
 # (Don't) Beep when accessing non-existent history.
 unsetopt HIST_BEEP
 
@@ -42,13 +40,7 @@ setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 
 # Tell zsh where to store history.
-local zsh_config="$HOME/.config/zsh"
-HISTFILE="$zsh_config/.zsh_history"
-
-# Make the directory if it doesn't exist.
-if ! [[ -d "$zsh_config" ]]; then
-  mkdir -p "$zsh_config"
-fi
+HISTFILE="$ZDOTDIR/.zsh_history"
 
 # Max number of entries to keep in history file.
 SAVEHIST=5000
