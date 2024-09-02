@@ -3,26 +3,46 @@
 config_folders=(
   git
   gnupg
-  # i3
+  # i3 - not sure if works with latest i3; several years out of date
   ideavim
-  luacheck
-  lsd
+  # lsd - broken config
   mpv
   neofetch
-  neovim
+  neovim # needs to be created; basically empty
   npm
   pip
-  ranger
+  ranger # cleanup / update
   ruby
   rust
-  tmux
-  vim
+  tmux # needs some cleanup; needs themes
+  vim # long overdue for cleanup
   yay
   tridactyl
   zsh
-  youtube-dl
   zathura
+  # everything below this line is new or recently modified!
+  bat
+  shellcheck
+  nb
+  lua
+  ctags
+  curl
+  # fish - currently empty
+  # fzf - two generated items - need to simplify
+  gnupg
+  gh
+  # inputrc
+  mpv
+  neofetch # rip
+  stow
+  shell
+  wget
+  yt-dlp
 )
+
+# Note - Only add yay if on Arch / yay is installed.
+# Karabiner Elements is mac only.
+#
 
 for config_folder in "${config_folders[@]}"
 do

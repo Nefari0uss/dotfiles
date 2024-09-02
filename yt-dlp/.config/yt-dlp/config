@@ -1,0 +1,55 @@
+# Configuration for youtube-dlp
+
+# Always save downloaded files to the specified directory.
+-o 'XDG_VIDEOS_DIR/yt-dlp/%(title)s.%(ext)s'
+
+# Download audio with the best quality available.
+--audio-quality 0
+
+# Suppress output, useful for running the command in the background.
+--quiet
+
+# Write metadata to the downloaded file.
+--add-metadata
+
+# Use youtube-dlp as the downloader instead of youtube-dl.
+--downloader youtube-dlp
+
+# Embed the thumbnail in the audio file as cover art.
+--embed-thumbnail
+
+# Automatically correct known faults of the file.
+--fixup detect_or_warn
+
+# Embed subtitles in the downloaded videos.
+--embed-subs
+
+# Embed metadata in the downloaded files.
+--embed-metadata
+
+# Automatically correct known faults of the file (duplicate entry).
+--fixup detect_or_warn
+
+# Download all available subtitles.
+--all-subs
+
+# Embed subtitles in the downloaded videos (duplicate entry).
+--embed-subs
+
+# Prefer free formats for downloading.
+--prefer-free-formats
+
+# Use extended attributes to store metadata.
+--xattrs
+
+# Mark all sponsor segments using SponsorBlock.
+--sponsorblock-mark all
+
+# Uncomment to use aria2c as an external downloader.
+# --external-downloader aria2c
+
+# Uncomment to merge output files into mkv format.
+# --merge-output-format mkv
+
+# Continue on download errors, for example to skip unavailable videos in a playlist
+--ignore-errors

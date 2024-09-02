@@ -1,1 +1,2 @@
 $CURL_HOME/.curlrc
+markdownlint
