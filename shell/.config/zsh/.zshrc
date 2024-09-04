@@ -2,6 +2,23 @@
 # ZShell Config
 # Nefari0uss
 
+unsetopt GLOBAL_RCS # disable global zshrc configs
+
+# Prefered editor and pager
+export EDITOR=nvim
+export VISUAL=$EDITOR
+export NVIM_APPNAME=dotfiles/nvim
+export PAGER=less
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export READNULLCMD=$PAGER
+
+# Prefered defaults
+
+# LC_ALL takes precedence over all the other LC_* values.
+export LC_ALL="en_us.UTF-8"
+export LANG="en_us.UTF-8"
+
+
 # If it’s setting / modifying environment variables, it should go in login. If it’s alias or a terminal-specific environment variable (e.g., GREP_COLOR), it should go in interactive. In my .shell/env file, I have my umask set, and also define some useful functions for modifying colon-separated path environment variables (like $PATH).
 
 

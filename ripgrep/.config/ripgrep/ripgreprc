@@ -1,1 +1,6 @@
 --engine=auto
+--hidden # Search hidden files and directories
+--follow # Force ripgrep to follow symlinks
+--smart-case # Case insensitively if in all lower case
+--no-ignore-vcs # Don't respect version control ignore files
+--color=always # Always colorize

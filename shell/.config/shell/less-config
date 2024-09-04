@@ -4,11 +4,14 @@
 # Less Configuration Section
 
 # Sets the active options for 'less':
+# 'I' - Ignores case when searching.
 # 'F' - Automatically exits if the content can be displayed on one screen.
 # 'R' - Allows raw control characters to be displayed.
 # 'X' - Prevents 'less' from clearing the screen upon exit.
 # 'Q' - Reduces the verbosity of the bell sound.
-export LESS='FRXQ'
+export LESS='IFRXQ'
+
+export LESS="--RAW-CONTROL-CHARS --ignore-case --hilite-unread --LONG-PROMPT --window=-4 --tabs=4"
 
 # Specifies the character encoding for 'less' to be UTF-8, ensuring proper display of UTF-8 encoded text.
 export LESSCHARSET='UTF-8'
@@ -22,3 +25,5 @@ export LESSEDIT="$EDITOR ?lm+%lm. %f"
 
 # Highlight section titles in manual pages.
 export LESS_TERMCAP_md="${yellow}";
+
+export LESSSECURE=1
