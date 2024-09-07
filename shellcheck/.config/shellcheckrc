@@ -18,7 +18,6 @@ enable=add-default-case          # Suggest adding a default case in `case` state
 # fix:     [ -n "$var" ]
 enable=avoid-nullary-conditions  # Warn about conditions that are always true or false
 
-
 # name:    check-unassigned-uppercase
 # desc:    Warn when uppercase variables are unassigned
 # example: echo $VAR
@@ -41,6 +40,7 @@ enable=require-double-brackets   # Require the use of double brackets [[ ]] for 
 # desc:    Suggest putting braces around all variable references
 # example: var=hello; echo $var
 # fix:     var=hello; echo ${var}
+# shellcheck disable=SC2034
 enable=require-variable-braces   # Require braces around variable names
 
 # Unused

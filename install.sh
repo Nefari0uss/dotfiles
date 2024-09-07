@@ -46,8 +46,8 @@ config_folders=(
 
 for config_folder in "${config_folders[@]}"
 do
-  printf '\n%s\n' "$config_folder"
-  stow --verbose --restow --target="$HOME" "$config_folder"
+  printf '\n%s\n' "${config_folder}"
+  stow --verbose --restow --target="${HOME}" "${config_folder}"
 done
 
 printf 'Finished\n'
