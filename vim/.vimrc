@@ -1,3 +1,488 @@
-syntax enable
-filetype indent on
-filetype plugin on
+"                ____           _ ____                 _
+"    ____  ___  / __/___ ______(_) __ \__  ___________( )_____
+"   / __ \/ _ \/ /_/ __ `/ ___/ / / / / / / / ___/ ___/// ___/
+"  / / / /  __/ __/ /_/ / /  / / /_/ / /_/ (__  |__  ) (__  )
+" /_/ /_/\___/_/  \__,_/_/  /_/\____/\__,_/____/____/ /____/
+"
+"    _   __(_)___ ___  __________
+"   | | / / / __ `__ \/ ___/ ___/
+"  _| |/ / / / / / / / /  / /__
+" (_)___/_/_/ /_/ /_/_/   \___/
+
+" 1.0 Plugins
+
+call plug#begin('~/.config/vim-plugged')
+
+" Python
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+
+" JSON
+Plug 'elzr/vim-json', { 'for': 'json' }
+
+" Emmet: Text expansion
+Plug 'mattn/emmet-vim', { 'for': ['html', 'eruby'] }
+" Match Tag Always
+Plug 'valloric/matchtagalways', { 'for': [ 'html', 'xhtml', 'xml', 'jinja' ] }
+
+" Closetag
+Plug 'alvan/vim-closetag', { 'for': ['html', 'eruby', 'xml', 'xhtml'] }
+
+let g:closetag_filenames ="*.html, *.xhtml, .phtml"
+
+" Airline: Lean, mean status/tabline for vim that's light as air
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+let g:airline_theme='murmur'
+let g:airline_powerline_fonts=1
+let g:airline_skip_empty_sections = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+
+let g:airline_symbols.space = "\ua0"
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.crypt = ''
+"let g:airline_symbols.linenr = '␊'
+"let g:airline_symbols.linenr = ''
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
+
+Plug 'tommcdo/vim-exchange' " Swap two regions of text
+Plug 'tpope/vim-endwise' " Adds end/endif/end etc to code
+Plug 'tpope/vim-speeddating' " Easy increment date and times with Ctrl-A/X
+Plug 'tpope/vim-commentary' " Easy increment date and times with Ctrl-A/X
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-flagship'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+
+Plug 'justinmk/vim-sneak'
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
+
+Plug 'wellle/targets.vim'
+
+" Startify
+Plug 'mhinz/vim-startify'
+
+function! s:filter_header(lines) abort
+    let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
+    let centered_lines = map(copy(a:lines),
+                \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
+    return centered_lines
+endfunction
+
+
+let g:startify_custom_header = [
+            \ '                ____           _ ____                 _       ',
+            \ '    ____  ___  / __/___ ______(_) __ \__  ___________( )_____ ',
+            \ '   / __ \/ _ \/ /_/ __ `/ ___/ / / / / / / / ___/ ___/// ___/ ',
+            \ '  / / / /  __/ __/ /_/ / /  / / /_/ / /_/ (__  |__  ) (__  )  ',
+            \ ' /_/ /_/\___/_/  \__,_/_/  /_/\____/\__,_/____/____/ /____/   ',
+            \ '                                                              ',
+            \ '    _   __(_)___ ___  __________                              ',
+            \ '   | | / / / __ `__ \/ ___/ ___/                              ',
+            \ '  _| |/ / / / / / / / /  / /__                                ',
+            \ ' (_)___/_/_/ /_/ /_/_/   \___/                                ',
+            \ ]
+
+"let g:startify_custom_header =
+"          \ 'map(g:ascii + startify#fortune#boxed(), "\"   \".v:val")'
+
+" Startify list order
+let g:startify_list_order = [
+            \ ['   Most Recently Used'],           'files' ,
+            \ ['   Most Recently Used'.getcwd()], 'dir',
+            \ ['   Bookmarks'],     'bookmarks',
+            \ ['   Sessions'],      'sessions',
+            \ ]
+
+let g:startify_bookmarks=[
+            \ '~/.vimrc',
+            \ '~/.bashrc',
+            \ '~/.bash_aliases',
+            \ '~/.bash_functions',
+            \ '~/.zshrc',
+            \ '~/.gitconfig',
+            \ '~/projects/dotfiles/install.sh',
+            \]
+
+let g:startify_change_to_dir          = 0
+let g:startify_enable_special         = 1
+let g:startify_files_number           = 10
+let g:startify_session_autoload       = 1
+let g:startify_session_delete_buffers = 1
+let g:startify_session_persistence    = 1
+let g:startify_use_env                = 1
+
+highlight StartifyBracket ctermfg=240
+highlight StartifyFooter  ctermfg=240
+highlight StartifyHeader  ctermfg=114
+highlight StartifyNumber  ctermfg=215
+highlight StartifyPath    ctermfg=245
+highlight StartifySlash   ctermfg=240
+highlight StartifySpecial ctermfg=240
+
+" fzf
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" EasyMotion
+Plug 'easymotion/vim-easymotion'
+
+" Supertab
+Plug 'ervandew/supertab'
+
+let g:SuperTabDefaultComnpletionType = "<c-n>"
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
+
+" Window Swap: Easily swap buffers
+Plug 'wesQ3/vim-windowswap', { 'on': 'WindowSwap' } " Swap against <leader>ww
+
+" Auto-Pairs: Auto-complete quotes, parentheses, brackets, quotes, et cetera
+Plug 'jiangmiao/auto-pairs'
+" Follow My Lead: Show leader mappings
+Plug 'ktonga/vim-follow-my-lead' " Show leader mappings with <leader>fml
+
+" Tmux Navigator: Smart pane switching with awareness of vim splits
+Plug 'christoomey/vim-tmux-navigator' " Allows for ctrl-h/j/k/l to move around in vim AND tmux
+" Move: Easily move around blocks of text
+
+" Visual Aids
+" Git Gutter: Show diffs left of line numbers
+Plug 'airblade/vim-gitgutter'
+
+set signcolumn=yes
+
+" Rainbox: Rainbow coloured parentheses matching
+Plug 'luochen1990/rainbow'
+
+let g:rainbow_active = 1 " Rainbow is always active
+let g:rainbow_conf = {
+            \   'guifgs': ['royalblue3', 'seagreen3', 'darkorchid3', 'firebrick3'],
+            \   'ctermfgs': ['darkcyan', 'magenta', 'green', 'darkred', 'darkmagenta', 'darkgray'],
+            \   'operators': '_,_',
+            \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+            \   'separately': {
+            \       '*': {},
+            \       'tex': {
+            \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+            \       },
+            \       'lisp': {
+            \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+            \       },
+            \       'vim': {
+            \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+            \       },
+            \       'css': 0,
+            \       'html': 0,
+            \   }
+            \}
+
+" Golden Ratio: Auto resize buffers to be the golden ratio
+Plug 'roman/golden-ratio'
+" Indentation Guide: Show indentation levels
+Plug 'nathanaelkane/vim-indent-guides' " Call with <leader>ig
+" Specify a list of filetypes to disable the plugin for
+let g:indent_guides_exclude_filetype=['help', 'nerdtree']
+
+" Buffer Tab Line: Buffer explorer at the top of the screen
+Plug 'ap/vim-buftabline'
+
+" Easy buffer switching mappings
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
+
+" Devicons: Fancy, pretty icons
+" Devicons should be last to prevent conflicts
+Plug 'ryanoasis/vim-devicons'
+
+set guifont=Inconsolata\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+
+
+let g:WebDevIconsNerdTreeAfterGlyphPadding=' '  " The amount of space to use after the glyph character
+let g:WebDevIconsNerdTreeGitPluginForceVAlign=1 " Force extra padding in NERDTree so that the filetype icons line up vertically
+let g:WebDevIconsOS = 'unix'
+let g:WebDevIconsUnicodeDecorateFileNodes=1 " Turn on/off file node glyph decorations
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:WebDevIconsUnicodeGlyphDoubleWidth=0 " Whether or not font is using double-width glyphs
+let g:webdevicons_conceal_nerdtree_brackets=1 " Whether or not to show the nerdtree brackets around flags
+let g:webdevicons_enable_airline_statusline=1 " Enable/disable adding to vim-airline's statusline
+let g:webdevicons_enable_airline_tabline=1 " Enable/disable adding to vim-airline's tabline
+let g:webdevicons_enable_ctrlp=0 " Enable/disable ctrlp MRU file mode glyphs
+let g:webdevicons_enable_flagship_statusline=0 " Enable/disable adding to flagship's statusline
+let g:webdevicons_enable_nerdtree=1 " Enable/disable adding the flags to NERDTree
+let g:webdevicons_enable_unite=0 " Enable/disable adding the custom source to unite
+let g:webdevicons_enable_vimfiler=0 " Enable/disable adding the column to vimfiler
+
+
+" vim-startify support
+let entry_format = "'   ['. index .']'. repeat(' ', (3 - strlen(index)))"
+if exists('*WebDevIconsGetFileTypeSymbol')  " support for vim-devicons
+  let entry_format .= ". WebDevIconsGetFileTypeSymbol(entry_path) .' '.  entry_path"
+else
+  let entry_format .= '. entry_path'
+endif
+
+
+
+" }}}
+
+Plug 'sjl/gundo.vim'
+
+" 2.0 Autocommand_Groups
+
+" 2.1 Add folding to files
+augroup filetype_folding
+    autocmd!
+    autocmd FileType conf,make,gitconfig,vim,vimperator setlocal foldmethod=marker
+augroup END
+
+" 2.2 File templates
+" When creating a new file with the following extension, use a template.
+autocmd BufNewFile *.c 0r ~/.vim/templates/template.c
+autocmd BufNewFile *.html 0r ~/.vim/templates/template.html
+autocmd BufNewFile *.java 0r ~/.vim/templates/template.java
+autocmd BufNewFile *.tex 0r ~/.vim/templates/template.tex
+
+" 2.3 Allow reading of pdf, docx, etc in Vim w/pandoc and pdftotext
+autocmd BufReadPre *.pdf silent set ro
+autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk -layout -q -eol unix "%" - | fmt -w78
+autocmd BufReadPost *.doc,*.docx,*.rtf,*.odp,*.odt silent %!pandoc "%" -tplain -o /dev/stdout
+
+" End Autocommand Groups
+
+" 3.0 Config
+" 3.1 General Stuff
+
+set nocompatible " VIM, not Vi
+let s:editor_root=expand("~/.vim")
+syntax enable " Syntax highlighting is magical
+colorscheme kalahari " Set colorscheme
+highlight Normal ctermbg=NONE " Make Vim have no background ~ control using terminal emulator
+highlight Pmenu ctermfg=33 ctermbg=NONE "Insert menu colour
+highlight PmenuSel ctermfg=252 ctermbg=235 cterm=bold "Insert menu selected item colours
+
+filetype indent on " Enable filetype specific indenation
+filetype plugin on " Enable filetype specific plugins
+
+"set ambiwidth=double
+set backspace=indent,eol,start " Allow backspace to delete character
+set clipboard=unnamed " Yank to system register by default
+set cursorline " Highlight the current line
+set encoding=utf-8 " Set UTF-8 as standard encoding
+set foldenable " Enable folding by default
+set foldlevelstart=10 " Max fold level is 10
+set hidden " Change active buffer without having to save
+set history=1000 " Probably excessive
+set laststatus=2 " Always have status line
+set lazyredraw " Redraw only when necessary
+set listchars=tab:▸\ ,eol:¬ " List characters so I can view whitespace and stuff
+set noerrorbells " Bad Vim. Be quiet.
+set noshowmode " Hide the insert/normal/visual mode indicators - used in conjunection with a status bar
+set nowrap " Set line wrapping OFF by default
+set pastetoggle=<F2> " When in insert mode, press <F2> to go to paste mode, where you can paste mass data that won't be autoindented
+set ruler " Show info along bottom of screen
+set scrolloff=5 " Keep this many lines above/below cursor while scrolling
+set shell=/bin/zsh " Set shell to be Zshell
+set showcmd " Display incomplete commands in lower right corner
+set showmatch " Show matching brackets
+set showmode " Show which mode we are in
+set splitbelow " Open splits to the bottom instead of to the top
+set splitright " Open splits to the right instead of left
+set t_Co=256 " Number of colours is 256
+set ttyfast " Fast terminal connection ~ improves smoothness
+set undolevels=1000 " Equally excessive
+set visualbell " Be quiet Vim.
+set wildchar=<TAB> " Start wild card completion with tab
+set wildignore=*.swp,*.swo,*.bak,*.pyc,*.class " Don't suggest these files
+set wildmenu " Visual autocomplete wild card menu
+set wildmode=list:longest " Keep suggesting until ambigious
+
+scriptencoding utf-8
+
+" Easy movement with line wrapping (can move on wrapped lines)
+map j gj
+map k gk
+
+" Enable mouse mode if available.
+if has("mouse")
+    set mouse=a
+endif " }}}
+
+" 3.2 Tabs and Intendation
+
+" Tabs
+set expandtab " Expand tab to be spaces
+set smarttab " Insert tabs on start of line using shiftwidth
+set tabstop=4 " 1 tab = 4 spaces
+
+" Shifting
+set shiftround " Use multiples of shiftwidfth with '>' and '<'
+set shiftwidth=4 " Number of spaces to use when inserting a tab
+
+" Intendation
+set autoindent " Auto indent as needed
+set copyindent " Copy previous indentation leven on autoindent
+set smartindent " Automatically insert extra level of indentation when needed
+
+" Set filetype configuration
+" tabstop - number of visual spaces per tab
+" softtabstop - number of spaces in tab when editing
+" expandtab - tabs are spaces
+" textwidth - max amount of text on a line
+"
+
+autocmd FileType c setlocal tabstop=8 shiftwidth=8 noexpandtab foldmethod=syntax
+autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2 foldmethod=syntax
+autocmd FileType eruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab foldmethod=syntax
+autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab foldmethod=syntax
+autocmd FileType java setlocal tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab foldmethod=syntax
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab foldmethod=syntax
+autocmd FileType json setlocal shiftwidth=4 tabstop=4 noexpandtab foldmethod=syntax
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79 expandtab autoindent foldmethod=syntax
+autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab foldmethod=syntax
+autocmd FileType text setlocal noexpandtab foldmethod=syntax
+autocmd FileType vimperator setlocal tabstop=2 shiftwidth=2 softtabstop=2 foldmethod=syntax
+autocmd FileType make setlocal tabstop=2 shiftwidth=2 softtabstop=2 foldmethod=marker textwidth=79 autoindent expandtab
+
+" 3.3 Buffers {{{
+
+" Ctrl + h/j/k/l is handled under tmux navigator plugin
+
+" More convenient bindings for buffers
+"map <C-_> <C-W>_ " Increase vertical space for current window
+"map <C-|> <C-W>| " Increase horizontal space for current window
+"map <C-=> <C-W>= " Evenly distribute space for all windows
+"map <C-+> <C-W>+ " Increase curent window height
+"map <C--> <C-W>- " Decrease current window height
+"map <C->> <C-W>> " Increase current window width
+"map <C-<> <C-W>< " Decrease current window width
+
+" End Buffers
+
+" 3.4 Enable omni completion. (Ctrl-X Ctrl-O)
+autocmd FileType c setlocal omnifunc=ccomplete#Complete
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Use syntax complete if nothing else available
+if has("autocmd") && exists("+omnifunc")
+    autocmd Filetype *
+                \	if &omnifunc == "" |
+                \		setlocal omnifunc=syntaxcomplete#Complete |
+                \	endif
+endif
+
+" 3.5 Searching
+
+set hlsearch " Highlight search results
+set ignorecase " Make searches case-insensitive
+set incsearch " Search as characters are entered
+set magic " Allow use of Regex in search
+set smartcase " Make searches case sensitive IF a capital leter is used.
+
+" 3.6 Line Numbers
+
+set relativenumber " Turn on relative line numbers
+set number " Turn on absolute line number for the current line
+
+" Toggle line numbers between relative and normal
+nnoremap <leader>n :call ToggleNumber()<CR>
+
+function! ToggleNumber()
+    if(&relativenumber == 1)
+        set norelativenumber
+        set number
+    else
+        set relativenumber
+    endif
+endfunc
+
+" 3.7 Map Leader
+let mapleader=" "  " Set leader key to be ;
+
+" To let a leader mapping be picked up by 'Follow My Leader' plugin, create
+" the leader mappings in the following format:
+" What the mapping does.
+" The mapping itself.
+
+" Remove trailing whitespace
+nnoremap <leader>ws :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Open .vimrc for editing
+nnoremap <leader>vimrc :e $MYVIMRC<CR>
+
+" Remove \^M (Windows line encoding) from file
+noremap <Leader>mm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+
+" Toggle white space characters
+nnoremap <leader>l :set list!<cr>
+
+" Toggle word wrapping
+nnoremap <leader>wr :set wrap! wrap?<CR>
+
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
+"" }}}
+" Language Specific Stuff {{{
+let python_highlight_all=1
+" }}}
+
+nnoremap <leader>fzf :call Fzf_dev()
+
+" Files + devicons
+function! Fzf_dev()
+  function! s:files()
+    let files = split(system($FZF_DEFAULT_COMMAND), '\n')
+    return s:prepend_icon(files)
+  endfunction
+
+  function! s:prepend_icon(candidates)
+    let result = []
+    for candidate in a:candidates
+      let filename = fnamemodify(candidate, ':p:t')
+      let icon = WebDevIconsGetFileTypeSymbol(filename, isdirectory(filename))
+      call add(result, printf("%s %s", icon, candidate))
+    endfor
+
+    return result
+  endfunction
+
+  function! s:edit_file(item)
+    let parts = split(a:item, ' ')
+    let file_path = get(parts, 1, '')
+    execute 'silent e' file_path
+  endfunction
+
+  call fzf#run({
+        \ 'source': <sid>files(),
+        \ 'sink':   function('s:edit_file'),
+        \ 'options': '-m -x +s',
+        \ 'down':    '40%' })
+endfunction
