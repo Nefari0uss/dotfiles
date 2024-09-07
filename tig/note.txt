@@ -1,0 +1,1 @@
+Rather than reading the user configuration from ~/.tigrc by default, instead check $XDG_CONFIG_HOME/tig/config and only then look for ~/.tigrc
