@@ -26,5 +26,5 @@
 # export PYTHONIOENCODING='UTF-8';
 
 
-# # Fix GPG
+# Fix GPG
 # export GPG_TTY=$(tty)

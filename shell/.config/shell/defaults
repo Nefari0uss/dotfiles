@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Prefered defaults
-export PAGER=less
-export EDITOR=nvim
-export VISUAL=$EDITOR
-
-# LC_ALL takes precedence over all the other LC_* values.
-export LC_ALL="en_us.UTF-8"
