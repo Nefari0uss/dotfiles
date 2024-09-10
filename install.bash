@@ -18,9 +18,10 @@ config_folders=(
   vim # long overdue for cleanup
   yay
   tridactyl
-  zsh
+  # zsh - moved to shell
   zathura
   # everything below this line is new or recently modified!
+  shell
   bat
   shellcheck
   nb
@@ -30,7 +31,7 @@ config_folders=(
   # fish - currently empty
   # fzf - two generated items - need to simplify
   gnupg
-  gh
+  # gh
   # inputrc
   mpv
   neofetch # rip

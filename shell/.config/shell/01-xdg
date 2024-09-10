@@ -19,7 +19,7 @@ export XDG_VIDEOS_DIR="${HOME}/videos"
 
 # TODO Look up
 # export PKG_CONFIG_PATH
-
+export NVIM_APPNAME="${XDG_CONFIG_HOME}/nvim"
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 export CURL_HOME="${XDG_CONFIG_HOME}/curl"
 export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
