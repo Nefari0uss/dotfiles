@@ -2,22 +2,9 @@
 # Environment variables
 # Nefari0uss
 
-source "$XDG_CONFIG_HOME/shell/xdg"
-
 # -U ensures each entry in these is unique by discarding duplicates.
 export -U PATH path FPATH fpath MANPATH manpath
 export -UT INFOPATH infopath  # -T creates a "tied" pair; see below.
-
-# Vim and Neovim Config Paths
-export VIM_HOME=~vim
-export NVIM_HOME=~nvim
-
-# NPM & PNPM
-export NPM_PACKAGES="${HOME}/.npm-packages"
-export PNPM_HOME="${HOME}/.local/share/pnpm"
-
-# PyEnv
-export PYENV_ROOT="$HOME/.pyenv"
 
 # For GPG
 export GPG_TTY=$(tty)
