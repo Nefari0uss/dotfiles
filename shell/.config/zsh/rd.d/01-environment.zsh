@@ -1,44 +1,7 @@
-#!/bin/bash
-# Base Environment Setup
-
-# Overrides all other LC_* variables and LANG. It sets the locale for all categories to the same value.
-export LC_ALL="en_US.UTF-8"
-
-# Specifies a priority list of languages, separated by colons, that is used to determine the language for messages.
-export LANGUAGE="en_US"
-
-# Prefered defaults
-export PAGER=less
-export EDITOR=nvim
-export VISUAL="${EDITOR}"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export READNULLCMD=${PAGER}
-export TZ="America/New_York"
+#!/bin/zsh
+# Environment Variables Setup
 
 
-
-# TODO:
-# https://github.com/dirs-dev/directories-jvm
-
-# XDG Base Directory Specification
-# https://gist.github.com/roalcantara/107ba66dfa3b9d023ac9329e639bc58c
-# xdg-ninja will find the correct directories.
-export XDG_BIN_HOME="${HOME}/.local/bin"
-export XDG_CACHE_HOME="${HOME}/.cache"
-export XDG_CONFIG_HOME="${HOME}/.config"
-export XDG_DATA_HOME="${HOME}/.local/share"
-export XDG_DESKTOP_DIR="${HOME}/desktop"
-export XDG_DOCUMENTS_DIR="${HOME}/documents"
-export XDG_DOWNLOAD_DIR="${HOME}/download"
-export XDG_MUSIC_DIR="${HOME}/music"
-export XDG_PICTURES_DIR="${HOME}/pictures"
-export XDG_RUNTIME_DIR="${HOME}/.xdg"
-export XDG_STATE_HOME="${HOME}/.local/state"
-export XDG_VIDEOS_DIR="${HOME}/videos"
-
-# GPG
-GPG_TTY=$(tty)
-export GPG_TTY
 
 # PGP
 export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
@@ -89,12 +52,6 @@ export HTTPIE_CONFIG_DIR="${XDG_CONFIG_HOME}/httpie"
 
 # Lua
 export LUAROCKS_CONFIG="${XDG_CONFIG_HOME}/luarocks/config.lua"
-
-# Node / NPM / PNPM
-export NPM_CONFIG_CACHE="${XDG_CACHE_HOME}/npm"
-export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
-export NPM_CONFIG_PREFIX="${XDG_DATA_HOME}/npm"
-export NPM_CONFIG_LOGLEVEL="warn"
 
 
 # Java
