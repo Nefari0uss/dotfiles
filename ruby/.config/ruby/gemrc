@@ -3,15 +3,27 @@
 
 # Reference Doc: http://guides.rubygems.org/command-reference/#gem-environment
 
-gem: --suggestions --user-install
-benchmark: false
-verbose: false
-update_sources: true
-sources:
-- https://rubygems.org/
+# Default options for the `gem` command
+gem: --suggestions --user-install --no-document
 
-# Print error message if RubyGems encounters an error.
-backtrace: true
+# Disable benchmarking
+benchmark: false
+
+# Set verbosity level
+verbose: false
 
 # Enable/disable automatic updating of repository metadata
 update_sources: true
+
+# List of gem sources
+sources:
+  - https://rubygems.org/
+
+# Print error message if RubyGems encounters an error
+backtrace: true
+
+# Set the GEM_HOME and GEM_PATH
+gemhome: ${XDG_DATA_HOME}/gem
+gempath:
+  - ${XDG_DATA_HOME}/gem
+  - ${GEM_PATH}

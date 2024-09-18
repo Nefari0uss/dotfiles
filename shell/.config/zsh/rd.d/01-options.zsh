@@ -48,7 +48,6 @@ setopt GLOB_COMPLETE
 # On an ambiguous completion, instead of listing possibilities or beeping, insert the first match immediately. Then when completion is requested again, remove the first match and insert the second match, etc. When there are no more matches, go back to the first one again. reverse-menu-complete may be used to loop through the list in the other direction. This option overrides AUTO_MENU.
 unsetopt MENU_COMPLETE
 
-
 ## History
 # https://zsh.sourceforge.io/Doc/Release/Options.html#History
 
@@ -91,20 +90,6 @@ setopt INC_APPEND_HISTORY
 # Auto-sync history between concurrent sessions.
 # setopt SHARE_HISTORY
 
-# Tell zsh where to store history.
-HISTFILE="${XDG_STATE_HOME}/zsh/zsh_history"
-
-# Max number of entries to keep in history file.
-SAVEHIST=5000
-
-# Max number of history entries to keep in memory.
-HISTSIZE=$(( 1.2 * SAVEHIST ))
-
-# Omit duplicates and commands that begin with a space from history.
-export HISTCONTROL="ignoreboth";
-
-
-
 ## Expansion and Globbing
 # https://zsh.sourceforge.io/Doc/Release/Options.html#Expansion-and-Globbing
 
@@ -143,7 +128,6 @@ setopt CORRECT
 
 # Allow comments even in interactive shells.
 setopt INTERACTIVE_COMMENTS
-
 
 # Don't let > silently overwrite files. To overwrite, use >! instead.
 setopt NO_CLOBBER

@@ -6,8 +6,6 @@
 export -U PATH path FPATH fpath MANPATH manpath
 export -UT INFOPATH infopath  # -T creates a "tied" pair; see below.
 
-# For GPG
-export GPG_TTY=$(tty)
 
 # $PATH and $path (and also $FPATH and $fpath, etc.) are "tied" to each other.
 # Modifying one will also modify the other.
