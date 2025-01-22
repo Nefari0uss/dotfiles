@@ -11,7 +11,7 @@ unsetopt GLOBAL_RCS # disable global zshrc configs
 # privilege escalation attacks. Setting this to FALSE activates these checks, enhancing security.
 ZSH_DISABLE_COMPFIX=FALSE
 
-# This enables Zsh's command correction feature. If you mistype a command,
+# This enaB les Zsh's command correction feature. If you mistype a command,
 # Zsh will suggest and can automatically correct it to the nearest matching command. This feature
 # helps reduce errors and improve efficiency in command line operations.
 ENABLE_CORRECTION=TRUE
