@@ -19,6 +19,7 @@ export TZ="America/New_York" # Sets the timezone to 'America/New_York'.
 # XDG Base Directory Specification
 # https://gist.github.com/roalcantara/107ba66dfa3b9d023ac9329e639bc58c
 # https://wiki.archlinux.org/title/XDG_Base_Directory
+# You may have some directories that are slightl different such as some being capitalized. Modify the variables as needed. The `bin`, `cache`, `config`, `data`, and `state` directories are the most important to have set.
 export XDG_BIN_HOME="${HOME}/.local/bin"
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_CONFIG_HOME="${HOME}/.config"

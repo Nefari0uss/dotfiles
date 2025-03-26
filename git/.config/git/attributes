@@ -1,3 +1,5 @@
+# shellcheck disable=SC2148,SC2211
+
 # Common settings that generally should always be used with your language specific settings
 
 # Auto detect text files and perform LF normalization
@@ -282,3 +284,6 @@ tsconfig.json     linguist-language=JSON-with-Comments
 .gitattributes export-ignore
 .gitignore     export-ignore
 .gitkeep       export-ignore
+
+# VS Code
+.vscode/*.json linguist-language=JSON-with-Comments

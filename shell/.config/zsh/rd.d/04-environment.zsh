@@ -19,6 +19,7 @@ path=(
   "$PNPM_HOME/bin(N)"
   "$PYENV_ROOT/bin(N)"
   ~/.luarocks/bin(N)
+  ./node_modules/.bin
   /usr/local/bin
   /usr/local/sbin
   $path

@@ -1,6 +1,10 @@
 #!/bin/zsh
 # Environment Variables Setup
 
+#XDG, andoroid, curl, dotnet cli, go bin and path, java, npm, pip, python, ruby, rust, rustup, cargo, cargo target, gem, gem path, perl, perl5lib, python, homebrew conditional, httpie, iterm 2 conditional. less, luarocks, pyenv root and virtual env, puppeteer, ripgrep, tealdeer, yarn, npm, rustup, terminfo, vim init, vscode install home, wget
+
+# LC_ALL, Language, pager, editor, visual, manpager, TZ, GPG_TTY, do not track,
+# Zsh vars - zdotdir, zcompdir, history dir, hist file, save hist, make directory if required
 
 
 # PGP

@@ -1,6 +1,10 @@
 # PowerShell Prompt
 # By Nefari0uss
 
+
+Set-PowerLinePrompt -PowerLineFont
+
+
 # Imports
 Import-Module posh-git
 Import-Module oh-my-posh

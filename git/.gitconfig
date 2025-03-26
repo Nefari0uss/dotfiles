@@ -8,11 +8,11 @@
 
 [core]
 	autocrlf = input
-	editor = $EDITOR
-	pager = delta
-	whitespace = trailing-space,space-before-tab
 	commitGraph = true
+	editor = $EDITOR
 	excludesfile = ~/.config/git/gitignore
+	pager = less
+	whitespace = trailing-space,space-before-tab
 
 [blame]
   coloring = highlightRecent
@@ -83,6 +83,25 @@
 	nobranch = 1 normal italic
 	unmerged = 9 normal
 
+[color "remote"]
+	hint = normal dim
+	success = 2 normal
+	error = 1 normal
+	warning = 3 normal
+[color "interactive"]
+	header = normal dim bold
+	prompt = 15 4
+	help = normal dim
+	error = 1 normal italic
+[color "decorate"]
+	branch = 6 normal
+	tag = 3 normal
+	remotebranch = 5 normal
+	stash = normal dim
+	grafted = 1 normal italic
+	HEAD = 6 normal italic
+
+
 [column]
   ui = auto
 
@@ -122,6 +141,10 @@
 	binary = true
 	textconv = odt2text
 
+[diff "pdf"]
+  binary = true
+  textconv = pdftotext
+
 [diff "png"]
 	textconv = exiftool
 
@@ -147,18 +170,22 @@
 	program = gpg2
 
 [help]
-	autocorrect = -1
+	autocorrect = 1
   browser = firefox
   format = man
 
 [init]
 	defaultBranch = master
 
+[interactive]
+  diffFilter = delta --color-only
+
 [log]
   date = relative
   decorate = true
 
 [maintenance]
+  auto = true
 	repo = /home/nefari0uss/projects/dotfiles
 
 [merge]
@@ -259,7 +286,7 @@
 
 	# remote
 	r = remote --verbose
-	rname = remote rename
+	rename = remote rename
 	ra = remote add
 	rdel = remote remove
 	rurl = remote set-url
@@ -330,20 +357,3 @@
 
 	# go to the root directory
 	root = '!echo "I am Groot."; cd "$(git rev-parse --show-toplevel)"'
-[color "remote"]
-	hint = normal dim
-	success = 2 normal
-	error = 1 normal
-	warning = 3 normal
-[color "interactive"]
-	header = normal dim bold
-	prompt = 15 4
-	help = normal dim
-	error = 1 normal italic
-[color "decorate"]
-	branch = 6 normal
-	tag = 3 normal
-	remotebranch = 5 normal
-	stash = normal dim
-	grafted = 1 normal italic
-	HEAD = 6 normal italic
