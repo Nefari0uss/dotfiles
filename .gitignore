@@ -1,5 +1,8 @@
 # ~~GitIgnore for Nefari0uss's dotfiles repo~~ #
 
+# rust
+rust/.cargo/*-cache
+
 # vim folder
 vim/plugged/**
 vim/session/*

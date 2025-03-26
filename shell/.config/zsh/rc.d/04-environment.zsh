@@ -12,13 +12,13 @@ export -UT INFOPATH infopath  # -T creates a "tied" pair; see below.
 # Note that each value in an array is expanded separately. Thus, we can use ~ for $HOME in each $path entry.
 # (N): null if file doesn't exist.
 path=(
-  ~/.local/bin(N)
-  ~/.fzf/bin(N)
-  ~/.cargo/bin(N)
-  "$NPM_PACKAGES/bin(N)"
-  "$PNPM_HOME/bin(N)"
-  "$PYENV_ROOT/bin(N)"
-  ~/.luarocks/bin(N)
+  ~/.local/bin
+  ~/.fzf/bin
+  ~/.cargo/bin
+  "$NPM_PACKAGES/bin"
+  "$PNPM_HOME/bin"
+  "$PYENV_ROOT/bin"
+  ~/.luarocks/bin
   ./node_modules/.bin
   /usr/local/bin
   /usr/local/sbin
