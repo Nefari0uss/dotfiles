@@ -35,7 +35,7 @@ autoload -Uz compinit promptinit vcs_info
 # Load version control info before the prompt is displayed
 # precmd () { vcs_info }: Defines a `precmd` function that is executed just before the prompt is displayed.
 # This function calls `vcs_info` to fetch and display version control information (e.g., Git branch) in the prompt.
-precmd () { vcs_info }
+# precmd () { vcs_info }
 
 # compinit: Initializes Zsh's completion system by scanning the `$fpath` directories for completion definitions,
 # enabling command completion features.
@@ -44,6 +44,16 @@ compinit -d "${ZCOMPDIR}"
 # promptinit: Initializes the prompt system, allowing the use of themes and custom prompts.
 promptinit
 
+# Zsh History
+HIST_DIR="${XDG_STATE_HOME}/zsh" # History file location
+export HISTFILE="${HIST_DIR}/.zsh_history" # History file location
+export HISTSIZE=2000 # Number of commands to remember in the current session
+export SAVEHIST=2000 # Number of history lines to save in the history file
+export HISTFILESIZE=2000 # Maximum number of lines in the history file
+export HISTCONTROL=ignoredups # Ignore duplicate commands
+export HISTIGNORE="ls:cd:exit" # Ignore specific commands
+
+mkdir -p "${HIST_DIR}"
 
 () {
   local file=
@@ -56,3 +66,6 @@ promptinit
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# make the zsh history dir if it doesn't exist

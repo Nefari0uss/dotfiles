@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Setup fzf
-if [[ ! "$PATH" == */home/nefari0uss/.fzf/bin* ]]; then
-  PATH="${PATH:+${PATH}:}$HOME/.fzf/bin"
-fi
+# if [[ ! "${PATH}" == */home/nefari0uss/.fzf/bin* ]]; then
+#   PATH="${PATH:+${PATH}:}${HOME}/.fzf/bin"
+# fi
 
 # Eval based on shell.
 source <(fzf --zsh)
-eval "$(fzf --bash)"
+# eval "$(fzf --bash)"

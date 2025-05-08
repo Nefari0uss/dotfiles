@@ -7,7 +7,7 @@
 	"aururl": "https://aur.archlinux.org",
 	"batchinstall": false,
 	"bottomup": true,
-	"buildDir": "/home/nefari0uss/.cache/yay",
+	"buildDir": "$XDG_CACHE_HOME/yay",
 	"cleanAfter": true,
 	"cleanmenu": false,
 	"combinedupgrade": true,
