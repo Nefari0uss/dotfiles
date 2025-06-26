@@ -46,6 +46,9 @@ manpath=(
 export MANPATH=~/share/man:$MANPATH
 # export MANPATH=$manpath
 
+# Fixes the weird characters in man pages.
+export MANROFFOPT="-c"
+
 # Info Path
 infopath=(
   $infopath

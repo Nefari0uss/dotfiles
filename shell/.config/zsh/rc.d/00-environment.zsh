@@ -28,7 +28,6 @@ export PUPPETEER_SKIP_DOWNLOAD=true
 # Bat
 export BATDIFF_USE_DELTA=true
 
-
 # FZF
 # export FZF_DEFAULT_COMMAND='find . -type f'
 # export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
@@ -38,5 +37,3 @@ export BATDIFF_USE_DELTA=true
 # export FZF_CTRL_R_OPTS='--sort --preview "cat {}"'
 # export FZF_ALT_C_COMMAND='find . -type d'
 # export FZF_ALT_C_OPTS='--preview "ls -la {}"'
-
-

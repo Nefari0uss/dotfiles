@@ -1,14 +1,7 @@
 #!/bin/zsh
 # .zshenv
 
-unsetopt GLOBAL_RCS # disable global zshrc configs
-
-ZSH_DISABLE_COMPFIX=FALSE
-ENABLE_CORRECTION=TRUE
-COMPLETION_WAITING_DOTS=TRUE
-
-# vsc_info
-autoload -Uz compinit promptinit
+unsetopt GLOBAL_RCS # Disable global zsh configs
 
 # Language and Locale
 export LC_ALL="en_US.UTF-8" # Overrides all other LC_* variables and LANG.
@@ -21,6 +14,10 @@ export VISUAL="${EDITOR}"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'" # Sets the pager for man pages to use 'bat' for syntax highlighting.
 export READNULLCMD=${PAGER} # Sets the command to use when reading from a null device to the pager.
 export TZ="America/New_York"
+
+
+# GPG_TTY=$(tty) # Specifies the terminal to use for GPG passphrase prompts.
+# export GPG_TTY
 
 
 # XDG Base Directory Specification
@@ -41,8 +38,6 @@ export TZ="America/New_York"
 # | XDG_RUNTIME_DIR    | ~/.xdg (or /run/user/UID)    | User-specific runtime files directory         |
 # | XDG_STATE_HOME     | ~/.local/state               | User-specific directory for state files       |
 # | XDG_VIDEOS_DIR     | ~/Videos                     | User's Videos directory                       |
-#
-# These variables help standardize where user and application files are stored on Linux systems.
 
 export XDG_BIN_HOME="${HOME}/.local/bin"
 export XDG_CACHE_HOME="${HOME}/.cache"
@@ -58,16 +53,9 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 export XDG_VIDEOS_DIR="${HOME}/Videos"
 
 # Zsh Specific Environment Variables
-
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
-export ZCOMPDIR="${XDG_CACHE_HOME}/zsh"
-export ZSH_COMPDUMP="${XDG_DATA_HOME}/zsh/.zcompdump-${ZSH_VERSION}-${HOST}"
-export ZPLUGINSDIR="${XDG_CONFIG_HOME}/zsh-plugins/" # Where antidote and other zsh-plugins are stored.
-
-mkdir -p "${ZCOMPDIR} ${ZSH_PLUGINS_DIR}" "${HIST_DIR}"
 
 # XDG Compliance
-
 
 ### Core Utils
 export CURL_HOME="${XDG_CONFIG_HOME}/curl"
@@ -149,7 +137,8 @@ export TEALDEER_CONFIG_DIR="${XDG_CONFIG_HOME}/tealdeer"
 
 # zoxide
 export _ZO_DATA_DIR="${XDG_DATA_HOME}/zoxide"
-export _ZO_ECHO_PATH="1" # Zoxide will echo the path.
+export _ZO_ECHO_PATH="1" # Zoxide will echo the path upon execution.
+# export _ZO_EXCLUDE_DIRS="${HOME}:${HOME}/private" # Exclude directories for zoxide.
 
 
 # Less Specific Environment Variables
@@ -166,7 +155,6 @@ export _ZO_ECHO_PATH="1" # Zoxide will echo the path.
 # --no-histdups: Prevents duplicate entries in the history.
 # --use-color: ...enables color.
 export LESS='FgiNQ --LONG-PROMPT --mouse --no-histdups --use-color --tabs=2 --tilde'
-export LESSCHARSET='UTF-8' # Probably not needed anymore...
 
 # Do Not Track - https://www.consoledonottrack.com
 export DO_NOT_TRACK=1
