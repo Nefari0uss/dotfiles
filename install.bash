@@ -1,49 +1,39 @@
 #!/bin/bash
 
 config_folders=(
+  # bat
+  # fzf - two generated items - need to simplify
+  # gh
+  # i3 - not sure if works with latest i3; several years out of date
+  # inputrc
+  # lsd - broken config
+  # zsh - moved to shell
+  chezmoi
+  ctags
+  curl
   git
   gnupg
-  # i3 - not sure if works with latest i3; several years out of date
   ideavim
-  # lsd - broken config
+  lua
   mpv
-  neofetch
+  nb
   neovim # needs to be created; basically empty
   npm
   pip
   ranger # cleanup / update
   ruby
   rust
-  tmux # needs some cleanup; needs themes
-  vim # long overdue for cleanup
-  yay
-  tridactyl
-  # zsh - moved to shell
-  zathura
-  # everything below this line is new or recently modified!
   shell
-  bat
   shellcheck
-  nb
-  lua
-  ctags
-  curl
-  # fish - currently empty
-  # fzf - two generated items - need to simplify
-  gnupg
-  # gh
-  # inputrc
-  mpv
-  neofetch # rip
   stow
-  shell
+  tmux # needs some cleanup; needs themes
+  tridactyl
+  vim # long overdue for cleanup
   wget
+  yay
   yt-dlp
+  zathura
 )
-
-# Note - Only add yay if on Arch / yay is installed.
-# Karabiner Elements is mac only.
-#
 
 for config_folder in "${config_folders[@]}"
 do
