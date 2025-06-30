@@ -19,21 +19,10 @@ export TERMINFO_DIRS=${TERMINFO_DIRS}:${TERMINFO}:/usr/share/terminfo
 
 # Testing Tools
 
-# Cypress
-export CYPRESS_INSTALL_BIN=0 # Do not install the Cypress binary.
-
-# Puppeteer
+export CYPRESS_INSTALL_BIN=0
 export PUPPETEER_SKIP_DOWNLOAD=true
 
 # Bat
 export BATDIFF_USE_DELTA=true
 
 # FZF
-# export FZF_DEFAULT_COMMAND='find . -type f'
-# export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-# export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
-# export FZF_CTRL_R_COMMAND='history'
-# export FZF_CTRL_T_OPTS='--preview "cat {}"'
-# export FZF_CTRL_R_OPTS='--sort --preview "cat {}"'
-# export FZF_ALT_C_COMMAND='find . -type d'
-# export FZF_ALT_C_OPTS='--preview "ls -la {}"'

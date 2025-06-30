@@ -2,11 +2,9 @@
 # Environment variables
 # Nefari0uss
 
-# -U ensures each entry in these is unique by discarding duplicates.
-export -U PATH path FPATH fpath MANPATH manpath
-export -UT INFOPATH infopath  # -T creates a "tied" pair; see below.
-
-print -l $path
+view_path () {
+  print -l $path
+}
 
 # $PATH and $path (and also $FPATH and $fpath, etc.) are "tied" to each other.
 # Modifying one will also modify the other.
@@ -25,7 +23,7 @@ path=(
   /usr/local/sbin
   $path
 )
-export $path
+export path
 
 # Add your functions to your $fpath, so you can autoload them.
 fpath=(
@@ -33,7 +31,7 @@ fpath=(
   $fpath
   ~/.local/share/zsh/site-functions(N)
 )
-export $fpath
+export fpath
 # export FPATH=$fpath
 
 # Man pages
@@ -72,7 +70,19 @@ if [[ -x "$(command -v fnm)" ]]; then
   eval "$(fnm env --use-on-cd)"
 fi
 
+
 # FZF
+
+# export FZF_DEFAULT_COMMAND='find . -type f'
+# export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+# export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
+# export FZF_CTRL_R_COMMAND='history'
+# export FZF_CTRL_T_OPTS='--preview "cat {}"'
+# export FZF_CTRL_R_OPTS='--sort --preview "cat {}"'
+# export FZF_ALT_C_COMMAND='find . -type d'
+# export FZF_ALT_C_OPTS='--preview "ls -la {}"'
+
+
 if [[ -x "$(command -v fzf)" ]]; then
   eval "$(fzf --zsh)"
 fi
