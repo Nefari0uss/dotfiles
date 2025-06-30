@@ -20,7 +20,7 @@ COMPLETION_WAITING_DOTS=TRUE
 
 # This is used so many times that may as well put it here, before everything else.
 # Enable additional glob operators.
-setopt EXTENDED_GLOB
+# setopt EXTENDED_GLOB
 
 # autoload -Uz compinit promptinit vcs_info: This line uses the `autoload` command to mark the functions
 # `compinit`, `promptinit`, and `vcs_info` for lazy loading. The `-Uz` flags are used to avoid alias
@@ -40,6 +40,7 @@ compinit -d "${XDG_STATE_HOME}/zsh/compinit"
 # promptinit: Initializes the prompt system, allowing the use of themes and custom prompts.
 promptinit
 
+bindkey -v  # Enable Vi mode for key bindings.
 
 () {
   local file=
@@ -49,6 +50,18 @@ promptinit
 } "$@"
 
 
-# TODO - Clean / remove this.
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# TODO - Move these to dedicated files and lazy-load them.
+
+cls () {
+  clear
+  printf '\033[3J'
+}
+
+groot () {
+  local root_dir
+  root_dir=$(git rev-parse --show-toplevel 2>/dev/null) || {
+    echo "Not in a git repository."
+    return 1
+  }
+  cd "$root_dir" || return
+}
