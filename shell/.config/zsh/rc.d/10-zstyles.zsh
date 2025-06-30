@@ -4,6 +4,11 @@
 # Pass arguments to compinit
 zstyle '*:compinit' arguments -D -i -u -C -w
 
+# zstyle ':completion:*' list-prompt '%S%M matches%s'
+zstyle ':completion:*' insert-unambiguous true
+zstyle ':completion:*' menu select=1 interactive
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+
 # Use caching to make completion for commands such as dpkg and apt usable.
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path "$_zcompcache"
