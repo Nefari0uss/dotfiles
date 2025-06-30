@@ -3,6 +3,13 @@
 
 unsetopt GLOBAL_RCS # Disable global zsh configs
 
+# -U ensures each entry in these is unique by discarding duplicates.
+export -U PATH path FPATH fpath MANPATH manpath
+export -UT INFOPATH infopath  # -T creates a "tied" pair; see below.
+
+# TODO - Make a function to let you view the tied pairs more easily.
+# print -l $(typeset +U) | sort
+
 # Language and Locale
 export LC_ALL="en_US.UTF-8" # Overrides all other LC_* variables and LANG.
 export LANGUAGE="en_US" # Sets the language priority.
@@ -51,6 +58,8 @@ export XDG_PICTURES_DIR="${HOME}/Pictures"
 export XDG_RUNTIME_DIR="${HOME}/.xdg"
 export XDG_STATE_HOME="${HOME}/.local/state"
 export XDG_VIDEOS_DIR="${HOME}/Videos"
+
+mkdir -p ${XDG_BIN_HOME} ${XDG_CACHE_HOME} ${XDG_CONFIG_HOME} ${XDG_DATA_HOME} ${XDG_RUNTIME_DIR} ${XDG_STATE_HOME}
 
 # Zsh Specific Environment Variables
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
