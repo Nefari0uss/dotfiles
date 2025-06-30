@@ -7,7 +7,9 @@
 hash -d projects="${HOME}/projects"
 hash -d dots="${HOME}/projects/dotfiles"
 hash -d dotfiles="${HOME}/projects/dotfiles"
-hash -d git="${XDG_HOME_CONFIG}/git"
-hash -d vim="${XDG_CONFIG_HOME}/vim"
+
 hash -d config="${XDG_CONFIG_HOME}"
+hash -d git="${XDG_CONFIG_HOME}/git"
+hash -d vim="${XDG_CONFIG_HOME}/vim"
+hash -d nvim="${XDG_CONFIG_HOME}/nvim"
 hash -d zsh="${XDG_CONFIG_HOME}/zsh"
