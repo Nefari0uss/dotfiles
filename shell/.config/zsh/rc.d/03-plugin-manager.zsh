@@ -2,8 +2,7 @@
 # Nefari0uss
 # ZSh Plugin Manager
 
-ZPLUGIN_DIR="${ZDOTDIR}-plugins"
-# source "${ZPLUGIN_DIR}/antidote/antidote.zsh"
-
-# initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
-# antidote load
+# zsh_plugins_file = "${XDG_STATE_HOME}/zsh/plugins.txt"
+# antidote bundle <~/.zsh_plugins.txt >~/.zsh_plugins.zsh
+source '/usr/share/zsh-antidote/antidote.zsh' # Arch install location.
+antidote load

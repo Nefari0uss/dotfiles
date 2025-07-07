@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 #!/bin/zsh
 # ZShell Config
 # Nefari0uss
@@ -26,16 +33,15 @@ COMPLETION_WAITING_DOTS=TRUE
 # `compinit`, `promptinit`, and `vcs_info` for lazy loading. The `-Uz` flags are used to avoid alias
 # expansion and ensure the functions are loaded in the current shell. `compinit` initializes shell
 # completion, `promptinit` initializes prompt themes, and `vcs_info` provides version control information.
+
+ZSH_CACHE_DIR="${XDG_CACHE_HOME}/zsh/"
+if [[ ! -d ${ZSH_CACHE_DIR} ]]; then
+  mkdir -p "${ZSH_CACHE_DIR}";
+fi
+
+
 autoload -Uz compinit promptinit vcs_info
-
-# Load version control info before the prompt is displayed
-# precmd () { vcs_info }: Defines a `precmd` function that is executed just before the prompt is displayed.
-# This function calls `vcs_info` to fetch and display version control information (e.g., Git branch) in the prompt.
-# precmd () { vcs_info }
-
-# compinit: Initializes Zsh's completion system by scanning the `$fpath` directories for completion definitions,
-# enabling command completion features.
-compinit -d "${XDG_STATE_HOME}/zsh/compinit"
+# compinit -d "${ZSH_CACHE_DIR}/zcompdump-${ZSH_VERSION}"
 
 # promptinit: Initializes the prompt system, allowing the use of themes and custom prompts.
 promptinit
@@ -65,3 +71,11 @@ groot () {
   }
   cd "$root_dir" || return
 }
+
+
+# Tig
+# mkdir ${XDG_CONFIG_HOME}/tig/config
+# mkdir -p ${XDG_STATE_HOME}/tig
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

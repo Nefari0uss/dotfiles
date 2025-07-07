@@ -6,59 +6,6 @@ view_path () {
   print -l $path
 }
 
-# $PATH and $path (and also $FPATH and $fpath, etc.) are "tied" to each other.
-# Modifying one will also modify the other.
-# Note that each value in an array is expanded separately. Thus, we can use ~ for $HOME in each $path entry.
-path=(
-  "${XDG_BIN_HOME}"
-  ~/.fzf/bin
-  ~/.cargo/bin
-  "$NPM_PACKAGES/bin"
-  "$PNPM_HOME/bin"
-  "$PYENV_ROOT/bin"
-  ~/.luarocks/bin
-  ./node_modules/.bin
-  ~/.local/texlive/2025/bin/x86_64-linux
-  /usr/local/bin
-  /usr/local/sbin
-  $path
-)
-export path
-
-# Add your functions to your $fpath, so you can autoload them.
-fpath=(
-  $ZDOTDIR/functions
-  $fpath
-  ~/.local/share/zsh/site-functions(N)
-)
-export fpath
-# export FPATH=$fpath
-
-# Man pages
-manpath=(
-  # ~/.local/share/
-  ~/share/man
-  $manpath
-  ~/.local/texlive/2025/texmf-dist/doc/man
-)
-export MANPATH=~/share/man:$MANPATH
-# export MANPATH=$manpath
-
-# Fixes the weird characters in man pages.
-export MANROFFOPT="-c"
-
-# Info Path
-infopath=(
-  $infopath
-  ~/.local/texlive/2025/texmf-dist/doc/info
-)
-
-# export INFOPATH=$infopath
-
-
-# For completions to work, the eval command must be added after compinit is called. You may have to rebuild your completions cache by running:
-# rm ~/.zcompdump*; compinit.
-
 # Initialize zoxide, a fast directory navigation tool.
 if [[ -x "$(command -v zoxide)" ]]; then
   eval "$(zoxide init zsh)"
@@ -88,4 +35,4 @@ if [[ -x "$(command -v fzf)" ]]; then
 fi
 
 # Keychain - Front end for SSH and GPG agents.
-# eval `keychain --quiet --inherit local --eval --agents ssh,gpg id_rsa 2F335BAB 7F542CE2`
+# eval "$(keychain --dir "${XDG_RUNTIME_DIR}/keychain" --absolute --quiet --ssh-spawn-gpg --ssh-allow-forwarded --eval id_rsa)"

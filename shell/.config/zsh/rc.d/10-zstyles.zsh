@@ -11,7 +11,7 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 
 # Use caching to make completion for commands such as dpkg and apt usable.
 zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' cache-path "$_zcompcache"
+# zstyle ':completion::complete:*' cache-path "$_zcompcache"
 
 # Insert a common substring when ambiguous completions are listed on...
 # All Tab Widgets
