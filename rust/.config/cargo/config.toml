@@ -1,0 +1,27 @@
+# (Rust) Cargo Config
+
+# Sections:
+#   [alias]      - Defines custom Cargo command aliases.
+#   [cargo-new]  - Sets defaults for `cargo new` projects.
+#   [install]    - Configures the default install root for `cargo install`.
+#   [term]       - Controls terminal output and progress display.
+# -----------------------------------------------------------------------------
+
+[alias]
+b = "build"    # `cargo b` runs `cargo build`
+c = "check"    # `cargo c` runs `cargo check`
+t = "test"     # `cargo t` runs `cargo test`
+r = "run"      # `cargo r` runs `cargo run`
+
+[cargo-new]
+vcs = "git"    # New projects use git for version control by default.
+
+[install]
+root = "${XDG_BIN_HOME}"  # Install location of cargo binaries.
+
+[term]
+color = "auto"                # Enable color output if supported.
+hyperlinks = true             # Enable clickable hyperlinks in output.
+progress.when = "auto"        # Show progress bars automatically.
+progress.width = 80           # Set progress bar width to 80 characters.
+progress.term-integration = true # Report progress to the terminal for better integration.

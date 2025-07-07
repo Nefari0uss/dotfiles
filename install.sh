@@ -1,11 +1,11 @@
 #!/bin/bash
 
 config_folders=(
-  # bat
+  bat
   # fzf - two generated items - need to simplify
   # gh
   # i3 - not sure if works with latest i3; several years out of date
-  # inputrc
+  inputrc
   # lsd - broken config
   # zsh - moved to shell
   chezmoi
