@@ -1,0 +1,4 @@
+Track down aliases:
+
+zsh -xv 2>&1 | grep "alias_name"
+zsh -xv 2>&1 | grep -A 3 "source.*plugin" | grep "alias_name"

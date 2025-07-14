@@ -218,6 +218,8 @@ fpath=(
 #endregion
 
 #region --- MANPATH ---
+
+# This seems to cause problems with $MANPATH
 # manpath=(
 #   $(manpath -g)
 #   $TEXMF_MANPATH

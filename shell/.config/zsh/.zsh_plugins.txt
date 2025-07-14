@@ -1,6 +1,6 @@
-# jeffreytse/zsh-vi-mode
 
-# Prompt
+# --- Prompt ---
+# github.com/romkatv/powerlevel10k
 romkatv/powerlevel10k
 
 # marlonrichert/zsh-autocomplete      # Real-time type-ahead completion
@@ -10,3 +10,11 @@ romkatv/powerlevel10k
 
 # zsh-users/zsh-autosuggestions       # Inline suggestions
 # zsh-users/zsh-syntax-highlighting   # Command-line syntax highlighting
+
+# --- Vim Mode ---
+# jeffreytse/zsh-vi-mode
+# 5A6F65/zsh-vi-mode # fork with performance fix?
+
+
+# --- Documentation ---
+mattmc3/zman # Easy zsh help lookup. https://github.com/mattmc3/zman

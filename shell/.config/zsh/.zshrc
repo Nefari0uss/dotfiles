@@ -34,10 +34,10 @@ COMPLETION_WAITING_DOTS=TRUE
 # expansion and ensure the functions are loaded in the current shell. `compinit` initializes shell
 # completion, `promptinit` initializes prompt themes, and `vcs_info` provides version control information.
 
-ZSH_CACHE_DIR="${XDG_CACHE_HOME}/zsh/"
-if [[ ! -d ${ZSH_CACHE_DIR} ]]; then
-  mkdir -p "${ZSH_CACHE_DIR}";
-fi
+# ZSH_CACHE_DIR="${XDG_CACHE_HOME}/zsh/"
+# if [[ ! -d ${ZSH_CACHE_DIR} ]]; then
+#   mkdir -p "${ZSH_CACHE_DIR}";
+# fi
 
 
 autoload -Uz compinit promptinit vcs_info
@@ -47,6 +47,17 @@ autoload -Uz compinit promptinit vcs_info
 promptinit
 
 bindkey -v  # Enable Vi mode for key bindings.
+# function zle-keymap-select {
+#     case $KEYMAP in
+#         vicmd)      MODE="NORMAL";;
+#         main|viins) MODE="INSERT";;
+#     esac
+#     zle reset-prompt
+# }
+# MODE="INSERT"
+# autoload -Uz add-zsh-hook
+# add-zsh-hook zle-keymap-select zle-keymap-select
+# PROMPT='[%{$fg_bold[green]%}$MODE%{$reset_color%}] %~ %# '
 
 () {
   local file=
@@ -76,6 +87,9 @@ groot () {
 # Tig
 # mkdir ${XDG_CONFIG_HOME}/tig/config
 # mkdir -p ${XDG_STATE_HOME}/tig
+
+# bun completions
+# [ -s "/home/nefari0uss/.bun/_bun" ] && source "/home/nefari0uss/.bun/_bun"
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
