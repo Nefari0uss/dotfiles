@@ -6,7 +6,8 @@ view_path () {
   print -l $path
 }
 
-# Initialize zoxide, a fast directory navigation tool.
+# Zoxide: A smarter cd command.
+# https://github.com/ajeetdsouza/zoxide
 if [[ -x "$(command -v zoxide)" ]]; then
   eval "$(zoxide init zsh)"
 fi

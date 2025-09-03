@@ -174,10 +174,13 @@ export RIPGREP_CONFIG="${XDG_CONFIG_HOME}/ripgrep/config"
 # TealDeer, aka TLDR
 export TEALDEER_CONFIG_DIR="${XDG_CONFIG_HOME}/tealdeer"
 
-# zoxide
-export _ZO_DATA_DIR="${XDG_DATA_HOME}/zoxide"
-export _ZO_ECHO_PATH="1" # Zoxide will echo the path upon execution.
+# Zoxide
+# https://github.com/ajeetdsouza/zoxide#configuration
+export _ZO_DATA_DIR="${XDG_DATA_HOME}/zoxide" # Where the db is stored.
+export _ZO_ECHO_PATH="1" # Echo the path upon execution.
+# export _ZO_FZF_Harmonics-Prewashed7OPTS=
 # export _ZO_EXCLUDE_DIRS="${HOME}:${HOME}/private" # Exclude directories for zoxide.
+export _ZO_RESOLVE_SYMLINKS="1" # Resolve symlinks before adding a dir to the db.
 #endregion
 
 #region --- Testing Tools ---

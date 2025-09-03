@@ -41,3 +41,5 @@ alias shrug="echo '¯\_(ツ)_/¯'"
 
 # Other git specific commands are stored in the git config.
 alias g="git"
+
+alias type="type -a"
