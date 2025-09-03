@@ -35,6 +35,8 @@
   "language": "en_US",
   "useGitignore": true,
   "words": [
-    "optname"
+    "gitstatus",
+    "optname",
+    "Powerline"
   ]
 }
