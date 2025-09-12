@@ -1,19 +1,17 @@
 #!/bin/bash
 
 config_folders=(
-  bat
   # fzf - two generated items - need to simplify
   # gh
   # i3 - not sure if works with latest i3; several years out of date
-  inputrc
   # lsd - broken config
-  # zsh - moved to shell
-  chezmoi
+  bat
   ctags
   curl
   git
   gnupg
   ideavim
+  inputrc
   lua
   mpv
   nb
@@ -31,6 +29,7 @@ config_folders=(
   vim # long overdue for cleanup
   wget
   yay
+  yazi
   yt-dlp
   zathura
 )

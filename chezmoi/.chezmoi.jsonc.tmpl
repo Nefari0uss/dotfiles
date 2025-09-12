@@ -1,0 +1,10 @@
+{{ $email := promptStringOnce . "email" "What is your email address" -}}
+{
+  "data": {
+    "email": {{ $email | quote }}
+  },
+  "edit": {
+    "command": "code",
+    "args": ["--wait"]
+  }
+}

@@ -278,7 +278,7 @@ autocmd BufReadPost *.doc,*.docx,*.rtf,*.odp,*.odt silent %!pandoc "%" -tplain -
 set nocompatible " VIM, not Vi
 let s:editor_root=expand("~/.vim")
 syntax enable " Syntax highlighting is magical
-colorscheme kalahari " Set colorscheme
+# colorscheme kalahari " Set colorscheme
 highlight Normal ctermbg=NONE " Make Vim have no background ~ control using terminal emulator
 highlight Pmenu ctermfg=33 ctermbg=NONE "Insert menu colour
 highlight PmenuSel ctermfg=252 ctermbg=235 cterm=bold "Insert menu selected item colours

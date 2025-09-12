@@ -1,0 +1,8 @@
+.gitignore
+.vscode
+LICENSE.md
+README.md
+cspell.json
+
+# macOS
+.DS_Store
