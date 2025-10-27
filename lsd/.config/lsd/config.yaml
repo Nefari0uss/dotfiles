@@ -1,39 +1,58 @@
----
+# LSD Configuration File.
+
+classic: false  # Disable classic ls-compatible mode.
+
+blocks:  # Columns for long and tree layouts.
+ - permission
+ # - user
+ # - group
+ - size
+ - date
+ - name
+ - git
+
 color:
-  when: always
-  mode: 32
-  theme: default
+  when: auto  # Auto choose whether to colorize output.
+  theme: default  # Use the default color theme.
+
+date: date  # Show full date format.
+
+dereference: false  # Do not dereference symbolic links.
 
 display:
-  icons: all
-  icons-theme: fancy
+  all  # Show all items.
+
+icons:
+  when: auto  # Show icons automatically.
+  theme: fancy  # Use the fancy icon theme.
+  separator: " "  # Separate icon and name with a single space.
+
+indicators: false  # Do not show indicator characters.
+
+layout: grid  # Use grid layout.
+
+recursion:
+  enabled: false  # Disable recursive listing.
+
+permission: rwx  # Show permissions in rwx format.
 
 sorting:
-  dir-grouping: first
-  sort: name
+  column: name  # Sort entries by name.
+  dir-grouping: first  # Put directories before files.
+  reverse: false  # Do not reverse sort order.
 
-size:
-  unit: default
-  binary-prefix: false
+no-symblink: false  # Show symlink targets (note: key uses non-standard spelling).
 
-date:
-  format: "%Y-%m-%d %H:%M"
-  time-style: default
+total-size: false  # Do not display total directory sizes.
 
-symlink:
-  when: linked-path
-  target: absolute-path
+hyperlink: never  # Do not add hyperlinks to filenames.
 
-layout:
-  grid-options:
-    across: false
-    sizing: longest
-  tree-options:
-    level: 2
-    long: true
+symblink-arrow: ⇒  # Use '⇒' to point from symlink to target.
 
-total-size:
-  when: always
+header: false  # Do not show block headers.
 
-permissions:
-  when: always
+literal: false  # Do not quote filenames.
+
+truncate-owner:
+  after:  # No truncation of owner/group names.
+  marker: ""  # No marker appended when truncating.
