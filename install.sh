@@ -24,7 +24,8 @@ config_folders=(
   shell
   shellcheck
   stow
-  tmux # needs some cleanup; needs themes
+  tmux
+  tmux-powerline
   tridactyl
   vim # long overdue for cleanup
   wget

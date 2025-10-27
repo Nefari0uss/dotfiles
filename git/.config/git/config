@@ -1,23 +1,25 @@
 # Git Config
 # By Nefari0uss
 
+# vim: set ft=gitconfig:
+
 [user]
-	name = Nefari0uss
-	email = nnefari0uss@gmail.com
-	signingkey = 2F335BAB
+  name = Nefari0uss
+  email = nnefari0uss@gmail.com
+  signingkey = 2F335BAB
 
 [core]
-	autocrlf = input
-	commitGraph = true
-	editor = $EDITOR
-	excludesfile = ~/.config/git/gitignore
-	pager = less
-	whitespace = trailing-space,space-before-tab
+  autocrlf = input
+  commitGraph = true
+  editor = $EDITOR
+  excludesfile = ~/.config/git/gitignore
+  fsmonitor = true
+  whitespace = trailing-space,space-before-tab
 
 [blame]
   coloring = highlightRecent
-	date = short
-	showEmail = true
+  date = short
+  showEmail = true
 
 [branch]
   sort = committerdate
@@ -29,153 +31,161 @@
   requireForce = true
 
 [color]
-	ui = false
+  ui = auto
 
 	# The basic colors accepted are normal, black, red, green, yellow, blue, magenta, cyan and white.
 	# The accepted attributes are bold, dim, ul, blink, reverse, italic, and strike.
 
 [color "branch"]
-	current = 6 normal reverse
-	local = 6 normal
-	remote = 5 normal
-	plain = 6 normal
-	upstream = 5 normal
+  current = 6 normal reverse
+  local = 6 normal
+  remote = 5 normal
+  plain = 6 normal
+  upstream = 5 normal
+
+[color "decorate"]
+  branch = 6 normal
+  tag = 3 normal
+  remotebranch = 5 normal
+  stash = normal dim
+  grafted = 1 normal italic
+  HEAD = 6 normal italic
 
 [color "diff"]
-	new = 15 2
-	frag = normal dim
-	old = 7 1
-	meta = normal dim
-	commit = 3 normal
-	whitespace = normal 9
-	newMoved = 15 3
-	oldMovedAlternativeDimmed = 7 5 dim
-	oldMovedAlternative = 7 5
-	contextBold = normal bold
-	newBold = 15 2 bold
-	context = normal
-	oldMoved = 7 3
-	oldBold = 7 1 bold
-	newMovedDimmed = 15 3 dim
-	func = normal dim
-	newDimmed = 15 2 dim
-	newMovedAlternative = 15 5
-	newMovedAlternativeDimmed = 15 5 dim
-	oldMovedDimmed = 7 3 dim
-	oldDimmed = 7 1 dim
+  new = 15 2
+  frag = normal dim
+  old = 7 1
+  meta = normal dim
+  commit = 3 normal
+  whitespace = normal 9
+  newMoved = 15 3
+  oldMovedAlternativeDimmed = 7 5 dim
+  oldMovedAlternative = 7 5
+  contextBold = normal bold
+  newBold = 15 2 bold
+  context = normal
+  oldMoved = 7 3
+  oldBold = 7 1 bold
+  newMovedDimmed = 15 3 dim
+  func = normal dim
+  newDimmed = 15 2 dim
+  newMovedAlternative = 15 5
+  newMovedAlternativeDimmed = 15 5 dim
+  oldMovedDimmed = 7 3 dim
+  oldDimmed = 7 1 dim
 
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
 
 [color "status"]
-	added = 10 normal
-	changed = 11 normal
-	untracked = normal dim
-	deleted = magenta strike
-	branch = 6 normal
-	updated = 10 normal
-	localbranch = 6 normal
-	header = normal
-	remotebranch = 5 normal
-	nobranch = 1 normal italic
-	unmerged = 9 normal
+  added = 10 normal
+  changed = 11 normal
+  untracked = normal dim
+  deleted = magenta strike
+  branch = 6 normal
+  updated = 10 normal
+  localbranch = 6 normal
+  header = normal
+  remotebranch = 5 normal
+  nobranch = 1 normal italic
+  unmerged = 9 normal
 
 [color "remote"]
-	hint = normal dim
-	success = 2 normal
-	error = 1 normal
-	warning = 3 normal
+  hint = normal dim
+  success = 2 normal
+  error = 1 normal
+  warning = 3 normal
 [color "interactive"]
-	header = normal dim bold
-	prompt = 15 4
-	help = normal dim
-	error = 1 normal italic
+  header = normal dim bold
+  prompt = 15 4
+  help = normal dim
+  error = 1 normal italic
 [color "decorate"]
-	branch = 6 normal
-	tag = 3 normal
-	remotebranch = 5 normal
-	stash = normal dim
-	grafted = 1 normal italic
-	HEAD = 6 normal italic
+  branch = 6 normal
+  tag = 3 normal
+  remotebranch = 5 normal
+  stash = normal dim
+  grafted = 1 normal italic
+  HEAD = 6 normal italic
 
 
 [column]
   ui = auto
 
 [commit]
-	gpgsign = false
+  gpgsign = false
 
 [credential]
-	helper = cache
+  helper = cache
 
 [delta]
-	line-numbers = true
-	navigate = true
-	side-by-side = true
+  line-numbers = true
+  navigate = true
+  side-by-side = true
   features = decorations
   hyperlinks = true
   hyperlinks-file-link-prefix = "vscode://file/{path}:{line}"
   true-color = always
 
 [diff]
-	algorithm = histogram
+  algorithm = histogram
   autoRefreshIndex = true
-	compactionHeuristic = true
+  compactionHeuristic = true
   context = 5
-	dirstat = lines,3,cumulative
-	indentHeuristic = true
-	renames = copies
-	suppressBlankEmpty = true
-	tool = vimdiff3
+  dirstat = lines,3,cumulative
+  indentHeuristic = true
+  renames = copies
+  suppressBlankEmpty = true
+  tool = vimdiff3
   wsErrorHighlight = all
-	colorMoved = zebra
+  colorMoved = zebra
 
 [diff "docx"]
-	binary = true
-	textconv = docx2txt
+  binary = true
+  textconv = docx2txt
 
 [diff "odt"]
-	binary = true
-	textconv = odt2text
+  binary = true
+  textconv = odt2text
 
 [diff "pdf"]
   binary = true
   textconv = pdftotext
 
 [diff "png"]
-	textconv = exiftool
+  textconv = exiftool
 
 [fetch]
   prune = true
   pruneTags = true
 
 [filter "media"]
-	clean = git media clean %f
-	smudge = git media smudge %f
-	required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
+  required = true
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
 
 [gc]
   autoDetach = true
 
 [gpg]
-	program = gpg2
+  program = gpg2
 
 [help]
-	autocorrect = 1
+  autocorrect = 1
   browser = firefox
   format = man
 
 [init]
-	defaultBranch = master
+  defaultBranch = master
 
 [interactive]
   diffFilter = delta --color-only
@@ -186,11 +196,11 @@
 
 [maintenance]
   auto = true
-	repo = /home/nefari0uss/projects/dotfiles
+  repo = /home/nefari0uss/projects/dotfiles
 
 [merge]
-	conflictstyle = diff3
-	tool = vimdiff
+  conflictstyle = diff3
+  tool = vimdiff
 
 [pager]
   diff = delta
@@ -200,26 +210,26 @@
   reflog = delta
 
 [pull]
-	rebase = false
+  rebase = false
 
 [push]
   autoSetupRemote = true
   default = simple
-	followTags = true
+  followTags = true
 
 [rebase]
-	autoStash = true
+  autoStash = true
 
 [rerere]
-	enabled = true
+  enabled = true
 
 [showBranch]
   default = always
 
 [status]
-	branch = true
-	showStash = true
-	submoduleSummary = true
+  branch = true
+  showStash = true
+  submoduleSummary = true
   aheadBehind = true
   showUntrackedFiles = all
 
@@ -227,10 +237,10 @@
 	# Common Commands
 
 	# add
-	a = add
+  a = add
 
 	# bisect
-	bs = bisect
+  bs = bisect
 
 	# blame
   # https://youtu.be/aolI_Rz0ZqY?si=5pgYYl8dzyy1L_lP&t=582
@@ -239,7 +249,7 @@
   # -C again will also detect the commit that created the file
   # -C for a *third* taime will determine if it was changed in any commit at all
   # WTF Git.
-	bl = blame -w -C -C -C
+  bl = blame -w -C -C -C
 
   # blame just a "L"ittle
   # follow it up with two line numbers for a range
@@ -247,113 +257,113 @@
   bll = blame -w -C -C -C -L
 
 	# branch
-	b = branch
-	br = branch --remote
+  b = branch
+  br = branch --remote
 
 	# checkout
-	co = checkout
-	cob = checkout -b # new branch
+  co = checkout
+  cob = checkout -b # new branch
 
 	# cherry pick
-	cp = cherry-pick
+  cp = cherry-pick
 
 	# clone
-	cl = clone
+  cl = clone
 
 	# commit
-	c = commit
-	cm = commit -m
-	cma = commia -m --amend
+  c = commit
+  cm = commit -m
+  cma = commia -m --amend
 
 	# diff
-	d = diff
+  d = diff
 
 	# fetch
-	f = fetch --all
+  f = fetch --all
 
 	# log
-	filelog = log -u --follow
+  filelog = log -u --follow
   pickaxe = log -S
 
 	# merge
-	m = merge
-	mt = mergetool
+  m = merge
+  mt = mergetool
 
 	# push and pull
-	pl = pull
-	pp = !"git pull; git push"
-	pu = push
+  pl = pull
+  pp = !"git pull; git push"
+  pu = push
 
 	# remote
-	r = remote --verbose
-	rename = remote rename
-	ra = remote add
-	rdel = remote remove
-	rurl = remote set-url
+  r = remote --verbose
+  rename = remote rename
+  ra = remote add
+  rdel = remote remove
+  rurl = remote set-url
 
 	# reset
-	rst = reset # undo add
-	undo = reset HEAD~1 --mixed
-	unstage = reset HEAD -- # remove files from index (tracking)
-	uncommit = reset --soft HEAD^ # go back before last commit, with files in uncommitted state
-	undomerge = reset --merge # undo merge and KEEP local changes
-	antimerge = reset --merge ORIG_HEAD # undo merge and DISCARD local changes
+  rst = reset # undo add
+  undo = reset HEAD~1 --mixed
+  unstage = reset HEAD -- # remove files from index (tracking)
+  uncommit = reset --soft HEAD^ # go back before last commit, with files in uncommitted state
+  undomerge = reset --merge # undo merge and KEEP local changes
+  antimerge = reset --merge ORIG_HEAD # undo merge and DISCARD local changes
 
 	# stash
-	wip = stash -u
-	pop = stash pop
-	sl = stash list
-	sa = stash apply
-	ss = stash save
-	sp = stash pop
+  wip = stash -u
+  pop = stash pop
+  sl = stash list
+  sa = stash apply
+  ss = stash save
+  sp = stash pop
 
 	# status
-	s = status --short
-	st = status
+  s = status --short
+  st = status
 
 	# submodule update
-	subup = submodule update --init
+  subup = submodule update --init
 
 	# tag
-	t = tag
-	ts = tag --sign
-	tl = tag --list -n1
-	td = tag --delete
+  t = tag
+  ts = tag --sign
+  tl = tag --list -n1
+  td = tag --delete
 
 
 	# CUSTOM AND COMPLEX COMMANDS
 
 	# history tree
-	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 
 	# list aliases
-	alist = "!git config -l | grep alias | cut -c 7-"
+  alist = "!git config -l | grep alias | cut -c 7-"
 
 	# alternative to git reset HEAD --hard; unreachable commit can be found with reflog
-	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+  wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
 
 	# pretty git logs
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # pretty log
-	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat # list by author
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # pretty log
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat # list by author
 
 	# update index
 	# http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
-	assume   = update-index --assume-unchanged
-	unassume = update-index --no-assume-unchanged
-	assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
-	asc   = update-index --assume-unchanged
-	uasc = update-index --no-assume-unchanged
-	ascd  = "!git ls-files -v | grep ^h | cut -c 3-"
+  assume = update-index --assume-unchanged
+  unassume = update-index --no-assume-unchanged
+  assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+  asc = update-index --assume-unchanged
+  uasc = update-index --no-assume-unchanged
+  ascd = "!git ls-files -v | grep ^h | cut -c 3-"
 
 	# merging/rebasing help - select either ours or theirs for a file
-	ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
-	theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+  ours = "!f() { git checkout --ours $@ && git add $@; }; f"
+  theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
 
 	# save a copy of the current working tree
-	snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+  snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
 
 	# see what's new
-	new = log ORIG_HEAD.. --stat --no-merges --decorate --oneline # list all new commits after a fetch, sans merges
+  new = log ORIG_HEAD.. --stat --no-merges --decorate --oneline # list all new commits after a fetch, sans merges
 
 	# go to the root directory
-	root = '!echo "I am Groot."; cd "$(git rev-parse --show-toplevel)"'
+  root = git rev-parse --show-toplevel
