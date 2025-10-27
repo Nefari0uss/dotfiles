@@ -1,0 +1,3 @@
+# pnpm config
+
+global-dir="${XDG_CONFIG_HOME}/pnpm"
