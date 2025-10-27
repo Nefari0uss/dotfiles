@@ -1,0 +1,11 @@
+gitstatus
+LEFTSIDE
+nefari0uss
+optname
+Powerline
+RIGHTSIDE
+scrollback
+setg
+setw
+symblink
+protondb

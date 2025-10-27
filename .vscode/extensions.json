@@ -1,13 +1,32 @@
 {
-	// See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
-	// Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
-
-	// List of extensions which should be recommended for users of this workspace.
-	"recommendations": [
-		"dotiful.dotfiles-syntax-highlighting"
-	],
-	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
-	"unwantedRecommendations": [
-
-	]
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "alefragnani.bookmarks",
+    "atroxego.better-folding-plus",
+    "chrislajoie.vscode-modelines",
+    "davidanson.vscode-markdownlint",
+    "dotiful.dotfiles-syntax-highlighting",
+    "eamodio.gitlens",
+    "edwinhuish.better-comments-next",
+    "foxundermoon.shell-format",
+    "github.vscode-github-actions",
+    "jeff-hykin.better-shellscript-syntax",
+    "lkrms.inifmt",
+    "malmaud.tmux",
+    "mkhl.shfmt",
+    "pflannery.vscode-versionlens",
+    "redhat.vscode-yaml",
+    "rioj7.command-variable",
+    "streetsidesoftware.code-spell-checker",
+    "sumneko.lua",
+    "tamasfe.even-better-toml",
+    "timonwong.shellcheck",
+    "usernamehw.errorlens",
+    "vscodevim.vim",
+    "xshrim.txt-syntax",
+    "yy0931.gitconfig-lsp",
+  ],
+  "unwantedRecommendations": []
 }

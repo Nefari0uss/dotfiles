@@ -1,0 +1,74 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "cache": {
+    "cacheFormat": "universal",
+    "cacheLocation": "../.cache/cspell-cache",
+    "cacheStrategy": "content",
+    "useCache": true
+  },
+  // https://github.com/streetsidesoftware/cspell-dicts
+  "dictionaries": [
+    "bash",
+    "coding-compound-terms",
+    "computing-acronyms",
+    "css",
+    "dotfiles",
+    "en",
+    "en-slang",
+    "en-us",
+    "filetypes",
+    "fullstack",
+    "git",
+    "google",
+    "html",
+    "html-symbol-entities",
+    "lorem",
+    "networking-terms",
+    "node",
+    "npm",
+    "programming",
+    "project-words",
+    "software-term-suggestions",
+    "software-tools",
+    "softwareTerms",
+    "tridactyl",
+    "typescript",
+    "web-services",
+    "zsh-options"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "addWords": true,
+      "name": "zsh-options",
+      "path": ".vscode/cspell-zsh-options.txt"
+    },
+    {
+      "addWords": true,
+      "name": "dotfiles",
+      "path": "./cspell-custom-words.txt"
+    },
+    {
+      "addWords": true,
+      "name": "tridactyl",
+      "path": "./cspell-tridactyl.txt"
+    }
+  ],
+  "enableGlobDot": true,
+  "ignorePaths": [
+    ".*ignore",
+    ".cache",
+    ".git",
+    ".github",
+    ".prettierignore",
+    ".vscode/{extensions,settings,launch}.json",
+  ],
+  "language": "en_US",
+  "overrides": [
+    {
+      "filename": "tridactyl/*",
+      "dictionaries": ["tridactyl"]
+    }
+  ],
+  "useGitignore": true,
+  "version": "0.2"
+}

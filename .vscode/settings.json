@@ -1,22 +1,15 @@
 {
-    "mocha.enabled": false,
-    "spellright.language": [
-        "en"
-    ],
-    "spellright.documentTypes": [
-        "markdown",
-        "latex",
-        "vimrc"
-    ],
-    "spellright.parserByClass": {
-        "vimrc": {
-            "parser": "code"
-        }
-    },
-    "cSpell.words": [
-        "chezmoi",
-        "nefari",
-        "NUXT",
-        "OPTOUT"
-    ]
+  "bookmarks.useWorkaroundForFormatters": true,
+  "prettier.configPath": ".vscode/prettier.config.mjs",
+  "prettier.endOfLine": "auto",
+  "prettier.ignorePath": ".vscode/.prettierignore",
+  "prettier.trailingComma": "none",
+  "cSpell.autoFormatConfigFile": true,
+  "cSpell.validateDirectives": true,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": true,
+  "explorer.fileNesting.patterns": {
+    "cspell.json": "cspell-*",
+    "prettier*": ".prettierignore",
+  },
 }
