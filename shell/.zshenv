@@ -16,12 +16,11 @@ export -UT INFOPATH infopath  # -T creates a "tied" pair.
 #region --- Base Environment Variables ---
 export LC_ALL="en_US.UTF-8" # Overrides all other LC_* variables and LANG.
 export LANGUAGE="en_US" # Sets the language priority.
-export PAGER=less
+export PAGER=bat
 export EDITOR=vim
 export VISUAL="${EDITOR}"
 # export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 # export MANROFFOPT="-c" # Fixes the weird characters in man pages.
-# export READNULLCMD=${PAGER} # Sets the command to use when reading from a null device to the pager.
 export TZ="America/New_York"
 
 # GPG
