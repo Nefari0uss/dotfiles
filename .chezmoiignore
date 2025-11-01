@@ -1,0 +1,12 @@
+# Folders
+.github
+.vscode
+docs
+Windows
+macOS
+
+# Documents
+.gitignore
+.github
+.vscode
+.DS_Store

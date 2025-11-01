@@ -1,0 +1,3 @@
+[flavor]
+light = "vscode-light-plus"
+dark = "vscode-dark-plus"
