@@ -30,10 +30,11 @@ fi
 # export FZF_ALT_C_COMMAND='find . -type d'
 # export FZF_ALT_C_OPTS='--preview "ls -la {}"'
 
-
 if [[ -x "$(command -v fzf)" ]]; then
   eval "$(fzf --zsh)"
 fi
 
 # Keychain - Front end for SSH and GPG agents.
 # eval "$(keychain --dir "${XDG_RUNTIME_DIR}/keychain" --absolute --quiet --ssh-spawn-gpg --ssh-allow-forwarded --eval id_rsa)"
+
+eval $(thefuck --alias)

@@ -1,5 +1,7 @@
 #!/bin/zsh
-# .zshenv
+# Zsh Environment Config
+# Nefari0uss
+# shellcheck disable=SC1071
 
 unsetopt GLOBAL_RCS # Disable global zsh configs
 
@@ -22,6 +24,7 @@ export VISUAL="${EDITOR}"
 # export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 # export MANROFFOPT="-c" # Fixes the weird characters in man pages.
 export TZ="America/New_York"
+export READNULLCMD="${PAGER}"
 
 # GPG
 # export GPG_TTY=$(tty)
@@ -53,6 +56,7 @@ mkdir -p ${XDG_BIN_HOME} ${XDG_CACHE_HOME} ${XDG_CONFIG_HOME} ${XDG_DATA_HOME} $
 
 #region --- Zsh Specific Environment Variables ---
 ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+ZSH_COMPDUMP="${XDG_CACHE_HOME}/zsh/.zcompdump"
 
 DIRSTACKSIZE=25    # Max number of directories in pushd/popd stack.
 
@@ -71,7 +75,7 @@ SAVEHIST=1000      # Max commands to save to file (<= HISTSIZE).
 
 #region --- Core Utils ---
 export CURL_HOME="${XDG_CONFIG_HOME}/curl"
-export WGETRC="${XDG_CONFIG_HOME}/wgetrc"
+export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
 
 # Wget history file can only be set via the command line, not in the config file.
 alias wget="wget --hsts-file=${XDG_DATA_HOME}/wget-hsts"
@@ -90,12 +94,16 @@ alias wget="wget --hsts-file=${XDG_DATA_HOME}/wget-hsts"
 # --no-histdups: Prevents duplicate entries in the history.
 # --use-color: ...enables color.
 export LESS='FgiNQ --LONG-PROMPT --mouse --no-histdups --use-color --tabs=2 --tilde'
+# export LESS=-imsx -FMNQR -~ -x2 -z-4 --mouse -no-histdups --save-marks --use-color
 export LESSHISTFILE="${XDG_STATE_HOME}/less/history"
+export lessCHARSET="utf-8"
+
+export MOOR="--reformat --tab-size=2"
 
 #endregion
 
 #region --- Editors ---
-export NVIM_APPNAME="${XDG_CONFIG_HOME}/nvim"
+# export NVIM_APPNAME="${XDG_CONFIG_HOME}/nvim"
 export VIM_INIT="${XDG_CONFIG_HOME}/vim/vimrc"
 export VIM_DOT_DIR="${XDG_CONFIG_HOME}/vim"
 #endregion
@@ -110,6 +118,8 @@ export GOPATH="${XDG_DATA_HOME}/go" # Go Workspace
 export LUAROCKS_CONFIG="${XDG_CONFIG_HOME}/luarocks/config.lua"
 
 # NodeJS / npm / pnpm
+export NODE_REPL_HISTORY="${XDG_DATA_HOME}/node_repl_history"
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export PNPM_HOME="${XDG_DATA_HOME}/pnpm"
 
 # Python
@@ -145,6 +155,7 @@ export ANDROID_USER_HOME="${XDG_DATA_HOME}/android"
 export ANDROID_AVD_HOME="${XDG_DATA_HOME}/android/avd"
 
 # Bat
+export BATPIPE=color
 export BATDIFF_USE_DELTA=true
 
 # DotNet Core
@@ -204,6 +215,9 @@ path=(
   ~/.luarocks/bin
   "${PNPM_HOME}/bin"
   ./node_modules/.bin
+  "${PNPM_HOME}"
+  "${CARGO_HOME}/bin"
+  "${HOME}/.luarocks/bin"
   $TEXMF_BINPATH
   /usr/local/bin
   /usr/local/sbin
@@ -229,6 +243,7 @@ fpath=(
 
 manpath=(
   "${(@s/:/)$(manpath -g)}" # Assign system manpaths (split on :)
+  "${XDG_DATA_HOME}/man"
   "$TEXMF_MANPATH"
 )
 

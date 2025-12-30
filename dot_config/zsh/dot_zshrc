@@ -83,6 +83,8 @@ groot () {
   cd "$root_dir" || return
 }
 
+# broot?
+
 
 # Tig
 # mkdir ${XDG_CONFIG_HOME}/tig/config
