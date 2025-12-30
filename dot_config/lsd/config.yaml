@@ -3,17 +3,17 @@
 classic: false  # Disable classic ls-compatible mode.
 
 blocks:  # Columns for long and tree layouts.
- - permission
+ - date
  # - user
  # - group
- - size
- - date
- - name
  - git
+ - name
+ - permission
+ - size
 
 color:
-  when: auto  # Auto choose whether to colorize output.
   theme: default  # Use the default color theme.
+  when: auto  # Auto choose whether to colorize output.
 
 date: date  # Show full date format.
 
@@ -22,36 +22,36 @@ dereference: false  # Do not dereference symbolic links.
 display:
   all  # Show all items.
 
+header: false  # Do not show block headers.
+
+hyperlink: never  # Do not add hyperlinks to filenames.
+
 icons:
-  when: auto  # Show icons automatically.
-  theme: fancy  # Use the fancy icon theme.
   separator: " "  # Separate icon and name with a single space.
+  theme: fancy  # Use the fancy icon theme.
+  when: auto  # Show icons automatically.
 
 indicators: false  # Do not show indicator characters.
 
 layout: grid  # Use grid layout.
 
-recursion:
-  enabled: false  # Disable recursive listing.
+literal: false  # Do not quote filenames.
+
+no-symlink: false  # Show symlink targets (note: key uses non-standard spelling).
 
 permission: rwx  # Show permissions in rwx format.
+
+recursion:
+  enabled: false  # Disable recursive listing.
 
 sorting:
   column: name  # Sort entries by name.
   dir-grouping: first  # Put directories before files.
   reverse: false  # Do not reverse sort order.
 
-no-symblink: false  # Show symlink targets (note: key uses non-standard spelling).
-
-total-size: false  # Do not display total directory sizes.
-
-hyperlink: never  # Do not add hyperlinks to filenames.
-
 symblink-arrow: ⇒  # Use '⇒' to point from symlink to target.
 
-header: false  # Do not show block headers.
-
-literal: false  # Do not quote filenames.
+total-size: false  # Do not display total directory sizes.
 
 truncate-owner:
   after:  # No truncation of owner/group names.
