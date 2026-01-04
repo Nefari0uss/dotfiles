@@ -1,35 +1,32 @@
 #!/bin/sh
 
 # --- Prompt ---
-# github.com/romkatv/powerlevel10k
-romkatv/powerlevel10k
+romkatv/powerlevel10k # https://github.com/romkatv/powerlevel10k
 
-# marlonrichert/zsh-autocomplete      # Real-time type-ahead completion
-# marlonrichert/zsh-edit              # Better keyboard shortcuts
-# marlonrichert/zsh-hist              # Edit history from the command line.
-# marlonrichert/zcolors               # Colors for completions and Git
+# --- Vim Mode Plugins ---
+jeffreytse/zsh-vi-mode # https://github.com/jeffreytse/zsh-vi-mode
+# 5A6F65/zsh-vi-mode # fork with performance fix?
+IngoMeyer441/zsh-easy-motion # https://github.com/IngoMeyer441/zsh-easy-motion
+okapia/zsh-viexchange # https://github.com/okapia/zsh-viexchange
 
-# Completions
-# https://github.com/zsh-users/zsh-completions
-zsh-users/zsh-completions
+# --- Utility Plugins ---
+hlissner/zsh-autopair # https://github.com/hlissner/zsh-autopair
 
-# Inline Suggestions
-# https://github.com/zsh-users/zsh-autosuggestions
-# zsh-users/zsh-autosuggestions
+Aloxaf/fzf-tab # https://github.com/Aloxaf/fzf-tab
+Freed-Wu/fzf-tab-source # https://github.com/Freed-Wu/fzf-tab-source
 
-# Syntax Highlighting
-# Note: Has a lot of requirements / conditions.
-# https://github.com/zsh-users/zsh-syntax-highlighting
-# zsh-users/zsh-syntax-highlighting
+# --- Completion Plugins ---
+zsh-users/zsh-completions # https://github.com/zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions # https://github.com/zsh-users/zsh-autosuggestions
+mattmc3/ez-compinit # https://github.com/mattmc3/ez-compinit
+
+zsh-users/zsh-syntax-highlighting # https://github.com/zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search # https://github.com/zsh-users/zsh-history-substring-search
 
 # --- Zsh Abbreviations ---
 # https://zsh-abbr.olets.dev/
 # olets/zsh-abbr
 
-# --- Vim Mode ---
-# jeffreytse/zsh-vi-mode
-# 5A6F65/zsh-vi-mode # fork with performance fix?
-
 
 # --- Documentation ---
-mattmc3/zman # Easy zsh help lookup. https://github.com/mattmc3/zman
+# mattmc3/zman # Easy zsh help lookup. https://github.com/mattmc3/zman

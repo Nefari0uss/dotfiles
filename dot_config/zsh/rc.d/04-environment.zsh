@@ -2,7 +2,7 @@
 # Environment variables
 # Nefari0uss
 
-view_path () {
+view_path() {
   print -l $path
 }
 
@@ -18,6 +18,12 @@ if [[ -x "$(command -v fnm)" ]]; then
   eval "$(fnm env --use-on-cd)"
 fi
 
+# jenv: https://github.com/jenv/jenv
+
+if [[ -x "$(command -v jenv)" ]]; then
+  eval "$(jenv init -)"
+  jenv enable-plugin export
+fi
 
 # FZF
 

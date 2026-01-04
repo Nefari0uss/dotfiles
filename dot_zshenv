@@ -36,29 +36,44 @@ export READNULLCMD="${PAGER}"
 # https://gist.github.com/roalcantara/107ba66dfa3b9d023ac9329e639bc58c
 
 # XDG Base Directories
-export XDG_BIN_HOME="${HOME}/.local/bin"        # User executables (e.g. custom scripts, user-installed binaries)
-export XDG_CACHE_HOME="${HOME}/.cache"          # Cached data (e.g. browser cache, pip cache)
-export XDG_CONFIG_HOME="${HOME}/.config"        # Config files (e.g. app settings, dotfiles)
-export XDG_DATA_HOME="${HOME}/.local/share"     # App data (e.g. icons, user databases)
-export XDG_RUNTIME_DIR="${HOME}/.xdg"           # Runtime files (e.g. sockets, temporary runtime data)
-export XDG_STATE_HOME="${HOME}/.local/state"    # State files (e.g. history, session state)
+# User executables (e.g. custom scripts, user-installed binaries).
+export XDG_BIN_HOME="${HOME}/.local/bin"
+# Cached data (e.g. browser cache, pip cache).
+export XDG_CACHE_HOME="${HOME}/.cache"
+# Config files (e.g. app settings, dotfiles).
+export XDG_CONFIG_HOME="${HOME}/.config"
+# App data (e.g. icons, user databases).
+export XDG_DATA_HOME="${HOME}/.local/share"
+# Runtime files (e.g. sockets, temporary runtime data).
+export XDG_RUNTIME_DIR="${HOME}/.xdg"
+# State files (e.g. history, session state).
+export XDG_STATE_HOME="${HOME}/.local/state"
 
 # User Base Directories
-export XDG_DESKTOP_DIR="${HOME}/Desktop"        # Desktop files (e.g. shortcuts, saved files)
-export XDG_DOCUMENTS_DIR="${HOME}/Documents"    # Documents (e.g. text files, PDFs)
-export XDG_DOWNLOAD_DIR="${HOME}/Download"      # Downloads (e.g. files from browsers)
-export XDG_MUSIC_DIR="${HOME}/Music"            # Music files (e.g. mp3, flac)
-export XDG_PICTURES_DIR="${HOME}/Pictures"      # Pictures (e.g. jpg, png, screenshots)
-export XDG_VIDEOS_DIR="${HOME}/Videos"          # Videos (e.g. mp4, mkv)
+# Desktop files (e.g. shortcuts, saved files).
+export XDG_DESKTOP_DIR="${HOME}/Desktop"
+# Documents (e.g. text files, PDFs).
+export XDG_DOCUMENTS_DIR="${HOME}/Documents"
+# Downloads (e.g. files from browsers).
+export XDG_DOWNLOAD_DIR="${HOME}/Download"
+# Music files (e.g. mp3, flac).
+export XDG_MUSIC_DIR="${HOME}/Music"
+# Pictures (e.g. jpg, png, screenshots).
+export XDG_PICTURES_DIR="${HOME}/Pictures"
+# Videos (e.g. mp4, mkv).
+export XDG_VIDEOS_DIR="${HOME}/Videos"
 
 mkdir -p ${XDG_BIN_HOME} ${XDG_CACHE_HOME} ${XDG_CONFIG_HOME} ${XDG_DATA_HOME} ${XDG_RUNTIME_DIR} ${XDG_STATE_HOME} ${XDG_VIDEOS_DIR}
 #endregion
 
 #region --- Zsh Specific Environment Variables ---
+
+# Location of zsh config files.
 ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 ZSH_COMPDUMP="${XDG_CACHE_HOME}/zsh/.zcompdump"
 
-DIRSTACKSIZE=25    # Max number of directories in pushd/popd stack.
+# Max number of directories in pushd/popd stack.
+DIRSTACKSIZE=25
 
 # Zsh History
 HIST_DIR="${XDG_STATE_HOME}/zsh"
@@ -66,6 +81,7 @@ if [[ ! -d "${HIST_DIR}" ]]; then
   mkdir -p "${HIST_DIR}";
 fi
 
+# Zsh history file.
 export HISTFILE="${HIST_DIR}/zsh_history"
 HISTFILESIZE=2000  # Max lines in history file.
 HISTIGNORE="cls:clear:pwd:ls:cd:exit:csb:h:history:z:zi"  # Ignore these commands in history.
@@ -81,29 +97,30 @@ export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
 alias wget="wget --hsts-file=${XDG_DATA_HOME}/wget-hsts"
 
 # Less
-# F  --quit-if-one-screen: Automatically exit if content fits on one screen.
-# g  --hilite-search: Highlights only the string found by the last search.
-# i  --ignore-case: Search ignores case unless uppercase is used.
-# N  --line-numbers: Enables line numbers.
-# Q  --quiet: Turns off the terminal bell.
-# --LONG-PROMPT: Use a more detailed prompt
-# --window=-2: Set the window size to two lines less than the screen size
-# xs --tabs=2: Set tab stops every 2 spaces
-# ~  --tilde: Sets EOL lines to be empty lines instead of tildes.
+# 'i' - Search ignores case unless uppercase is used.
+# 'm' - Show the percentage of the file displayed.
+# 'r' - Display raw control characters.
+# 's' - Squeeze blank lines into one.
+# 'x' - Prevents less from clearing screen upon exit.
+# 'F' - Automatically exit if content fits on one screen.
+# 'M' - Like 'm' but more verbose.
+# 'N' - Display line numbers. ('n' will suppress.)
+# 'Q' - Turns off the terminal bell.
+# 'R' - Like '-r' but only ANSI color escape sequences are shown.
+# '~' - Show blank lines and not ~ at the end of the file.
+# 'x#' - Number of spaces per tab.
+# 'z-#' - The size of the window height minus the value.
 # --mouse: Enables mouse input and scrolling.
 # --no-histdups: Prevents duplicate entries in the history.
 # --use-color: ...enables color.
-export LESS='FgiNQ --LONG-PROMPT --mouse --no-histdups --use-color --tabs=2 --tilde'
-# export LESS=-imsx -FMNQR -~ -x2 -z-4 --mouse -no-histdups --save-marks --use-color
+# --save-marks: Saves marks between sessions.
+export LESS="-isx -FMNQR -~ -x2 -z-4 --mouse --no-histdups --use-color --save-marks"
 export LESSHISTFILE="${XDG_STATE_HOME}/less/history"
-export lessCHARSET="utf-8"
-
-export MOOR="--reformat --tab-size=2"
+export LESSCHARSET="utf-8"
 
 #endregion
 
 #region --- Editors ---
-# export NVIM_APPNAME="${XDG_CONFIG_HOME}/nvim"
 export VIM_INIT="${XDG_CONFIG_HOME}/vim/vimrc"
 export VIM_DOT_DIR="${XDG_CONFIG_HOME}/vim"
 #endregion
@@ -113,6 +130,7 @@ export VIM_DOT_DIR="${XDG_CONFIG_HOME}/vim"
 # Go-Lang
 export GOBIN="${XDG_BIN_HOME}" # Go Binaries
 export GOPATH="${XDG_DATA_HOME}/go" # Go Workspace
+export GOMODACHE="${XDG_CACHE_HOME}/go/mod" # Go Module Cache
 
 # Lua
 export LUAROCKS_CONFIG="${XDG_CONFIG_HOME}/luarocks/config.lua"
@@ -138,6 +156,9 @@ export PIP_LOG_FILE="${XDG_CACHE_HOME}/pip/pip.log"
 # export JAVA_HOME="${XDG_DATA_HOME}/java"
 
 # Ruby
+export BUNDLE_USER_CACHE="${XDG_CACHE_HOME}/bundle"
+export BUNDLE_USER_CONFIG="${XDG_CONFIG_HOME}/bundle"
+export BUNDLE_USER_PLUGIN="${XDG_DATA_HOME}/bundle"
 export GEM_HOME="${XDG_DATA_HOME}/gem"
 export GEM_PATH="${GEM_HOME}:${GEM_PATH}"
 
@@ -161,6 +182,12 @@ export BATDIFF_USE_DELTA=true
 # DotNet Core
 export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
 
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export DOTNET_INTERACTIVE_CLI_TELEMETRY_OPTOUT=1
+
+# Gimp
+export GIMP2_DIRECTORY="${XDG_CONFIG_HOME}/gimp"
+
 # Httpie
 export HTTPIE_CONFIG_DIR="${XDG_CONFIG_HOME}/httpie"
 
@@ -174,12 +201,22 @@ TEXMF_MANPATH="${TEXLIVE_ROOT}/texmf-dist/doc/man"
 TEXMF_INFOPATH="${TEXLIVE_ROOT}/texmf-dist/doc/info"
 TEXMF_BINPATH="${TEXLIVE_ROOT}/bin/x86_64-linux"
 
+# Lesspipe: https://github.com/wofr06/lesspipe
+LESSOPEN="|lesspipe.sh %s";
+export LESSOPE
+
+# Moor
+export MOOR="--reformat --tab-size=2"
+
 # NB
 export NB_DIR="${XDG_DATA_HOME}/nb"
 export NBRC_PATH="${XDG_CONFIG_HOME}/nb/nbrc"
 
 # RipGrep
 export RIPGREP_CONFIG="${XDG_CONFIG_HOME}/ripgrep/config"
+
+# Subversion
+alias svn="svn --config-dir ${XDG_CONFIG_HOME}/subversion"
 
 # TealDeer, aka TLDR
 export TEALDEER_CONFIG_DIR="${XDG_CONFIG_HOME}/tealdeer"
@@ -188,21 +225,19 @@ export TEALDEER_CONFIG_DIR="${XDG_CONFIG_HOME}/tealdeer"
 # https://github.com/ajeetdsouza/zoxide#configuration
 export _ZO_DATA_DIR="${XDG_DATA_HOME}/zoxide" # Where the db is stored.
 export _ZO_ECHO_PATH="1" # Echo the path upon execution.
-# export _ZO_FZF_Harmonics-Prewashed7OPTS=
 # export _ZO_EXCLUDE_DIRS="${HOME}:${HOME}/private" # Exclude directories for zoxide.
 export _ZO_RESOLVE_SYMLINKS="1" # Resolve symlinks before adding a dir to the db.
 #endregion
 
 #region --- Testing Tools ---
 export CYPRESS_INSTALL_BIN=0
+export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
 export PUPPETEER_SKIP_DOWNLOAD=true
 #endregion
 
 #region --- Analytics and Telemetry ---
 # Do Not Track - https://www.consoledonottrack.com
 export DO_NOT_TRACK=1
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
-export DOTNET_INTERACTIVE_CLI_TELEMETRY_OPTOUT=1
 export NUXT_TELEMETRY_DISABLED=1
 export POWERSHELL_TELEMETRY_OPTOUT=1
 export HOMEBREW_NO_ANALYTICS=1
@@ -211,24 +246,26 @@ export HOMEBREW_NO_ANALYTICS=1
 #region --- PATH ---
 path=(
   "${XDG_BIN_HOME}"
-  "${PYENV_ROOT}/bin"
-  ~/.luarocks/bin
-  "${PNPM_HOME}/bin"
   ./node_modules/.bin
   "${PNPM_HOME}"
+  "${PYENV_ROOT}/bin"
   "${CARGO_HOME}/bin"
   "${HOME}/.luarocks/bin"
   $TEXMF_BINPATH
   /usr/local/bin
   /usr/local/sbin
+  /usr/bin
+  /usr/sbin
+  /bin
+  /sbin
   $path
 )
 #endregion
 
 #region --- FPATH ---
 fpath=(
-  $ZDOTDIR/functions
-  $XDG_DATA_HOME/zsh/site-functions(N)
+  "${ZDOTDIR}/functions"
+  "${XDG_DATA_HOME}/zsh/site-functions"(N)
   $fpath
 )
 #endregion
@@ -261,3 +298,10 @@ infopath=(
   $TEXMF_INFOPATH
 )
 #endregion
+
+# Define environment for non-login, non-interactive shells which don't source .zprofile.
+# SHLVL is the shell level. Each nested terminal level increments this by 1.
+# if [[ ("$SHLVL" -eq 1) && ! -o "${ZDOTDIR}/.zprofile" ]]; then
+#   print "Non-login, non-interactive shell detected. Sourcing .zprofile."
+#   source "${ZDOTDIR}/.zprofile"
+# fi
