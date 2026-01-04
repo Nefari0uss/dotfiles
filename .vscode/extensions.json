@@ -10,13 +10,14 @@
     "dotiful.dotfiles-syntax-highlighting",
     "eamodio.gitlens",
     "edwinhuish.better-comments-next",
-    "foxundermoon.shell-format",
     "github.vscode-github-actions",
     "jeff-hykin.better-shellscript-syntax",
     "lkrms.inifmt",
+    "lumirelle.shell-format-rev",
     "malmaud.tmux",
     "mkhl.shfmt",
     "pflannery.vscode-versionlens",
+    "prettier.prettier-vscode",
     "redhat.vscode-yaml",
     "rioj7.command-variable",
     "streetsidesoftware.code-spell-checker",
@@ -28,5 +29,9 @@
     "xshrim.txt-syntax",
     "yy0931.gitconfig-lsp",
   ],
-  "unwantedRecommendations": []
+  "unwantedRecommendations": [
+    "aaron-bond.better-comments",
+    "foxundermoon.shell-format",
+    "mohammadbaqer.better-folding",
+  ]
 }

@@ -1,9 +1,7 @@
 /**
  * Prettier configuration object.
  * @see https://prettier.io/docs/configuration
- * @type {
- * import("prettier").Config
- * }
+ * @type {import("prettier").Config}
  */
 const config = {
   $schema: "https://json.schemastore.org/prettierrc",
