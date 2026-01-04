@@ -3,13 +3,13 @@
 classic: false  # Disable classic ls-compatible mode.
 
 blocks:  # Columns for long and tree layouts.
- - date
- # - user
- # - group
- - git
- - name
- - permission
- - size
+  - permission
+#  - user
+#  - group
+  - size
+  - date
+  - name
+  - git
 
 color:
   theme: default  # Use the default color theme.
@@ -49,7 +49,7 @@ sorting:
   dir-grouping: first  # Put directories before files.
   reverse: false  # Do not reverse sort order.
 
-symblink-arrow: ⇒  # Use '⇒' to point from symlink to target.
+symlink-arrow: ⇒  # Use '⇒' to point from symlink to target.
 
 total-size: false  # Do not display total directory sizes.
 
