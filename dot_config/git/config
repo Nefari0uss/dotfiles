@@ -14,6 +14,7 @@
   editor = $EDITOR
   excludesfile = ~/.config/git/gitignore
   fsmonitor = true
+  pager = delta
   whitespace = trailing-space,space-before-tab
 
 [blame]
@@ -196,7 +197,6 @@
 
 [maintenance]
   auto = true
-  repo = /home/nefari0uss/projects/dotfiles
 
 [merge]
   conflictstyle = diff3
@@ -227,11 +227,11 @@
   default = always
 
 [status]
+  aheadBehind = true
   branch = true
   showStash = true
-  submoduleSummary = true
-  aheadBehind = true
   showUntrackedFiles = all
+  submoduleSummary = true
 
 [alias]
 	# Common Commands
@@ -244,16 +244,16 @@
 
 	# blame
   # https://youtu.be/aolI_Rz0ZqY?si=5pgYYl8dzyy1L_lP&t=582
-  # -w will ignore whitespace
-  # -C will detect lines moved or copied in the same commit
-  # -C again will also detect the commit that created the file
-  # -C for a *third* taime will determine if it was changed in any commit at all
+  # -w will ignore whitespace.
+  # -C will detect lines moved or copied in the same commit.
+  # -C again will also detect the commit that created the file.
+  # -C for a *third* time will determine if it was changed in any commit at all.
   # WTF Git.
   bl = blame -w -C -C -C
 
-  # blame just a "L"ittle
-  # follow it up with two line numbers for a range
-  # git blame -L 1,5:file.txt
+  # Blame just a "L"ittle.
+  # Follow it up with two line numbers for a range.
+  # ex: git blame -L 1,5:file.txt
   bll = blame -w -C -C -C -L
 
 	# branch
