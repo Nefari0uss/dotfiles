@@ -1,0 +1,12 @@
+use-agent
+utf8-strings
+pinentry-mode loopback
+pinentry-program pinentry-curses
+list-options show-photos show-keyring show-uid-validity
+keyid-format short
+personal-digest-preferences SHA512 SHA384 SHA256 SHA224
+default-preferences-list SHA512 SHA384 SHA256 SHA224 AES256 AES192 CAST5 BZIP2 ZLIB ZIP Uncompressed
+
+cert-digest-algo SHA512
+s2k-cipher-algo AES256
+s2k-digest-algo SHA512
