@@ -1,15 +1,15 @@
 {
   "recommendations": [
-    "EditorConfig.EditorConfig",
-    "GitHub.copilot",
-    "GitHub.copilot-chat",
     "alefragnani.bookmarks",
     "atroxego.better-folding-plus",
     "chrislajoie.vscode-modelines",
     "davidanson.vscode-markdownlint",
     "dotiful.dotfiles-syntax-highlighting",
     "eamodio.gitlens",
+    "editorConfig.editorConfig",
     "edwinhuish.better-comments-next",
+    "gitHub.copilot",
+    "gitHub.copilot-chat",
     "github.vscode-github-actions",
     "jeff-hykin.better-shellscript-syntax",
     "lkrms.inifmt",
