@@ -1,0 +1,6 @@
+cdpath
+compfix
+fpath
+manpaths
+zcompdump
+zcompile

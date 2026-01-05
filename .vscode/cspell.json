@@ -33,24 +33,38 @@
     "softwareTerms",
     "tridactyl",
     "typescript",
-    "web-services",
-    "zsh-options"
+    "web-services"
   ],
   "dictionaryDefinitions": [
     {
       "addWords": true,
-      "name": "zsh-options",
-      "path": ".vscode/cspell-zsh-options.txt"
+      "name": "dots",
+      "path": "./cspell/dots.txt"
     },
     {
       "addWords": true,
-      "name": "dotfiles",
-      "path": "./cspell-custom-words.txt"
+      "name": "names",
+      "path": "./cspell/names.txt"
+    },
+    {
+      "addWords": true,
+      "name": "tmux",
+      "path": "./cspell/tmux.txt"
     },
     {
       "addWords": true,
       "name": "tridactyl",
-      "path": "./cspell-tridactyl.txt"
+      "path": "./cspell/tridactyl.txt"
+    },
+    {
+      "addWords": true,
+      "name": "zsh",
+      "path": "./cspell/zsh.txt"
+    },
+    {
+      "addWords": true,
+      "name": "zsh-options",
+      "path": "./cspell/zsh-options.txt"
     }
   ],
   "enableGlobDot": true,
@@ -60,13 +74,21 @@
     ".git",
     ".github",
     ".prettierignore",
-    ".vscode/{extensions,settings,launch}.json",
+    ".vscode/{extensions,settings,launch}.json"
   ],
   "language": "en_US",
   "overrides": [
     {
-      "filename": "tridactyl/*",
+      "filename": "*/tridactyl/*",
       "dictionaries": ["tridactyl"]
+    },
+    {
+      "filename": "*/tmux/*",
+      "dictionaries": ["tmux"]
+    },
+    {
+      "filename": "*/zsh/*|*zsh*",
+      "dictionaries": ["zsh", "zsh-options"]
     }
   ],
   "useGitignore": true,
