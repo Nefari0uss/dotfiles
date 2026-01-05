@@ -16,6 +16,7 @@ function zvm_config() {
 
 # IngoMeyer441/zsh-easy-motion
 bindkey -M vicmd ' ' vi-easy-motion # Sets the prefix to space.
+EASY_MOTION_SMART_CASE=true
 
 antidote load
 

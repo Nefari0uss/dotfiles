@@ -1,6 +1,5 @@
 #!/bin/zsh
 
-
 # Pass arguments to compinit
 zstyle '*:compinit' arguments -D -i -u -C -w
 
@@ -27,4 +26,4 @@ zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
 zstyle ':autocomplete:*' min-input 3
 
 # Delay auto suggestions from the default 0.05 s to 0.1 s
-zstyle ':autocomplete:*' delay 0.1  # seconds (float)
+zstyle ':autocomplete:*' delay 0.1 # seconds (float)

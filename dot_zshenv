@@ -1,7 +1,9 @@
 #!/bin/zsh
 # Zsh Environment Config
 # Nefari0uss
+
 # shellcheck disable=SC1071
+# Shellcheck doesn't work on zsh files.
 
 unsetopt GLOBAL_RCS # Disable global zsh configs
 
@@ -145,12 +147,12 @@ export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
 export PYENV_VIRTUALENV_ROOT="${XDG_DATA_HOME}/pyenv/versions"
 export PYLINTHOME="${XDG_CACHE_HOME}/pylint"
 export PYTHONUSERBASE="${XDG_DATA_HOME}/python"
-export PYTHON_HISTORY="${XDG_CACHE_HOME}/python/python_history"
+export PYTHON_HISTORY="${XDG_STATE_HOME}/python/python_history"
 
 # Python pip
 export PIP_CONFIG_FILE="${XDG_CONFIG_HOME}/pip/pip.conf"
 export PIP_CACHE_DIR="${XDG_CACHE_HOME}/pip"
-export PIP_LOG_FILE="${XDG_CACHE_HOME}/pip/pip.log"
+export PIP_LOG_FILE="${XDG_STATE_HOME}/pip/pip.log"
 
 # Java
 # export JAVA_HOME="${XDG_DATA_HOME}/java"
@@ -181,7 +183,6 @@ export BATDIFF_USE_DELTA=true
 
 # DotNet Core
 export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
-
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export DOTNET_INTERACTIVE_CLI_TELEMETRY_OPTOUT=1
 

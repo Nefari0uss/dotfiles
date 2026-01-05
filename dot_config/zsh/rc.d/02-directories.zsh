@@ -5,8 +5,8 @@
 # This can be used anywhere a directory path is expected, such as with `cd`, `ls`, etc.
 
 hash -d projects="${HOME}/projects"
-hash -d dots="${HOME}/projects/dotfiles"
-hash -d dotfiles="${HOME}/projects/dotfiles"
+hash -d dots="${XDG_DATA_HOME}/chezmoi"
+hash -d dotfiles="${XDG_DATA_HOME}/chezmoi"
 
 hash -d config="${XDG_CONFIG_HOME}"
 hash -d git="${XDG_CONFIG_HOME}/git"
