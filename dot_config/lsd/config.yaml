@@ -43,6 +43,9 @@ permission: rwx  # Show permissions in rwx format.
 
 recursion:
   enabled: false  # Disable recursive listing.
+  # depth: 3 # Must be >0 or unset for infinite.
+
+size: default # Possible values: default, short, bytes
 
 sorting:
   column: name  # Sort entries by name.
