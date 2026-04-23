@@ -1,0 +1,4 @@
+#!/bin/bash
+
+clear
+printf '\033[3J'  # Clear the scrollback buffer as well. This ANSI escape code clears the entire scrollback history, not just the visible screen.
