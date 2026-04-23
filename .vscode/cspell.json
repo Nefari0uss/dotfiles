@@ -22,6 +22,7 @@
     "google",
     "html",
     "html-symbol-entities",
+    "latex",
     "lorem",
     "networking-terms",
     "node",
@@ -88,7 +89,7 @@
     },
     {
       "filename": "*/zsh/*|*zsh*",
-      "dictionaries": ["zsh", "zsh-options"]
+      "dictionaries": ["names", "zsh", "zsh-options"]
     }
   ],
   "useGitignore": true,

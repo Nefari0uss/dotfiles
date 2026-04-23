@@ -1,15 +1,12 @@
 {
-  "bookmarks.useWorkaroundForFormatters": true,
+  "Lua.diagnostics.globals": [
+    "rocks_trees",
+    "home",
+    "os_getenv",
+    "local_by_default"
+  ],
   "prettier.configPath": ".vscode/prettier.config.mjs",
   "prettier.endOfLine": "auto",
   "prettier.ignorePath": ".vscode/.prettierignore",
-  "prettier.trailingComma": "none",
-  "cSpell.autoFormatConfigFile": true,
-  "cSpell.validateDirectives": true,
-  "explorer.fileNesting.enabled": true,
-  "explorer.fileNesting.expand": true,
-  "explorer.fileNesting.patterns": {
-    "cspell.json": "cspell-*",
-    "prettier*": ".prettierignore",
-  },
+  "prettier.trailingComma": "none"
 }

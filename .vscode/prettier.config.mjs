@@ -9,6 +9,7 @@ const config = {
   proseWrap: "preserve",
   semi: true,
   singleQuote: false,
+  trailingComman: "none",
 };
 
 export default config;
