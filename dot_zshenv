@@ -105,6 +105,7 @@ alias wget="wget --hsts-file=${XDG_DATA_HOME}/wget-hsts"
 # 's' - Squeeze blank lines into one.
 # 'x' - Prevents less from clearing screen upon exit.
 # 'F' - Automatically exit if content fits on one screen.
+# 'K' - Quit on an interrupt character.
 # 'M' - Like 'm' but more verbose.
 # 'N' - Display line numbers. ('n' will suppress.)
 # 'Q' - Turns off the terminal bell.
@@ -116,9 +117,11 @@ alias wget="wget --hsts-file=${XDG_DATA_HOME}/wget-hsts"
 # --no-histdups: Prevents duplicate entries in the history.
 # --use-color: ...enables color.
 # --save-marks: Saves marks between sessions.
-export LESS="-isx -FMNQR -~ -x2 -z-4 --mouse --no-histdups --use-color --save-marks"
+export LESS="-ismx -FKMNQR -~ -x2 -z-4 --mouse --no-histdups --use-color --save-marks"
 export LESSHISTFILE="${XDG_STATE_HOME}/less/history"
 export LESSCHARSET="utf-8"
+# lesseedit is the command used by less to open the current file in an editor. The %f is replaced with the filename, and %lm is replaced with the line number. This allows you to jump directly to the line in the editor when you press 'v' in less.
+export LESSEDIT="$EDITOR ?lm+%lm. %f"
 
 #endregion
 
@@ -129,18 +132,31 @@ export VIM_DOT_DIR="${XDG_CONFIG_HOME}/vim"
 
 #region --- Languages and Related Tooling ---
 
+# Gradle
+export GRADLE_USER_HOME="${XDG_DATA_HOME}/gradle"
+
 # Go-Lang
 export GOBIN="${XDG_BIN_HOME}" # Go Binaries
 export GOPATH="${XDG_DATA_HOME}/go" # Go Workspace
 export GOMODACHE="${XDG_CACHE_HOME}/go/mod" # Go Module Cache
 
+# Java
+# export JAVA_HOME="${XDG_DATA_HOME}/java"
+
 # Lua
-export LUAROCKS_CONFIG="${XDG_CONFIG_HOME}/luarocks/config.lua"
+export LUAROCKS_CONFIG="${XDG_CONFIG_HOME}/luarocks/config-5.5.lua"
+export LUAROCKS_ROCKS_DIR="${XDG_DATA_HOME}/luarocks"
 
 # NodeJS / npm / pnpm
 export NODE_REPL_HISTORY="${XDG_DATA_HOME}/node_repl_history"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export PNPM_HOME="${XDG_DATA_HOME}/pnpm"
+
+# Perl
+export PERL_LOCAL_LIB_ROOT="${XDG_DATA_HOME}/perl5"
+export PERL5LIB="${PERL_LOCAL_LIB_ROOT}/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
+export PERL_MM_OPT="INSTALL_BASE=${PERL_LOCAL_LIB_ROOT}"
+export PERL_MB_OPT="--install_base ${PERL_LOCAL_LIB_ROOT}"
 
 # Python
 export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
@@ -153,9 +169,7 @@ export PYTHON_HISTORY="${XDG_STATE_HOME}/python/python_history"
 export PIP_CONFIG_FILE="${XDG_CONFIG_HOME}/pip/pip.conf"
 export PIP_CACHE_DIR="${XDG_CACHE_HOME}/pip"
 export PIP_LOG_FILE="${XDG_STATE_HOME}/pip/pip.log"
-
-# Java
-# export JAVA_HOME="${XDG_DATA_HOME}/java"
+export PIP_REQUIRE_VIRTUALENV=false
 
 # Ruby
 export BUNDLE_USER_CACHE="${XDG_CACHE_HOME}/bundle"
@@ -193,18 +207,23 @@ export GIMP2_DIRECTORY="${XDG_CONFIG_HOME}/gimp"
 export HTTPIE_CONFIG_DIR="${XDG_CONFIG_HOME}/httpie"
 
 # LaTeX / TexLive
-export TEXMFHOME="${XDG_DATA_HOME}/texmf"
+export TEXDIR="$HOME/.local/texlive/2026"
+
 export TEXMFVAR="${XDG_CACHE_HOME}/texlive/texmf-var"
 export TEXMFCONFIG="${XDG_CONFIG_HOME}/texlive/texmf-config"
+export TEXMFHOME="${XDG_DATA_HOME}/texmf"
 
-TEXLIVE_ROOT="${HOME}/.local/texlive/2025"
-TEXMF_MANPATH="${TEXLIVE_ROOT}/texmf-dist/doc/man"
-TEXMF_INFOPATH="${TEXLIVE_ROOT}/texmf-dist/doc/info"
-TEXMF_BINPATH="${TEXLIVE_ROOT}/bin/x86_64-linux"
+export TEXMFLOCAL="${HOME}/.local/texlive/texmf-local"
+export TEXMFSYSVAR="${TEXDIR}/texmf-var"
+export TEXMFSYSCONFIG="${TEXDIR}/texmf-config"
+
+TEXMF_BINPATH="${TEXDIR}/bin/x86_64-linux"
+TEXMF_INFOPATH="${TEXDIR}/texmf-dist/doc/info"
+TEXMF_MANPATH="${TEXDIR}/texmf-dist/doc/man"
 
 # Lesspipe: https://github.com/wofr06/lesspipe
 LESSOPEN="|lesspipe.sh %s";
-export LESSOPE
+export LESSOPEN
 
 # Moor
 export MOOR="--reformat --tab-size=2"
@@ -212,6 +231,9 @@ export MOOR="--reformat --tab-size=2"
 # NB
 export NB_DIR="${XDG_DATA_HOME}/nb"
 export NBRC_PATH="${XDG_CONFIG_HOME}/nb/nbrc"
+
+# Readline
+# export INPUTRC="${XDG_CONFIG_HOME}/readline/inputrc"
 
 # RipGrep
 export RIPGREP_CONFIG="${XDG_CONFIG_HOME}/ripgrep/config"
@@ -253,6 +275,9 @@ path=(
   "${CARGO_HOME}/bin"
   "${HOME}/.luarocks/bin"
   $TEXMF_BINPATH
+  "${XDG_DATA_HOME}/perl5/bin"
+  /usr/bin/core_perl
+  /usr/bin/vendor_perl
   /usr/local/bin
   /usr/local/sbin
   /usr/bin
