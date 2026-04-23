@@ -33,6 +33,8 @@ alias exot='exit'
 alias ln='ln -i'
 alias sudo=" sudo " # Allows aliases to be sudoed.
 
+alias svn="svn --config-dir ${XDG_CONFIG_HOME}/subversion"
+
 # ¯\_(ツ)_/¯
 alias shrug="echo '¯\_(ツ)_/¯'"
 
